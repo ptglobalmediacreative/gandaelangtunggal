@@ -15,35 +15,35 @@ $current = basename($_SERVER['PHP_SELF']);
 
     <li>
       <a href="dashboard.php" class="<?= $current=='dashboard.php'?'active':'' ?>">
-        <span class="icon">🏠</span>
+        <i class="fa-solid fa-house icon"></i>
         <span>Dashboard</span>
       </a>
     </li>
 
     <li>
       <a href="produk.php" class="<?= $current=='produk.php'?'active':'' ?>">
-        <span class="icon">📦</span>
+        <i class="fa-solid fa-truck-monster icon"></i>
         <span>Produk</span>
       </a>
     </li>
 
     <li>
       <a href="artikel.php" class="<?= $current=='artikel.php'?'active':'' ?>">
-        <span class="icon">📝</span>
+        <i class="fa-regular fa-newspaper icon"></i>
         <span>Artikel</span>
       </a>
     </li>
 
     <li>
       <a href="pesan.php" class="<?= $current=='pesan.php'?'active':'' ?>">
-        <span class="icon">💬</span>
+        <i class="fa-solid fa-comments icon"></i>
         <span>Pesan</span>
       </a>
     </li>
 
     <li>
       <a href="simulasi.php" class="<?= $current=='simulasi.php'?'active':'' ?>">
-        <span class="icon">💰</span>
+        <i class="fa-solid fa-calculator icon"></i>
         <span>Simulasi Kredit</span>
       </a>
     </li>
