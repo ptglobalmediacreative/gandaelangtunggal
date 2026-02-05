@@ -1,5 +1,5 @@
 /* login.css */
-/* Gold Glassmorphism + White Soft Overlay */
+/* Dark Overlay + White Glass + Gold Premium */
 
 body {
   min-height: 100vh;
@@ -16,23 +16,19 @@ body {
   overflow: hidden;
 }
 
-/* Overlay Putih Transparan */
+/* Overlay Hitam Gelap */
 body::before {
   content: "";
   position: absolute;
   inset: 0;
 
-  /* White soft overlay */
-  background: rgba(255, 255, 255, 0.25);
-
-  /* Soft blur */
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  /* Dark overlay */
+  background: rgba(0, 0, 0, 0.7);
 
   z-index: 1;
 }
 
-/* Login Box - Glass Effect */
+/* Login Box - White Glass Effect */
 .login-box {
   position: relative;
   z-index: 2;
@@ -43,15 +39,15 @@ body::before {
 
   border-radius: 16px;
 
-  /* Glass Effect */
-  background: rgba(255, 255, 255, 0.18);
+  /* White Glass */
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
   border: 1px solid rgba(255, 215, 0, 0.8);
 
   box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 30px 60px rgba(0, 0, 0, 0.6),
     0 0 25px rgba(212, 175, 55, 0.4);
 
   text-align: center;
@@ -86,7 +82,7 @@ body::before {
   font-weight: 600;
   letter-spacing: 0.8px;
 
-  color: #c9a227;
+  color: #b8961e;
 
   text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
@@ -102,7 +98,7 @@ body::before {
   font-size: 13px;
   font-weight: 500;
 
-  color: #8a6f12;
+  color: #5c4a00;
 
   letter-spacing: 0.3px;
 }
@@ -122,24 +118,24 @@ body::before {
 
   font-size: 14px;
 
-  /* Semi transparent input */
-  background: rgba(255, 255, 255, 0.25);
+  /* Light glass input */
+  background: rgba(255, 255, 255, 0.4);
 
-  color: #333;
+  color: #222;
 
   transition: all 0.3s ease;
 }
 
 /* Placeholder */
 .form-group input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.45);
 }
 
 /* Focus */
 .form-group input:focus {
   border-color: #ffd700;
 
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.55);
 
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
 }
@@ -182,7 +178,7 @@ body::before {
   font-size: 12px;
   font-weight: 500;
 
-  color: #8a6f12;
+  color: #6d5a00;
 
   opacity: 0.9;
 }
