@@ -10,7 +10,7 @@ if (isset($_SESSION['admin_id'])) {
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Login Admin | Ganda Elang Tunggal</title>
+    <title>Login Admin | Ganda Elang Tangguh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Font -->
@@ -27,7 +27,7 @@ if (isset($_SESSION['admin_id'])) {
 
 <div class="login-box">
 
-    <img src="../images/logo.webp" alt="Logo Ganda Elang Tunggal">
+    <img src="../images/logo.webp" alt="Logo Ganda Elang Tangguh">
 
     <h2>Admin Panel</h2>
 
@@ -56,7 +56,7 @@ if (isset($_SESSION['admin_id'])) {
     </form>
 
     <div class="footer-text">
-        © <?= date("Y"); ?> Ganda Elang Tunggal
+        © <?= date("Y"); ?> Ganda Elang Tangguh
     </div>
 
 </div>
