@@ -22,6 +22,9 @@ if (isset($_SESSION['admin_id'])) {
     <!-- CSS Login -->
     <link rel="stylesheet" href="/admin/css/login.css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="../images/favicon.webp">
+
 </head>
 <body>
 
