@@ -1,5 +1,5 @@
 /* login.css */
-/* Gold Glassmorphism + Black Overlay */
+/* Gold Glassmorphism + White Soft Overlay */
 
 body {
   min-height: 100vh;
@@ -16,13 +16,18 @@ body {
   overflow: hidden;
 }
 
-/* Overlay Hitam Clean */
+/* Overlay Putih Transparan */
 body::before {
   content: "";
   position: absolute;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.75);
+  /* White soft overlay */
+  background: rgba(255, 255, 255, 0.25);
+
+  /* Soft blur */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 
   z-index: 1;
 }
@@ -39,15 +44,15 @@ body::before {
   border-radius: 16px;
 
   /* Glass Effect */
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   border: 1px solid rgba(255, 215, 0, 0.8);
 
   box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(212, 175, 55, 0.4);
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(212, 175, 55, 0.4);
 
   text-align: center;
 
@@ -81,9 +86,9 @@ body::before {
   font-weight: 600;
   letter-spacing: 0.8px;
 
-  color: #f5d76e;
+  color: #c9a227;
 
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 
 /* Form */
@@ -97,7 +102,7 @@ body::before {
   font-size: 13px;
   font-weight: 500;
 
-  color: #f1e4a3;
+  color: #8a6f12;
 
   letter-spacing: 0.3px;
 }
@@ -111,41 +116,41 @@ body::before {
 
   border-radius: 8px;
 
-  border: 1px solid rgba(255, 215, 0, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.7);
 
   outline: none;
 
   font-size: 14px;
 
-  /* Transparent Input */
-  background: rgba(0, 0, 0, 0.3);
+  /* Semi transparent input */
+  background: rgba(255, 255, 255, 0.25);
 
-  color: #fff;
+  color: #333;
 
   transition: all 0.3s ease;
 }
 
 /* Placeholder */
 .form-group input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /* Focus */
 .form-group input:focus {
   border-color: #ffd700;
 
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(255, 255, 255, 0.4);
 
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
 }
 
 /* Button Login */
 .btn-login {
   width: 100%;
 
-  background: linear-gradient(135deg, #fff2a8, #f5d76e, #d4af37, #9b7b16);
+  background: linear-gradient(135deg, #fff4b0, #f5d76e, #d4af37, #9b7b16);
 
-  color: #2b2100;
+  color: #3a2a00;
 
   padding: 14px;
 
@@ -163,7 +168,7 @@ body::before {
 
 /* Hover Button */
 .btn-login:hover {
-  background: linear-gradient(135deg, #fff9c4, #ffd700, #f5d76e, #b8961e);
+  background: linear-gradient(135deg, #fffbe0, #ffd700, #f5d76e, #b8961e);
 
   transform: translateY(-3px);
 
@@ -177,16 +182,16 @@ body::before {
   font-size: 12px;
   font-weight: 500;
 
-  color: #f1e4a3;
+  color: #8a6f12;
 
   opacity: 0.9;
 }
 
 /* Error Message */
 .error {
-  background: rgba(255, 0, 0, 0.18);
+  background: rgba(255, 0, 0, 0.15);
 
-  color: #ffb3b3;
+  color: #a40000;
 
   padding: 10px;
 
@@ -198,5 +203,5 @@ body::before {
 
   border: 1px solid rgba(255, 120, 120, 0.6);
 
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
 }
