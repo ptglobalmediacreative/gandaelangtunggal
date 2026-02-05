@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-include "../config.php"; // sesuaikan kalau beda folder
+include "admin/config.php"; // sesuaikan kalau beda folder
 
 // Kalau sudah login → ke dashboard
 if (isset($_SESSION['admin_id'])) {
