@@ -1,0 +1,48 @@
+# =============================================
+# 🔒 SECURE ADMIN PANEL (HOSTINGER OPTIMIZED)
+# =============================================
+
+Options -Indexes
+RewriteEngine On
+
+###############################################
+# 1) FORCE HTTPS
+###############################################
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+###############################################
+# 2) BLOCK SENSITIVE FILES
+###############################################
+<FilesMatch "^(config\.php|function\.php|convert_all_to_webp\.php|webp_loader\.php|\.env)$">
+    Require all denied
+</FilesMatch>
+
+###############################################
+# 3) BLOCK .git / .htaccess / composer
+###############################################
+<FilesMatch "^(?:\.git|\.htaccess|composer\.json|composer\.lock)$">
+    Require all denied
+</FilesMatch>
+
+###############################################
+# 4) BLOCK PHP EXECUTION INSIDE UPLOADS FOLDER
+###############################################
+# Hostinger tidak mendukung <Directory> → pakai RewriteRule
+RewriteRule ^uploads/.*\.(php|php7|phtml|php5)$ - [F,L]
+
+###############################################
+# 5) BLOCK MALICIOUS UPLOADS
+###############################################
+RewriteRule ^uploads/.*\.(exe|sh|py|pl|cgi)$ - [F,L]
+
+###############################################
+# 6) BASIC SQL/XSS FILTER (AMAN)
+###############################################
+RewriteCond %{QUERY_STRING} (\.\./|<|>|%3C|%3E) [NC]
+RewriteRule .* - [F]
+
+###############################################
+# 7) DIRECTORY INDEX
+###############################################
+DirectoryIndex index.php
