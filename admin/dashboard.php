@@ -73,56 +73,59 @@
 
   </div>
 
-  <!-- Content Grid -->
-  <div class="dashboard-grid">
+<!-- Control Panel -->
+<div class="dashboard-grid">
 
-    <!-- Company -->
-    <div class="card company-card">
-      <h3>Profil Perusahaan</h3>
+  <!-- Performance -->
+  <div class="card dashboard-panel">
 
-      <p>
-        Dealer resmi alat berat LiuGong yang
-        menyediakan unit baru, sparepart,
-        pembiayaan, dan layanan purna jual.
-      </p>
+    <h3>Ringkasan Penjualan</h3>
 
-      <ul>
-        <li><i class="fa-solid fa-check"></i> Distributor Resmi</li>
-        <li><i class="fa-solid fa-check"></i> Unit Baru & Bekas</li>
-        <li><i class="fa-solid fa-check"></i> Sparepart Original</li>
-        <li><i class="fa-solid fa-check"></i> Service Center</li>
-      </ul>
+    <div class="panel-row">
+      <span>Unit Terjual Bulan Ini</span>
+      <strong>14 Unit</strong>
     </div>
 
-    <!-- Activity -->
-    <div class="card activity-card">
-      <h3>Aktivitas Terbaru</h3>
+    <div class="panel-row">
+      <span>Total Revenue</span>
+      <strong>Rp 4.2 M</strong>
+    </div>
 
-      <div class="activity-item">
-        <i class="fa-solid fa-box"></i>
-        Produk baru ditambahkan
-      </div>
+    <div class="panel-row">
+      <span>Deal Kredit Aktif</span>
+      <strong>9 Kontrak</strong>
+    </div>
 
-      <div class="activity-item">
-        <i class="fa-solid fa-comments"></i>
-        Pesan baru dari pelanggan
-      </div>
+    <div class="panel-row">
+      <span>Prospek Baru</span>
+      <strong>21 Lead</strong>
+    </div>
 
-      <div class="activity-item">
-        <i class="fa-solid fa-calculator"></i>
-        Simulasi kredit dibuat
-      </div>
+  </div>
 
-      <div class="activity-item">
-        <i class="fa-solid fa-newspaper"></i>
-        Artikel diperbarui
-      </div>
+  <!-- Inventory -->
+  <div class="card dashboard-panel">
 
-      <div class="activity-item">
-        <i class="fa-solid fa-tractor"></i>
-        Update data unit
-      </div>
+    <h3>Status Unit & Stok</h3>
 
+    <div class="panel-row">
+      <span>Ready Stock</span>
+      <strong>48 Unit</strong>
+    </div>
+
+    <div class="panel-row">
+      <span>Indent / PO</span>
+      <strong>22 Unit</strong>
+    </div>
+
+    <div class="panel-row">
+      <span>Dalam Pengiriman</span>
+      <strong>16 Unit</strong>
+    </div>
+
+    <div class="panel-row">
+      <span>Maintenance</span>
+      <strong>6 Unit</strong>
     </div>
 
   </div>
