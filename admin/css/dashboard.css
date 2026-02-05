@@ -213,7 +213,56 @@ body {
   }
 }
 
-/* ===== Dashboard Stats ===== */
+/* ===== Dashboard Hero ===== */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.admin-name {
+  font-size: 13px;
+  color: #444;
+  font-weight: 500;
+}
+
+.dashboard-hero {
+  background: linear-gradient(135deg, #1f2933, #2f3b47);
+  color: #fff;
+
+  border-radius: 12px;
+  padding: 25px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.hero-text h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #ffd700;
+}
+
+.hero-text p {
+  margin-top: 6px;
+  max-width: 500px;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: #ddd;
+}
+
+.hero-icon i {
+  font-size: 60px;
+  opacity: 0.2;
+}
+
+/* ===== Stats ===== */
 
 .dashboard-stats {
   display: grid;
@@ -224,7 +273,7 @@ body {
 }
 
 .stat-box {
-  background: #ffffff;
+  background: #fff;
 
   border-radius: 10px;
   padding: 20px;
@@ -233,80 +282,73 @@ body {
   align-items: center;
   gap: 15px;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 
   transition: 0.25s;
 }
 
 .stat-box:hover {
   transform: translateY(-3px);
-
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
-.stat-icon {
-  font-size: 32px;
+.stat-box .stat-icon {
+  font-size: 28px;
+  color: #d6c27a;
 }
 
-.stat-info h4 {
-  margin: 0;
-
-  font-size: 14px;
+.stat-box span {
+  font-size: 13px;
   color: #777;
-  font-weight: 500;
 }
 
-.stat-info p {
-  margin: 3px 0 0;
-
+.stat-box h4 {
+  margin: 2px 0 0;
   font-size: 20px;
-  font-weight: 600;
-
   color: #2b2f36;
 }
 
-/* ===== Grid Layout ===== */
+/* ===== Company Card ===== */
 
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-  gap: 25px;
-}
-
-/* ===== Info List ===== */
-
-.info-list {
+.company-card ul {
   list-style: none;
   padding: 0;
   margin-top: 15px;
 }
 
-.info-list li {
-  font-size: 14px;
+.company-card li {
   margin-bottom: 8px;
-
+  font-size: 14px;
   color: #444;
+}
+
+.company-card i {
+  color: #d6c27a;
+  margin-right: 6px;
 }
 
 /* ===== Activity ===== */
 
-.activity-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
+.activity-card {
+  padding-bottom: 10px;
 }
 
-.activity-list li {
-  padding: 8px 0;
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
-  font-size: 14px;
+  padding: 10px 0;
 
   border-bottom: 1px solid #eee;
 
+  font-size: 14px;
   color: #444;
 }
 
-.activity-list li:last-child {
+.activity-item:last-child {
   border-bottom: none;
+}
+
+.activity-item i {
+  color: #d6c27a;
 }

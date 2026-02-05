@@ -6,86 +6,122 @@
   <!-- Topbar -->
   <div class="topbar">
     <h2>Dashboard</h2>
-    <a href="logout.php" class="logout-btn">Logout</a>
+
+    <div class="topbar-right">
+      <span class="admin-name">
+        <i class="fa-solid fa-user"></i>
+        <?= $_SESSION['admin_nama']; ?>
+      </span>
+
+      <a href="logout.php" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </a>
+    </div>
   </div>
 
-  <!-- Welcome -->
-  <div class="card" style="margin-bottom:20px;">
-    <h3>Selamat Datang 👋</h3>
-    <p>
-      Halo, <strong><?= $_SESSION['admin_nama']; ?></strong>.  
-      Selamat datang di sistem manajemen Dealer Alat Berat.
-    </p>
+  <!-- Hero -->
+  <div class="dashboard-hero">
+    <div class="hero-text">
+      <h3>Dealer Management System</h3>
+      <p>
+        Sistem terpadu untuk mengelola penjualan,
+        stok, pembiayaan, dan komunikasi pelanggan
+        dealer alat berat LiuGong.
+      </p>
+    </div>
+
+    <div class="hero-icon">
+      <i class="fa-solid fa-tractor"></i>
+    </div>
   </div>
 
-  <!-- Statistik -->
+  <!-- Stats -->
   <div class="dashboard-stats">
 
     <div class="stat-box">
-      <div class="stat-icon">🚜</div>
-      <div class="stat-info">
-        <h4>Total Produk</h4>
-        <p>128 Unit</p>
+      <i class="fa-solid fa-box stat-icon"></i>
+      <div>
+        <span>Total Produk</span>
+        <h4>128</h4>
       </div>
     </div>
 
     <div class="stat-box">
-      <div class="stat-icon">📦</div>
-      <div class="stat-info">
-        <h4>Stok Gudang</h4>
-        <p>86 Unit</p>
+      <i class="fa-solid fa-warehouse stat-icon"></i>
+      <div>
+        <span>Stok Gudang</span>
+        <h4>86</h4>
       </div>
     </div>
 
     <div class="stat-box">
-      <div class="stat-icon">💬</div>
-      <div class="stat-info">
-        <h4>Pesan Masuk</h4>
-        <p>24 Pesan</p>
+      <i class="fa-solid fa-comments stat-icon"></i>
+      <div>
+        <span>Pesan Masuk</span>
+        <h4>24</h4>
       </div>
     </div>
 
     <div class="stat-box">
-      <div class="stat-icon">💰</div>
-      <div class="stat-info">
-        <h4>Simulasi Kredit</h4>
-        <p>52 Data</p>
+      <i class="fa-solid fa-calculator stat-icon"></i>
+      <div>
+        <span>Simulasi Kredit</span>
+        <h4>52</h4>
       </div>
     </div>
 
   </div>
 
-  <!-- Informasi Perusahaan -->
+  <!-- Content Grid -->
   <div class="dashboard-grid">
 
-    <!-- Profil -->
-    <div class="card">
+    <!-- Company -->
+    <div class="card company-card">
       <h3>Profil Perusahaan</h3>
+
       <p>
-        Sistem ini digunakan untuk mengelola penjualan, stok,
-        artikel, pesan pelanggan, dan simulasi kredit
-        dealer alat berat LiuGong.
+        Dealer resmi alat berat LiuGong yang
+        menyediakan unit baru, sparepart,
+        pembiayaan, dan layanan purna jual.
       </p>
 
-      <ul class="info-list">
-        <li>✔ Distributor Resmi</li>
-        <li>✔ Unit Baru & Bekas</li>
-        <li>✔ Sparepart Original</li>
-        <li>✔ Service Center</li>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> Distributor Resmi</li>
+        <li><i class="fa-solid fa-check"></i> Unit Baru & Bekas</li>
+        <li><i class="fa-solid fa-check"></i> Sparepart Original</li>
+        <li><i class="fa-solid fa-check"></i> Service Center</li>
       </ul>
     </div>
 
-    <!-- Aktivitas -->
-    <div class="card">
+    <!-- Activity -->
+    <div class="card activity-card">
       <h3>Aktivitas Terbaru</h3>
 
-      <ul class="activity-list">
-        <li>📦 Produk baru ditambahkan</li>
-        <li>💬 Pesan baru dari pelanggan</li>
-        <li>💰 Simulasi kredit dibuat</li>
-        <li>📝 Artikel diperbarui</li>
-        <li>🚜 Update data unit</li>
-      </ul>
+      <div class="activity-item">
+        <i class="fa-solid fa-box"></i>
+        Produk baru ditambahkan
+      </div>
+
+      <div class="activity-item">
+        <i class="fa-solid fa-comments"></i>
+        Pesan baru dari pelanggan
+      </div>
+
+      <div class="activity-item">
+        <i class="fa-solid fa-calculator"></i>
+        Simulasi kredit dibuat
+      </div>
+
+      <div class="activity-item">
+        <i class="fa-solid fa-newspaper"></i>
+        Artikel diperbarui
+      </div>
+
+      <div class="activity-item">
+        <i class="fa-solid fa-tractor"></i>
+        Update data unit
+      </div>
 
     </div>
 
