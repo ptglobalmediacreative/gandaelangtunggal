@@ -1,9 +1,45 @@
 <?php
 session_start();
+include "../config.php"; // sesuaikan kalau beda folder
 
+// Kalau sudah login → ke dashboard
 if (isset($_SESSION['admin_id'])) {
     header("Location: dashboard.php");
     exit;
+}
+
+// Proses Login
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $no_hp    = mysqli_real_escape_string($koneksi, $_POST['no_hp']);
+    $password = $_POST['password'];
+
+    // Cari admin
+    $query = mysqli_query($koneksi, "SELECT * FROM admin WHERE no_hp='$no_hp'");
+    $data  = mysqli_fetch_assoc($query);
+
+    if ($data) {
+
+        // Cek password hash
+        if (password_verify($password, $data['password'])) {
+
+            // Set session
+            $_SESSION['admin_id']   = $data['id'];
+            $_SESSION['admin_nama'] = $data['nama'];
+
+            // Redirect ke dashboard
+            header("Location: dashboard.php");
+            exit;
+
+        } else {
+            $error = "Password salah!";
+        }
+
+    } else {
+        $error = "No HP tidak terdaftar!";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -13,17 +49,15 @@ if (isset($_SESSION['admin_id'])) {
     <title>Login Admin | Ganda Elang Tangguh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="../images/favicon.webp">
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Global -->
+    <!-- CSS -->
     <link rel="stylesheet" href="/admin/css/style.css">
-
-    <!-- CSS Login -->
     <link rel="stylesheet" href="/admin/css/login.css">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="../images/favicon.webp">
 
 </head>
 <body>
@@ -34,13 +68,15 @@ if (isset($_SESSION['admin_id'])) {
 
     <h2>Admin Panel</h2>
 
-    <?php if (isset($_GET['error'])): ?>
+    <!-- Error -->
+    <?php if ($error != ""): ?>
         <div class="error">
-            <?= htmlspecialchars($_GET['error']); ?>
+            <?= $error; ?>
         </div>
     <?php endif; ?>
 
-    <form action="login_proses.php" method="POST">
+    <!-- Form Login -->
+    <form method="POST" action="">
 
         <div class="form-group">
             <label>No Handphone</label>

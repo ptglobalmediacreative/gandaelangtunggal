@@ -1,0 +1,92 @@
+/* dashboard.css */
+/* Admin Panel Corporate Theme */
+
+body {
+  background: #f4f6f9;
+}
+
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #1f2933;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.sidebar h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #d6c27a;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 12px 25px;
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: #2f3b47;
+  color: #ffd700;
+}
+
+/* Content */
+.main-content {
+  flex: 1;
+  padding: 25px;
+}
+
+/* Header */
+.topbar {
+  background: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.topbar h2 {
+  font-size: 18px;
+  color: #333;
+}
+
+.logout-btn {
+  background: #c0392b;
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.logout-btn:hover {
+  background: #a93226;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
