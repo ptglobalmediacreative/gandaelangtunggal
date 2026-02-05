@@ -29,7 +29,7 @@ if (isset($_SESSION['admin_id'])) {
 
     <img src="../images/logo.webp" alt="Logo Ganda Elang Tunggal">
 
-    <h2>Ganda Elang Tunggal</h2>
+    <h2>Panel Admin PT Ganda Elang Tangguh</h2>
 
     <?php if (isset($_GET['error'])): ?>
         <div class="error">

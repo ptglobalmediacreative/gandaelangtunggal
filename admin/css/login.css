@@ -1,84 +1,159 @@
 /* login.css */
-/* CSS khusus halaman login */
+/* Tema Gold Premium */
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+
+  /* Background Image */
+  background: url("../../images/exclogin.jpg") no-repeat center center fixed;
+  background-size: cover;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  position: relative;
 }
 
+/* Overlay gelap */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  z-index: 1;
+}
+
+/* Login Box */
 .login-box {
-  background: #fff;
+  position: relative;
+  z-index: 2;
+
+  background: linear-gradient(145deg, #fff8dc, #fff1b8);
+
   width: 100%;
-  max-width: 400px;
-  padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  max-width: 420px;
+  padding: 45px 35px;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 15px rgba(255, 215, 0, 0.3);
+
   text-align: center;
+
+  border: 2px solid #d4af37;
 }
 
+/* Logo */
 .login-box img {
-  width: 100px;
+  width: 95px;
   margin-bottom: 15px;
 }
 
+/* Judul */
 .login-box h2 {
-  margin: 5px 0 20px;
+  margin: 10px 0 25px;
+
   font-weight: 600;
-  color: #333;
+  letter-spacing: 0.5px;
+
+  color: #9b7b16;
 }
 
+/* Form */
 .form-group {
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
-  font-size: 14px;
-  color: #555;
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #7a6310;
 }
 
+/* Input */
 .form-group input {
   width: 100%;
-  padding: 10px 12px;
-  margin-top: 5px;
+
+  padding: 11px 12px;
+  margin-top: 6px;
+
   border-radius: 6px;
-  border: 1px solid #ccc;
+
+  border: 1px solid #d4af37;
+
   outline: none;
+
   font-size: 14px;
-}
 
-.form-group input:focus {
-  border-color: #2a5298;
-}
+  background: #fffdf3;
 
-.btn-login {
-  width: 100%;
-  background: #2a5298;
-  color: #fff;
-  padding: 12px;
-  border-radius: 6px;
-  font-size: 15px;
   transition: 0.3s;
 }
 
+.form-group input:focus {
+  border-color: #b8961e;
+
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+}
+
+/* Button Login */
+.btn-login {
+  width: 100%;
+
+  background: linear-gradient(135deg, #d4af37, #f5d76e, #b8961e);
+
+  color: #3a2e00;
+
+  padding: 13px;
+
+  border-radius: 7px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  transition: all 0.3s ease;
+}
+
 .btn-login:hover {
-  background: #1e3c72;
+  background: linear-gradient(135deg, #f5d76e, #d4af37, #9b7b16);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.6);
 }
 
+/* Footer */
 .footer-text {
-  margin-top: 20px;
+  margin-top: 22px;
+
   font-size: 12px;
-  color: #777;
+  font-weight: 500;
+
+  color: #8a6f12;
 }
 
+/* Error Message */
 .error {
-  background: #ffecec;
-  color: #d63031;
-  padding: 8px;
-  border-radius: 5px;
+  background: linear-gradient(135deg, #ffefef, #ffd6d6);
+
+  color: #a40000;
+
+  padding: 9px;
+
+  border-radius: 6px;
+
   margin-bottom: 15px;
+
   font-size: 13px;
+
+  border: 1px solid #ffb3b3;
 }
