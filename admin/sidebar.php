@@ -69,6 +69,14 @@ $current = basename($_SERVER['PHP_SELF']);
       </a>
     </li>
 
+    <!-- Sales Activity -->
+    <li>
+      <a href="sales_activity.php" class="<?= $current=='sales_activity.php'?'active':'' ?>">
+        <i class="fa-solid fa-chart-line icon"></i>
+        <span>Sales Activity</span>
+      </a>
+    </li>
+
     <!-- Stock -->
     <li>
       <a href="stock.php" class="<?= $current=='stock.php'?'active':'' ?>">
