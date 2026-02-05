@@ -73,64 +73,137 @@
 
   </div>
 
-<!-- Control Panel -->
-<div class="dashboard-grid">
+  <!-- Charts -->
+  <div class="dashboard-charts">
 
-  <!-- Performance -->
-  <div class="card dashboard-panel">
-
-    <h3>Ringkasan Penjualan</h3>
-
-    <div class="panel-row">
-      <span>Unit Terjual Bulan Ini</span>
-      <strong>14 Unit</strong>
+    <div class="card chart-card">
+      <h3>Penjualan Bulanan</h3>
+      <canvas id="salesChart"></canvas>
     </div>
 
-    <div class="panel-row">
-      <span>Total Revenue</span>
-      <strong>Rp 4.2 M</strong>
-    </div>
-
-    <div class="panel-row">
-      <span>Deal Kredit Aktif</span>
-      <strong>9 Kontrak</strong>
-    </div>
-
-    <div class="panel-row">
-      <span>Prospek Baru</span>
-      <strong>21 Lead</strong>
+    <div class="card chart-card">
+      <h3>Status Stok Unit</h3>
+      <canvas id="stockChart"></canvas>
     </div>
 
   </div>
 
-  <!-- Inventory -->
-  <div class="card dashboard-panel">
+  <!-- Control Panel -->
+  <div class="dashboard-grid">
 
-    <h3>Status Unit & Stok</h3>
+    <!-- Performance -->
+    <div class="card dashboard-panel">
 
-    <div class="panel-row">
-      <span>Ready Stock</span>
-      <strong>48 Unit</strong>
+      <h3>Ringkasan Penjualan</h3>
+
+      <div class="panel-row">
+        <span>Unit Terjual Bulan Ini</span>
+        <strong>14 Unit</strong>
+      </div>
+
+      <div class="panel-row">
+        <span>Total Revenue</span>
+        <strong>Rp 4.2 M</strong>
+      </div>
+
+      <div class="panel-row">
+        <span>Deal Kredit Aktif</span>
+        <strong>9 Kontrak</strong>
+      </div>
+
+      <div class="panel-row">
+        <span>Prospek Baru</span>
+        <strong>21 Lead</strong>
+      </div>
+
     </div>
 
-    <div class="panel-row">
-      <span>Indent / PO</span>
-      <strong>22 Unit</strong>
-    </div>
+    <!-- Inventory -->
+    <div class="card dashboard-panel">
 
-    <div class="panel-row">
-      <span>Dalam Pengiriman</span>
-      <strong>16 Unit</strong>
-    </div>
+      <h3>Status Unit & Stok</h3>
 
-    <div class="panel-row">
-      <span>Maintenance</span>
-      <strong>6 Unit</strong>
+      <div class="panel-row">
+        <span>Ready Stock</span>
+        <strong>48 Unit</strong>
+      </div>
+
+      <div class="panel-row">
+        <span>Indent / PO</span>
+        <strong>22 Unit</strong>
+      </div>
+
+      <div class="panel-row">
+        <span>Dalam Pengiriman</span>
+        <strong>16 Unit</strong>
+      </div>
+
+      <div class="panel-row">
+        <span>Maintenance</span>
+        <strong>6 Unit</strong>
+      </div>
+
     </div>
 
   </div>
 
 </div>
+
+<!-- Chart Script -->
+<script>
+
+/* Penjualan */
+const salesCtx = document.getElementById('salesChart');
+
+new Chart(salesCtx, {
+  type: 'line',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'],
+    datasets: [{
+      label: 'Unit Terjual',
+      data: [6,9,12,8,15,14,18,16,13,19,22,20],
+      borderColor: '#d6c27a',
+      backgroundColor: 'rgba(214,194,122,0.2)',
+      tension: 0.4,
+      fill: true
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false }
+    }
+  }
+});
+
+/* Stok */
+const stockCtx = document.getElementById('stockChart');
+
+new Chart(stockCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Ready','Indent','Delivery','Maintenance'],
+    datasets: [{
+      data: [48,22,16,6],
+      backgroundColor: [
+        '#4caf50',
+        '#ff9800',
+        '#2196f3',
+        '#f44336'
+      ]
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom'
+      }
+    }
+  }
+});
+
+</script>
 
 </div>
 </body>
