@@ -22,7 +22,7 @@ $current = basename($_SERVER['PHP_SELF']);
 
     <li>
       <a href="produk.php" class="<?= $current=='produk.php'?'active':'' ?>">
-        <i class="fa-solid fa-crane icon"></i>
+        <i class="fa-solid fa-truck-moving icon"></i>
         <span>Produk</span>
       </a>
     </li>
