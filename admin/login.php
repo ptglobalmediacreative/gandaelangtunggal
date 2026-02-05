@@ -17,10 +17,10 @@ if (isset($_SESSION['admin_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Global -->
-    <link rel="stylesheet" href="admin/css/style.css">
+    <link rel="stylesheet" href="/admin/css/style.css">
 
     <!-- CSS Login -->
-    <link rel="stylesheet" href="admin/css/login.css">
+    <link rel="stylesheet" href="/admin/css/login.css">
 
 </head>
 <body>
