@@ -1,0 +1,84 @@
+/* login.css */
+/* CSS khusus halaman login */
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login-box img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.login-box h2 {
+  margin: 5px 0 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  border-color: #2a5298;
+}
+
+.btn-login {
+  width: 100%;
+  background: #2a5298;
+  color: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background: #1e3c72;
+}
+
+.footer-text {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #777;
+}
+
+.error {
+  background: #ffecec;
+  color: #d63031;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
