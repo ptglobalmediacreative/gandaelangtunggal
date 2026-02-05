@@ -81,11 +81,6 @@
       <canvas id="salesChart"></canvas>
     </div>
 
-    <div class="card chart-card">
-      <h3>Status Stok Unit</h3>
-      <canvas id="stockChart"></canvas>
-    </div>
-
   </div>
 
   <!-- Control Panel -->
