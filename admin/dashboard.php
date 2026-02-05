@@ -26,8 +26,8 @@
       <h3>Dealer Management System</h3>
       <p>
         Sistem terpadu untuk mengelola penjualan,
-        stok, pembiayaan, dan komunikasi pelanggan
-        dealer alat berat LiuGong.
+        stok, pembiayaan, dan komunikasi customer
+        PT Ganda Elang Tangguh.
       </p>
     </div>
 
