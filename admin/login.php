@@ -1,79 +1,56 @@
 <?php
-session_start();
-include "config.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-/* Kalau sudah login */
+session_start();
+require_once __DIR__ . "/config.php"; // pastikan ini isinya $pdo
+
+// Kalau sudah login → dashboard
 if (isset($_SESSION['admin_id'])) {
     header("Location: dashboard.php");
     exit;
 }
 
-/* Error message */
 $error = "";
 
-/* Proses Login */
+/* ================= LOGIN PROCESS ================= */
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $no_hp    = mysqli_real_escape_string($koneksi, $_POST['no_hp']);
-    $password = $_POST['password'];
+    $no_hp    = trim($_POST['no_hp'] ?? '');
+    $password = $_POST['password'] ?? '';
 
-    /* Ambil data admin */
-    $query = mysqli_query($koneksi, "
-        SELECT * FROM admin 
-        WHERE no_hp = '$no_hp'
-        LIMIT 1
-    ");
+    if ($no_hp == '' || $password == '') {
+        $error = "Semua field wajib diisi!";
+    } else {
 
-    $data = mysqli_fetch_assoc($query);
+        // Cari admin (PDO)
+        $stmt = $pdo->prepare("SELECT * FROM admin WHERE no_hp = ?");
+        $stmt->execute([$no_hp]);
 
-    if ($data) {
+        $data = $stmt->fetch();
 
-        /* Verifikasi password */
-        if (password_verify($password, $data['password'])) {
+        if ($data) {
 
-            /* SESSION UTAMA */
-            $_SESSION['admin_id']   = $data['id'];
-            $_SESSION['admin_nama'] = $data['nama'];
-            $_SESSION['keterangan'] = $data['keterangan'];
+            // Cek password hash
+            if (password_verify($password, $data['password'])) {
 
-            /* SESSION AKSES */
-            $_SESSION['akses_dashboard'] = $data['akses_dashboard'];
-            $_SESSION['akses_produk']   = $data['akses_produk'];
-            $_SESSION['akses_artikel']  = $data['akses_artikel'];
-            $_SESSION['akses_pesan']    = $data['akses_pesan'];
-            $_SESSION['akses_simulasi'] = $data['akses_simulasi'];
-            $_SESSION['akses_user']     = $data['akses_user'];
-            $_SESSION['akses_leads']    = $data['akses_leads'];
-            $_SESSION['akses_sales']    = $data['akses_sales'];
-            $_SESSION['akses_stock']    = $data['akses_stock'];
-            $_SESSION['akses_delivery'] = $data['akses_delivery'];
+                // Set session
+                $_SESSION['admin_id']   = $data['id'];
+                $_SESSION['admin_nama'] = $data['nama'];
+                $_SESSION['admin_role'] = $data['keterangan'] ?? '';
 
-            /* AUTO FULL AKSES JIKA DEVELOPER */
-            if ($data['keterangan'] == 'Developer') {
+                // Redirect
+                header("Location: dashboard.php");
+                exit;
 
-                $_SESSION['akses_dashboard'] = 1;
-                $_SESSION['akses_produk']   = 1;
-                $_SESSION['akses_artikel']  = 1;
-                $_SESSION['akses_pesan']    = 1;
-                $_SESSION['akses_simulasi'] = 1;
-                $_SESSION['akses_user']     = 1;
-                $_SESSION['akses_leads']    = 1;
-                $_SESSION['akses_sales']    = 1;
-                $_SESSION['akses_stock']    = 1;
-                $_SESSION['akses_delivery'] = 1;
-
+            } else {
+                $error = "Password salah!";
             }
 
-            /* Redirect */
-            header("Location: dashboard.php");
-            exit;
-
         } else {
-            $error = "❌ Password salah!";
+            $error = "No HP tidak terdaftar!";
         }
-
-    } else {
-        $error = "❌ No HP tidak terdaftar!";
     }
 }
 ?>
@@ -81,16 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Login Admin | Ganda Elang Tangguh</title>
+<title>Login Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Favicon -->
-<link rel="icon" type="image/webp" href="../images/favicon.webp">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- CSS -->
+<link rel="icon" href="../images/favicon.webp">
 <link rel="stylesheet" href="/admin/css/style.css">
 <link rel="stylesheet" href="/admin/css/login.css">
 
@@ -99,23 +70,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="login-box">
 
-    <img src="../images/logo.webp" alt="Logo Ganda Elang Tangguh">
+    <img src="../images/logo.webp" alt="Logo">
 
     <h2>Admin Panel</h2>
 
-    <!-- Error -->
-    <?php if ($error != ""): ?>
+    <!-- ERROR -->
+    <?php if($error): ?>
         <div class="error">
-            <?= $error; ?>
+            <?= htmlspecialchars($error); ?>
         </div>
     <?php endif; ?>
 
-    <!-- Form Login -->
+    <!-- FORM -->
     <form method="POST">
 
         <div class="form-group">
             <label>No Handphone</label>
-            <input type="text" name="no_hp" required autocomplete="off">
+            <input type="text" name="no_hp" required>
         </div>
 
         <div class="form-group">
