@@ -21,7 +21,7 @@ function buat_slug($text){
     return trim($text, '-');
 }
 
-/* FORMAT GAMBAR BOLEH */
+/* FORMAT GAMBAR */
 $allowed_ext = ['jpg','jpeg','png','webp'];
 
 
@@ -35,7 +35,7 @@ if(isset($_POST['simpan'])){
     $slug = buat_slug($nama);
 
 
-    /* ================= UPLOAD THUMBNAIL ================= */
+    /* ================= THUMBNAIL ================= */
 
     $gambar_produk = null;
 
@@ -44,7 +44,7 @@ if(isset($_POST['simpan'])){
         $ext = strtolower(pathinfo($_FILES['gambar_produk']['name'], PATHINFO_EXTENSION));
 
         if(!in_array($ext, $allowed_ext)){
-            die("Format gambar utama harus jpg, jpeg, png, atau webp");
+            die("Format thumbnail tidak valid");
         }
 
         $new = time().rand(100,999).".".$ext;
@@ -77,7 +77,7 @@ if(isset($_POST['simpan'])){
 
 
 
-    /* ================= SIMPAN FEATURES ================= */
+    /* ================= FEATURES ================= */
 
     if(!empty($_POST['feature_title'])){
 
@@ -93,9 +93,7 @@ if(isset($_POST['simpan'])){
 
                 $ext = strtolower(pathinfo($_FILES['feature_image']['name'][$i], PATHINFO_EXTENSION));
 
-                if(!in_array($ext, $allowed_ext)){
-                    continue;
-                }
+                if(!in_array($ext, $allowed_ext)) continue;
 
                 $new = time().$i.rand(10,99).".".$ext;
 
@@ -124,7 +122,7 @@ if(isset($_POST['simpan'])){
 
 
 
-    /* ================= SIMPAN SPEC ================= */
+    /* ================= SPEC ================= */
 
     if(!empty($_POST['spec_group'])){
 
@@ -152,6 +150,39 @@ if(isset($_POST['simpan'])){
                     $i
                 ]);
             }
+        }
+    }
+
+
+
+    /* ================= GALLERY ================= */
+
+    if(!empty($_FILES['gallery']['name'][0])){
+
+        foreach($_FILES['gallery']['name'] as $i => $name){
+
+            if(empty($name)) continue;
+
+            $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+
+            if(!in_array($ext, $allowed_ext)) continue;
+
+            $new = time().$i.rand(100,999).".".$ext;
+
+            move_uploaded_file(
+                $_FILES['gallery']['tmp_name'][$i],
+                "../upload/gallery/".$new
+            );
+
+            $pdo->prepare("
+                INSERT INTO produk_gallery
+                (produk_id, image, sort_order)
+                VALUES (?,?,?)
+            ")->execute([
+                $produk_id,
+                $new,
+                $i
+            ]);
         }
     }
 
@@ -207,7 +238,28 @@ if(isset($_POST['simpan'])){
 
     <input type="file"
            name="gambar_produk"
-           accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+           accept=".jpg,.jpeg,.png,.webp">
+</div>
+
+
+
+<!-- ================= GALLERY ================= -->
+
+<h3 style="margin-top:25px;">Gallery</h3>
+
+<div class="form-group">
+
+    <label>Upload Banyak Gambar</label>
+
+    <input type="file"
+           name="gallery[]"
+           multiple
+           accept=".jpg,.jpeg,.png,.webp">
+
+    <small style="color:#64748b;">
+        Bisa pilih banyak gambar sekaligus
+    </small>
+
 </div>
 
 
@@ -227,7 +279,7 @@ if(isset($_POST['simpan'])){
 
     <input type="file"
            name="feature_image[]"
-           accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+           accept=".jpg,.jpeg,.png,.webp">
 
     <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
 
@@ -251,15 +303,13 @@ if(isset($_POST['simpan'])){
 <div id="spec-wrapper">
 
 
-<!-- DEFAULT GROUP -->
-
 <div class="spec-group">
 
 <div class="spec-header">
 
 <input type="text"
        name="spec_group[]"
-       placeholder="Nama Group (Engine, Dimension, dll)"
+       placeholder="Nama Group"
        class="spec-title">
 
 <button type="button"
@@ -329,7 +379,7 @@ Kembali
 let specIndex = 1;
 
 
-/* ================= FEATURE ================= */
+/* FEATURE */
 
 function addFeature(){
 
@@ -341,9 +391,7 @@ function addFeature(){
 
         <textarea name="feature_desc[]" placeholder="Deskripsi Feature"></textarea>
 
-        <input type="file"
-               name="feature_image[]"
-               accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+        <input type="file" name="feature_image[]" accept=".jpg,.jpeg,.png,.webp">
 
         <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
     `;
@@ -357,7 +405,7 @@ function removeFeature(btn){
 
 
 
-/* ================= SPEC ================= */
+/* SPEC */
 
 function addSpecGroup(){
 
@@ -367,14 +415,9 @@ function addSpecGroup(){
     div.innerHTML = `
         <div class="spec-header">
 
-            <input type="text"
-                   name="spec_group[]"
-                   placeholder="Nama Group"
-                   class="spec-title">
+            <input type="text" name="spec_group[]" placeholder="Nama Group" class="spec-title">
 
-            <button type="button"
-                    onclick="removeSpecGroup(this)"
-                    class="btn-remove">✕</button>
+            <button type="button" onclick="removeSpecGroup(this)" class="btn-remove">✕</button>
 
         </div>
 
