@@ -32,6 +32,38 @@ if(!is_dir($upload_path)){
 }
 
 
+/* ================= UPLOAD TANPA DUPLIKAT ================= */
+
+function uploadUniqueImage($tmp, $name, $path, $allowed){
+
+    if(empty($tmp) || empty($name)) return null;
+
+    $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+
+    if(!in_array($ext, $allowed)){
+        return null;
+    }
+
+    // Hash file
+    $hash = md5_file($tmp);
+
+    // Cek file existing
+    foreach(glob($path."*") as $file){
+
+        if(is_file($file) && md5_file($file) === $hash){
+            return basename($file);
+        }
+    }
+
+    // Upload baru
+    $new = time().rand(100,999).".".$ext;
+
+    move_uploaded_file($tmp, $path.$new);
+
+    return $new;
+}
+
+
 
 /* ================= SIMPAN ================= */
 
@@ -50,20 +82,12 @@ if(isset($_POST['simpan'])){
 
     if(!empty($_FILES['gambar_produk']['name'])){
 
-        $ext = strtolower(pathinfo($_FILES['gambar_produk']['name'], PATHINFO_EXTENSION));
-
-        if(!in_array($ext, $allowed_ext)){
-            die("Format thumbnail tidak valid");
-        }
-
-        $new = time().rand(100,999).".".$ext;
-
-        move_uploaded_file(
+        $gambar_produk = uploadUniqueImage(
             $_FILES['gambar_produk']['tmp_name'],
-            $upload_path.$new
+            $_FILES['gambar_produk']['name'],
+            $upload_path,
+            $allowed_ext
         );
-
-        $gambar_produk = $new;
     }
 
 
@@ -101,18 +125,12 @@ if(isset($_POST['simpan'])){
 
             if(!empty($_FILES['feature_image']['name'][$i])){
 
-                $ext = strtolower(pathinfo($_FILES['feature_image']['name'][$i], PATHINFO_EXTENSION));
-
-                if(!in_array($ext, $allowed_ext)) continue;
-
-                $new = time().$i.rand(10,99).".".$ext;
-
-                move_uploaded_file(
+                $img = uploadUniqueImage(
                     $_FILES['feature_image']['tmp_name'][$i],
-                    $upload_path.$new
+                    $_FILES['feature_image']['name'][$i],
+                    $upload_path,
+                    $allowed_ext
                 );
-
-                $img = $new;
             }
 
             $pdo->prepare("
@@ -173,26 +191,25 @@ if(isset($_POST['simpan'])){
 
             if(empty($name)) continue;
 
-            $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-
-            if(!in_array($ext, $allowed_ext)) continue;
-
-            $new = time().$i.rand(100,999).".".$ext;
-
-            move_uploaded_file(
+            $new = uploadUniqueImage(
                 $_FILES['gallery']['tmp_name'][$i],
-                $upload_path.$new
+                $name,
+                $upload_path,
+                $allowed_ext
             );
 
-            $pdo->prepare("
-                INSERT INTO produk_gallery
-                (produk_id, image, sort_order)
-                VALUES (?,?,?)
-            ")->execute([
-                $produk_id,
-                $new,
-                $i
-            ]);
+            if($new){
+
+                $pdo->prepare("
+                    INSERT INTO produk_gallery
+                    (produk_id, image, sort_order)
+                    VALUES (?,?,?)
+                ")->execute([
+                    $produk_id,
+                    $new,
+                    $i
+                ]);
+            }
         }
     }
 
