@@ -32,54 +32,50 @@ if(!is_dir($upload_path)){
 }
 
 
-/* ================= FUNCTION ================= */
+/* ================= FUNCTIONS ================= */
 
 function buat_slug($text){
-    return trim(
-        preg_replace('/[^a-z0-9]+/','-', strtolower($text)),
-        '-'
-    );
+    return trim(preg_replace('/[^a-z0-9]+/','-', strtolower($text)),'-');
 }
 
 
 /* Upload tanpa duplikat */
-function uploadUniqueImage($tmp, $name, $path, $allowed){
+function uploadUniqueImage($tmp,$name,$path,$allowed){
 
     if(empty($tmp)) return null;
 
-    $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+    $ext = strtolower(pathinfo($name,PATHINFO_EXTENSION));
 
-    if(!in_array($ext, $allowed)) return null;
+    if(!in_array($ext,$allowed)) return null;
 
     $hash = md5_file($tmp);
 
-    foreach(glob($path."*") as $file){
+    foreach(glob($path."*") as $f){
 
-        if(is_file($file) && md5_file($file) === $hash){
-            return basename($file);
+        if(is_file($f) && md5_file($f)===$hash){
+            return basename($f);
         }
     }
 
     $new = time().rand(100,999).".".$ext;
 
-    move_uploaded_file($tmp, $path.$new);
+    move_uploaded_file($tmp,$path.$new);
 
     return $new;
 }
 
 
-/* Auto delete file jika tidak dipakai */
-function deleteImageIfUnused($pdo,$file,$path){
+/* Hapus file jika tidak dipakai */
+function deleteIfUnused($pdo,$file,$path){
 
-    if(empty($file)) return;
+    if(!$file) return;
 
-    $q1 = $pdo->prepare("SELECT COUNT(*) FROM produk WHERE gambar=?");
+    $q1=$pdo->prepare("SELECT COUNT(*) FROM produk WHERE gambar=?");
+    $q2=$pdo->prepare("SELECT COUNT(*) FROM produk_features WHERE image=?");
+    $q3=$pdo->prepare("SELECT COUNT(*) FROM produk_gallery WHERE image=?");
+
     $q1->execute([$file]);
-
-    $q2 = $pdo->prepare("SELECT COUNT(*) FROM produk_features WHERE image=?");
     $q2->execute([$file]);
-
-    $q3 = $pdo->prepare("SELECT COUNT(*) FROM produk_gallery WHERE image=?");
     $q3->execute([$file]);
 
     if(
@@ -87,49 +83,52 @@ function deleteImageIfUnused($pdo,$file,$path){
         $q2->fetchColumn()==0 &&
         $q3->fetchColumn()==0
     ){
-        $f = $path.$file;
-
-        if(file_exists($f)){
-            unlink($f);
-        }
+        $f=$path.$file;
+        if(file_exists($f)) unlink($f);
     }
 }
+
 
 
 /* ================= LOAD DATA ================= */
 
 /* Produk */
-$p = $pdo->prepare("SELECT * FROM produk WHERE id=?");
+$p=$pdo->prepare("SELECT * FROM produk WHERE id=?");
 $p->execute([$id]);
-$produk = $p->fetch();
+$produk=$p->fetch();
 
 if(!$produk){
     header("Location: produk.php");
     exit;
 }
 
+
 /* Kategori */
-$cat = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAll();
+$cat=$pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll();
+
 
 /* Features */
-$fq = $pdo->prepare("SELECT * FROM produk_features WHERE produk_id=? ORDER BY sort_order");
+$fq=$pdo->prepare("SELECT * FROM produk_features WHERE produk_id=? ORDER BY sort_order");
 $fq->execute([$id]);
-$features = $fq->fetchAll();
+$features=$fq->fetchAll();
+
 
 /* Spec */
-$sq = $pdo->prepare("SELECT * FROM produk_spesifikasi WHERE produk_id=? ORDER BY grup,sort_order");
+$sq=$pdo->prepare("SELECT * FROM produk_spesifikasi WHERE produk_id=? ORDER BY grup,sort_order");
 $sq->execute([$id]);
-$specs = $sq->fetchAll();
+$specs=$sq->fetchAll();
 
-$grouped = [];
+$groups=[];
+
 foreach($specs as $s){
-    $grouped[$s['grup']][] = $s;
+    $groups[$s['grup']][]=$s;
 }
 
+
 /* Gallery */
-$gq = $pdo->prepare("SELECT * FROM produk_gallery WHERE produk_id=? ORDER BY sort_order");
+$gq=$pdo->prepare("SELECT * FROM produk_gallery WHERE produk_id=? ORDER BY sort_order");
 $gq->execute([$id]);
-$gallery = $gq->fetchAll();
+$gallery=$gq->fetchAll();
 
 
 
@@ -137,35 +136,41 @@ $gallery = $gq->fetchAll();
 
 if(isset($_POST['update'])){
 
-    $nama     = $_POST['nama'];
-    $kategori = $_POST['kategori'];
-    $slug     = buat_slug($nama);
+    $nama=$_POST['nama'];
+    $kategori=$_POST['kategori'];
+    $slug=buat_slug($nama);
 
 
-    /* ===== THUMBNAIL ===== */
+    /* SIMPAN FILE LAMA */
 
-    $old_thumb = $produk['gambar'];
-    $gambar = $old_thumb;
+    $old_thumb=$produk['gambar'];
+
+    $oldF=$pdo->query("SELECT image FROM produk_features WHERE produk_id=$id")
+             ->fetchAll(PDO::FETCH_COLUMN);
+
+    $oldG=$pdo->query("SELECT image FROM produk_gallery WHERE produk_id=$id")
+             ->fetchAll(PDO::FETCH_COLUMN);
+
+
+
+    /* THUMBNAIL */
+
+    $gambar=$old_thumb;
 
     if(!empty($_FILES['gambar_produk']['name'])){
 
-        $new = uploadUniqueImage(
+        $new=uploadUniqueImage(
             $_FILES['gambar_produk']['tmp_name'],
             $_FILES['gambar_produk']['name'],
             $upload_path,
             $allowed_ext
         );
 
-        if($new){
-
-            $gambar = $new;
-
-            deleteImageIfUnused($pdo,$old_thumb,$upload_path);
-        }
+        if($new) $gambar=$new;
     }
 
 
-    /* ===== UPDATE PRODUK ===== */
+    /* UPDATE PRODUK */
 
     $pdo->prepare("
         UPDATE produk SET
@@ -175,28 +180,12 @@ if(isset($_POST['update'])){
         gambar=?
         WHERE id=?
     ")->execute([
-        $kategori,
-        $nama,
-        $slug,
-        $gambar,
-        $id
+        $kategori,$nama,$slug,$gambar,$id
     ]);
 
 
 
-    /* ===== AMBIL GAMBAR LAMA ===== */
-
-    $oldFeatures = $pdo->prepare("SELECT image FROM produk_features WHERE produk_id=?");
-    $oldFeatures->execute([$id]);
-    $oldF = $oldFeatures->fetchAll(PDO::FETCH_COLUMN);
-
-    $oldGallery = $pdo->prepare("SELECT image FROM produk_gallery WHERE produk_id=?");
-    $oldGallery->execute([$id]);
-    $oldG = $oldGallery->fetchAll(PDO::FETCH_COLUMN);
-
-
-
-    /* ===== RESET ===== */
+    /* RESET */
 
     $pdo->prepare("DELETE FROM produk_features WHERE produk_id=?")->execute([$id]);
     $pdo->prepare("DELETE FROM produk_spesifikasi WHERE produk_id=?")->execute([$id]);
@@ -204,20 +193,20 @@ if(isset($_POST['update'])){
 
 
 
-    /* ===== FEATURES ===== */
+    /* FEATURES */
 
     if(!empty($_POST['feature_title'])){
 
         foreach($_POST['feature_title'] as $i=>$t){
 
-            if(empty($t)) continue;
+            if(!$t) continue;
 
-            $desc = $_POST['feature_desc'][$i];
-            $img  = null;
+            $desc=$_POST['feature_desc'][$i];
+            $img=null;
 
             if(!empty($_FILES['feature_image']['name'][$i])){
 
-                $img = uploadUniqueImage(
+                $img=uploadUniqueImage(
                     $_FILES['feature_image']['tmp_name'][$i],
                     $_FILES['feature_image']['name'][$i],
                     $upload_path,
@@ -237,26 +226,26 @@ if(isset($_POST['update'])){
 
 
 
-    /* ===== SPEC ===== */
+    /* SPEC */
 
     if(!empty($_POST['spec_group'])){
 
-        foreach($_POST['spec_group'] as $g=>$grup){
+        foreach($_POST['spec_group'] as $g=>$gr){
 
-            if(empty($grup)) continue;
+            if(!$gr) continue;
 
             foreach($_POST['spec_label'][$g] as $i=>$l){
 
-                if(empty($l)) continue;
+                if(!$l) continue;
 
-                $v = $_POST['spec_value'][$g][$i];
+                $v=$_POST['spec_value'][$g][$i];
 
                 $pdo->prepare("
                     INSERT INTO produk_spesifikasi
                     (produk_id,grup,label,nilai,sort_order)
                     VALUES (?,?,?,?,?)
                 ")->execute([
-                    $id,$grup,$l,$v,$i
+                    $id,$gr,$l,$v,$i
                 ]);
             }
         }
@@ -264,15 +253,15 @@ if(isset($_POST['update'])){
 
 
 
-    /* ===== GALLERY ===== */
+    /* GALLERY */
 
     if(!empty($_FILES['gallery']['name'][0])){
 
         foreach($_FILES['gallery']['name'] as $i=>$n){
 
-            if(empty($n)) continue;
+            if(!$n) continue;
 
-            $new = uploadUniqueImage(
+            $new=uploadUniqueImage(
                 $_FILES['gallery']['tmp_name'][$i],
                 $n,
                 $upload_path,
@@ -294,14 +283,16 @@ if(isset($_POST['update'])){
 
 
 
-    /* ===== HAPUS FILE LAMA ===== */
+    /* CLEAN FILE LAMA */
+
+    deleteIfUnused($pdo,$old_thumb,$upload_path);
 
     foreach($oldF as $f){
-        deleteImageIfUnused($pdo,$f,$upload_path);
+        deleteIfUnused($pdo,$f,$upload_path);
     }
 
     foreach($oldG as $g){
-        deleteImageIfUnused($pdo,$g,$upload_path);
+        deleteIfUnused($pdo,$g,$upload_path);
     }
 
 
@@ -323,6 +314,7 @@ if(isset($_POST['update'])){
 <div class="card">
 
 <form method="POST" enctype="multipart/form-data">
+
 
 <div class="form-group">
 <label>Nama Produk</label>
@@ -379,6 +371,7 @@ value="<?= htmlspecialchars($produk['nama_produk']); ?>" required>
 <?php endif; ?>
 
 <input type="file" name="gallery[]" multiple accept=".jpg,.jpeg,.png,.webp">
+
 </div>
 
 
@@ -393,6 +386,7 @@ Kembali
 </a>
 
 </div>
+
 
 </form>
 
