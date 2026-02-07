@@ -202,17 +202,18 @@ if(isset($_POST['update'])){
             if(!$t) continue;
 
             $desc=$_POST['feature_desc'][$i];
-            $img=null;
+            $img = $_POST['old_feature_image'][$i] ?? null;
 
             if(!empty($_FILES['feature_image']['name'][$i])){
 
-                $img=uploadUniqueImage(
+                $img = uploadUniqueImage(
                     $_FILES['feature_image']['tmp_name'][$i],
                     $_FILES['feature_image']['name'][$i],
                     $upload_path,
                     $allowed_ext
                 );
             }
+
 
             $pdo->prepare("
                 INSERT INTO produk_features
