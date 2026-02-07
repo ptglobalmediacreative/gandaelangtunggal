@@ -111,15 +111,22 @@ $admin = $stmt->fetchAll();
 
 <div class="action-group">
 
+<?php
+$isDeveloper = ($a['keterangan'] === 'Developer');
+$isSelf      = ($a['id'] == $_SESSION['admin_id']);
+?>
+
 <!-- EDIT -->
+<?php if(!$isDeveloper || $isSelf): ?>
 <a href="admin-edit.php?id=<?= $a['id']; ?>"
 class="btn-sm btn-warning"
 title="Edit">
 <i class="fa fa-edit"></i>
 </a>
+<?php endif; ?>
 
 <!-- DELETE -->
-<?php if($a['id'] != $_SESSION['admin_id']): ?>
+<?php if(!$isDeveloper && !$isSelf): ?>
 <a href="admin-hapus.php?id=<?= $a['id']; ?>"
 class="btn-sm btn-danger"
 title="Hapus"
@@ -129,6 +136,7 @@ onclick="return confirmDelete('<?= htmlspecialchars($a['nama']); ?>')">
 <?php endif; ?>
 
 </div>
+
 
 </td>
 
