@@ -239,7 +239,7 @@ Perempuan
 Update Data
 </button>
 
-<a href="sales-detail.php?id=<?= $id ?>"
+<a href="salesmanagement.php?id=<?= $id ?>"
 class="btn-secondary">
 Batal
 </a>
