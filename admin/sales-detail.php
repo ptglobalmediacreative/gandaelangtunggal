@@ -105,17 +105,20 @@ style="border-radius:10px;margin-top:6px;">
 </div>
 
 
-<div style="margin-top:35px;display:flex;gap:10px;">
+<div class="sales-detail-action">
 
-<a href="sales-edit.php?id=<?= $id ?>" class="btn-warning">
-Edit
+<a href="sales-edit.php?id=<?= $sales['id']; ?>"
+class="btn-primary">
+<i class="fa fa-edit"></i> Edit Data
 </a>
 
-<a href="salesmanagement.php" class="btn-secondary">
-Kembali
+<a href="salesmanagement.php"
+class="btn-secondary">
+<i class="fa fa-arrow-left"></i> Kembali
 </a>
 
 </div>
+
 
 </div>
 </div>
