@@ -24,6 +24,14 @@ function buat_slug($text){
 /* FORMAT GAMBAR */
 $allowed_ext = ['jpg','jpeg','png','webp'];
 
+/* FOLDER UPLOAD */
+$upload_path = "../images/uploads/produk/";
+
+if(!is_dir($upload_path)){
+    mkdir($upload_path, 0777, true);
+}
+
+
 
 /* ================= SIMPAN ================= */
 
@@ -33,6 +41,7 @@ if(isset($_POST['simpan'])){
     $kategori = $_POST['kategori'];
 
     $slug = buat_slug($nama);
+
 
 
     /* ================= THUMBNAIL ================= */
@@ -51,11 +60,12 @@ if(isset($_POST['simpan'])){
 
         move_uploaded_file(
             $_FILES['gambar_produk']['tmp_name'],
-            "../upload/produk/".$new
+            $upload_path.$new
         );
 
         $gambar_produk = $new;
     }
+
 
 
     /* ================= SIMPAN PRODUK ================= */
@@ -99,7 +109,7 @@ if(isset($_POST['simpan'])){
 
                 move_uploaded_file(
                     $_FILES['feature_image']['tmp_name'][$i],
-                    "../upload/features/".$new
+                    $upload_path.$new
                 );
 
                 $img = $new;
@@ -171,7 +181,7 @@ if(isset($_POST['simpan'])){
 
             move_uploaded_file(
                 $_FILES['gallery']['tmp_name'][$i],
-                "../upload/gallery/".$new
+                $upload_path.$new
             );
 
             $pdo->prepare("
@@ -185,6 +195,7 @@ if(isset($_POST['simpan'])){
             ]);
         }
     }
+
 
 
     header("Location: produk.php?status=sukses");
@@ -208,7 +219,7 @@ if(isset($_POST['simpan'])){
 <form method="POST" enctype="multipart/form-data">
 
 
-<!-- ================= BASIC ================= -->
+<!-- BASIC -->
 
 <div class="form-group">
     <label>Nama Produk</label>
@@ -243,28 +254,22 @@ if(isset($_POST['simpan'])){
 
 
 
-<!-- ================= GALLERY ================= -->
+<!-- GALLERY -->
 
 <h3 style="margin-top:25px;">Gallery</h3>
 
 <div class="form-group">
-
-    <label>Upload Banyak Gambar</label>
 
     <input type="file"
            name="gallery[]"
            multiple
            accept=".jpg,.jpeg,.png,.webp">
 
-    <small style="color:#64748b;">
-        Bisa pilih banyak gambar sekaligus
-    </small>
-
 </div>
 
 
 
-<!-- ================= FEATURES ================= -->
+<!-- FEATURES -->
 
 <h3 style="margin-top:25px;">Features</h3>
 
@@ -295,7 +300,7 @@ if(isset($_POST['simpan'])){
 
 
 
-<!-- ================= SPEC ================= -->
+<!-- SPEC -->
 
 <h3 style="margin-top:30px;">Specifications</h3>
 
@@ -349,7 +354,7 @@ if(isset($_POST['simpan'])){
 
 
 
-<!-- ================= ACTION ================= -->
+<!-- ACTION -->
 
 <div style="margin-top:30px;">
 
@@ -372,7 +377,7 @@ Kembali
 
 
 
-<!-- ================= SCRIPT ================= -->
+<!-- SCRIPT -->
 
 <script>
 
