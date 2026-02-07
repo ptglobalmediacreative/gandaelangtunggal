@@ -29,7 +29,7 @@ if(!$sales){
     exit;
 }
 
-$upload = "../images/uploads/sales/";
+$upload = "../images/uploads/data-sales/";
 ?>
 
 <?php include "header.php"; ?>
@@ -69,7 +69,7 @@ $upload = "../images/uploads/sales/";
 
 <tr>
 <td><b>Jenis Kelamin</b></td>
-<td><?= $sales['jk']; ?></td>
+<td><?= $sales['jenis_kelamin']; ?></td>
 </tr>
 
 </table>
