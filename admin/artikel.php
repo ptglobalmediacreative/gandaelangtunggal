@@ -59,7 +59,7 @@ $artikel = $stmt->fetchAll();
     <h3>Daftar Artikel</h3>
 
     <a href="artikel-tambah.php" class="btn-primary">
-        <i class="fa fa-plus"></i> Tambah Artikel
+     Tambah Artikel
     </a>
 
 </div>
