@@ -5,24 +5,28 @@ ini_set('display_errors', 1);
 session_start();
 require_once __DIR__ . "/config.php";
 
-// Cek login
+/* CEK LOGIN */
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Ambil kategori
+/* AMBIL KATEGORI */
 $cat = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAll();
 
-// Slug
+/* SLUG */
 function buat_slug($text){
     $text = strtolower($text);
     $text = preg_replace('/[^a-z0-9]+/', '-', $text);
     return trim($text, '-');
 }
 
+/* FORMAT GAMBAR BOLEH */
+$allowed_ext = ['jpg','jpeg','png','webp'];
 
-// ================= SIMPAN =================
+
+/* ================= SIMPAN ================= */
+
 if(isset($_POST['simpan'])){
 
     $nama     = $_POST['nama'];
@@ -31,12 +35,18 @@ if(isset($_POST['simpan'])){
     $slug = buat_slug($nama);
 
 
-    /* Upload Thumbnail */
+    /* ================= UPLOAD THUMBNAIL ================= */
+
     $gambar_produk = null;
 
     if(!empty($_FILES['gambar_produk']['name'])){
 
-        $ext = pathinfo($_FILES['gambar_produk']['name'], PATHINFO_EXTENSION);
+        $ext = strtolower(pathinfo($_FILES['gambar_produk']['name'], PATHINFO_EXTENSION));
+
+        if(!in_array($ext, $allowed_ext)){
+            die("Format gambar utama harus jpg, jpeg, png, atau webp");
+        }
+
         $new = time().rand(100,999).".".$ext;
 
         move_uploaded_file(
@@ -48,7 +58,8 @@ if(isset($_POST['simpan'])){
     }
 
 
-    // ================= SIMPAN PRODUK =================
+    /* ================= SIMPAN PRODUK ================= */
+
     $stmt = $pdo->prepare("
         INSERT INTO produk
         (category_id, nama_produk, slug, gambar)
@@ -66,7 +77,8 @@ if(isset($_POST['simpan'])){
 
 
 
-    // ================= SIMPAN FEATURES =================
+    /* ================= SIMPAN FEATURES ================= */
+
     if(!empty($_POST['feature_title'])){
 
         foreach($_POST['feature_title'] as $i => $title){
@@ -79,7 +91,12 @@ if(isset($_POST['simpan'])){
 
             if(!empty($_FILES['feature_image']['name'][$i])){
 
-                $ext = pathinfo($_FILES['feature_image']['name'][$i], PATHINFO_EXTENSION);
+                $ext = strtolower(pathinfo($_FILES['feature_image']['name'][$i], PATHINFO_EXTENSION));
+
+                if(!in_array($ext, $allowed_ext)){
+                    continue;
+                }
+
                 $new = time().$i.rand(10,99).".".$ext;
 
                 move_uploaded_file(
@@ -107,7 +124,8 @@ if(isset($_POST['simpan'])){
 
 
 
-    // ================= SIMPAN SPECIFICATION =================
+    /* ================= SIMPAN SPEC ================= */
+
     if(!empty($_POST['spec_group'])){
 
         foreach($_POST['spec_group'] as $g => $group){
@@ -146,15 +164,18 @@ if(isset($_POST['simpan'])){
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>
 
+
 <div class="main-content">
 
 <div class="topbar">
     <h2>Tambah Produk</h2>
 </div>
 
+
 <div class="card">
 
 <form method="POST" enctype="multipart/form-data">
+
 
 <!-- ================= BASIC ================= -->
 
@@ -163,8 +184,10 @@ if(isset($_POST['simpan'])){
     <input type="text" name="nama" required>
 </div>
 
+
 <div class="form-group">
     <label>Kategori</label>
+
     <select name="kategori" required>
 
         <option value="">-- Pilih Kategori --</option>
@@ -178,10 +201,15 @@ if(isset($_POST['simpan'])){
     </select>
 </div>
 
+
 <div class="form-group">
     <label>Gambar Utama</label>
-    <input type="file" name="gambar_produk">
+
+    <input type="file"
+           name="gambar_produk"
+           accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
 </div>
+
 
 
 <!-- ================= FEATURES ================= -->
@@ -190,43 +218,53 @@ if(isset($_POST['simpan'])){
 
 <div id="feature-wrapper">
 
+
 <div class="feature-row">
 
     <input type="text" name="feature_title[]" placeholder="Judul Feature">
 
     <textarea name="feature_desc[]" placeholder="Deskripsi Feature"></textarea>
 
-    <input type="file" name="feature_image[]">
+    <input type="file"
+           name="feature_image[]"
+           accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
 
     <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
 
 </div>
 
+
 </div>
+
 
 <button type="button" onclick="addFeature()" class="btn-add">
 + Tambah Feature
 </button>
 
 
-<!-- ================= SPECIFICATION ================= -->
+
+<!-- ================= SPEC ================= -->
 
 <h3 style="margin-top:30px;">Specifications</h3>
 
+
 <div id="spec-wrapper">
 
+
 <!-- DEFAULT GROUP -->
+
 <div class="spec-group">
 
 <div class="spec-header">
 
-<input type="text" name="spec_group[]" 
-       placeholder="Nama Group (Engine, Dimension, dll)" 
+<input type="text"
+       name="spec_group[]"
+       placeholder="Nama Group (Engine, Dimension, dll)"
        class="spec-title">
 
 <button type="button"
         onclick="removeSpecGroup(this)"
-        class="btn-remove-group">✕</button>
+        class="btn-remove">✕</button>
 
 </div>
 
@@ -261,7 +299,7 @@ if(isset($_POST['simpan'])){
 
 
 
-<!-- ================= BUTTON ================= -->
+<!-- ================= ACTION ================= -->
 
 <div style="margin-top:30px;">
 
@@ -275,11 +313,13 @@ Kembali
 
 </div>
 
+
 </form>
 
 </div>
 
 </div>
+
 
 
 <!-- ================= SCRIPT ================= -->
@@ -289,7 +329,8 @@ Kembali
 let specIndex = 1;
 
 
-// ================= FEATURE =================
+/* ================= FEATURE ================= */
+
 function addFeature(){
 
     let div = document.createElement("div");
@@ -300,7 +341,9 @@ function addFeature(){
 
         <textarea name="feature_desc[]" placeholder="Deskripsi Feature"></textarea>
 
-        <input type="file" name="feature_image[]">
+        <input type="file"
+               name="feature_image[]"
+               accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
 
         <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
     `;
@@ -314,7 +357,8 @@ function removeFeature(btn){
 
 
 
-// ================= SPEC =================
+/* ================= SPEC ================= */
+
 function addSpecGroup(){
 
     let div = document.createElement("div");
@@ -323,13 +367,14 @@ function addSpecGroup(){
     div.innerHTML = `
         <div class="spec-header">
 
-            <input type="text" name="spec_group[]" 
-                   placeholder="Nama Group" 
+            <input type="text"
+                   name="spec_group[]"
+                   placeholder="Nama Group"
                    class="spec-title">
 
             <button type="button"
                     onclick="removeSpecGroup(this)"
-                    class="btn-remove-group">✕</button>
+                    class="btn-remove">✕</button>
 
         </div>
 
@@ -388,6 +433,7 @@ function removeSpecGroup(btn){
 }
 
 </script>
+
 
 </body>
 </html>
