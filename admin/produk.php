@@ -97,7 +97,7 @@ $produk = $stmt->fetchAll();
                 <td>
                 <div class="action-group">
 
-                    <a href="product-detail.php?id=<?= $p['id']; ?>"
+                    <a href="produk-detail.php?id=<?= $p['id']; ?>"
                     class="btn-sm btn-info btn-tooltip">
                         <i class="fa fa-eye"></i>
                     </a>
