@@ -12,22 +12,8 @@ if(!cekAkses('user')){
 
 $error = "";
 
-/* DAFTAR MENU */
-$menuList = [
-  "dashboard" => "Dashboard",
-  "produk"    => "Produk",
-  "artikel"   => "Artikel",
-  "pesan"     => "Pesan",
-  "simulasi"  => "Simulasi",
-  "user"      => "User Admin",
-  "leads"     => "Leads",
-  "sales"     => "Sales Activity",
-  "stock"     => "Stock",
-  "delivery"  => "Delivery"
-];
 
-
-/* SIMPAN DATA */
+/* SIMPAN */
 if(isset($_POST['simpan'])){
 
   $nama       = trim($_POST['nama']);
@@ -36,7 +22,18 @@ if(isset($_POST['simpan'])){
   $password   = $_POST['password'];
   $keterangan = trim($_POST['keterangan']);
 
-  $akses = $_POST['akses'] ?? [];
+  /* AKSES */
+  $akses_dashboard = isset($_POST['akses_dashboard']) ? 1 : 0;
+  $akses_produk    = isset($_POST['akses_produk']) ? 1 : 0;
+  $akses_artikel   = isset($_POST['akses_artikel']) ? 1 : 0;
+  $akses_pesan     = isset($_POST['akses_pesan']) ? 1 : 0;
+  $akses_simulasi  = isset($_POST['akses_simulasi']) ? 1 : 0;
+  $akses_user      = isset($_POST['akses_user']) ? 1 : 0;
+  $akses_leads     = isset($_POST['akses_leads']) ? 1 : 0;
+  $akses_sales     = isset($_POST['akses_sales']) ? 1 : 0;
+  $akses_stock     = isset($_POST['akses_stock']) ? 1 : 0;
+  $akses_delivery  = isset($_POST['akses_delivery']) ? 1 : 0;
+
 
   if(!$nama || !$no_hp || !$password){
 
@@ -46,12 +43,17 @@ if(isset($_POST['simpan'])){
 
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $akses_json = json_encode($akses);
-
     $stmt = $pdo->prepare("
       INSERT INTO admin
-      (nama,no_hp,email,password,keterangan,akses,created_at)
-      VALUES (?,?,?,?,?,?,NOW())
+      (
+        nama,no_hp,email,password,keterangan,
+        akses_dashboard,akses_produk,akses_artikel,
+        akses_pesan,akses_simulasi,akses_user,
+        akses_leads,akses_sales,akses_stock,akses_delivery,
+        created_at
+      )
+      VALUES
+      (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())
     ");
 
     $stmt->execute([
@@ -60,11 +62,22 @@ if(isset($_POST['simpan'])){
       $email,
       $hash,
       $keterangan,
-      $akses_json
+
+      $akses_dashboard,
+      $akses_produk,
+      $akses_artikel,
+      $akses_pesan,
+      $akses_simulasi,
+      $akses_user,
+      $akses_leads,
+      $akses_sales,
+      $akses_stock,
+      $akses_delivery
     ]);
 
     header("Location: admin.php?status=add");
     exit;
+
   }
 
 }
@@ -99,14 +112,11 @@ if(isset($_POST['simpan'])){
 </div>
 
 
-<!-- CONTENT -->
 <div class="card admin-form">
 
 
 <?php if($error): ?>
-<div class="alert-error">
-  <?= $error; ?>
-</div>
+<div class="alert-error"><?= $error ?></div>
 <?php endif; ?>
 
 
@@ -151,18 +161,20 @@ if(isset($_POST['simpan'])){
 <!-- AKSES -->
 <div class="form-group">
 
-<label>Hak Akses Menu</label>
+<label>Hak Akses</label>
 
 <div class="akses-box">
 
-<?php foreach($menuList as $key=>$val): ?>
-
-<label>
-<input type="checkbox" name="akses[]" value="<?= $key ?>">
-<?= $val ?>
-</label>
-
-<?php endforeach; ?>
+<label><input type="checkbox" name="akses_dashboard"> Dashboard</label>
+<label><input type="checkbox" name="akses_produk"> Produk</label>
+<label><input type="checkbox" name="akses_artikel"> Artikel</label>
+<label><input type="checkbox" name="akses_pesan"> Pesan</label>
+<label><input type="checkbox" name="akses_simulasi"> Simulasi</label>
+<label><input type="checkbox" name="akses_user"> User Admin</label>
+<label><input type="checkbox" name="akses_leads"> Leads</label>
+<label><input type="checkbox" name="akses_sales"> Sales</label>
+<label><input type="checkbox" name="akses_stock"> Stock</label>
+<label><input type="checkbox" name="akses_delivery"> Delivery</label>
 
 </div>
 
