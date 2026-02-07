@@ -1,20 +1,29 @@
 <?php
-// config.php
+// config.php (PDO Version)
 
-// Konfigurasi Database
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $host = "localhost";
-$user = "u166903321_get";       // username database
-$pass = "Natanael110405";           // password database
-$db   = "u166903321_get"; // ganti dengan nama database kamu
+$db   = "u166903321_get";
+$user = "u166903321_get";
+$pass = "Natanael110405";
 
-// Membuat koneksi
-$koneksi = mysqli_connect($host, $user, $pass, $db);
+try {
 
-// Cek koneksi
-if (!$koneksi) {
-    die("Koneksi database gagal: " . mysqli_connect_error());
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$db;charset=utf8mb4",
+        $user,
+        $pass,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ]
+    );
+
+} catch (PDOException $e) {
+
+    die("Koneksi database gagal: " . $e->getMessage());
+
 }
-
-// Set timezone (opsional)
-date_default_timezone_set("Asia/Jakarta");
-?>
