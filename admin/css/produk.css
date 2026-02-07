@@ -1,0 +1,24 @@
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.badge-success {
+  background: #4caf50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.badge-danger {
+  background: #f44336;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
