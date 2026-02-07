@@ -1,12 +1,12 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors',1);
 
 require_once "auth.php";
 require_once "config.php";
 
 /* CEK AKSES */
-if (!cekAkses('leads')) {
+if(!cekAkses('leads')){
     die("Akses ditolak!");
 }
 
@@ -51,11 +51,14 @@ $leads = $stmt->fetchAll();
 <!-- CONTENT -->
 <div class="card">
 
-
 <!-- HEADER -->
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
 
     <h3>Daftar Leads</h3>
+
+    <a href="leads-tambah.php" class="btn-primary">
+        Tambah Leads
+    </a>
 
 </div>
 
@@ -67,14 +70,14 @@ $leads = $stmt->fetchAll();
 
 <thead>
 <tr>
-    <th width="50">No</th>
+    <th width="60">No</th>
     <th>Nama Perusahaan</th>
     <th>Nama PIC</th>
     <th>No PIC</th>
     <th>Email PIC</th>
-    <th>NPWP</th>
     <th>Sales</th>
-    <th width="120">Aksi</th>
+    <th width="160">Tanggal</th>
+    <th width="180">Aksi</th>
 </tr>
 </thead>
 
@@ -97,25 +100,11 @@ $leads = $stmt->fetchAll();
 
 <td><?= htmlspecialchars($l['email_pic']); ?></td>
 
-
-<!-- NPWP IMAGE -->
-<td>
-
-<?php if(!empty($l['npwp_image'])): ?>
-
-<img src="../images/uploads/npwp/<?= $l['npwp_image']; ?>"
-     style="width:60px;height:60px;object-fit:cover;border-radius:8px;cursor:pointer;"
-     onclick="previewImage(this.src)">
-
-<?php else: ?>
--
-<?php endif; ?>
-
-</td>
-
-
 <td><?= htmlspecialchars($l['sales']); ?></td>
 
+<td>
+<?= date('d M Y H:i', strtotime($l['created_at'])); ?>
+</td>
 
 <td>
 
@@ -126,6 +115,13 @@ $leads = $stmt->fetchAll();
 class="btn-sm btn-info"
 title="Detail">
 <i class="fa fa-eye"></i>
+</a>
+
+<!-- EDIT -->
+<a href="leads-edit.php?id=<?= $l['id']; ?>"
+class="btn-sm btn-warning"
+title="Edit">
+<i class="fa fa-edit"></i>
 </a>
 
 <!-- DELETE -->
@@ -165,57 +161,15 @@ Belum ada data leads
 </div>
 
 
-<!-- MODAL PREVIEW IMAGE -->
-<div id="imgModal" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-right:0;
-bottom:0;
-background:rgba(0,0,0,0.8);
-z-index:9999;
-justify-content:center;
-align-items:center;
-">
-
-<img id="modalImg" style="
-max-width:90%;
-max-height:90%;
-border-radius:12px;
-box-shadow:0 0 30px rgba(255,255,255,0.2);
-">
-
-</div>
-
-
 <script>
-
-/* CONFIRM DELETE */
 function confirmDelete(nama){
 
     return confirm(
-        "Yakin ingin menghapus data leads ini?\n\n" +
+        "Yakin ingin menghapus leads ini?\n\n" +
         "Perusahaan: " + nama
     );
+
 }
-
-
-/* PREVIEW IMAGE */
-function previewImage(src){
-
-    document.getElementById("modalImg").src = src;
-    document.getElementById("imgModal").style.display = "flex";
-}
-
-
-/* CLOSE MODAL */
-document.getElementById("imgModal").addEventListener("click", function(){
-
-    this.style.display = "none";
-
-});
-
 </script>
 
 
