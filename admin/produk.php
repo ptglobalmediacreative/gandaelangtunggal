@@ -82,7 +82,7 @@ $produk = $stmt->fetchAll();
 
                 <td>
                     <?php if(!empty($p['gambar'])): ?>
-                        <img src="../upload/produk/<?= $p['gambar']; ?>"
+                        <img src="../images/uploads/produk/<?= $p['gambar']; ?>"
                              width="60" height="60"
                              style="object-fit:cover;border-radius:6px;">
                     <?php else: ?>
