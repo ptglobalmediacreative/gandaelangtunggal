@@ -119,10 +119,20 @@ $admin_pages = [
 
 
 <!-- ================= LEADS ================= -->
+<?php
+$leads_pages = [
+  'leads.php',
+  'leads-tambah.php',
+  'leads-edit.php',
+  'leads-detail.php',
+  'leads-hapus.php'
+];
+?>
+
 <?php if(akses('leads')): ?>
 <li>
   <a href="leads.php"
-     class="<?= $current=='leads.php'?'active':'' ?>">
+     class="<?= in_array($current,$leads_pages)?'active':'' ?>">
     <i class="fa-solid fa-user-plus icon"></i>
     <span>Leads Customer</span>
   </a>
