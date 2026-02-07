@@ -52,7 +52,7 @@ $produk = $stmt->fetchAll();
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
         <h3>Daftar Produk</h3>
 
-        <a href="produk_tambah.php" class="btn-primary">
+        <a href="produk-tambah.php" class="btn-primary">
             <i class="fa fa-plus"></i> Tambah Produk
         </a>
     </div>
