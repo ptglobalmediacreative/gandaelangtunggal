@@ -108,7 +108,8 @@ $produk = $stmt->fetchAll();
                     </a>
 
                     <a href="produk-hapus.php?id=<?= $p['id']; ?>"
-                    class="btn-sm btn-danger btn-tooltip">
+                    class="btn-sm btn-danger btn-tooltip"
+                    onclick="return confirmDelete('<?= htmlspecialchars($p['nama_produk']); ?>')">
                         <i class="fa fa-trash"></i>
                     </a>
 
@@ -135,6 +136,18 @@ $produk = $stmt->fetchAll();
 </div>
 
 </div>
+
+<script>
+function confirmDelete(nama){
+
+    return confirm(
+        "Yakin ingin menghapus produk ini?\n\n" +
+        "Nama Produk: " + nama
+    );
+
+}
+</script>
+
 
 </body>
 </html>
