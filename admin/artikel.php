@@ -101,21 +101,18 @@ $artikel = $stmt->fetchAll();
 <?php endif; ?>
 </td>
 
-
 <td>
 <?= htmlspecialchars($a['judul']); ?>
 </td>
 
 
-<td>
+<td class="article-desc">
 <?= substr(strip_tags($a['deskripsi']),0,100); ?>...
 </td>
 
-
-<td>
+<td class="article-date">
 <?= date('d M Y H:i', strtotime($a['created_at'])); ?>
 </td>
-
 
 <td>
 
