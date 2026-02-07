@@ -65,18 +65,40 @@ $current = basename($_SERVER['PHP_SELF']);
     </li>
 
     <!-- Pesan -->
+    <?php
+    $pesan_pages = [
+      'pesan.php',
+      'pesan-detail.php',
+      'pesan-hapus.php'
+    ];
+    ?>
+
     <li>
-      <a href="pesan.php" class="<?= $current=='pesan.php'?'active':'' ?>">
+      <a href="pesan.php"
+        class="<?= in_array($current, $pesan_pages) ? 'active' : '' ?>">
+
         <i class="fa-solid fa-comments icon"></i>
         <span>Pesan</span>
+
       </a>
     </li>
 
     <!-- Simulasi -->
+    <?php
+    $simulasi_pages = [
+      'simulasi.php',
+      'simulasi-detail.php',
+      'simulasi-hapus.php'
+    ];
+    ?>
+
     <li>
-      <a href="simulasi.php" class="<?= $current=='simulasi.php'?'active':'' ?>">
+      <a href="simulasi.php"
+        class="<?= in_array($current, $simulasi_pages) ? 'active' : '' ?>">
+
         <i class="fa-solid fa-calculator icon"></i>
         <span>Simulasi Kredit</span>
+
       </a>
     </li>
 
