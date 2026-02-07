@@ -233,3 +233,40 @@
 .btn-remove:hover {
   background: #dc2626;
 }
+
+/* SPEC */
+
+.spec-group {
+  border: 1px solid #e2e8f0;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: #f8fafc;
+}
+
+.spec-title {
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.btn-add-small {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.btn-add-small:hover {
+  background: #16a34a;
+}
