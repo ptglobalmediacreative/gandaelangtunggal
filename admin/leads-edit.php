@@ -31,7 +31,7 @@ if(!$leads){
 }
 
 
-$upload_path = "../images/uploads/data-customer/";
+$upload_path = "/uploads/data-customer/";
 
 if(!is_dir($upload_path)){
     mkdir($upload_path,0777,true);

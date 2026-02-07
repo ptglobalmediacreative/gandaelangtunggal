@@ -18,7 +18,6 @@ if(!is_dir($upload_path)){
 }
 
 $error = "";
-$success = "";
 
 
 /* ================= SIMPAN ================= */
@@ -36,6 +35,7 @@ if(isset($_POST['simpan'])){
     $harga      = trim($_POST['harga']);
     $pembayaran = trim($_POST['pembayaran']);
     $tgl_kirim  = $_POST['tanggal_kirim'];
+    $keterangan = trim($_POST['keterangan']); // OPTIONAL
 
 
     /* VALIDASI */
@@ -47,35 +47,37 @@ if(isset($_POST['simpan'])){
     }else{
 
 
-        /* ================= UPLOAD DOKUMEN ================= */
+        /* ================= UPLOAD MULTI DOKUMEN ================= */
 
-        $dokumen = null;
+        $dokumen_files = [];
 
-        if(!empty($_FILES['dokumen_pt']['name'])){
+        if(!empty($_FILES['dokumen_pt']['name'][0])){
 
             $allowed = ['jpg','jpeg','png','pdf'];
 
-            $ext = strtolower(pathinfo(
-                $_FILES['dokumen_pt']['name'],
-                PATHINFO_EXTENSION
-            ));
+            foreach($_FILES['dokumen_pt']['name'] as $i => $name){
 
-            if(!in_array($ext,$allowed)){
+                if(empty($name)) continue;
 
-                $error = "Format dokumen harus JPG / PNG / PDF";
+                $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
 
-            }else{
+                if(!in_array($ext,$allowed)){
+                    continue;
+                }
 
-                $new_name = "DOC_".time()."_".rand(100,999).".".$ext;
+                $new_name = "DOC_".time()."_".rand(100,999)."_".$i.".".$ext;
 
-                move_uploaded_file(
-                    $_FILES['dokumen_pt']['tmp_name'],
+                if(move_uploaded_file(
+                    $_FILES['dokumen_pt']['tmp_name'][$i],
                     $upload_path.$new_name
-                );
-
-                $dokumen = $new_name;
+                )){
+                    $dokumen_files[] = $new_name;
+                }
             }
         }
+
+        // Gabung jadi string (dipisah koma)
+        $dokumen = implode(",", $dokumen_files);
 
 
         /* ================= SIMPAN DB ================= */
@@ -97,10 +99,11 @@ if(isset($_POST['simpan'])){
                     pembayaran,
                     tanggal_kirim,
                     dokumen_pt,
+                    keterangan,
                     created_at
                 )
                 VALUES
-                (?,?,?,?,?,?,?,?,?,?,?,?,NOW())
+                (?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())
             ");
 
             $stmt->execute([
@@ -115,7 +118,8 @@ if(isset($_POST['simpan'])){
                 $harga,
                 $pembayaran,
                 $tgl_kirim,
-                $dokumen
+                $dokumen,
+                $keterangan
             ]);
 
             header("Location: delivery.php?status=add");
@@ -225,17 +229,10 @@ if(isset($_POST['simpan'])){
 </div>
 
 
+<!-- PEMBAYARAN (TEXT) -->
 <div class="form-group">
 <label>Pembayaran</label>
-
-<select name="pembayaran">
-
-<option value="">-- Pilih --</option>
-<option value="Cash">Cash</option>
-<option value="Kredit">Kredit</option>
-<option value="Transfer">Transfer</option>
-
-</select>
+<input type="text" name="pembayaran" placeholder="Contoh: Cash / Kredit / Transfer">
 </div>
 
 
@@ -245,10 +242,20 @@ if(isset($_POST['simpan'])){
 </div>
 
 
-<!-- DOKUMEN -->
+<!-- MULTI DOKUMEN -->
 <div class="form-group">
-<label>Dokumen PT (JPG / PNG / PDF)</label>
-<input type="file" name="dokumen_pt" accept=".jpg,.jpeg,.png,.pdf">
+<label>Dokumen PT (Bisa Lebih Dari 1)</label>
+<input type="file"
+       name="dokumen_pt[]"
+       multiple
+       accept=".jpg,.jpeg,.png,.pdf">
+</div>
+
+
+<!-- KETERANGAN -->
+<div class="form-group">
+<label>Keterangan (Optional)</label>
+<textarea name="keterangan" placeholder="Catatan tambahan..."></textarea>
 </div>
 
 

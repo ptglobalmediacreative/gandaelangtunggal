@@ -19,7 +19,7 @@ if(!isset($_GET['id'])){
 
 $id = (int)$_GET['id'];
 
-$upload_path = "../images/uploads/data-customer/";
+$upload_path = "/uploads/data-customer/";
 
 
 /* AMBIL DATA */

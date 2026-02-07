@@ -30,7 +30,7 @@ if(!$sales){
 
 
 /* FOLDER FILE */
-$upload_dir = "../images/uploads/data-sales/";
+$upload_dir = "/uploads/data-sales/";
 
 
 /* ================= HAPUS FILE ================= */

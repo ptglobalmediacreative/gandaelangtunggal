@@ -29,7 +29,7 @@ if(!$sales){
     exit;
 }
 
-$upload = "../images/uploads/data-sales/";
+$upload = "/uploads/data-sales/";
 ?>
 
 <?php include "header.php"; ?>

@@ -13,7 +13,7 @@ if(!cekAkses('sales')){
 $error = "";
 
 /* FOLDER UPLOAD */
-$upload_path = "../images/uploads/data-sales/";
+$upload_path = "/uploads/data-sales/";
 
 if(!is_dir($upload_path)){
     mkdir($upload_path,0777,true);
