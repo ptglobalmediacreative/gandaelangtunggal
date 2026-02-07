@@ -55,7 +55,7 @@ $artikel = $stmt->fetchAll();
     <th width="90">Gambar</th>
     <th>Judul</th>
     <th>Deskripsi</th>
-    <th width="150">Tanggal & Waktu</th>
+    <th width="150">Tanggal</th>
     <th width="150">Aksi</th>
 </tr>
 </thead>
