@@ -1,24 +1,131 @@
+/* ===============================
+   TABLE ADMIN STYLE
+=============================== */
+
 .data-table {
   width: 100%;
   border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
 }
 
-.data-table th,
+/* Header */
+.data-table thead {
+  background: linear-gradient(135deg, #1e293b, #334155);
+}
+
+.data-table thead th {
+  color: #ffffff;
+  font-weight: 600;
+  padding: 14px 12px;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+/* Body */
+.data-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.data-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+/* Hover */
+.data-table tbody tr:hover {
+  background: #e0f2fe;
+  transform: scale(1.003);
+}
+
+/* Cell */
 .data-table td {
   padding: 12px;
-  border-bottom: 1px solid #eee;
+  color: #1e293b;
+  vertical-align: middle;
 }
 
-.badge-success {
-  background: #4caf50;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
+/* Image */
+.data-table img {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 2px;
+  background: #fff;
 }
 
-.badge-danger {
-  background: #f44336;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
+/* ===============================
+   BUTTON STYLE
+=============================== */
+
+.btn-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Edit */
+.btn-warning {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.btn-warning:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+}
+
+/* Delete */
+.btn-danger {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   CARD CONTAINER
+=============================== */
+
+.card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  margin-bottom: 25px;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+
+@media (max-width: 768px) {
+  .data-table {
+    font-size: 13px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 10px 8px;
+  }
+
+  .btn-sm {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
 }
