@@ -46,8 +46,12 @@ function tolakAkses(){
 
     echo "
     <script>
-        alert('Maaf, akses ditolak!');
-        window.location.href = 'dashboard.php';
+        alert('Maaf, Akses Ditolak!');
+        if(document.referrer){
+            window.location.href = document.referrer;
+        }else{
+            window.location.href = 'dashboard.php';
+        }
     </script>
     ";
     exit;
