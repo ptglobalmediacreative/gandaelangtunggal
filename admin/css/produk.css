@@ -132,7 +132,7 @@
 
 /* Tambah Produk */
 /* ===============================
-   ADMIN FORM - ENTERPRISE STYLE
+   ADMIN FORM - ENTERPRISE UI
 =============================== */
 
 :root {
@@ -141,7 +141,7 @@
   --secondary: #64748b;
   --success: #16a34a;
   --danger: #dc2626;
-  --danger-dark: #b91c1c;
+  --danger-dark: #991b1b;
   --info: #0ea5e9;
   --light: #f8fafc;
   --border: #e2e8f0;
@@ -156,7 +156,7 @@
 .card {
   background: #ffffff;
   border-radius: 20px;
-  padding: 30px;
+  padding: 32px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
 }
 
@@ -222,8 +222,7 @@
 .btn-secondary,
 .btn-add,
 .btn-add-small,
-.btn-remove,
-.btn-remove-group {
+.btn-remove {
   border: none;
   border-radius: 12px;
   font-size: 13px;
@@ -233,7 +232,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 /* ===============================
@@ -249,7 +248,7 @@
 .btn-primary:hover {
   background: linear-gradient(135deg, #1e40af, #1e3a8a);
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
 .btn-secondary {
@@ -263,64 +262,41 @@
 }
 
 /* ===============================
-   ADD BUTTON
+   ADD BUTTON (RIGHT SIDE)
 =============================== */
 
-.btn-add {
+.btn-add,
+.btn-add-small {
   background: linear-gradient(135deg, #0ea5e9, #0284c7);
   color: #ffffff;
-  padding: 9px 18px;
-  margin-top: 6px;
+  padding: 8px 16px;
+  margin-top: 8px;
+  margin-left: auto; /* RATA KANAN */
+  display: flex;
 }
 
-.btn-add:hover {
+.btn-add:hover,
+.btn-add-small:hover {
   background: linear-gradient(135deg, #0284c7, #0369a1);
   transform: translateY(-1px);
 }
 
-.btn-add-small {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: #ffffff;
-  padding: 7px 14px;
-  margin-top: 6px;
-}
-
-.btn-add-small:hover {
-  background: linear-gradient(135deg, #16a34a, #15803d);
-}
-
 /* ===============================
-   DELETE BUTTON
+   DELETE BUTTON (UNIFIED STYLE)
 =============================== */
 
-/* Parameter Delete (Small) */
 .btn-remove {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: #ffffff;
-  padding: 0 10px;
-  min-width: 32px;
-  height: 32px;
-  font-size: 12px;
-}
-
-.btn-remove:hover {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-}
-
-/* Group Delete (BIG) */
-.btn-remove-group {
   background: linear-gradient(135deg, #ef4444, #b91c1c);
   color: #ffffff;
-  padding: 6px 14px;
-  min-width: 40px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   font-size: 14px;
   font-weight: 700;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.35);
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
 }
 
-.btn-remove-group:hover {
+.btn-remove:hover {
   background: linear-gradient(135deg, #dc2626, #7f1d1d);
   transform: scale(1.05);
 }
@@ -334,7 +310,7 @@
   grid-template-columns: 1.2fr 2fr 1fr auto;
   gap: 14px;
   padding: 14px;
-  border-radius: 14px;
+  border-radius: 16px;
   background: var(--light);
   margin-bottom: 14px;
   border: 1px solid var(--border);
@@ -343,7 +319,7 @@
 
 .feature-row:hover {
   background: #f1f5f9;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* ===============================
@@ -354,8 +330,8 @@
   border: 1px solid var(--border);
   background: linear-gradient(180deg, #ffffff, #f8fafc);
   border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 24px;
+  padding: 22px;
+  margin-bottom: 26px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
@@ -365,13 +341,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 14px;
-}
-
-.spec-title {
-  flex: 1;
-  font-weight: 600;
-  background: #f8fafc;
+  margin-bottom: 16px;
 }
 
 /* Row */
@@ -380,7 +350,7 @@
   display: grid;
   grid-template-columns: 1.3fr 1.3fr auto;
   gap: 12px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 12px;
   background: #ffffff;
   border: 1px solid var(--border);
@@ -390,7 +360,7 @@
 
 .spec-row:hover {
   background: #f1f5f9;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* ===============================
@@ -435,7 +405,8 @@ h3:before {
     align-items: stretch;
   }
 
-  .btn-remove-group {
+  .btn-add,
+  .btn-add-small {
     width: 100%;
   }
 }
