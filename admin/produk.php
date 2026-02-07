@@ -53,7 +53,7 @@ $produk = $stmt->fetchAll();
         <h3>Daftar Produk</h3>
 
         <a href="produk-tambah.php" class="btn-primary">
-            <i class="fa fa-plus"></i> Tambah Produk
+            Tambah Produk
         </a>
     </div>
 
