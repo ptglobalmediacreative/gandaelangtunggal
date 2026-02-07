@@ -20,7 +20,7 @@ $id = (int) $_GET['id'];
 
 
 /* AMBIL DATA */
-$stmt = $pdo->prepare("SELECT * FROM sales WHERE id=?");
+$stmt = $pdo->prepare("SELECT * FROM sales_management WHERE id=?");
 $stmt->execute([$id]);
 $sales = $stmt->fetch();
 
