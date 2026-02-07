@@ -36,7 +36,7 @@ if(!$leads){
 }
 
 
-$upload_path = "../images/uploads/leads/";
+$upload_path = "../images/uploads/data-customer/";
 
 ?>
 
