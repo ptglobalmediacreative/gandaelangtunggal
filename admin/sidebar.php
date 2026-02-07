@@ -104,7 +104,7 @@ $current = basename($_SERVER['PHP_SELF']);
 
     <!-- User Admin -->
     <li>
-      <a href="user_admin.php" class="<?= $current=='user_admin.php'?'active':'' ?>">
+      <a href="admin.php" class="<?= $current=='user_admin.php'?'active':'' ?>">
         <i class="fa-solid fa-users-gear icon"></i>
         <span>User Admin</span>
       </a>
