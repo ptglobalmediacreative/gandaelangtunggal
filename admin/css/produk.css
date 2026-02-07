@@ -130,8 +130,9 @@
   }
 }
 
+/* Tambah Produk */
 /* ===============================
-   ADMIN FORM - PREMIUM STYLE
+   ADMIN FORM - ENTERPRISE STYLE
 =============================== */
 
 :root {
@@ -140,6 +141,7 @@
   --secondary: #64748b;
   --success: #16a34a;
   --danger: #dc2626;
+  --danger-dark: #b91c1c;
   --info: #0ea5e9;
   --light: #f8fafc;
   --border: #e2e8f0;
@@ -148,18 +150,22 @@
 }
 
 /* ===============================
-   FORM LAYOUT
+   CARD
 =============================== */
 
 .card {
   background: #ffffff;
-  border-radius: 18px;
-  padding: 28px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
 }
 
+/* ===============================
+   FORM
+=============================== */
+
 .form-group {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .form-group label {
@@ -179,11 +185,12 @@
 .form-group textarea,
 .feature-row input,
 .feature-row textarea,
-.spec-row input {
+.spec-row input,
+.spec-title {
   width: 100%;
-  padding: 11px 14px;
+  padding: 12px 15px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 14px;
   background: #ffffff;
   transition: all 0.25s ease;
@@ -191,7 +198,7 @@
 
 .form-group textarea {
   resize: vertical;
-  min-height: 90px;
+  min-height: 95px;
 }
 
 .form-group input:focus,
@@ -199,15 +206,16 @@
 .form-group textarea:focus,
 .feature-row input:focus,
 .feature-row textarea:focus,
-.spec-row input:focus {
+.spec-row input:focus,
+.spec-title:focus {
   outline: none;
   border-color: var(--primary);
   background: #f8fbff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
 /* ===============================
-   BUTTON
+   BUTTON BASE
 =============================== */
 
 .btn-primary,
@@ -217,7 +225,7 @@
 .btn-remove,
 .btn-remove-group {
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -228,35 +236,41 @@
   gap: 4px;
 }
 
-/* Primary */
+/* ===============================
+   MAIN BUTTON
+=============================== */
+
 .btn-primary {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #ffffff;
-  padding: 11px 20px;
+  padding: 12px 22px;
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #1e40af, #1e3a8a);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
 }
 
-/* Secondary */
 .btn-secondary {
   background: #f1f5f9;
   color: var(--secondary);
-  padding: 11px 20px;
+  padding: 12px 22px;
 }
 
 .btn-secondary:hover {
   background: #e2e8f0;
 }
 
-/* Add */
+/* ===============================
+   ADD BUTTON
+=============================== */
+
 .btn-add {
   background: linear-gradient(135deg, #0ea5e9, #0284c7);
   color: #ffffff;
-  padding: 8px 16px;
-  margin-top: 5px;
+  padding: 9px 18px;
+  margin-top: 6px;
 }
 
 .btn-add:hover {
@@ -264,11 +278,10 @@
   transform: translateY(-1px);
 }
 
-/* Add Small */
 .btn-add-small {
   background: linear-gradient(135deg, #22c55e, #16a34a);
   color: #ffffff;
-  padding: 6px 12px;
+  padding: 7px 14px;
   margin-top: 6px;
 }
 
@@ -276,26 +289,40 @@
   background: linear-gradient(135deg, #16a34a, #15803d);
 }
 
-/* Remove */
+/* ===============================
+   DELETE BUTTON
+=============================== */
+
+/* Parameter Delete (Small) */
 .btn-remove {
   background: linear-gradient(135deg, #ef4444, #dc2626);
   color: #ffffff;
   padding: 0 10px;
+  min-width: 32px;
+  height: 32px;
+  font-size: 12px;
 }
 
 .btn-remove:hover {
   background: linear-gradient(135deg, #dc2626, #b91c1c);
 }
 
-/* Remove Group */
+/* Group Delete (BIG) */
 .btn-remove-group {
-  background: #fee2e2;
-  color: var(--danger);
-  padding: 5px 9px;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #ffffff;
+  padding: 6px 14px;
+  min-width: 40px;
+  height: 36px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.35);
 }
 
 .btn-remove-group:hover {
-  background: #fecaca;
+  background: linear-gradient(135deg, #dc2626, #7f1d1d);
+  transform: scale(1.05);
 }
 
 /* ===============================
@@ -305,17 +332,18 @@
 .feature-row {
   display: grid;
   grid-template-columns: 1.2fr 2fr 1fr auto;
-  gap: 12px;
-  padding: 10px;
-  border-radius: 12px;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 14px;
   background: var(--light);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   border: 1px solid var(--border);
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 .feature-row:hover {
   background: #f1f5f9;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* ===============================
@@ -325,19 +353,19 @@
 .spec-group {
   border: 1px solid var(--border);
   background: linear-gradient(180deg, #ffffff, #f8fafc);
-  border-radius: 16px;
-  padding: 18px;
-  margin-bottom: 22px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-/* Spec Header */
+/* Header */
 
 .spec-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .spec-title {
@@ -346,45 +374,46 @@
   background: #f8fafc;
 }
 
-/* Spec Row */
+/* Row */
 
 .spec-row {
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr auto;
-  gap: 10px;
-  padding: 8px;
-  border-radius: 10px;
+  grid-template-columns: 1.3fr 1.3fr auto;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 12px;
   background: #ffffff;
   border: 1px solid var(--border);
-  margin-bottom: 8px;
-  transition: 0.2s;
+  margin-bottom: 10px;
+  transition: 0.25s;
 }
 
 .spec-row:hover {
   background: #f1f5f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 /* ===============================
-   SECTION TITLE
+   TITLE
 =============================== */
 
 h3 {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   position: relative;
-  padding-left: 12px;
+  padding-left: 14px;
 }
 
 h3:before {
   content: "";
   width: 4px;
-  height: 100%;
+  height: 70%;
   background: var(--primary);
   position: absolute;
   left: 0;
-  top: 0;
+  top: 15%;
   border-radius: 5px;
 }
 
@@ -404,5 +433,9 @@ h3:before {
   .spec-header {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .btn-remove-group {
+    width: 100%;
   }
 }
