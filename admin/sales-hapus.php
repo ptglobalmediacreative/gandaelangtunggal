@@ -52,7 +52,7 @@ foreach($files as $file){
 
 /* ================= HAPUS DATABASE ================= */
 
-$stmt = $pdo->prepare("DELETE FROM sales WHERE id=?");
+$stmt = $pdo->prepare("DELETE FROM sales_managament WHERE id=?");
 $stmt->execute([$id]);
 
 
