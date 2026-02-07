@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+session_start(); // DI SINI SAJA
 require_once __DIR__ . "/config.php";
 
 // Kalau sudah login → dashboard
@@ -12,7 +13,7 @@ if (isset($_SESSION['admin_id'])) {
 
 $error = "";
 
-/* ================= LOGIN PROCESS ================= */
+/* ================= LOGIN ================= */
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -20,10 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'] ?? '';
 
     if ($no_hp == '' || $password == '') {
+
         $error = "Semua field wajib diisi!";
+
     } else {
 
-        // Cari admin (PDO)
         $stmt = $pdo->prepare("SELECT * FROM admin WHERE no_hp = ?");
         $stmt->execute([$no_hp]);
 
@@ -31,15 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($data) {
 
-            // Cek password hash
             if (password_verify($password, $data['password'])) {
 
-                // Set session
                 $_SESSION['admin_id']   = $data['id'];
                 $_SESSION['admin_nama'] = $data['nama'];
                 $_SESSION['admin_role'] = $data['keterangan'];
 
-                // Simpan semua akses
                 $_SESSION['akses'] = [
                     'dashboard' => $data['akses_dashboard'],
                     'produk'    => $data['akses_produk'],
@@ -53,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     'delivery'  => $data['akses_delivery']
                 ];
 
-                // Redirect
                 header("Location: dashboard.php");
                 exit;
 
@@ -67,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
