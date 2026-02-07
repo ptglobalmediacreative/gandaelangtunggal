@@ -16,6 +16,7 @@ $stmt = $pdo->query("
         id,
         nama_pt,
         tipe_unit,
+        total_unit,
         alamat_pengiriman,
         tanggal_kirim
     FROM delivery_orders
