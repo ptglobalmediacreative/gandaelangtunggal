@@ -1,18 +1,54 @@
 <?php
 session_start();
+require_once "config.php";
 
-// Cek login
+
+/* CEK LOGIN */
 if(!isset($_SESSION['admin_id'])){
     header("Location: login.php");
     exit;
 }
 
-// Function cek akses
+
+/* AMBIL DATA ADMIN */
+$stmt = $pdo->prepare("SELECT * FROM admin WHERE id=?");
+$stmt->execute([ $_SESSION['admin_id'] ]);
+
+$adminLogin = $stmt->fetch();
+
+
+/* FUNGSI CEK AKSES */
 function cekAkses($menu){
 
-    if(!isset($_SESSION['akses'][$menu])){
-        return false;
-    }
+    global $adminLogin;
 
-    return $_SESSION['akses'][$menu] == 1;
+    $map = [
+        'dashboard' => 'akses_dashboard',
+        'produk'    => 'akses_produk',
+        'artikel'   => 'akses_artikel',
+        'pesan'     => 'akses_pesan',
+        'simulasi'  => 'akses_simulasi',
+        'user'      => 'akses_user',
+        'leads'     => 'akses_leads',
+        'sales'     => 'akses_sales',
+        'stock'     => 'akses_stock',
+        'delivery'  => 'akses_delivery'
+    ];
+
+    if(!isset($map[$menu])) return false;
+
+    return $adminLogin[$map[$menu]] == 1;
+}
+
+
+/* REDIRECT + POPUP JIKA DITOLAK */
+function tolakAkses(){
+
+    echo "
+    <script>
+        alert('Maaf, akses ditolak!');
+        window.location.href = 'dashboard.php';
+    </script>
+    ";
+    exit;
 }
