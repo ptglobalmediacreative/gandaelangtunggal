@@ -169,12 +169,12 @@ if(isset($_POST['simpan'])){
 <label><input type="checkbox" name="akses_produk"> Produk</label>
 <label><input type="checkbox" name="akses_artikel"> Artikel</label>
 <label><input type="checkbox" name="akses_pesan"> Pesan</label>
-<label><input type="checkbox" name="akses_simulasi"> Simulasi</label>
+<label><input type="checkbox" name="akses_simulasi"> Simulasi Kredit</label>
 <label><input type="checkbox" name="akses_user"> User Admin</label>
-<label><input type="checkbox" name="akses_leads"> Leads</label>
-<label><input type="checkbox" name="akses_sales"> Sales</label>
-<label><input type="checkbox" name="akses_stock"> Stock</label>
-<label><input type="checkbox" name="akses_delivery"> Delivery</label>
+<label><input type="checkbox" name="akses_leads"> Leads Customer</label>
+<label><input type="checkbox" name="akses_sales"> Sales Activity</label>
+<label><input type="checkbox" name="akses_stock"> Stock Unit</label>
+<label><input type="checkbox" name="akses_delivery"> Delivery Order</label>
 
 </div>
 
