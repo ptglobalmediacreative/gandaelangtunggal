@@ -22,12 +22,26 @@ $current = basename($_SERVER['PHP_SELF']);
     </li>
 
     <!-- Produk -->
+    <?php
+    $produk_pages = [
+      'produk.php',
+      'produk-tambah.php',
+      'produk-edit.php',
+      'produk-detail.php',
+      'produk-hapus.php'
+    ];
+    ?>
+
     <li>
-      <a href="produk.php" class="<?= $current=='produk.php'?'active':'' ?>">
+      <a href="produk.php"
+        class="<?= in_array($current, $produk_pages) ? 'active' : '' ?>">
+
         <i class="fa-solid fa-truck-moving icon"></i>
         <span>Produk</span>
+
       </a>
     </li>
+
 
     <!-- Artikel -->
     <li>
