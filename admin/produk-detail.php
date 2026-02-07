@@ -95,7 +95,7 @@ foreach($specs as $s){
     <h2>Detail Produk</h2>
 
     <a href="produk.php" class="btn-secondary">
-        ← Kembali
+        Kembali
     </a>
 
 </div>

@@ -3,16 +3,35 @@
 =============================== */
 
 :root {
-  --primary: #2563eb;
-  --info: #0ea5e9;
-  --warning: #f59e0b;
-  --danger: #ef4444;
+  /* Primary Brand */
+  --primary: #2563eb; /* Royal Blue */
+  --primary-dark: #1e40af;
 
+  /* Status */
+  --info: #0ea5e9; /* Sky Blue */
+  --warning: #f59e0b; /* Amber */
+  --danger: #ef4444; /* Red */
+  --success: #16a34a; /* Green */
+
+  /* Neutral */
   --dark: #0f172a;
   --gray: #64748b;
   --light: #f8fafc;
 
+  /* Background */
+  --bg-main: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-section: #f8fafc;
+
+  /* Border */
   --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  /* Text */
+  --text: #0f172a;
+  --muted: #64748b;
+
+  /* Radius */
   --radius: 14px;
 }
 
@@ -242,22 +261,36 @@
 =============================== */
 
 :root {
-  --primary: #2563eb;
+  /* Primary Brand */
+  --primary: #2563eb; /* Royal Blue */
   --primary-dark: #1e40af;
-  --secondary: #64748b;
-  --success: #16a34a;
 
-  --info: #0ea5e9;
+  /* Status */
+  --info: #0ea5e9; /* Sky Blue */
+  --warning: #f59e0b; /* Amber */
+  --danger: #ef4444; /* Red */
+  --success: #16a34a; /* Green */
 
+  /* Neutral */
+  --dark: #0f172a;
+  --gray: #64748b;
+  --light: #f8fafc;
+
+  /* Background */
   --bg-main: #f1f5f9;
   --bg-card: #ffffff;
   --bg-section: #f8fafc;
 
-  --border: #cbd5e1;
-  --border-strong: #94a3b8;
+  /* Border */
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
 
+  /* Text */
   --text: #0f172a;
   --muted: #64748b;
+
+  /* Radius */
+  --radius: 14px;
 }
 
 /* ===============================
