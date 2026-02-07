@@ -98,27 +98,28 @@ $produk = $stmt->fetchAll();
 
                     <!-- DETAIL -->
                     <a href="product-detail.php?id=<?= $p['id']; ?>"
-                    class="btn-sm btn-info"
-                    title="Detail Produk">
+                    class="btn-sm btn-info btn-tooltip"
+                    data-tooltip="Detail Produk">
                         <i class="fa fa-eye"></i>
                     </a>
 
                     <!-- EDIT -->
                     <a href="produk-edit.php?id=<?= $p['id']; ?>"
-                    class="btn-sm btn-warning"
-                    title="Edit Produk">
+                    class="btn-sm btn-warning btn-tooltip"
+                    data-tooltip="Edit Produk">
                         <i class="fa fa-edit"></i>
                     </a>
 
                     <!-- HAPUS -->
                     <a href="produk-hapus.php?id=<?= $p['id']; ?>"
-                    class="btn-sm btn-danger"
-                    onclick="return confirm('Hapus produk ini?')"
-                    title="Hapus Produk">
+                    class="btn-sm btn-danger btn-tooltip"
+                    data-tooltip="Hapus Produk"
+                    onclick="return confirm('Hapus produk ini?')">
                         <i class="fa fa-trash"></i>
                     </a>
 
                 </td>
+
             </tr>
 
             <?php endforeach; ?>
