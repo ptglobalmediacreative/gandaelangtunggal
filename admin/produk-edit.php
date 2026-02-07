@@ -202,18 +202,17 @@ if(isset($_POST['update'])){
             if(!$t) continue;
 
             $desc=$_POST['feature_desc'][$i];
-            $img = $_POST['old_feature_image'][$i] ?? null;
+            $img=null;
 
             if(!empty($_FILES['feature_image']['name'][$i])){
 
-                $img = uploadUniqueImage(
+                $img=uploadUniqueImage(
                     $_FILES['feature_image']['tmp_name'][$i],
                     $_FILES['feature_image']['name'][$i],
                     $upload_path,
                     $allowed_ext
                 );
             }
-
 
             $pdo->prepare("
                 INSERT INTO produk_features
@@ -510,14 +509,13 @@ function addFeature(){
     div.className="feature-row";
 
     div.innerHTML=`
-        <input type="text" name="feature_title[]" value="<?= htmlspecialchars($f['title']); ?>">
+        <input type="text" name="feature_title[]">
 
-        <textarea name="feature_desc[]"><?= htmlspecialchars($f['description']); ?></textarea>
-
-        <input type="hidden" name="old_feature_image[]" value="<?= $f['image']; ?>">
+        <textarea name="feature_desc[]"></textarea>
 
         <input type="file" name="feature_image[]" accept=".jpg,.jpeg,.png,.webp">
 
+        <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
     `;
 
     document.getElementById("feature-wrapper").appendChild(div);
