@@ -29,6 +29,7 @@ if(isset($_POST['simpan'])){
     $no_pic     = trim($_POST['no_pic']);
     $email_pic  = trim($_POST['email_pic']);
     $tipe_unit  = trim($_POST['tipe_unit']);
+    $total_unit = (int) $_POST['total_unit'];
     $no_rangka  = trim($_POST['no_rangka']);
     $no_mesin   = trim($_POST['no_mesin']);
     $alamat     = trim($_POST['alamat']);
@@ -41,7 +42,7 @@ if(isset($_POST['simpan'])){
     /* VALIDASI */
     if(
         !$nama_pt || !$nama_pic || !$no_pic ||
-        !$tipe_unit || !$alamat || !$tgl_kirim
+        !$tipe_unit || !$total_unit || !$alamat || !$tgl_kirim
     ){
         $error = "Field wajib belum lengkap!";
     }else{
@@ -92,6 +93,7 @@ if(isset($_POST['simpan'])){
                     no_pic,
                     email_pic,
                     tipe_unit,
+                    total_unit,
                     nomor_rangka,
                     nomor_mesin,
                     alamat_pengiriman,
@@ -112,6 +114,7 @@ if(isset($_POST['simpan'])){
                 $no_pic,
                 $email_pic,
                 $tipe_unit,
+                $total_unit,
                 $no_rangka,
                 $no_mesin,
                 $alamat,
@@ -202,6 +205,10 @@ if(isset($_POST['simpan'])){
 <input type="text" name="tipe_unit" required>
 </div>
 
+<div class="form-group">
+<label>Total Unit</label>
+<input type="number" name="total_unit" min="1" value="1" required>
+</div>
 
 <div class="form-group">
 <label>Nomor Rangka</label>

@@ -19,7 +19,11 @@ $total_pesan = $pdo->query("SELECT COUNT(*) FROM pesan")->fetchColumn();
 $total_simulasi = $pdo->query("SELECT COUNT(*) FROM simulasi")->fetchColumn();
 
 /* Total Delivery */
-$total_delivery = $pdo->query("SELECT COUNT(*) FROM delivery_orders")->fetchColumn();
+$total_delivery = $pdo->query("
+    SELECT COALESCE(SUM(total_unit),0) 
+    FROM delivery_orders
+")->fetchColumn();
+
 
 
 /* ================= GRAFIK DELIVERY PER BULAN ================= */
@@ -29,7 +33,7 @@ $chartData = array_fill(1,12,0);
 $stmt = $pdo->query("
     SELECT 
         MONTH(tanggal_kirim) AS bulan,
-        COUNT(*) AS total
+        SUM(total_unit) AS total
     FROM delivery_orders
     WHERE YEAR(tanggal_kirim) = YEAR(CURDATE())
     GROUP BY MONTH(tanggal_kirim)
