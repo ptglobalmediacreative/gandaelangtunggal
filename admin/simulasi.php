@@ -58,7 +58,7 @@ $simulasi = $stmt->fetchAll();
 <!-- HEADER -->
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
 
-    <h3>Daftar Simulasi</h3>
+    <h3>Daftar Simulasi Kredit</h3>
 
 </div>
 
