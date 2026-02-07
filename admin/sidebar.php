@@ -130,7 +130,7 @@ $admin_pages = [
 <?php endif; ?>
 
 
-<!-- ================= SALES ================= -->
+<!-- ================= SALES ACTIVITY ================= -->
 <?php if(akses('sales')): ?>
 <li>
   <a href="sales_activity.php"
@@ -140,6 +140,29 @@ $admin_pages = [
   </a>
 </li>
 <?php endif; ?>
+
+
+<!-- ================= SALES MANAGEMENT ================= -->
+<?php
+$sales_mgmt_pages = [
+  'salesmanagement.php',
+  'sales-tambah.php',
+  'sales-edit.php',
+  'sales-detail.php',
+  'sales-hapus.php'
+];
+?>
+
+<?php if(akses('sales')): ?>
+<li>
+  <a href="salesmanagement.php"
+     class="<?= in_array($current,$sales_mgmt_pages)?'active':'' ?>">
+    <i class="fa-solid fa-user-tie icon"></i>
+    <span>Sales Management</span>
+  </a>
+</li>
+<?php endif; ?>
+
 
 
 <!-- ================= STOCK ================= -->
