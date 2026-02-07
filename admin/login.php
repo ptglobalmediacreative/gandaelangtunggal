@@ -2,9 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-session_start();
-require_once __DIR__ . "/config.php"; // pastikan ini isinya $pdo
-require_once "auth.php";
+require_once __DIR__ . "/config.php";
+require_once "auth.php"; // auth.php sudah session_start()
 
 // Kalau sudah login → dashboard
 if (isset($_SESSION['admin_id'])) {
@@ -69,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
