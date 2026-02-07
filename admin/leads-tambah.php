@@ -12,12 +12,13 @@ if(!cekAkses('leads')){
 
 $error = "";
 
-/* FOLDER UPLOAD NPWP */
-$upload_path = "/uploads/data-customer/";
+/* FOLDER UPLOAD NPWP (ABSOLUTE PATH) */
+$upload_path = __DIR__ . "/uploads/data-customer/";
 
-if(!is_dir($upload_path)){
-    mkdir($upload_path,0777,true);
+if (!is_dir($upload_path)) {
+    mkdir($upload_path, 0755, true);
 }
+
 
 
 /* AMBIL DATA SALES */
