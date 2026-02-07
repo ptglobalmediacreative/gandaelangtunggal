@@ -11,17 +11,22 @@ if(!cekAkses('sales')){
 }
 
 /* CEK ID */
-if(!isset($_GET['id'])){
-    header("Location: sales.php");
+$id = $_GET['id'] ?? '';
+
+if(!$id){
+    header("Location: salesmanagement.php");
     exit;
 }
 
-$id = (int) $_GET['id'];
+$id = (int)$id;
 
 
 /* AMBIL DATA */
-$stmt = $pdo->prepare("SELECT * FROM sales_management WHERE id=?");
+$stmt = $pdo->prepare("
+    SELECT * FROM sales_management WHERE id = ?
+");
 $stmt->execute([$id]);
+
 $sales = $stmt->fetch();
 
 if(!$sales){
@@ -29,8 +34,8 @@ if(!$sales){
 }
 
 
-/* FOLDER FILE */
-$upload_dir = "/uploads/data-sales/";
+/* FOLDER FILE (REAL PATH) */
+$upload_dir = __DIR__ . "/uploads/data-sales/";
 
 
 /* ================= HAPUS FILE ================= */
@@ -44,18 +49,26 @@ $files = [
 
 foreach($files as $file){
 
-    if($file && file_exists($upload_dir.$file)){
-        unlink($upload_dir.$file);
+    if($file){
+
+        $path = $upload_dir . $file;
+
+        if(file_exists($path)){
+            unlink($path);
+        }
+
     }
 }
 
 
 /* ================= HAPUS DATABASE ================= */
 
-$stmt = $pdo->prepare("DELETE FROM sales_managament WHERE id=?");
-$stmt->execute([$id]);
+$del = $pdo->prepare("
+    DELETE FROM sales_management WHERE id = ?
+");
+$del->execute([$id]);
 
 
 /* REDIRECT */
-header("Location: sales.php?status=delete");
+header("Location: salesmanagement.php?status=delete");
 exit;
