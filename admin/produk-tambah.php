@@ -48,7 +48,7 @@ if(isset($_POST['simpan'])){
     }
 
 
-    // SIMPAN PRODUK
+    // ================= SIMPAN PRODUK =================
     $stmt = $pdo->prepare("
         INSERT INTO produk
         (category_id, nama_produk, slug, gambar)
@@ -215,9 +215,21 @@ if(isset($_POST['simpan'])){
 
 <div id="spec-wrapper">
 
+<!-- DEFAULT GROUP -->
 <div class="spec-group">
 
-<input type="text" name="spec_group[]" placeholder="Nama Group (Engine, Dimension, dll)" class="spec-title">
+<div class="spec-header">
+
+<input type="text" name="spec_group[]" 
+       placeholder="Nama Group (Engine, Dimension, dll)" 
+       class="spec-title">
+
+<button type="button"
+        onclick="removeSpecGroup(this)"
+        class="btn-remove-group">✕</button>
+
+</div>
+
 
 <div class="spec-items">
 
@@ -233,7 +245,8 @@ if(isset($_POST['simpan'])){
 
 </div>
 
-<button type="button" onclick="addSpecRow(this)" class="btn-add-small">
+
+<button type="button" onclick="addSpecRow(this,0)" class="btn-add-small">
 + Parameter
 </button>
 
@@ -276,7 +289,7 @@ Kembali
 let specIndex = 1;
 
 
-// FEATURE
+// ================= FEATURE =================
 function addFeature(){
 
     let div = document.createElement("div");
@@ -301,14 +314,24 @@ function removeFeature(btn){
 
 
 
-// SPEC
+// ================= SPEC =================
 function addSpecGroup(){
 
     let div = document.createElement("div");
     div.className = "spec-group";
 
     div.innerHTML = `
-        <input type="text" name="spec_group[]" placeholder="Nama Group" class="spec-title">
+        <div class="spec-header">
+
+            <input type="text" name="spec_group[]" 
+                   placeholder="Nama Group" 
+                   class="spec-title">
+
+            <button type="button"
+                    onclick="removeSpecGroup(this)"
+                    class="btn-remove-group">✕</button>
+
+        </div>
 
         <div class="spec-items">
 
@@ -353,8 +376,15 @@ function addSpecRow(btn, index){
 
 
 function removeSpec(btn){
-
     btn.parentElement.remove();
+}
+
+
+function removeSpecGroup(btn){
+
+    if(!confirm("Hapus group ini beserta semua parameternya?")) return;
+
+    btn.closest(".spec-group").remove();
 }
 
 </script>
