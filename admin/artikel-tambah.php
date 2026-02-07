@@ -6,6 +6,7 @@ date_default_timezone_set('Asia/Jakarta');
 
 session_start();
 require_once __DIR__ . "/config.php";
+require_once "auth.php";
 
 /* ================= LOGIN ================= */
 
