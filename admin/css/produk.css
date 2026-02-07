@@ -132,7 +132,7 @@
 
 /* Tambah Produk */
 /* ===============================
-   ADMIN FORM - ENTERPRISE UI FINAL
+   ADMIN FORM - ENTERPRISE UI FINAL++
 =============================== */
 
 :root {
@@ -140,15 +140,20 @@
   --primary-dark: #1e40af;
   --secondary: #64748b;
   --success: #16a34a;
+
   --danger: #dc2626;
   --danger-dark: #991b1b;
+  --danger-soft: #fca5a5;
+
   --info: #0ea5e9;
 
   --bg-main: #f1f5f9;
   --bg-card: #ffffff;
   --bg-section: #f8fafc;
 
-  --border: #e2e8f0;
+  --border: #cbd5e1;
+  --border-strong: #94a3b8;
+
   --text: #0f172a;
   --muted: #64748b;
 }
@@ -162,27 +167,15 @@ body {
 }
 
 /* ===============================
-   CARD / CONTAINER
+   CARD
 =============================== */
 
 .card {
   background: var(--bg-card);
   border-radius: 22px;
-  padding: 34px;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.07);
-  border: 1px solid var(--border);
-}
-
-/* ===============================
-   SECTION BLOCK
-=============================== */
-
-.section-block {
-  background: var(--bg-section);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 22px;
-  margin-bottom: 28px;
+  padding: 36px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid var(--border-strong);
 }
 
 /* ===============================
@@ -190,19 +183,19 @@ body {
 =============================== */
 
 .form-group {
-  margin-bottom: 26px;
+  margin-bottom: 28px;
 }
 
 .form-group label {
   display: block;
   font-weight: 600;
   font-size: 14px;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
   color: var(--text);
 }
 
 /* ===============================
-   INPUT
+   INPUT (STRONG BORDER)
 =============================== */
 
 .form-group input,
@@ -213,8 +206,8 @@ body {
 .spec-row input,
 .spec-title {
   width: 100%;
-  padding: 13px 16px;
-  border: 1px solid var(--border);
+  padding: 14px 16px;
+  border: 2px solid var(--border);
   border-radius: 12px;
   font-size: 14px;
   background: #ffffff;
@@ -223,8 +216,10 @@ body {
 
 .form-group textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 105px;
 }
+
+/* Focus */
 
 .form-group input:focus,
 .form-group select:focus,
@@ -236,7 +231,7 @@ body {
   outline: none;
   border-color: var(--primary);
   background: #f8fbff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
 /* ===============================
@@ -247,7 +242,8 @@ body {
 .btn-secondary,
 .btn-add,
 .btn-add-small,
-.btn-remove {
+.btn-remove,
+.btn-remove-param {
   border: none;
   border-radius: 12px;
   font-size: 13px;
@@ -257,7 +253,6 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
 }
 
 /* ===============================
@@ -267,19 +262,19 @@ body {
 .btn-primary {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #ffffff;
-  padding: 13px 24px;
+  padding: 14px 26px;
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #1e40af, #1e3a8a);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
   background: #e2e8f0;
   color: var(--secondary);
-  padding: 13px 24px;
+  padding: 14px 26px;
 }
 
 .btn-secondary:hover {
@@ -294,8 +289,8 @@ body {
 .btn-add-small {
   background: linear-gradient(135deg, #0ea5e9, #0284c7);
   color: #ffffff;
-  padding: 9px 18px;
-  margin-top: 10px;
+  padding: 10px 20px;
+  margin-top: 12px;
   margin-left: auto;
   display: flex;
 }
@@ -310,20 +305,37 @@ body {
    DELETE BUTTON
 =============================== */
 
+/* GROUP DELETE (STRONG RED) */
 .btn-remove {
   background: linear-gradient(135deg, #ef4444, #b91c1c);
   color: #ffffff;
-  width: 36px;
-  height: 36px;
-  font-size: 14px;
+  width: 38px;
+  height: 38px;
+  font-size: 15px;
   font-weight: 700;
   border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(239, 68, 68, 0.35);
+  box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4);
 }
 
 .btn-remove:hover {
   background: linear-gradient(135deg, #dc2626, #7f1d1d);
-  transform: scale(1.07);
+  transform: scale(1.08);
+}
+
+/* PARAMETER DELETE (SOFT) */
+.btn-remove-param {
+  background: #f1f5f9;
+  color: var(--muted);
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+  border: 1.5px solid var(--border);
+}
+
+.btn-remove-param:hover {
+  background: #fee2e2;
+  color: var(--danger);
+  border-color: var(--danger);
 }
 
 /* ===============================
@@ -333,18 +345,19 @@ body {
 .feature-row {
   display: grid;
   grid-template-columns: 1.2fr 2fr 1fr auto;
-  gap: 16px;
-  padding: 16px;
+  gap: 18px;
+  padding: 18px;
   border-radius: 16px;
   background: #ffffff;
-  margin-bottom: 16px;
-  border: 1px solid var(--border);
+  margin-bottom: 18px;
+  border: 2px solid var(--border);
   transition: 0.25s;
 }
 
 .feature-row:hover {
   background: #f8fafc;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* ===============================
@@ -352,12 +365,12 @@ body {
 =============================== */
 
 .spec-group {
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   background: #ffffff;
   border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 28px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+  padding: 26px;
+  margin-bottom: 30px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* Header */
@@ -365,8 +378,8 @@ body {
 .spec-header {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 18px;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
 /* Row */
@@ -374,18 +387,19 @@ body {
 .spec-row {
   display: grid;
   grid-template-columns: 1.3fr 1.3fr auto;
-  gap: 14px;
-  padding: 14px;
+  gap: 16px;
+  padding: 16px;
   border-radius: 14px;
   background: #f8fafc;
-  border: 1px solid var(--border);
-  margin-bottom: 12px;
+  border: 2px solid var(--border);
+  margin-bottom: 14px;
   transition: 0.25s;
 }
 
 .spec-row:hover {
   background: #f1f5f9;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  border-color: var(--primary);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
 }
 
 /* ===============================
@@ -393,12 +407,12 @@ body {
 =============================== */
 
 h3 {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   position: relative;
-  padding-left: 16px;
+  padding-left: 18px;
 }
 
 h3:before {
