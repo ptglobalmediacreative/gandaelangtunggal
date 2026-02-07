@@ -509,13 +509,14 @@ function addFeature(){
     div.className="feature-row";
 
     div.innerHTML=`
-        <input type="text" name="feature_title[]">
+        <input type="text" name="feature_title[]" value="<?= htmlspecialchars($f['title']); ?>">
 
-        <textarea name="feature_desc[]"></textarea>
+        <textarea name="feature_desc[]"><?= htmlspecialchars($f['description']); ?></textarea>
+
+        <input type="hidden" name="old_feature_image[]" value="<?= $f['image']; ?>">
 
         <input type="file" name="feature_image[]" accept=".jpg,.jpeg,.png,.webp">
 
-        <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
     `;
 
     document.getElementById("feature-wrapper").appendChild(div);
