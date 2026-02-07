@@ -18,6 +18,7 @@ if (!isset($_SESSION['admin_id'])) {
 
 <link rel="stylesheet" href="/admin/css/style.css">
 <link rel="stylesheet" href="/admin/css/dashboard.css">
+<link rel="stylesheet" href="/admin/css/produk.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
