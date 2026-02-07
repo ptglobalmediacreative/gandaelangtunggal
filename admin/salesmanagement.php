@@ -13,7 +13,7 @@ if(!cekAkses('sales')){
 /* AMBIL DATA SALES */
 $stmt = $pdo->query("
     SELECT id, nama, no_hp
-    FROM sales
+    FROM sales_management
     ORDER BY id DESC
 ");
 
