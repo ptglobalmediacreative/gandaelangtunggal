@@ -38,7 +38,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Set session
                 $_SESSION['admin_id']   = $data['id'];
                 $_SESSION['admin_nama'] = $data['nama'];
-                $_SESSION['admin_role'] = $data['keterangan'] ?? '';
+                $_SESSION['admin_role'] = $data['keterangan'];
+
+                // Simpan semua akses
+                $_SESSION['akses'] = [
+                    'dashboard' => $data['akses_dashboard'],
+                    'produk'    => $data['akses_produk'],
+                    'artikel'   => $data['akses_artikel'],
+                    'pesan'     => $data['akses_pesan'],
+                    'simulasi'  => $data['akses_simulasi'],
+                    'user'      => $data['akses_user'],
+                    'leads'     => $data['akses_leads'],
+                    'sales'     => $data['akses_sales'],
+                    'stock'     => $data['akses_stock'],
+                    'delivery'  => $data['akses_delivery']
+                ];
 
                 // Redirect
                 header("Location: dashboard.php");
