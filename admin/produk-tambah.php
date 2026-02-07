@@ -14,20 +14,22 @@ if (!isset($_SESSION['admin_id'])) {
 // Ambil kategori
 $cat = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAll();
 
-// Function buat slug
+// Slug
 function buat_slug($text){
     $text = strtolower($text);
     $text = preg_replace('/[^a-z0-9]+/', '-', $text);
     return trim($text, '-');
 }
 
-// SIMPAN DATA
+
+// ================= SIMPAN =================
 if(isset($_POST['simpan'])){
 
     $nama     = $_POST['nama'];
     $kategori = $_POST['kategori'];
 
     $slug = buat_slug($nama);
+
 
     /* Upload Thumbnail */
     $gambar_produk = null;
@@ -37,10 +39,14 @@ if(isset($_POST['simpan'])){
         $ext = pathinfo($_FILES['gambar_produk']['name'], PATHINFO_EXTENSION);
         $new = time().rand(100,999).".".$ext;
 
-        if(move_uploaded_file($_FILES['gambar_produk']['tmp_name'], "../upload/produk/".$new)){
-            $gambar_produk = $new;
-        }
+        move_uploaded_file(
+            $_FILES['gambar_produk']['tmp_name'],
+            "../upload/produk/".$new
+        );
+
+        $gambar_produk = $new;
     }
+
 
     // SIMPAN PRODUK
     $stmt = $pdo->prepare("
@@ -58,7 +64,9 @@ if(isset($_POST['simpan'])){
 
     $produk_id = $pdo->lastInsertId();
 
-    // SIMPAN FEATURES
+
+
+    // ================= SIMPAN FEATURES =================
     if(!empty($_POST['feature_title'])){
 
         foreach($_POST['feature_title'] as $i => $title){
@@ -82,13 +90,11 @@ if(isset($_POST['simpan'])){
                 $img = $new;
             }
 
-            $save = $pdo->prepare("
+            $pdo->prepare("
                 INSERT INTO produk_features
                 (produk_id, grup, title, description, image, sort_order)
                 VALUES (?,?,?,?,?,?)
-            ");
-
-            $save->execute([
+            ")->execute([
                 $produk_id,
                 'FEATURE',
                 $title,
@@ -98,6 +104,39 @@ if(isset($_POST['simpan'])){
             ]);
         }
     }
+
+
+
+    // ================= SIMPAN SPECIFICATION =================
+    if(!empty($_POST['spec_group'])){
+
+        foreach($_POST['spec_group'] as $g => $group){
+
+            if(empty($group)) continue;
+
+            if(empty($_POST['spec_label'][$g])) continue;
+
+            foreach($_POST['spec_label'][$g] as $i => $label){
+
+                if(empty($label)) continue;
+
+                $value = $_POST['spec_value'][$g][$i];
+
+                $pdo->prepare("
+                    INSERT INTO produk_spesifikasi
+                    (produk_id, grup, label, nilai, sort_order)
+                    VALUES (?,?,?,?,?)
+                ")->execute([
+                    $produk_id,
+                    $group,
+                    $label,
+                    $value,
+                    $i
+                ]);
+            }
+        }
+    }
+
 
     header("Location: produk.php?status=sukses");
     exit;
@@ -117,71 +156,111 @@ if(isset($_POST['simpan'])){
 
 <form method="POST" enctype="multipart/form-data">
 
-    <!-- NAMA -->
-    <div class="form-group">
-        <label>Nama Produk</label>
-        <input type="text" name="nama" required>
-    </div>
+<!-- ================= BASIC ================= -->
 
-    <!-- KATEGORI -->
-    <div class="form-group">
-        <label>Kategori</label>
-        <select name="kategori" required>
+<div class="form-group">
+    <label>Nama Produk</label>
+    <input type="text" name="nama" required>
+</div>
 
-            <option value="">-- Pilih Kategori --</option>
+<div class="form-group">
+    <label>Kategori</label>
+    <select name="kategori" required>
 
-            <?php foreach($cat as $c): ?>
-            <option value="<?= $c['id']; ?>">
-                <?= $c['name']; ?>
-            </option>
-            <?php endforeach; ?>
+        <option value="">-- Pilih Kategori --</option>
 
-        </select>
-    </div>
+        <?php foreach($cat as $c): ?>
+        <option value="<?= $c['id']; ?>">
+            <?= $c['name']; ?>
+        </option>
+        <?php endforeach; ?>
 
-    <!-- THUMBNAIL -->
-    <div class="form-group">
-        <label>Gambar Utama</label>
-        <input type="file" name="gambar_produk" accept="image/*">
-    </div>
+    </select>
+</div>
 
-
-    <!-- FEATURES -->
-    <h3 style="margin:25px 0 10px;">Features</h3>
-
-    <div id="feature-wrapper">
-
-        <div class="feature-row">
-
-            <input type="text" name="feature_title[]" placeholder="Judul Feature" required>
-
-            <textarea name="feature_desc[]" placeholder="Deskripsi Feature"></textarea>
-
-            <input type="file" name="feature_image[]" accept="image/*">
-
-            <button type="button" class="btn-remove" onclick="removeFeature(this)">✕</button>
-
-        </div>
-
-    </div>
-
-    <button type="button" onclick="addFeature()" class="btn-add">
-        + Tambah Feature
-    </button>
+<div class="form-group">
+    <label>Gambar Utama</label>
+    <input type="file" name="gambar_produk">
+</div>
 
 
-    <!-- BUTTON -->
-    <div style="margin-top:25px;">
+<!-- ================= FEATURES ================= -->
 
-        <button type="submit" name="simpan" class="btn-primary">
-            Simpan
-        </button>
+<h3 style="margin-top:25px;">Features</h3>
 
-        <a href="produk.php" class="btn-secondary">
-            Kembali
-        </a>
+<div id="feature-wrapper">
 
-    </div>
+<div class="feature-row">
+
+    <input type="text" name="feature_title[]" placeholder="Judul Feature">
+
+    <textarea name="feature_desc[]" placeholder="Deskripsi Feature"></textarea>
+
+    <input type="file" name="feature_image[]">
+
+    <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
+
+</div>
+
+</div>
+
+<button type="button" onclick="addFeature()" class="btn-add">
++ Tambah Feature
+</button>
+
+
+<!-- ================= SPECIFICATION ================= -->
+
+<h3 style="margin-top:30px;">Specifications</h3>
+
+<div id="spec-wrapper">
+
+<div class="spec-group">
+
+<input type="text" name="spec_group[]" placeholder="Nama Group (Engine, Dimension, dll)" class="spec-title">
+
+<div class="spec-items">
+
+<div class="spec-row">
+
+<input type="text" name="spec_label[0][]" placeholder="Parameter">
+
+<input type="text" name="spec_value[0][]" placeholder="Value">
+
+<button type="button" onclick="removeSpec(this)" class="btn-remove">✕</button>
+
+</div>
+
+</div>
+
+<button type="button" onclick="addSpecRow(this)" class="btn-add-small">
++ Parameter
+</button>
+
+</div>
+
+</div>
+
+
+<button type="button" onclick="addSpecGroup()" class="btn-add">
++ Tambah Group
+</button>
+
+
+
+<!-- ================= BUTTON ================= -->
+
+<div style="margin-top:30px;">
+
+<button type="submit" name="simpan" class="btn-primary">
+Simpan
+</button>
+
+<a href="produk.php" class="btn-secondary">
+Kembali
+</a>
+
+</div>
 
 </form>
 
@@ -190,28 +269,90 @@ if(isset($_POST['simpan'])){
 </div>
 
 
-<!-- SCRIPT -->
+<!-- ================= SCRIPT ================= -->
+
 <script>
 
+let specIndex = 1;
+
+
+// FEATURE
 function addFeature(){
 
     let div = document.createElement("div");
-    div.classList.add("feature-row");
+    div.className = "feature-row";
 
     div.innerHTML = `
-        <input type="text" name="feature_title[]" placeholder="Judul Feature" required>
+        <input type="text" name="feature_title[]" placeholder="Judul Feature">
 
         <textarea name="feature_desc[]" placeholder="Deskripsi Feature"></textarea>
 
-        <input type="file" name="feature_image[]" accept="image/*">
+        <input type="file" name="feature_image[]">
 
-        <button type="button" class="btn-remove" onclick="removeFeature(this)">✕</button>
+        <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
     `;
 
     document.getElementById("feature-wrapper").appendChild(div);
 }
 
 function removeFeature(btn){
+    btn.parentElement.remove();
+}
+
+
+
+// SPEC
+function addSpecGroup(){
+
+    let div = document.createElement("div");
+    div.className = "spec-group";
+
+    div.innerHTML = `
+        <input type="text" name="spec_group[]" placeholder="Nama Group" class="spec-title">
+
+        <div class="spec-items">
+
+            <div class="spec-row">
+
+                <input type="text" name="spec_label[${specIndex}][]" placeholder="Parameter">
+
+                <input type="text" name="spec_value[${specIndex}][]" placeholder="Value">
+
+                <button type="button" onclick="removeSpec(this)" class="btn-remove">✕</button>
+
+            </div>
+
+        </div>
+
+        <button type="button" onclick="addSpecRow(this, ${specIndex})" class="btn-add-small">
+        + Parameter
+        </button>
+    `;
+
+    document.getElementById("spec-wrapper").appendChild(div);
+
+    specIndex++;
+}
+
+
+function addSpecRow(btn, index){
+
+    let row = document.createElement("div");
+    row.className = "spec-row";
+
+    row.innerHTML = `
+        <input type="text" name="spec_label[${index}][]" placeholder="Parameter">
+
+        <input type="text" name="spec_value[${index}][]" placeholder="Value">
+
+        <button type="button" onclick="removeSpec(this)" class="btn-remove">✕</button>
+    `;
+
+    btn.previousElementSibling.appendChild(row);
+}
+
+
+function removeSpec(btn){
 
     btn.parentElement.remove();
 }
