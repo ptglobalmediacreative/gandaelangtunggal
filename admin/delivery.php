@@ -79,6 +79,7 @@ $delivery = $stmt->fetchAll();
     <th width="60">No</th>
     <th>Nama PT</th>
     <th>Type Unit</th>
+    <th>Total Unit</th>
     <th>Alamat Kirim</th>
     <th width="150">Tanggal Kirim</th>
     <th width="120">Aksi</th>
@@ -99,6 +100,8 @@ $delivery = $stmt->fetchAll();
 <td><?= htmlspecialchars($d['nama_pt']); ?></td>
 
 <td><?= htmlspecialchars($d['tipe_unit']); ?></td>
+
+<td><?= htmlspecialchars($d['total_unit']); ?></td>
 
 <td><?= htmlspecialchars($d['alamat_pengiriman']); ?></td>
 
