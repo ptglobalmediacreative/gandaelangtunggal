@@ -140,18 +140,6 @@ $leads_pages = [
 <?php endif; ?>
 
 
-<!-- ================= SALES ACTIVITY ================= -->
-<?php if(akses('sales')): ?>
-<li>
-  <a href="sales_activity.php"
-     class="<?= $current=='sales_activity.php'?'active':'' ?>">
-    <i class="fa-solid fa-chart-line icon"></i>
-    <span>Sales Activity</span>
-  </a>
-</li>
-<?php endif; ?>
-
-
 <!-- ================= SALES MANAGEMENT ================= -->
 <?php
 $sales_mgmt_pages = [
@@ -169,19 +157,6 @@ $sales_mgmt_pages = [
      class="<?= in_array($current,$sales_mgmt_pages)?'active':'' ?>">
     <i class="fa-solid fa-user-tie icon"></i>
     <span>Sales Management</span>
-  </a>
-</li>
-<?php endif; ?>
-
-
-
-<!-- ================= STOCK ================= -->
-<?php if(akses('stock')): ?>
-<li>
-  <a href="stock.php"
-     class="<?= $current=='stock.php'?'active':'' ?>">
-    <i class="fa-solid fa-warehouse icon"></i>
-    <span>Stock Unit</span>
   </a>
 </li>
 <?php endif; ?>
