@@ -3,8 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-include __DIR__ . "/config.php";
-
+require_once __DIR__ . "/config.php";
 
 // Cek login
 if (!isset($_SESSION['admin_id'])) {
@@ -68,8 +67,6 @@ $produk = $stmt->fetchAll();
                 <th>Gambar</th>
                 <th>Nama Produk</th>
                 <th>Kategori</th>
-                <th>Varian</th>
-                <th>Status</th>
                 <th width="160">Aksi</th>
             </tr>
         </thead>
@@ -84,7 +81,7 @@ $produk = $stmt->fetchAll();
                 <td><?= $no++; ?></td>
 
                 <td>
-                    <?php if($p['gambar']): ?>
+                    <?php if(!empty($p['gambar'])): ?>
                         <img src="../upload/produk/<?= $p['gambar']; ?>"
                              width="60" height="60"
                              style="object-fit:cover;border-radius:6px;">
@@ -96,16 +93,6 @@ $produk = $stmt->fetchAll();
                 <td><?= htmlspecialchars($p['nama_produk']); ?></td>
 
                 <td><?= $p['category_name'] ?? '-'; ?></td>
-
-                <td><?= $p['varian'] ?: '-'; ?></td>
-
-                <td>
-                    <?php if($p['status']=='aktif'): ?>
-                        <span class="badge badge-success">Aktif</span>
-                    <?php else: ?>
-                        <span class="badge badge-danger">Nonaktif</span>
-                    <?php endif; ?>
-                </td>
 
                 <td>
 
@@ -128,7 +115,7 @@ $produk = $stmt->fetchAll();
         <?php else: ?>
 
             <tr>
-                <td colspan="7" align="center">Belum ada produk</td>
+                <td colspan="5" align="center">Belum ada produk</td>
             </tr>
 
         <?php endif; ?>
