@@ -39,7 +39,7 @@ $artikel = $stmt->fetchAll();
     <h3>Daftar Artikel</h3>
 
     <a href="artikel-tambah.php" class="btn-primary">
-        + Tambah Artikel
+        Tambah Artikel
     </a>
 </div>
 
