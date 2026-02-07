@@ -1,0 +1,239 @@
+/* ===============================
+   ARTICLE MANAGEMENT - PREMIUM UI
+=============================== */
+
+:root {
+  --article-primary: #2563eb;
+  --article-dark: #0f172a;
+  --article-muted: #64748b;
+  --article-border: #e2e8f0;
+  --article-bg: #f8fafc;
+  --article-card: #ffffff;
+}
+
+/* ===============================
+   CONTAINER
+=============================== */
+
+.article-wrapper {
+  background: var(--article-card);
+  padding: 26px;
+  border-radius: 18px;
+  border: 1px solid var(--article-border);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+}
+
+/* ===============================
+   HEADER
+=============================== */
+
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.article-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--article-dark);
+}
+
+/* ===============================
+   TABLE
+=============================== */
+
+.article-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  color: var(--article-dark);
+}
+
+/* Head */
+
+.article-table thead {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.article-table th {
+  padding: 14px 15px;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Radius */
+
+.article-table th:first-child {
+  border-top-left-radius: 14px;
+}
+
+.article-table th:last-child {
+  border-top-right-radius: 14px;
+}
+
+/* Body */
+
+.article-table tbody tr {
+  transition: 0.25s;
+}
+
+.article-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.article-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.article-table tbody tr:hover {
+  background: #e0f2fe;
+  transform: scale(1.01);
+  box-shadow: inset 4px 0 0 var(--article-primary);
+}
+
+/* Cell */
+
+.article-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--article-border);
+  vertical-align: middle;
+}
+
+/* ===============================
+   IMAGE
+=============================== */
+
+.article-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--article-border);
+  background: #fff;
+  padding: 2px;
+  transition: 0.25s;
+}
+
+.article-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   DESCRIPTION
+=============================== */
+
+.article-desc {
+  max-width: 320px;
+  color: var(--article-muted);
+  line-height: 1.5;
+  font-size: 13px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* ===============================
+   DATE
+=============================== */
+
+.article-date {
+  font-size: 12px;
+  color: var(--article-muted);
+  white-space: nowrap;
+}
+
+/* ===============================
+   ACTION BUTTON
+=============================== */
+
+.article-action {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.article-action a {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+/* View */
+
+.article-view {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+}
+
+.article-view:hover {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  transform: translateY(-2px);
+}
+
+/* Edit */
+
+.article-edit {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
+.article-edit:hover {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  transform: translateY(-2px);
+}
+
+/* Delete */
+
+.article-delete {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+}
+
+.article-delete:hover {
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   EMPTY
+=============================== */
+
+.article-empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--article-muted);
+  font-style: italic;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+
+@media (max-width: 768px) {
+  .article-desc {
+    max-width: 180px;
+  }
+
+  .article-table {
+    font-size: 13px;
+  }
+
+  .article-action a {
+    width: 30px;
+    height: 30px;
+  }
+}
