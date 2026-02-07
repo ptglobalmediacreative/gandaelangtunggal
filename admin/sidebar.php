@@ -44,10 +44,23 @@ $current = basename($_SERVER['PHP_SELF']);
 
 
     <!-- Artikel -->
+    <?php
+    $artikel_pages = [
+      'artikel.php',
+      'artikel-tambah.php',
+      'artikel-edit.php',
+      'artikel-detail.php',
+      'artikel-hapus.php'
+    ];
+    ?>
+
     <li>
-      <a href="artikel.php" class="<?= $current=='artikel.php'?'active':'' ?>">
-        <i class="fa-regular fa-newspaper icon"></i>
+      <a href="artikel.php"
+        class="<?= in_array($current, $artikel_pages) ? 'active' : '' ?>">
+
+        <i class="fa-solid fa-truck-moving icon"></i>
         <span>Artikel</span>
+
       </a>
     </li>
 
