@@ -192,7 +192,6 @@ if(isset($_POST['update'])){
     $pdo->prepare("DELETE FROM produk_gallery WHERE produk_id=?")->execute([$id]);
 
 
-
     /* FEATURES */
 
     if(!empty($_POST['feature_title'])){
@@ -201,28 +200,56 @@ if(isset($_POST['update'])){
 
             if(!$t) continue;
 
-            $desc=$_POST['feature_desc'][$i];
-            $img=null;
+            $desc = $_POST['feature_desc'][$i];
 
+            // Ambil gambar lama dulu
+            $oldImg = $_POST['old_feature_image'][$i] ?? null;
+
+            // Default = pakai gambar lama
+            $img = $oldImg;
+
+
+            // Kalau upload gambar baru
             if(!empty($_FILES['feature_image']['name'][$i])){
 
-                $img=uploadUniqueImage(
+                $new = uploadUniqueImage(
                     $_FILES['feature_image']['tmp_name'][$i],
                     $_FILES['feature_image']['name'][$i],
                     $upload_path,
                     $allowed_ext
                 );
+
+                if($new){
+
+                    // Pakai gambar baru
+                    $img = $new;
+
+                    // Hapus gambar lama kalau beda
+                    if($oldImg && $oldImg != $new){
+
+                        deleteIfUnused($pdo, $oldImg, $upload_path);
+
+                    }
+                }
             }
 
+
+            // Simpan ke DB
             $pdo->prepare("
                 INSERT INTO produk_features
                 (produk_id,grup,title,description,image,sort_order)
                 VALUES (?,?,?,?,?,?)
             ")->execute([
-                $id,'FEATURE',$t,$desc,$img,$i
+                $id,
+                'FEATURE',
+                $t,
+                $desc,
+                $img,
+                $i
             ]);
         }
     }
+
 
 
 
@@ -400,7 +427,13 @@ value="<?= htmlspecialchars($produk['nama_produk']); ?>" required>
 
 <textarea name="feature_desc[]"><?= htmlspecialchars($f['description']); ?></textarea>
 
-<input type="file" name="feature_image[]" accept=".jpg,.jpeg,.png,.webp">
+<input type="hidden"
+       name="old_feature_image[]"
+       value="<?= $f['image']; ?>">
+
+<input type="file"
+       name="feature_image[]"
+       accept=".jpg,.jpeg,.png,.webp">
 
 <button type="button" onclick="removeFeature(this)" class="btn-remove">✕</button>
 
