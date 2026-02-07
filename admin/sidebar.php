@@ -100,10 +100,17 @@ $simulasi_pages = ['simulasi.php','simulasi-detail.php','simulasi-hapus.php'];
 
 
 <!-- ================= USER ADMIN ================= -->
+<?php
+$admin_pages = [
+  'admin.php','admin-tambah.php','admin-edit.php',
+  'admin-hapus.php'
+];
+?>
+
 <?php if(akses('user')): ?>
 <li>
   <a href="admin.php"
-     class="<?= $current=='admin.php'?'active':'' ?>">
+     class="<?= in_array($current,$admin_pages)?'active':'' ?>">
     <i class="fa-solid fa-users-gear icon"></i>
     <span>User Admin</span>
   </a>
