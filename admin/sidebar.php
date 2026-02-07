@@ -1,147 +1,176 @@
 <?php
 $current = basename($_SERVER['PHP_SELF']);
+
+/* DATA AKSES DARI SESSION */
+$akses = [
+  'dashboard' => $_SESSION['akses_dashboard'] ?? 0,
+  'produk'    => $_SESSION['akses_produk'] ?? 0,
+  'artikel'   => $_SESSION['akses_artikel'] ?? 0,
+  'pesan'     => $_SESSION['akses_pesan'] ?? 0,
+  'simulasi'  => $_SESSION['akses_simulasi'] ?? 0,
+  'user'      => $_SESSION['akses_user'] ?? 0,
+  'leads'     => $_SESSION['akses_leads'] ?? 0,
+  'sales'     => $_SESSION['akses_sales'] ?? 0,
+  'stock'     => $_SESSION['akses_stock'] ?? 0,
+  'delivery'  => $_SESSION['akses_delivery'] ?? 0,
+];
+
+/* GROUP PAGE */
+$produk_pages = ['produk.php','produk-tambah.php','produk-edit.php','produk-detail.php','produk-hapus.php'];
+$artikel_pages = ['artikel.php','artikel-tambah.php','artikel-edit.php','artikel-detail.php','artikel-hapus.php'];
+$pesan_pages = ['pesan.php','pesan-detail.php','pesan-hapus.php'];
+$simulasi_pages = ['simulasi.php','simulasi-detail.php','simulasi-hapus.php'];
 ?>
 
 <div class="sidebar">
 
-  <!-- Logo & Brand -->
-  <div class="sidebar-brand">
-    <img src="../images/logo.webp" alt="Logo Ganda Elang Tangguh">
-    <span>Admin Panel</span>
-  </div>
+<!-- BRAND -->
+<div class="sidebar-brand">
+  <img src="../images/logo.webp" alt="Logo">
+  <span>Admin Panel</span>
+</div>
 
-  <!-- Menu -->
-  <ul class="sidebar-menu">
+<ul class="sidebar-menu">
 
-    <!-- Dashboard -->
-    <li>
-      <a href="dashboard.php" class="<?= $current=='dashboard.php'?'active':'' ?>">
-        <i class="fa-solid fa-house icon"></i>
-        <span>Dashboard</span>
-      </a>
-    </li>
+<!-- DASHBOARD -->
+<?php if($akses['dashboard']): ?>
+<li>
+  <a href="dashboard.php"
+     class="<?= $current=='dashboard.php'?'active':'' ?>">
 
-    <!-- Produk -->
-    <?php
-    $produk_pages = [
-      'produk.php',
-      'produk-tambah.php',
-      'produk-edit.php',
-      'produk-detail.php',
-      'produk-hapus.php'
-    ];
-    ?>
+    <i class="fa-solid fa-house icon"></i>
+    <span>Dashboard</span>
 
-    <li>
-      <a href="produk.php"
-        class="<?= in_array($current, $produk_pages) ? 'active' : '' ?>">
-
-        <i class="fa-solid fa-truck-moving icon"></i>
-        <span>Produk</span>
-
-      </a>
-    </li>
+  </a>
+</li>
+<?php endif; ?>
 
 
-    <!-- Artikel -->
-    <?php
-    $artikel_pages = [
-      'artikel.php',
-      'artikel-tambah.php',
-      'artikel-edit.php',
-      'artikel-detail.php',
-      'artikel-hapus.php'
-    ];
-    ?>
+<!-- PRODUK -->
+<?php if($akses['produk']): ?>
+<li>
+  <a href="produk.php"
+     class="<?= in_array($current,$produk_pages)?'active':'' ?>">
 
-    <li>
-      <a href="artikel.php"
-        class="<?= in_array($current, $artikel_pages) ? 'active' : '' ?>">
+    <i class="fa-solid fa-truck-moving icon"></i>
+    <span>Produk</span>
 
-        <i class="fa-solid fa-newspaper icon"></i>
-        <span>Artikel</span>
+  </a>
+</li>
+<?php endif; ?>
 
-      </a>
-    </li>
 
-    <!-- Pesan -->
-    <?php
-    $pesan_pages = [
-      'pesan.php',
-      'pesan-detail.php',
-      'pesan-hapus.php'
-    ];
-    ?>
+<!-- ARTIKEL -->
+<?php if($akses['artikel']): ?>
+<li>
+  <a href="artikel.php"
+     class="<?= in_array($current,$artikel_pages)?'active':'' ?>">
 
-    <li>
-      <a href="pesan.php"
-        class="<?= in_array($current, $pesan_pages) ? 'active' : '' ?>">
+    <i class="fa-solid fa-newspaper icon"></i>
+    <span>Artikel</span>
 
-        <i class="fa-solid fa-comments icon"></i>
-        <span>Pesan</span>
+  </a>
+</li>
+<?php endif; ?>
 
-      </a>
-    </li>
 
-    <!-- Simulasi -->
-    <?php
-    $simulasi_pages = [
-      'simulasi.php',
-      'simulasi-detail.php',
-      'simulasi-hapus.php'
-    ];
-    ?>
+<!-- PESAN -->
+<?php if($akses['pesan']): ?>
+<li>
+  <a href="pesan.php"
+     class="<?= in_array($current,$pesan_pages)?'active':'' ?>">
 
-    <li>
-      <a href="simulasi.php"
-        class="<?= in_array($current, $simulasi_pages) ? 'active' : '' ?>">
+    <i class="fa-solid fa-comments icon"></i>
+    <span>Pesan</span>
 
-        <i class="fa-solid fa-calculator icon"></i>
-        <span>Simulasi Kredit</span>
+  </a>
+</li>
+<?php endif; ?>
 
-      </a>
-    </li>
 
-    <!-- User Admin -->
-    <li>
-      <a href="admin.php" class="<?= $current=='user_admin.php'?'active':'' ?>">
-        <i class="fa-solid fa-users-gear icon"></i>
-        <span>User Admin</span>
-      </a>
-    </li>
+<!-- SIMULASI -->
+<?php if($akses['simulasi']): ?>
+<li>
+  <a href="simulasi.php"
+     class="<?= in_array($current,$simulasi_pages)?'active':'' ?>">
 
-    <!-- Leads -->
-    <li>
-      <a href="leads.php" class="<?= $current=='leads.php'?'active':'' ?>">
-        <i class="fa-solid fa-user-plus icon"></i>
-        <span>Leads Customer</span>
-      </a>
-    </li>
+    <i class="fa-solid fa-calculator icon"></i>
+    <span>Simulasi Kredit</span>
 
-    <!-- Sales Activity -->
-    <li>
-      <a href="sales_activity.php" class="<?= $current=='sales_activity.php'?'active':'' ?>">
-        <i class="fa-solid fa-chart-line icon"></i>
-        <span>Sales Activity</span>
-      </a>
-    </li>
+  </a>
+</li>
+<?php endif; ?>
 
-    <!-- Stock -->
-    <li>
-      <a href="stock.php" class="<?= $current=='stock.php'?'active':'' ?>">
-        <i class="fa-solid fa-warehouse icon"></i>
-        <span>Stock Unit</span>
-      </a>
-    </li>
 
-    <!-- Delivery -->
-    <li>
-      <a href="delivery.php" class="<?= $current=='delivery.php'?'active':'' ?>">
-        <i class="fa-solid fa-truck-ramp-box icon"></i>
-        <span>Delivery Order</span>
-      </a>
-    </li>
+<!-- USER ADMIN -->
+<?php if($akses['user']): ?>
+<li>
+  <a href="admin.php"
+     class="<?= $current=='admin.php'?'active':'' ?>">
 
-  </ul>
+    <i class="fa-solid fa-users-gear icon"></i>
+    <span>User Admin</span>
+
+  </a>
+</li>
+<?php endif; ?>
+
+
+<!-- LEADS -->
+<?php if($akses['leads']): ?>
+<li>
+  <a href="leads.php"
+     class="<?= $current=='leads.php'?'active':'' ?>">
+
+    <i class="fa-solid fa-user-plus icon"></i>
+    <span>Leads Customer</span>
+
+  </a>
+</li>
+<?php endif; ?>
+
+
+<!-- SALES -->
+<?php if($akses['sales']): ?>
+<li>
+  <a href="sales_activity.php"
+     class="<?= $current=='sales_activity.php'?'active':'' ?>">
+
+    <i class="fa-solid fa-chart-line icon"></i>
+    <span>Sales Activity</span>
+
+  </a>
+</li>
+<?php endif; ?>
+
+
+<!-- STOCK -->
+<?php if($akses['stock']): ?>
+<li>
+  <a href="stock.php"
+     class="<?= $current=='stock.php'?'active':'' ?>">
+
+    <i class="fa-solid fa-warehouse icon"></i>
+    <span>Stock Unit</span>
+
+  </a>
+</li>
+<?php endif; ?>
+
+
+<!-- DELIVERY -->
+<?php if($akses['delivery']): ?>
+<li>
+  <a href="delivery.php"
+     class="<?= $current=='delivery.php'?'active':'' ?>">
+
+    <i class="fa-solid fa-truck-ramp-box icon"></i>
+    <span>Delivery Order</span>
+
+  </a>
+</li>
+<?php endif; ?>
+
+</ul>
 
 </div>
