@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once __DIR__ . "/config.php";
-require_once "auth.php"; // auth.php sudah session_start()
 
 // Kalau sudah login → dashboard
 if (isset($_SESSION['admin_id'])) {
