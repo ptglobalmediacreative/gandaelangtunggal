@@ -30,7 +30,7 @@ if(!$sales){
 
 /* ================= FOLDER UPLOAD ================= */
 
-$upload_dir = "../images/uploads/sales/";
+$upload_dir = "../images/uploads/data-sales/";
 
 if(!is_dir($upload_dir)){
     mkdir($upload_dir,0777,true);
