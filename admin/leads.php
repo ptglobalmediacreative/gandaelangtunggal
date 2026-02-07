@@ -117,21 +117,6 @@ title="Detail">
 <i class="fa fa-eye"></i>
 </a>
 
-<!-- EDIT -->
-<a href="leads-edit.php?id=<?= $l['id']; ?>"
-class="btn-sm btn-warning"
-title="Edit">
-<i class="fa fa-edit"></i>
-</a>
-
-<!-- DELETE -->
-<a href="leads-hapus.php?id=<?= $l['id']; ?>"
-class="btn-sm btn-danger"
-title="Hapus"
-onclick="return confirmDelete('<?= htmlspecialchars($l['nama_perusahaan']); ?>')">
-<i class="fa fa-trash"></i>
-</a>
-
 </div>
 
 </td>
