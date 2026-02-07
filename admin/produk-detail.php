@@ -24,20 +24,20 @@ $id = (int)$_GET['id'];
 
 /* ================= CONFIG ================= */
 
-$upload_path = "../images/uploads/produk/";
+$upload_url = "../images/uploads/produk/";
 
 
 /* ================= LOAD DATA ================= */
 
-/* Produk */
-$p = $pdo->prepare("
+/* Produk + Kategori */
+$stmt = $pdo->prepare("
     SELECT p.*, c.name AS category_name
     FROM produk p
     LEFT JOIN categories c ON p.category_id = c.id
     WHERE p.id=?
 ");
-$p->execute([$id]);
-$produk = $p->fetch();
+$stmt->execute([$id]);
+$produk = $stmt->fetch();
 
 if(!$produk){
     header("Location: produk.php");
@@ -65,7 +65,7 @@ $fq->execute([$id]);
 $features = $fq->fetchAll();
 
 
-/* Spec */
+/* Spesifikasi */
 $sq = $pdo->prepare("
     SELECT * FROM produk_spesifikasi
     WHERE produk_id=?
@@ -81,7 +81,6 @@ $groups = [];
 foreach($specs as $s){
     $groups[$s['grup']][] = $s;
 }
-
 ?>
 
 <?php include "header.php"; ?>
@@ -90,37 +89,37 @@ foreach($specs as $s){
 
 <div class="main-content">
 
+<!-- TOPBAR -->
 <div class="topbar">
+
     <h2>Detail Produk</h2>
 
     <a href="produk.php" class="btn-secondary">
         ← Kembali
     </a>
+
 </div>
 
 
-<div class="card">
+<!-- CARD -->
+<div class="card product-detail-card">
 
 
-<!-- ================= BASIC ================= -->
+
+<!-- ================= INFO ================= -->
 
 <h3>Informasi Produk</h3>
 
-<table class="data-table" style="margin-bottom:30px;">
+<table class="product-info-table">
 
 <tr>
-    <td width="180"><b>Nama Produk</b></td>
+    <td>Nama Produk</td>
     <td><?= htmlspecialchars($produk['nama_produk']); ?></td>
 </tr>
 
 <tr>
-    <td><b>Kategori</b></td>
-    <td><?= $produk['category_name'] ?? '-'; ?></td>
-</tr>
-
-<tr>
-    <td><b>Slug</b></td>
-    <td><?= $produk['slug']; ?></td>
+    <td>Kategori</td>
+    <td><?= htmlspecialchars($produk['category_name'] ?? '-'); ?></td>
 </tr>
 
 </table>
@@ -133,9 +132,8 @@ foreach($specs as $s){
 
 <?php if($produk['gambar']): ?>
 
-<img src="<?= $upload_path.$produk['gambar']; ?>"
-     width="250"
-     style="border-radius:12px;margin-bottom:25px;">
+<img src="<?= $upload_url.$produk['gambar']; ?>"
+     class="product-thumbnail">
 
 <?php else: ?>
 
@@ -151,14 +149,11 @@ foreach($specs as $s){
 
 <?php if($gallery): ?>
 
-<div style="display:flex;gap:15px;flex-wrap:wrap;margin-bottom:30px;">
+<div class="product-gallery">
 
 <?php foreach($gallery as $g): ?>
 
-<img src="<?= $upload_path.$g['image']; ?>"
-     width="120"
-     height="120"
-     style="object-fit:cover;border-radius:10px;">
+<img src="<?= $upload_url.$g['image']; ?>">
 
 <?php endforeach; ?>
 
@@ -180,21 +175,20 @@ foreach($specs as $s){
 
 <?php foreach($features as $f): ?>
 
-<div class="feature-row" style="margin-bottom:15px;">
+<div class="feature-item">
 
     <?php if($f['image']): ?>
 
-    <img src="<?= $upload_path.$f['image']; ?>"
-         width="90"
-         style="border-radius:8px;">
+    <img src="<?= $upload_url.$f['image']; ?>">
 
     <?php endif; ?>
+
 
     <div>
 
         <b><?= htmlspecialchars($f['title']); ?></b>
 
-        <p style="margin-top:5px;color:#475569;">
+        <p>
             <?= nl2br(htmlspecialchars($f['description'])); ?>
         </p>
 
@@ -221,16 +215,16 @@ foreach($specs as $s){
 
 <?php foreach($groups as $g=>$rows): ?>
 
-<h4 style="margin-top:20px;color:#2563eb;">
+<h4 class="spec-group-title">
     <?= htmlspecialchars($g); ?>
 </h4>
 
-<table class="data-table" style="margin-bottom:25px;">
+<table class="spec-table">
 
 <?php foreach($rows as $r): ?>
 
 <tr>
-    <td width="250"><?= htmlspecialchars($r['label']); ?></td>
+    <td><?= htmlspecialchars($r['label']); ?></td>
     <td><?= htmlspecialchars($r['nilai']); ?></td>
 </tr>
 
@@ -248,9 +242,10 @@ foreach($specs as $s){
 
 
 
+
 <!-- ================= ACTION ================= -->
 
-<div style="margin-top:40px;">
+<div class="product-detail-action">
 
 <a href="produk-edit.php?id=<?= $id; ?>" class="btn-warning">
     ✎ Edit Produk
@@ -261,6 +256,7 @@ foreach($specs as $s){
 </a>
 
 </div>
+
 
 
 </div>
