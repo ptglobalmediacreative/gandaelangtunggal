@@ -131,17 +131,6 @@ $upload_path = "/uploads/data-customer/";
 <!-- ACTION -->
 <div class="product-detail-action">
 
-<a href="leads-edit.php?id=<?= $id; ?>"
-   class="btn-warning">
-✎ Edit
-</a>
-
-<a href="leads-hapus.php?id=<?= $id; ?>"
-   class="btn-danger"
-   onclick="return confirm('Yakin ingin menghapus leads ini?')">
-🗑 Hapus
-</a>
-
 <a href="leads.php"
    class="btn-secondary">
 ← Kembali

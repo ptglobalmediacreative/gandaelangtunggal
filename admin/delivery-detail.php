@@ -205,10 +205,6 @@ Belum ada dokumen.
 <i class="fa fa-arrow-left"></i> Kembali
 </a>
 
-<a href="delivery-edit.php?id=<?= $data['id']; ?>" class="btn-primary">
-<i class="fa fa-edit"></i> Edit
-</a>
-
 </div>
 
 
