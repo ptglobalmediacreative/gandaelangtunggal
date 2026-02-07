@@ -58,7 +58,7 @@ $current = basename($_SERVER['PHP_SELF']);
       <a href="artikel.php"
         class="<?= in_array($current, $artikel_pages) ? 'active' : '' ?>">
 
-        <i class="fa-solid fa-newspapper icon"></i>
+        <i class="fa-solid fa-newspaper icon"></i>
         <span>Artikel</span>
 
       </a>
