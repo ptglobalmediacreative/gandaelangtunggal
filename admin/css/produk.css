@@ -132,7 +132,7 @@
 
 /* Tambah Produk */
 /* ===============================
-   ADMIN FORM - ENTERPRISE UI FINAL++
+   ADMIN FORM - ENTERPRISE UI CLEAN
 =============================== */
 
 :root {
@@ -140,10 +140,6 @@
   --primary-dark: #1e40af;
   --secondary: #64748b;
   --success: #16a34a;
-
-  --danger: #dc2626;
-  --danger-dark: #991b1b;
-  --danger-soft: #fca5a5;
 
   --info: #0ea5e9;
 
@@ -159,7 +155,7 @@
 }
 
 /* ===============================
-   PAGE BACKGROUND
+   PAGE
 =============================== */
 
 body {
@@ -174,8 +170,8 @@ body {
   background: var(--bg-card);
   border-radius: 22px;
   padding: 36px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
   border: 1.5px solid var(--border-strong);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.07);
 }
 
 /* ===============================
@@ -183,19 +179,19 @@ body {
 =============================== */
 
 .form-group {
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 }
 
 .form-group label {
   display: block;
   font-weight: 600;
   font-size: 14px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--text);
 }
 
 /* ===============================
-   INPUT (STRONG BORDER)
+   INPUT
 =============================== */
 
 .form-group input,
@@ -206,32 +202,30 @@ body {
 .spec-row input,
 .spec-title {
   width: 100%;
-  padding: 14px 16px;
+  height: 44px;
+  padding: 10px 14px;
   border: 2px solid var(--border);
   border-radius: 12px;
   font-size: 14px;
   background: #ffffff;
-  transition: all 0.25s ease;
+  transition: 0.2s;
 }
 
 .form-group textarea {
+  min-height: 110px;
+  height: auto;
   resize: vertical;
-  min-height: 105px;
 }
 
 /* Focus */
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus,
-.feature-row input:focus,
-.feature-row textarea:focus,
-.spec-row input:focus,
-.spec-title:focus {
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border-color: var(--primary);
   background: #f8fbff;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 /* ===============================
@@ -242,17 +236,16 @@ body {
 .btn-secondary,
 .btn-add,
 .btn-add-small,
-.btn-remove,
-.btn-remove-param {
+.btn-remove {
   border: none;
   border-radius: 12px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: 0.2s;
 }
 
 /* ===============================
@@ -261,20 +254,18 @@ body {
 
 .btn-primary {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: #ffffff;
-  padding: 14px 26px;
+  color: #fff;
+  padding: 12px 24px;
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #1e40af, #1e3a8a);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
   background: #e2e8f0;
   color: var(--secondary);
-  padding: 14px 26px;
+  padding: 12px 24px;
 }
 
 .btn-secondary:hover {
@@ -288,54 +279,34 @@ body {
 .btn-add,
 .btn-add-small {
   background: linear-gradient(135deg, #0ea5e9, #0284c7);
-  color: #ffffff;
-  padding: 10px 20px;
-  margin-top: 12px;
+  color: #fff;
+  padding: 8px 18px;
   margin-left: auto;
+  margin-top: 10px;
   display: flex;
 }
 
 .btn-add:hover,
 .btn-add-small:hover {
   background: linear-gradient(135deg, #0284c7, #0369a1);
-  transform: translateY(-1px);
 }
 
 /* ===============================
-   DELETE BUTTON
+   DELETE BUTTON (UNIFIED CLEAN)
 =============================== */
 
-/* GROUP DELETE (STRONG RED) */
 .btn-remove {
-  background: linear-gradient(135deg, #ef4444, #b91c1c);
-  color: #ffffff;
-  width: 38px;
-  height: 38px;
-  font-size: 15px;
-  font-weight: 700;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4);
-}
-
-.btn-remove:hover {
-  background: linear-gradient(135deg, #dc2626, #7f1d1d);
-  transform: scale(1.08);
-}
-
-/* PARAMETER DELETE (SOFT) */
-.btn-remove-param {
   background: #f1f5f9;
   color: var(--muted);
-  width: 34px;
-  height: 34px;
-  font-size: 13px;
+  width: 36px;
+  height: 36px;
   border: 1.5px solid var(--border);
 }
 
-.btn-remove-param:hover {
-  background: #fee2e2;
-  color: var(--danger);
-  border-color: var(--danger);
+.btn-remove:hover {
+  background: #e2e8f0;
+  color: var(--text);
+  border-color: var(--primary);
 }
 
 /* ===============================
@@ -344,20 +315,21 @@ body {
 
 .feature-row {
   display: grid;
-  grid-template-columns: 1.2fr 2fr 1fr auto;
-  gap: 18px;
-  padding: 18px;
+  grid-template-columns: 1.3fr 2fr 1.2fr 40px;
+  gap: 14px;
+  align-items: center;
+
+  padding: 16px;
   border-radius: 16px;
-  background: #ffffff;
-  margin-bottom: 18px;
+  background: #fff;
+  margin-bottom: 16px;
   border: 2px solid var(--border);
-  transition: 0.25s;
+  transition: 0.2s;
 }
 
 .feature-row:hover {
-  background: #f8fafc;
   border-color: var(--primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  background: #f8fafc;
 }
 
 /* ===============================
@@ -366,11 +338,10 @@ body {
 
 .spec-group {
   border: 2px solid var(--border);
-  background: #ffffff;
+  background: #fff;
   border-radius: 20px;
-  padding: 26px;
-  margin-bottom: 30px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 28px;
 }
 
 /* Header */
@@ -378,28 +349,29 @@ body {
 .spec-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 16px;
 }
 
 /* Row */
 
 .spec-row {
   display: grid;
-  grid-template-columns: 1.3fr 1.3fr auto;
-  gap: 16px;
-  padding: 16px;
+  grid-template-columns: 1.5fr 1.5fr 40px;
+  gap: 14px;
+  align-items: center;
+
+  padding: 14px;
   border-radius: 14px;
   background: #f8fafc;
   border: 2px solid var(--border);
-  margin-bottom: 14px;
-  transition: 0.25s;
+  margin-bottom: 12px;
+  transition: 0.2s;
 }
 
 .spec-row:hover {
-  background: #f1f5f9;
   border-color: var(--primary);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  background: #f1f5f9;
 }
 
 /* ===============================
@@ -407,23 +379,23 @@ body {
 =============================== */
 
 h3 {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  padding-left: 16px;
   position: relative;
-  padding-left: 18px;
 }
 
 h3:before {
   content: "";
-  width: 5px;
+  width: 4px;
   height: 70%;
   background: var(--primary);
   position: absolute;
   left: 0;
   top: 15%;
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
 /* ===============================
@@ -431,58 +403,13 @@ h3:before {
 =============================== */
 
 @media (max-width: 768px) {
-  .feature-row {
-    grid-template-columns: 1fr;
-  }
-
+  .feature-row,
   .spec-row {
     grid-template-columns: 1fr;
-  }
-
-  .spec-header {
-    flex-direction: column;
-    align-items: stretch;
   }
 
   .btn-add,
   .btn-add-small {
     width: 100%;
   }
-}
-
-/* ===============================
-   FIX DELETE BUTTON SPEC
-=============================== */
-
-/* GROUP DELETE = MERAH (HEADER) */
-.spec-header .btn-remove,
-.spec-header .btn-remove-param {
-  background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
-  color: #ffffff !important;
-  width: 40px !important;
-  height: 40px !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  border-radius: 12px !important;
-  box-shadow: 0 3px 12px rgba(239, 68, 68, 0.45) !important;
-}
-
-/* PARAM DELETE = NETRAL (ROW) */
-.spec-row .btn-remove,
-.spec-row .btn-remove-param {
-  background: #f1f5f9 !important;
-  color: #64748b !important;
-  border: 2px solid #cbd5e1 !important;
-  box-shadow: none !important;
-  width: 34px !important;
-  height: 34px !important;
-  font-size: 13px !important;
-}
-
-/* PARAM HOVER */
-.spec-row .btn-remove:hover,
-.spec-row .btn-remove-param:hover {
-  background: #fee2e2 !important;
-  color: #dc2626 !important;
-  border-color: #dc2626 !important;
 }
