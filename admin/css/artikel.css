@@ -135,9 +135,12 @@ body {
 
 .article-desc {
   max-width: 320px;
+  margin: 0 auto; /* Center posisi kolom */
+  text-align: center; /* Center tulisan */
+
   font-size: 13px;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.6;
 
   overflow: hidden;
   display: -webkit-box;
