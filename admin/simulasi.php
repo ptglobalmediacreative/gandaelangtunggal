@@ -145,7 +145,7 @@ onclick="return confirmDelete('<?= htmlspecialchars($s['nama']); ?>')">
 
 <tr>
 <td colspan="9" class="table-empty">
-Belum ada data simulasi
+Belum ada data simulasi kredit
 </td>
 </tr>
 
