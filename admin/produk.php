@@ -58,8 +58,7 @@ $produk = $stmt->fetchAll();
     </div>
 
     <!-- Table -->
-    <div style="overflow-x:auto;">
-    <table class="data-table">
+    <table class="data-table table-fixed">
 
         <thead>
             <tr>
