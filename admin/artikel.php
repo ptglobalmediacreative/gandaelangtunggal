@@ -31,8 +31,19 @@ $artikel = $stmt->fetchAll();
 <!-- TOPBAR -->
 <div class="topbar">
     <h2>Manajemen Artikel</h2>
-</div>
 
+    <div class="topbar-right">
+        <span class="admin-name">
+            <i class="fa-solid fa-user"></i>
+            <?= $_SESSION['admin_nama']; ?>
+        </span>
+
+        <a href="logout.php" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+    </div>
+</div>
 
 <div class="card">
 
