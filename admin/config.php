@@ -5,9 +5,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $host = "localhost";
-$db   = "u166903321_get";
-$user = "u166903321_get";
-$pass = "Natanael110405";
+$db   = "u475225363_get";
+$user = "u475225363_get";
+$pass = "Websiteget123";
 
 try {
 
