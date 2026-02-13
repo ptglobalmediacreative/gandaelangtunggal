@@ -30,18 +30,23 @@ body {
   transform: translateY(0);
 
   transition:
-    background 0.4s ease,
-    box-shadow 0.4s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease,
     transform 0.4s ease;
 }
 
-/* Saat scroll → biru tebal */
+/* HERO + hover = biru tipis */
+.header:hover:not(.scrolled) {
+  background: rgba(15, 23, 42, 0.55);
+}
+
+/* Saat scroll = biru tebal */
 .header.scrolled {
-  background: rgba(10, 25, 47, 0.98);
+  background: rgba(8, 20, 40, 0.98);
   box-shadow: 0 6px 28px rgba(0, 0, 0, 0.7);
 }
 
-/* Saat scroll ke bawah → hide */
+/* Hide saat scroll turun (JS) */
 .header.hide {
   transform: translateY(-120%);
 }

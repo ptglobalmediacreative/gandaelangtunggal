@@ -10,17 +10,17 @@ const header = document.querySelector(".header");
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
-  // Background aktif
-  if (currentScroll > 50) {
+  if (currentScroll > 80) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
   }
 
-  // Hide saat scroll turun
   if (currentScroll > lastScroll && currentScroll > 150) {
     header.classList.add("hide");
-  } else {
+  }
+
+  if (currentScroll < lastScroll) {
     header.classList.remove("hide");
   }
 
