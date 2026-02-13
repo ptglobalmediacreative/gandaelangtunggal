@@ -26,3 +26,22 @@ window.addEventListener("scroll", () => {
 
   lastScroll = currentScroll;
 });
+
+// Kenapa Memilih Kami
+/* ================= WHY US PARALLAX ================= */
+
+const whySection = document.querySelector(".why-us");
+const whyBg = document.querySelector(".why-bg");
+
+window.addEventListener("scroll", () => {
+  const rect = whySection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    const progress = 1 - rect.top / (windowHeight + rect.height);
+
+    const scale = 1.05 + progress * 0.08;
+
+    whyBg.style.transform = `scale(${scale})`;
+  }
+});

@@ -69,5 +69,70 @@
 
 </section>
 
+<!-- ================= WHY US SECTION ================= -->
+<section class="why-us">
+
+  <div class="why-bg"></div>
+
+  <div class="why-container">
+
+    <div class="why-title">
+      <h2>Kenapa Memilih Kami</h2>
+      <p>Layanan Profesional & Terpercaya</p>
+    </div>
+
+    <div class="why-cards">
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <h3>Tepat Waktu</h3>
+        <p>
+          Kami selalu menjunjung tinggi profesionalisme
+          dalam melayani pelanggan dengan ketepatan waktu.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fa-solid fa-tags"></i>
+        </div>
+        <h3>Harga Kompetitif</h3>
+        <p>
+          Memberikan solusi terbaik dengan harga yang
+          kompetitif dan transparan sesuai kebutuhan proyek Anda.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fa-solid fa-award"></i>
+        </div>
+        <h3>Kualitas Terjamin</h3>
+        <p>
+          Seluruh unit alat berat dipilih secara selektif
+          untuk memastikan performa dan daya tahan optimal.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <h3>Pelayanan Profesional</h3>
+        <p>
+          Didukung oleh tim berpengalaman yang siap
+          memberikan layanan cepat dan responsif.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 
 <?php include "footer.php"; ?>

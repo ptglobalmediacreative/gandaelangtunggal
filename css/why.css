@@ -1,0 +1,152 @@
+/* ================= WHY US SECTION ================= */
+
+.why-us {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 120px 20px;
+
+  overflow: hidden;
+}
+
+/* Background */
+.why-bg {
+  position: absolute;
+  inset: 0;
+
+  background: url("/images/bg/why-bg.jpg") center/cover no-repeat;
+
+  transform: scale(1.05);
+  transition: transform 0.2s ease-out;
+
+  z-index: 1;
+}
+
+/* Overlay biru corporate */
+.why-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(13, 32, 59, 0.88), rgba(10, 25, 47, 0.92));
+}
+
+/* Container */
+.why-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1300px;
+  width: 100%;
+
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Title */
+.why-title h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.why-title p {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+
+/* Cards layout */
+.why-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Card */
+.why-card {
+  background: #ffffff;
+  color: #1f2937;
+
+  padding: 40px 30px;
+  border-radius: 16px;
+
+  text-align: left;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Icon circle */
+.why-icon {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+
+  color: #ffffff;
+  font-size: 22px;
+
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3);
+
+  transition: transform 0.3s ease;
+}
+
+.why-card:hover .why-icon {
+  transform: scale(1.1);
+}
+
+/* Title */
+.why-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 14px;
+
+  color: #0f2341;
+}
+
+/* Text */
+.why-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .why-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .why-title h2 {
+    font-size: 32px;
+  }
+
+  .why-cards {
+    grid-template-columns: 1fr;
+  }
+}
