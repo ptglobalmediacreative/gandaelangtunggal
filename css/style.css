@@ -128,8 +128,8 @@ body {
 
 /* ================= NAVBAR HOVER EFFECT ================= */
 
-/* Saat cursor masuk area header */
-.header:hover .navbar {
+/* Saat cursor masuk navbar */
+.navbar:hover {
   background: rgba(15, 23, 42, 0.95);
 
   padding: 8px 22px;
@@ -137,7 +137,10 @@ body {
 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 
-  transition: all 0.3s ease;
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* ================= RESPONSIVE ================= */
