@@ -300,7 +300,7 @@
 
     <!-- Button -->
     <div class="blog-more fade-blog">
-      <a href="/blog.php" class="btn-blog">Lihat Semua Artikel</a>
+      <a href="#" class="btn-blog">Lihat Semua Artikel</a>
     </div>
 
   </div>
