@@ -37,7 +37,7 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Garis biru (SATU SAJA) */
+/* Garis biru bawah */
 .header::after {
   content: "";
 
@@ -54,7 +54,6 @@ body {
   transition: 0.3s;
 }
 
-/* Aktif saat hover / scroll / menu open */
 .header:hover::after,
 .header.scrolled::after,
 .header.menu-open::after {
@@ -116,6 +115,8 @@ body {
 
   position: relative;
 
+  padding: 6px 2px;
+
   transition: 0.25s;
 }
 
@@ -124,13 +125,13 @@ body {
   color: #111111;
 }
 
-/* Underline mobile */
+/* Underline desktop + mobile */
 .navbar a::after {
   content: "";
 
   position: absolute;
   left: 50%;
-  bottom: 8px;
+  bottom: -7px;
 
   width: 0;
   height: 2px;
@@ -138,13 +139,13 @@ body {
   background: linear-gradient(90deg, #1e3a8a, #2563eb, #1e40af);
 
   transform: translateX(-50%);
-  transition: 0.3s;
+  transition: width 0.3s ease;
 }
 
-/* Hover / active mobile underline */
+/* Hover / active */
 .navbar a:hover::after,
 .navbar a.active::after {
-  width: 40%;
+  width: 100%;
 }
 
 /* ================= HAMBURGER ================= */
@@ -188,7 +189,7 @@ body {
     display: flex;
   }
 
-  /* Navbar mobile */
+  /* Navbar fullscreen */
   .navbar {
     position: fixed;
 
@@ -203,17 +204,17 @@ body {
     flex-direction: column;
     align-items: center;
 
-    padding-top: 20px;
+    padding-top: 25px;
 
     opacity: 0;
     pointer-events: none;
 
-    transition: 0.35s;
+    transition: 0.35s ease;
 
     z-index: 99999;
   }
 
-  /* Active */
+  /* Active menu */
   .navbar.active {
     opacity: 1;
     pointer-events: auto;
@@ -235,13 +236,21 @@ body {
     border-bottom: 1px solid #e5e7eb;
   }
 
+  /* Hover mobile */
   .navbar a:hover {
     background: #f1f5f9;
     color: #1d4ed8;
   }
 
+  /* Mobile underline */
   .navbar a::after {
-    display: none;
+    bottom: 6px;
+  }
+
+  /* Hover / active mobile underline */
+  .navbar a:hover::after,
+  .navbar a.active::after {
+    width: 35%;
   }
 
   /* Hamburger anim */
