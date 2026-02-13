@@ -92,37 +92,46 @@ blogItems.forEach((item) => {
   blogObserver.observe(item);
 });
 
-/* ================= HAMBURGER MENU ================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".header");
+  const hamburger = document.getElementById("hamburger");
+  const navbar = document.getElementById("navbar");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navbar.classList.toggle("active");
-  header.classList.toggle("menu-open");
+  /* ================= HAMBURGER MENU ================= */
 
-  /* Lock scroll when menu open */
-  document.body.classList.toggle("no-scroll");
-});
+  if (hamburger && navbar) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navbar.classList.toggle("active");
+      header.classList.toggle("menu-open");
 
-/* Close menu when click link */
-document.querySelectorAll(".navbar a").forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navbar.classList.remove("active");
-    header.classList.remove("menu-open");
-    document.body.classList.remove("no-scroll");
-  });
-});
+      document.body.classList.toggle("no-scroll");
+    });
 
-/* Close menu when click outside */
-document.addEventListener("click", (e) => {
-  if (
-    navbar.classList.contains("active") &&
-    !navbar.contains(e.target) &&
-    !hamburger.contains(e.target)
-  ) {
-    hamburger.classList.remove("active");
-    navbar.classList.remove("active");
-    header.classList.remove("menu-open");
-    document.body.classList.remove("no-scroll");
+    /* Close when click menu */
+    document.querySelectorAll(".navbar a").forEach((link) => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navbar.classList.remove("active");
+        header.classList.remove("menu-open");
+        document.body.classList.remove("no-scroll");
+      });
+    });
+
+    /* Close when click outside */
+    document.addEventListener("click", (e) => {
+      if (
+        navbar.classList.contains("active") &&
+        !navbar.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        hamburger.classList.remove("active");
+        navbar.classList.remove("active");
+        header.classList.remove("menu-open");
+        document.body.classList.remove("no-scroll");
+      }
+    });
+  } else {
+    console.error("Hamburger / Navbar not found!");
   }
 });
