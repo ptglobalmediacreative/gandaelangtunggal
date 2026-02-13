@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/why.css">
     <link rel="stylesheet" href="/css/aftersales.css">
     <link rel="stylesheet" href="/css/bloghome.css">
+    <link rel="stylesheet" href="/css/footer.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="/images/favicon.webp">
