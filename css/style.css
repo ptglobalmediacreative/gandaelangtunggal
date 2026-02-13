@@ -43,8 +43,8 @@ body {
 
 /* Saat scroll = navy solid premium */
 .header.scrolled {
-  background: rgba(15, 35, 65, 0.95);
-  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.6);
+  background: #0f2341;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
 }
 
 /* Hide saat scroll turun (JS) */
