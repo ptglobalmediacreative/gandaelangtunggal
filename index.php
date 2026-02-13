@@ -10,7 +10,7 @@
 <header class="header">
     <div class="container">
         <div class="logo">
-            <img src="assets/img/logo.png" alt="Logo">
+            <img src="/images/logo.png" alt="Logo">
         </div>
 
         <nav class="navbar">
@@ -25,7 +25,7 @@
 <!-- HERO SECTION -->
 <section class="hero">
     <video autoplay muted loop playsinline class="hero-video">
-        <source src="assets/video/hero.mp4" type="video/mp4">
+        <source src="images/video/vidhero.mp4" type="video/mp4">
     </video>
 
     <div class="hero-content">
