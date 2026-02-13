@@ -124,25 +124,27 @@ body {
   color: #111111;
 }
 
-/* Underline */
+/* Underline mobile */
 .navbar a::after {
   content: "";
 
   position: absolute;
   left: 50%;
-  bottom: -7px;
+  bottom: 8px;
 
   width: 0;
   height: 2px;
 
-  background: linear-gradient(90deg, #b8860b, #d4af37);
+  background: linear-gradient(90deg, #1e3a8a, #2563eb, #1e40af);
 
   transform: translateX(-50%);
   transition: 0.3s;
 }
 
-.navbar a:hover::after {
-  width: 100%;
+/* Hover / active mobile underline */
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 40%;
 }
 
 /* ================= HAMBURGER ================= */
