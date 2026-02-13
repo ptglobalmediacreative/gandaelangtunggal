@@ -45,3 +45,25 @@ window.addEventListener("scroll", () => {
     whyBg.style.transform = `scale(${scale})`;
   }
 });
+
+// Aftersales
+/* ================= SERVICE SUPPORT ANIMATION ================= */
+
+const serviceItems = document.querySelectorAll(".fade-up");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  },
+);
+
+serviceItems.forEach((item) => {
+  observer.observe(item);
+});

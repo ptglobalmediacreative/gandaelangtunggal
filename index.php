@@ -133,6 +133,78 @@
 
 </section>
 
+<!-- ================= SERVICE SUPPORT ================= -->
+<section class="service-support">
+
+  <div class="service-container">
+
+    <!-- LEFT -->
+    <div class="service-left fade-up">
+
+      <h2>
+        OPTIMALKAN KINERJA ALAT BERAT
+        DENGAN LAYANAN DAN DUKUNGAN
+        TERBAIK
+      </h2>
+
+      <p>
+        PT Ganda Elang Tangguh menghadirkan layanan purna jual terbaik
+        untuk memastikan setiap pelanggan mendapatkan pengalaman
+        bisnis maksimal.
+      </p>
+
+    </div>
+
+    <!-- LINE -->
+    <div class="service-line"></div>
+
+    <!-- RIGHT -->
+    <div class="service-right">
+
+      <!-- Card 1 -->
+      <div class="service-card fade-up">
+
+        <div class="service-icon">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+
+        <h3>Suku Cadang</h3>
+
+        <p>
+          Kami menyediakan suku cadang asli
+          untuk menjaga performa dan keandalan
+          alat berat pelanggan.
+        </p>
+
+        <a href="#">Lebih Lanjut →</a>
+
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card fade-up">
+
+        <div class="service-icon">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+
+        <h3>Service Program</h3>
+
+        <p>
+          Berbagai layanan perawatan untuk memastikan
+          alat berat selalu optimal dan minim downtime.
+        </p>
+
+        <a href="#">Lebih Lanjut →</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 
 
 <?php include "footer.php"; ?>
