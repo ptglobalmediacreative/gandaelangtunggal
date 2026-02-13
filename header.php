@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/hero.css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="images/webp" href="/images/favicon.webp">
+
 </head>
 <body>
 
