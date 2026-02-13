@@ -67,51 +67,56 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 28px;
 
-  padding: 0;
+  padding: 4px 0;
 
   background: transparent;
   border: none;
-  box-shadow: none;
 
-  transition: none;
+  transition: all 0.3s ease;
 }
 
 /* ================= NAV LINK ================= */
 
 .navbar a {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
 
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 500;
+  letter-spacing: 0.3px;
 
-  padding: 5px 0;
+  padding: 6px 2px;
 
   position: relative;
 
-  transition: color 0.25s ease;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
-/* Underline */
+/* Elegant underline */
 .navbar a::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -6px;
+  left: 50%;
+  bottom: -7px;
 
   width: 0%;
   height: 2px;
 
-  background: #facc15;
+  background: linear-gradient(90deg, #facc15, #fde047);
 
-  transition: 0.3s ease;
+  transform: translateX(-50%);
+
+  transition: width 0.3s ease;
 }
 
-/* Hover link */
+/* Hover */
 .navbar a:hover {
   color: #facc15;
+  transform: translateY(-2px);
 }
 
 .navbar a:hover::after {
