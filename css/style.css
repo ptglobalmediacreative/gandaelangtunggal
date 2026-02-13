@@ -17,6 +17,8 @@ body {
 .header {
   position: fixed;
   top: 0;
+  left: 0;
+
   width: 100%;
 
   z-index: 99999;
@@ -24,13 +26,22 @@ body {
   padding: 20px 0;
 
   background: transparent;
-  transition: all 0.3s ease;
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* Saat scroll */
 .header.scrolled {
   background: rgba(15, 23, 42, 0.95);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Saat hover → FULL */
+.header:hover {
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
 }
 
 /* ================= CONTAINER ================= */
@@ -64,32 +75,7 @@ body {
   border: none;
   box-shadow: none;
 
-  pointer-events: auto;
-
-  transition:
-    background 0.3s ease,
-    padding 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-/* Saat scroll */
-.header.scrolled .navbar {
-  background: rgba(15, 23, 42, 0.9);
-
-  padding: 8px 22px;
-  border-radius: 40px;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-/* Hover navbar */
-.navbar:hover {
-  background: rgba(15, 23, 42, 0.95);
-
-  padding: 8px 22px;
-  border-radius: 40px;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: none;
 }
 
 /* ================= NAV LINK ================= */
