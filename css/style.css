@@ -27,23 +27,23 @@ body {
 
   background: transparent;
 
+  transform: translateY(0);
+
   transition:
-    background 0.35s ease,
-    box-shadow 0.35s ease,
-    padding 0.35s ease;
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
 }
 
-/* Saat scroll */
+/* Saat scroll → biru tebal */
 .header.scrolled {
-  background: rgba(15, 23, 42, 0.95);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
-
-  padding: 12px 0; /* shrink */
+  background: rgba(10, 25, 47, 0.98);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.7);
 }
 
-/* Hover */
-.header:hover {
-  background: rgba(15, 23, 42, 0.95);
+/* Saat scroll ke bawah → hide */
+.header.hide {
+  transform: translateY(-120%);
 }
 
 /* ================= CONTAINER ================= */
@@ -62,12 +62,6 @@ body {
 
 .logo img {
   height: 68px;
-  transition: height 0.35s ease;
-}
-
-/* Logo ikut shrink */
-.header.scrolled .logo img {
-  height: 52px;
 }
 
 /* ================= NAVBAR ================= */
@@ -103,7 +97,7 @@ body {
     opacity 0.25s ease;
 }
 
-/* Underline elegan dari tengah */
+/* Underline tengah */
 .navbar a::after {
   content: "";
   position: absolute;
