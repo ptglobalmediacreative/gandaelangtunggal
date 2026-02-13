@@ -2,13 +2,20 @@
 
 .home-blog {
   width: 100%;
-  padding: 100px 20px;
+
+  padding: 80px 20px; /* Lebih ramping */
 
   background: #f9fafb;
+
+  display: flex;
+  justify-content: center;
 }
 
+/* Wrapper biar tidak full layar */
 .blog-container {
-  max-width: 1250px;
+  max-width: 1100px; /* Dipersempit */
+  width: 100%;
+
   margin: auto;
 }
 
@@ -16,19 +23,19 @@
 
 .blog-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .blog-header h2 {
-  font-size: 36px;
+  font-size: 32px; /* Lebih kecil */
   font-weight: 700;
 
   color: #0f2341;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .blog-header p {
-  font-size: 17px;
+  font-size: 16px;
   color: #6b7280;
 }
 
@@ -37,32 +44,32 @@
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
+  gap: 28px; /* Lebih rapat */
 }
 
 /* ================= CARD ================= */
 
 .blog-card {
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 16px;
 
   overflow: hidden;
 
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 
   transition: all 0.35s ease;
 }
 
 .blog-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.18);
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.16);
 }
 
 /* ================= IMAGE ================= */
 
 .blog-image {
   width: 100%;
-  height: 210px;
+  height: 190px; /* Lebih kecil */
 
   overflow: hidden;
 }
@@ -76,52 +83,52 @@
 }
 
 .blog-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 /* ================= CONTENT ================= */
 
 .blog-content {
-  padding: 28px;
+  padding: 24px;
 }
 
 /* Date */
 .blog-date {
-  font-size: 13px;
+  font-size: 12.5px;
   color: #6b7280;
 
   display: inline-flex;
   align-items: center;
   gap: 6px;
 
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 /* Title */
 .blog-content h3 {
-  font-size: 20px;
+  font-size: 18px; /* Lebih kecil */
   font-weight: 600;
 
   color: #0f2341;
 
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 
   line-height: 1.4;
 }
 
 /* Text */
 .blog-content p {
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 14.5px;
+  line-height: 1.6;
 
   color: #4b5563;
 
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 /* Link */
 .blog-content a {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
 
   color: #1d4ed8;
@@ -132,14 +139,14 @@
 
 .blog-content a:hover {
   color: #0f2341;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
 }
 
 /* ================= BUTTON ================= */
 
 .blog-more {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 45px;
 }
 
 .btn-blog {
@@ -148,11 +155,11 @@
   background: #1d4ed8;
   color: #ffffff;
 
-  padding: 14px 34px;
+  padding: 12px 30px;
 
-  border-radius: 30px;
+  border-radius: 28px;
 
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
 
   text-decoration: none;
@@ -162,16 +169,16 @@
 
 .btn-blog:hover {
   background: #0f2341;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 /* ================= ANIMATION ================= */
 
 .fade-blog {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
 
-  transition: all 0.7s ease;
+  transition: all 0.6s ease;
 }
 
 .fade-blog.show {
@@ -182,17 +189,25 @@
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1100px) {
+  .blog-container {
+    max-width: 900px;
+  }
+
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 700px) {
+  .blog-container {
+    max-width: 100%;
+  }
+
   .blog-grid {
     grid-template-columns: 1fr;
   }
 
   .blog-header h2 {
-    font-size: 28px;
+    font-size: 26px;
   }
 }
