@@ -108,3 +108,9 @@ document.querySelectorAll(".navbar a").forEach((link) => {
     navbar.classList.remove("active");
   });
 });
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navbar.classList.toggle("active");
+  header.classList.toggle("menu-open");
+});

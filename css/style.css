@@ -30,14 +30,15 @@ body {
   transition: all 0.35s ease;
 }
 
-/* Hover / Scroll */
+/* Hover / Scroll / Menu Open = Putih */
 .header:hover,
-.header.scrolled {
+.header.scrolled,
+.header.menu-open {
   background: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Garis biru bawah header */
+/* Garis biru bawah */
 .header::after {
   content: "";
   position: absolute;
@@ -53,6 +54,7 @@ body {
   transition: 0.3s;
 }
 
+/* Aktif */
 .header:hover::after,
 .header.scrolled::after,
 .header.menu-open::after {
@@ -84,12 +86,15 @@ body {
 
 .logo img {
   height: 68px;
+
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+
   transition: 0.3s;
 }
 
 .header:hover .logo img,
-.header.scrolled .logo img {
+.header.scrolled .logo img,
+.header.menu-open .logo img {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
@@ -116,8 +121,10 @@ body {
   transition: 0.25s;
 }
 
+/* Text jadi hitam */
 .header:hover .navbar a,
-.header.scrolled .navbar a {
+.header.scrolled .navbar a,
+.header.menu-open .navbar a {
   color: #111111;
 }
 
@@ -132,7 +139,6 @@ body {
   width: 0;
   height: 2px;
 
-  /* GOLD ELEGANT */
   background: linear-gradient(
     90deg,
     #b8860b,
@@ -187,12 +193,15 @@ body {
 /* ================= MOBILE ================= */
 
 @media (max-width: 900px) {
+  /* Show hamburger */
   .hamburger {
     display: flex;
   }
 
+  /* Navbar fullscreen */
   .navbar {
     position: fixed;
+
     top: 78px;
     left: 0;
 
@@ -210,14 +219,17 @@ body {
     pointer-events: none;
 
     transition: 0.35s ease;
+
     z-index: 99999;
   }
 
+  /* Active menu */
   .navbar.active {
     opacity: 1;
     pointer-events: auto;
   }
 
+  /* Mobile link */
   .navbar a {
     width: 100%;
     text-align: center;
@@ -246,7 +258,7 @@ body {
     width: 35%;
   }
 
-  /* Hamburger animation */
+  /* Hamburger anim */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(7px, 7px);
   }
@@ -259,6 +271,8 @@ body {
     transform: rotate(-45deg) translate(7px, -7px);
   }
 }
+
+/* ================= SMALL MOBILE ================= */
 
 @media (max-width: 600px) {
   .container {
