@@ -31,8 +31,13 @@
 
 /* Logo */
 .footer-logo {
-  height: 55px;
-  margin-bottom: 20px;
+  height: 75px; /* Lebih besar */
+  max-width: 100%;
+
+  display: block;
+  margin: 0 auto 22px; /* Center horizontal */
+
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.35));
 }
 
 /* Text */
@@ -125,6 +130,11 @@
 .footer-bottom p {
   font-size: 13.5px;
   color: #cbd5e1;
+}
+
+/* Kolom company center */
+.footer-col:first-child {
+  text-align: center;
 }
 
 /* ================= RESPONSIVE ================= */
