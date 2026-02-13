@@ -10,7 +10,7 @@
 <header class="header">
     <div class="container">
         <div class="logo">
-            <img src="/images/logo.png" alt="Logo">
+            <img src="/images/logo.webp" alt="Logo">
         </div>
 
         <nav class="navbar">
