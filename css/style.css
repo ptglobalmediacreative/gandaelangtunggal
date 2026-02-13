@@ -43,8 +43,21 @@ body {
 
 /* Saat scroll = navy solid premium */
 .header.scrolled {
-  background: #0f2341;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header.scrolled .navbar a {
+  color: #111111;
+}
+
+.header.scrolled .navbar a:hover {
+  color: #b8860b; /* gold tone */
+}
+
+.header.scrolled .navbar a::after {
+  background: linear-gradient(90deg, #b8860b, #d4af37);
 }
 
 /* Hide saat scroll turun (JS) */
@@ -86,7 +99,7 @@ body {
 /* ================= NAV LINK ================= */
 
 .navbar a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
   text-decoration: none;
 
   font-size: 15px;
