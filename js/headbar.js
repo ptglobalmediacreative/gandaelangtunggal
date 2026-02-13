@@ -67,3 +67,25 @@ const observer = new IntersectionObserver(
 serviceItems.forEach((item) => {
   observer.observe(item);
 });
+
+// Blog Home
+/* ================= HOME BLOG ANIMATION ================= */
+
+const blogItems = document.querySelectorAll(".fade-blog");
+
+const blogObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  },
+);
+
+blogItems.forEach((item) => {
+  blogObserver.observe(item);
+});

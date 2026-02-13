@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/abouthome.css">
     <link rel="stylesheet" href="/css/why.css">
     <link rel="stylesheet" href="/css/aftersales.css">
+    <link rel="stylesheet" href="/css/bloghome.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="/images/favicon.webp">

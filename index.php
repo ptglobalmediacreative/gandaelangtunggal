@@ -204,6 +204,109 @@
 
 </section>
 
+<!-- ================= BLOG SECTION ================= -->
+<section class="home-blog">
+
+  <div class="blog-container">
+
+    <!-- Title -->
+    <div class="blog-header fade-blog">
+      <h2>Blog & Artikel Terbaru</h2>
+      <p>Informasi, tips, dan berita terbaru seputar alat berat & industri</p>
+    </div>
+
+    <!-- Blog Cards -->
+    <div class="blog-grid">
+
+      <!-- Card 1 -->
+      <div class="blog-card fade-blog">
+
+        <div class="blog-image">
+          <img src="/images/hero.jpg" alt="Blog 1">
+        </div>
+
+        <div class="blog-content">
+
+          <span class="blog-date">
+            <i class="fa-regular fa-calendar"></i> 12 Januari 2026
+          </span>
+
+          <h3>Tips Merawat Alat Berat Agar Lebih Awet</h3>
+
+          <p>
+            Pelajari cara perawatan alat berat yang tepat
+            agar performa tetap maksimal dan tahan lama.
+          </p>
+
+          <a href="#">Baca Selengkapnya →</a>
+
+        </div>
+
+      </div>
+
+      <!-- Card 2 -->
+      <div class="blog-card fade-blog">
+
+        <div class="blog-image">
+          <img src="/images/hero.jpg" alt="Blog 2">
+        </div>
+
+        <div class="blog-content">
+
+          <span class="blog-date">
+            <i class="fa-regular fa-calendar"></i> 5 Januari 2026
+          </span>
+
+          <h3>Manfaat Service Berkala pada Excavator</h3>
+
+          <p>
+            Service rutin membantu mencegah kerusakan
+            besar dan meningkatkan produktivitas kerja.
+          </p>
+
+          <a href="#">Baca Selengkapnya →</a>
+
+        </div>
+
+      </div>
+
+      <!-- Card 3 -->
+      <div class="blog-card fade-blog">
+
+        <div class="blog-image">
+          <img src="/images/hero.jpg" alt="Blog 3">
+        </div>
+
+        <div class="blog-content">
+
+          <span class="blog-date">
+            <i class="fa-regular fa-calendar"></i> 28 Desember 2025
+          </span>
+
+          <h3>Cara Memilih Alat Berat Sesuai Proyek</h3>
+
+          <p>
+            Panduan memilih alat berat yang sesuai
+            dengan kebutuhan proyek Anda.
+          </p>
+
+          <a href="#">Baca Selengkapnya →</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Button -->
+    <div class="blog-more fade-blog">
+      <a href="/blog.php" class="btn-blog">Lihat Semua Artikel</a>
+    </div>
+
+  </div>
+
+</section>
+
 
 
 
