@@ -89,3 +89,22 @@ const blogObserver = new IntersectionObserver(
 blogItems.forEach((item) => {
   blogObserver.observe(item);
 });
+
+// Hamburger Menu
+/* ================= HAMBURGER MENU ================= */
+
+const hamburger = document.getElementById("hamburger");
+const navbar = document.getElementById("navbar");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navbar.classList.toggle("active");
+});
+
+/* Close menu when click link */
+document.querySelectorAll(".navbar a").forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navbar.classList.remove("active");
+  });
+});

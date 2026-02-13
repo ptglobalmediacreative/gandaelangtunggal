@@ -33,14 +33,23 @@
             <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
         </div>
 
-        <nav class="navbar">
-            <a href="/index.php">Home</a>
-            <a href="#">About</a>
-            <a href="#">Products</a>
-            <a href="#">Aftersales</a>
-            <a href="#">Contact</a>
+        <nav class="navbar" id="navbar">
+
+            <a href="/index.php">Beranda</a>
+            <a href="#">Tentang Kami</a>
+            <a href="#">Produk</a>
+            <a href="#">Layanan Purna Jual</a>
+            <a href="#">Hubungi Kami</a>
             <a href="#">Blog & Artikel</a>
+
         </nav>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
     </div>
 </header>
