@@ -7,7 +7,7 @@
     <div class="hero-video-wrapper">
 
         <video autoplay muted loop playsinline class="hero-video">
-            <source src="/images/video/vidhero1.mp4" type="video/mp4">
+            <source src="/images/video/vidhero.mp4" type="video/mp4">
             Browser Anda tidak mendukung video.
 
         </video>
