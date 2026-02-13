@@ -21,33 +21,23 @@ body {
   left: 0;
 
   width: 100%;
-  z-index: 99999;
+  z-index: 100000;
 
   padding: 18px 0;
 
   background: transparent;
 
-  transform: translateY(0);
-
-  transition:
-    background 0.35s ease,
-    box-shadow 0.35s ease,
-    transform 0.4s ease;
+  transition: all 0.35s ease;
 }
 
-/* Hover desktop = putih + garis */
-.header:hover {
+/* Hover / Scroll */
+.header:hover,
+.header.scrolled {
   background: #ffffff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Scroll = putih solid */
-.header.scrolled {
-  background: #ffffff;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-}
-
-/* Garis biru bawah header (desktop + mobile) */
+/* Garis bawah */
 .header::after {
   content: "";
 
@@ -61,17 +51,15 @@ body {
   background: linear-gradient(90deg, #1e3a8a, #2563eb, #1e40af);
 
   opacity: 0;
-
-  transition: opacity 0.3s ease;
+  transition: 0.3s;
 }
 
-/* Muncul saat hover / scroll */
 .header:hover::after,
 .header.scrolled::after {
   opacity: 1;
 }
 
-/* Hide scroll down */
+/* Hide scroll */
 .header.hide {
   transform: translateY(-120%);
 }
@@ -90,14 +78,16 @@ body {
 
 /* ================= LOGO ================= */
 
+.logo {
+  z-index: 100001;
+}
+
 .logo img {
   height: 68px;
 
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 
-  transition:
-    filter 0.3s ease,
-    transform 0.3s ease;
+  transition: 0.3s;
 }
 
 .header:hover .logo img,
@@ -111,8 +101,6 @@ body {
   display: flex;
   align-items: center;
   gap: 26px;
-
-  padding: 2px 0;
 }
 
 /* ================= NAV LINK ================= */
@@ -123,15 +111,10 @@ body {
 
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.4px;
-
-  padding: 6px 2px;
 
   position: relative;
 
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+  transition: 0.25s;
 }
 
 .header:hover .navbar a,
@@ -142,33 +125,21 @@ body {
 /* Underline */
 .navbar a::after {
   content: "";
+
   position: absolute;
   left: 50%;
   bottom: -7px;
 
-  width: 0%;
+  width: 0;
   height: 2px;
 
   background: linear-gradient(90deg, #b8860b, #d4af37);
 
   transform: translateX(-50%);
-
-  transition: width 0.3s ease;
-}
-
-.navbar a:hover {
-  transform: translateY(-2px);
+  transition: 0.3s;
 }
 
 .navbar a:hover::after {
-  width: 100%;
-}
-
-.navbar a.active {
-  font-weight: 600;
-}
-
-.navbar a.active::after {
   width: 100%;
 }
 
@@ -184,28 +155,27 @@ body {
   justify-content: space-between;
 
   cursor: pointer;
-  z-index: 100000;
+
+  z-index: 100001;
 }
 
 .hamburger span {
-  display: block;
-
   width: 100%;
   height: 3px;
 
   background: #ffffff;
   border-radius: 3px;
 
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-/* Color adapt */
+/* Warna adaptif */
 .header:hover .hamburger span,
 .header.scrolled .hamburger span {
   background: #1f2933;
 }
 
-/* ================= MOBILE FULLSCREEN MENU ================= */
+/* ================= MOBILE FULLSCREEN ================= */
 
 @media (max-width: 900px) {
   /* Show hamburger */
@@ -213,36 +183,43 @@ body {
     display: flex;
   }
 
-  /* Navbar fullscreen */
+  /* Navbar mobile (DI BAWAH HEADER) */
   .navbar {
     position: fixed;
-    inset: 0;
+
+    top: 78px;
+    left: 0;
 
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 78px);
 
     background: #ffffff;
 
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
 
-    padding-top: 110px;
-
-    gap: 0;
+    padding-top: 20px;
 
     opacity: 0;
     pointer-events: none;
 
-    transition: all 0.4s ease;
+    transition: 0.35s;
+
+    z-index: 99999;
   }
 
-  /* Garis biru elegan bawah header */
+  /* Active */
+  .navbar.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Garis biru */
   .navbar::before {
     content: "";
 
     position: absolute;
-    top: 80px;
+    top: 0;
     left: 0;
 
     width: 100%;
@@ -251,13 +228,7 @@ body {
     background: linear-gradient(90deg, #1e3a8a, #2563eb, #1e40af);
   }
 
-  /* Active fullscreen */
-  .navbar.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* Menu link */
+  /* Mobile link */
   .navbar a {
     width: 100%;
 
@@ -265,28 +236,24 @@ body {
 
     color: #1f2933;
 
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
 
     padding: 18px 0;
 
     border-bottom: 1px solid #e5e7eb;
-
-    transition: all 0.25s ease;
   }
 
-  /* Hover */
   .navbar a:hover {
     background: #f1f5f9;
     color: #1d4ed8;
   }
 
-  /* Remove underline */
   .navbar a::after {
     display: none;
   }
 
-  /* Hamburger animation */
+  /* Hamburger anim */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(7px, 7px);
   }
