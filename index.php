@@ -231,7 +231,11 @@
             <i class="fa-regular fa-calendar"></i> 12 Januari 2026
           </span>
 
-          <h3>Tips Merawat Alat Berat Agar Lebih Awet</h3>
+          <h3>
+            <a href="/blog-detail.php?id=1">
+              Tips Merawat Alat Berat Agar Lebih Awet
+            </a>
+          </h3>
 
           <p>
             Pelajari cara perawatan alat berat yang tepat
@@ -257,7 +261,11 @@
             <i class="fa-regular fa-calendar"></i> 5 Januari 2026
           </span>
 
-          <h3>Manfaat Service Berkala pada Excavator</h3>
+          <h3>
+            <a href="/blog-detail.php?id=1">
+              Tips Merawat Alat Berat Agar Lebih Awet
+            </a>
+          </h3>
 
           <p>
             Service rutin membantu mencegah kerusakan
@@ -283,7 +291,11 @@
             <i class="fa-regular fa-calendar"></i> 28 Desember 2025
           </span>
 
-          <h3>Cara Memilih Alat Berat Sesuai Proyek</h3>
+          <h3>
+            <a href="/blog-detail.php?id=1">
+              Tips Merawat Alat Berat Agar Lebih Awet
+            </a>
+          </h3>
 
           <p>
             Panduan memilih alat berat yang sesuai
