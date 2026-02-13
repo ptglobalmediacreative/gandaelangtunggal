@@ -153,8 +153,8 @@ body {
 .hamburger {
   display: none;
 
-  width: 30px;
-  height: 22px;
+  width: 32px;
+  height: 24px;
 
   flex-direction: column;
   justify-content: space-between;
@@ -181,21 +181,7 @@ body {
   background: #1f2933;
 }
 
-/* ================= RESPONSIVE SYSTEM ================= */
-
-/* ================= LAPTOP SMALL ================= */
-
-@media (max-width: 1200px) {
-  .navbar {
-    gap: 22px;
-  }
-
-  .navbar a {
-    font-size: 14.5px;
-  }
-}
-
-/* ================= TABLET ================= */
+/* ================= MOBILE FULLSCREEN MENU ================= */
 
 @media (max-width: 900px) {
   /* Show hamburger */
@@ -203,60 +189,82 @@ body {
     display: flex;
   }
 
-  /* Hide desktop navbar */
+  /* Navbar fullscreen */
   .navbar {
     position: fixed;
-    top: 0;
-    right: -100%;
+    inset: 0;
 
-    width: 280px;
+    width: 100%;
     height: 100vh;
 
     background: #ffffff;
 
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
 
-    padding: 90px 30px 40px;
+    padding-top: 110px;
 
-    gap: 26px;
+    gap: 0;
 
-    box-shadow: -12px 0 35px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
 
-    transition: right 0.45s ease;
+    transition: all 0.4s ease;
   }
 
-  /* Active mobile menu */
+  /* Garis biru elegan bawah header */
+  .navbar::before {
+    content: "";
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(90deg, #1e3a8a, #2563eb, #1e40af);
+  }
+
+  /* Active fullscreen */
   .navbar.active {
-    right: 0;
+    opacity: 1;
+    pointer-events: auto;
   }
 
-  /* Mobile link */
+  /* Menu link */
   .navbar a {
     width: 100%;
 
+    text-align: center;
+
     color: #1f2933;
 
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
 
-    padding: 10px 0;
+    padding: 18px 0;
 
     border-bottom: 1px solid #e5e7eb;
+
+    transition: all 0.25s ease;
   }
 
+  /* Hover */
   .navbar a:hover {
+    background: #f1f5f9;
     color: #1d4ed8;
-    padding-left: 6px;
   }
 
+  /* Remove underline */
   .navbar a::after {
     display: none;
   }
 
   /* Hamburger animation */
   .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(45deg) translate(7px, 7px);
   }
 
   .hamburger.active span:nth-child(2) {
@@ -264,7 +272,7 @@ body {
   }
 
   .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    transform: rotate(-45deg) translate(7px, -7px);
   }
 }
 
@@ -277,9 +285,5 @@ body {
 
   .logo img {
     height: 42px;
-  }
-
-  .navbar {
-    width: 100%;
   }
 }
