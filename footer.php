@@ -22,11 +22,12 @@
       <h4>Menu</h4>
 
       <ul>
-        <li><a href="/index.php">Home</a></li>
-        <li><a href="/about.php">Tentang Kami</a></li>
-        <li><a href="/products.php">Produk</a></li>
-        <li><a href="/blog.php">Blog</a></li>
-        <li><a href="/contact.php">Kontak</a></li>
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Produk</a></li>
+        <li><a href="#">Layanan Purna Jual</a></li>
+        <li><a href="#">Hubungi Kami</a></li>
+        <li><a href="#">Blog & Artikel</a></li>
       </ul>
 
     </div>
