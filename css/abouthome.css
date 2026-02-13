@@ -1,0 +1,96 @@
+/* ================= ABOUT SUMMARY SECTION ================= */
+
+.about-summary {
+  width: 100%;
+  background: #ffffff;
+
+  padding: 100px 20px 90px;
+
+  color: #0f172a;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: auto;
+
+  text-align: center;
+}
+
+/* Judul */
+.about-title {
+  font-size: 42px;
+  font-weight: 700;
+
+  margin-bottom: 30px;
+
+  color: #0f2a4d;
+
+  letter-spacing: 0.5px;
+}
+
+/* Paragraf */
+.about-text {
+  font-size: 18px;
+  line-height: 1.8;
+
+  color: #1f2933;
+
+  margin-bottom: 20px;
+}
+
+/* Link */
+.about-link {
+  display: inline-block;
+
+  margin-top: 35px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #0b4bb3;
+  text-decoration: none;
+
+  position: relative;
+
+  transition: all 0.3s ease;
+}
+
+/* Panah animasi */
+.about-link::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+
+  background: #0b4bb3;
+
+  transition: width 0.3s ease;
+}
+
+.about-link:hover {
+  color: #06327a;
+}
+
+.about-link:hover::after {
+  width: 100%;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 32px;
+  }
+
+  .about-text {
+    font-size: 16px;
+  }
+
+  .about-summary {
+    padding: 80px 15px 70px;
+  }
+}
