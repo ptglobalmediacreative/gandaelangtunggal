@@ -126,21 +126,24 @@ body {
   width: 100%;
 }
 
-/* ================= NAVBAR HOVER EFFECT ================= */
+/* ================= FIX HOVER NAVBAR ================= */
 
-/* Saat cursor masuk navbar */
-.navbar:hover {
-  background: rgba(15, 23, 42, 0.95);
+/* Pastikan header di atas semua layer */
+.header {
+  position: fixed;
+  z-index: 99999 !important;
+}
 
-  padding: 8px 22px;
-  border-radius: 40px;
+/* Matikan tangkapan mouse di video + overlay */
+.hero-video-wrapper,
+.hero-video-wrapper::after,
+.hero-video {
+  pointer-events: none !important;
+}
 
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-
-  transition:
-    background 0.3s ease,
-    padding 0.3s ease,
-    box-shadow 0.3s ease;
+/* Pastikan navbar bisa terima hover */
+.navbar {
+  pointer-events: auto !important;
 }
 
 /* ================= RESPONSIVE ================= */
