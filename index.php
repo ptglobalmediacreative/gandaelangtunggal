@@ -29,7 +29,7 @@
     </video>
 
     <div class="hero-content">
-        <h1>PT Ganda Elang Tunggal</h1>
+        <h1>PT Ganda Elang Tangguh</h1>
         <p>Solusi Alat Berat Di Indonesia</p>
     </div>
 </section>
