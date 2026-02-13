@@ -35,16 +35,16 @@ body {
     transform 0.4s ease;
 }
 
-/* HERO + hover = biru elegan (lebih tebal) */
+/* HERO + hover = navy elegan (selaras logo emas) */
 .header:hover {
-  background: rgba(12, 28, 55, 0.75);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  background: rgba(20, 45, 80, 0.75);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* Saat scroll = biru tebal (prioritas lebih tinggi) */
+/* Saat scroll = navy solid premium */
 .header.scrolled {
-  background: rgba(8, 20, 40, 0.98);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.7);
+  background: rgba(15, 35, 65, 0.95);
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.6);
 }
 
 /* Hide saat scroll turun (JS) */
