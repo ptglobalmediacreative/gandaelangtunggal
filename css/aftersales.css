@@ -232,3 +232,35 @@
     font-size: 18px;
   }
 }
+
+/* ================= SERVICE ICON CENTER (MOBILE FIX) ================= */
+
+@media (max-width: 768px) {
+  /* Card jadi center */
+  .service-card {
+    text-align: center;
+  }
+
+  /* Icon ke tengah */
+  .service-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Link juga center */
+  .service-card a {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra rapih di HP kecil */
+  .service-card {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .service-icon {
+    margin-bottom: 6px;
+  }
+}
