@@ -68,6 +68,19 @@ body {
 
 .logo img {
   height: 68px;
+
+  /* Drop shadow supaya logo tetap kelihatan di background putih */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Logo sedikit naik saat hover header (efek premium) */
+.header:hover .logo img,
+.header.scrolled .logo img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 /* ================= NAVBAR ================= */
@@ -82,7 +95,7 @@ body {
 
 /* ================= NAV LINK ================= */
 
-/* Default di hero (transparan background) */
+/* Default (hero / gelap) */
 .navbar a {
   color: #ffffff;
   text-decoration: none;
@@ -100,13 +113,13 @@ body {
     transform 0.25s ease;
 }
 
-/* Saat header jadi putih (hover atau scroll) */
+/* Saat background putih */
 .header:hover .navbar a,
 .header.scrolled .navbar a {
   color: #111111;
 }
 
-/* Underline */
+/* Underline gold */
 .navbar a::after {
   content: "";
   position: absolute;
@@ -119,6 +132,7 @@ body {
   background: linear-gradient(90deg, #b8860b, #d4af37);
 
   transform: translateX(-50%);
+
   transition: width 0.3s ease;
 }
 
