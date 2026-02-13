@@ -37,10 +37,9 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Garis biru bawah */
+/* Garis biru bawah header */
 .header::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: 0;
@@ -85,9 +84,7 @@ body {
 
 .logo img {
   height: 68px;
-
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
-
   transition: 0.3s;
 }
 
@@ -114,7 +111,6 @@ body {
   font-weight: 500;
 
   position: relative;
-
   padding: 6px 2px;
 
   transition: 0.25s;
@@ -125,10 +121,10 @@ body {
   color: #111111;
 }
 
-/* Underline desktop + mobile */
+/* ================= GOLD UNDERLINE ================= */
+
 .navbar a::after {
   content: "";
-
   position: absolute;
   left: 50%;
   bottom: -7px;
@@ -136,13 +132,21 @@ body {
   width: 0;
   height: 2px;
 
-  background: linear-gradient(90deg, #1e3a8a, #2563eb, #1e40af);
+  /* GOLD ELEGANT */
+  background: linear-gradient(
+    90deg,
+    #b8860b,
+    #d4af37,
+    #f4d03f,
+    #d4af37,
+    #b8860b
+  );
 
   transform: translateX(-50%);
   transition: width 0.3s ease;
 }
 
-/* Hover / active */
+/* Hover / Active */
 .navbar a:hover::after,
 .navbar a.active::after {
   width: 100%;
@@ -160,7 +164,6 @@ body {
   justify-content: space-between;
 
   cursor: pointer;
-
   z-index: 100001;
 }
 
@@ -181,18 +184,15 @@ body {
   background: #1f2933;
 }
 
-/* ================= MOBILE FULLSCREEN ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 900px) {
-  /* Show hamburger */
   .hamburger {
     display: flex;
   }
 
-  /* Navbar fullscreen */
   .navbar {
     position: fixed;
-
     top: 78px;
     left: 0;
 
@@ -210,20 +210,16 @@ body {
     pointer-events: none;
 
     transition: 0.35s ease;
-
     z-index: 99999;
   }
 
-  /* Active menu */
   .navbar.active {
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* Mobile link */
   .navbar a {
     width: 100%;
-
     text-align: center;
 
     color: #1f2933;
@@ -232,28 +228,25 @@ body {
     font-weight: 600;
 
     padding: 18px 0;
-
     border-bottom: 1px solid #e5e7eb;
   }
 
-  /* Hover mobile */
   .navbar a:hover {
     background: #f1f5f9;
-    color: #1d4ed8;
+    color: #b8860b;
   }
 
-  /* Mobile underline */
+  /* Gold underline mobile */
   .navbar a::after {
     bottom: 6px;
   }
 
-  /* Hover / active mobile underline */
   .navbar a:hover::after,
   .navbar a.active::after {
     width: 35%;
   }
 
-  /* Hamburger anim */
+  /* Hamburger animation */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(7px, 7px);
   }
@@ -266,8 +259,6 @@ body {
     transform: rotate(-45deg) translate(7px, -7px);
   }
 }
-
-/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
   .container {
