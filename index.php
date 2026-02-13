@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Company Profile</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/headbar.css">
 </head>
 <body>
 
