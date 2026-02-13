@@ -148,3 +148,21 @@
     flex-direction: column;
   }
 }
+
+/* ================= FIX HERO BLOCK NAVBAR ================= */
+
+/* Biar hero tidak nutup navbar */
+.hero-video-wrapper,
+.hero-video-wrapper::after,
+.hero-video {
+  pointer-events: none;
+}
+
+/* Pastikan hero di bawah header */
+.hero {
+  z-index: 1;
+}
+
+.header {
+  z-index: 99999;
+}
