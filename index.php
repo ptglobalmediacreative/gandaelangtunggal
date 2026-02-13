@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Company Profile</title>
+    <title>PT Ganda Elang Tangguh - Dealer Alat Berat Indonesia</title>
     <link rel="stylesheet" href="/css/headbar.css">
 </head>
 <body>
@@ -29,8 +29,8 @@
     </video>
 
     <div class="hero-content">
-        <h1>Welcome to Our Company</h1>
-        <p>Solusi Alat Berat Profesional</p>
+        <h1>PT Ganda Elang Tunggal</h1>
+        <p>Solusi Alat Berat Di Indonesia</p>
     </div>
 </section>
 
