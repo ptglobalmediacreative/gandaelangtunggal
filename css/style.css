@@ -35,16 +35,40 @@ body {
     transform 0.4s ease;
 }
 
-/* HERO + hover */
+/* Hover desktop = putih + garis */
 .header:hover {
   background: #ffffff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Scrolled */
+/* Scroll = putih solid */
 .header.scrolled {
   background: #ffffff;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Garis biru bawah header (desktop + mobile) */
+.header::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(90deg, #1e3a8a, #2563eb, #1e40af);
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+/* Muncul saat hover / scroll */
+.header:hover::after,
+.header.scrolled::after {
+  opacity: 1;
 }
 
 /* Hide scroll down */
