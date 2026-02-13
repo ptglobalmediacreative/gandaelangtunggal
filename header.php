@@ -35,7 +35,7 @@
             <a href="/index.php">Home</a>
             <a href="#">About</a>
             <a href="#">Products</a>
-            <a href="#">Simulasi Kredit</a>
+            <a href="#">Aftersales</a>
             <a href="#">Contact</a>
             <a href="#">Blog & Artikel</a>
         </nav>
