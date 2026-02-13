@@ -35,9 +35,10 @@ body {
     transform 0.4s ease;
 }
 
-/* HERO + hover = biru tipis */
+/* HERO + hover = biru elegan (lebih tebal) */
 .header:hover {
-  background: rgba(15, 23, 42, 0.55);
+  background: rgba(12, 28, 55, 0.75);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
 /* Saat scroll = biru tebal (prioritas lebih tinggi) */
