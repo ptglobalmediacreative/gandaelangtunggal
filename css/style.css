@@ -1,15 +1,10 @@
 /* ================= GLOBAL ================= */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
   background: #000;
   color: #fff;
+  font-weight: 400;
 }
 
 /* ================= HEADER ================= */
@@ -23,43 +18,40 @@ body {
 
   z-index: 99999;
 
-  padding: 20px 0;
+  padding: 18px 0; /* lebih slim */
 
   background: transparent;
 
   transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    padding 0.35s ease;
 }
 
-/* Saat scroll */
+/* Saat scroll → lebih ramping */
 .header.scrolled {
   background: rgba(15, 23, 42, 0.95);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+
+  padding: 12px 0; /* shrink effect */
 }
 
-/* Saat hover → FULL */
+/* Hover */
 .header:hover {
   background: rgba(15, 23, 42, 0.95);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
 }
 
-/* ================= CONTAINER ================= */
-
-.container {
-  width: 90%;
-  max-width: 1300px;
-  margin: auto;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 /* ================= LOGO ================= */
 
 .logo img {
-  height: 75px;
+  height: 68px;
+  transition: height 0.35s ease;
+}
+
+/* Logo ikut shrink */
+.header.scrolled .logo img {
+  height: 52px;
 }
 
 /* ================= NAVBAR ================= */
@@ -67,14 +59,12 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
 
-  padding: 4px 0;
+  padding: 2px 0;
 
   background: transparent;
   border: none;
-
-  transition: all 0.3s ease;
 }
 
 /* ================= NAV LINK ================= */
@@ -83,9 +73,9 @@ body {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
 
-  font-size: 15.5px;
+  font-size: 15px; /* lebih rapi */
   font-weight: 500;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
 
   padding: 6px 2px;
 
@@ -93,44 +83,21 @@ body {
 
   transition:
     color 0.25s ease,
-    transform 0.25s ease;
-}
-
-/* Elegant underline */
-.navbar a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -7px;
-
-  width: 0%;
-  height: 2px;
-
-  background: linear-gradient(90deg, #facc15, #fde047);
-
-  transform: translateX(-50%);
-
-  transition: width 0.3s ease;
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 /* Hover */
 .navbar a:hover {
   color: #facc15;
   transform: translateY(-2px);
-}
-
-.navbar a:hover::after {
-  width: 100%;
+  opacity: 1;
 }
 
 /* Active */
 .navbar a.active {
   color: #facc15;
   font-weight: 600;
-}
-
-.navbar a.active::after {
-  width: 100%;
 }
 
 /* ================= RESPONSIVE ================= */
