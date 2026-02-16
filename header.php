@@ -7,11 +7,11 @@
     <title>PT Ganda Elang Tangguh - Dealer Alat Berat Indonesia</title>
 
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/hero.css">
-    <link rel="stylesheet" href="/css/abouthome.css">
-    <link rel="stylesheet" href="/css/why.css">
-    <link rel="stylesheet" href="/css/aftersales.css">
-    <link rel="stylesheet" href="/css/bloghome.css">
+    <link rel="stylesheet" href="/css/home/hero.css">
+    <link rel="stylesheet" href="/css/home/abouthome.css">
+    <link rel="stylesheet" href="/css/home/why.css">
+    <link rel="stylesheet" href="/css/home/aftersales.css">
+    <link rel="stylesheet" href="/css/home/bloghome.css">
     <link rel="stylesheet" href="/css/footer.css">
 
     <!-- Favicon -->
@@ -36,7 +36,7 @@
         <nav class="navbar" id="navbar">
 
             <a href="/index.php">Beranda</a>
-            <a href="#">Tentang Kami</a>
+            <a href="/about.php">Tentang Kami</a>
             <a href="#">Produk</a>
             <a href="#">Layanan Purna Jual</a>
             <a href="#">Hubungi Kami</a>
