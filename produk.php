@@ -9,6 +9,7 @@
   <!-- Main CSS -->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/product/hero.css">
+  <link rel="stylesheet" href="/css/product/product.css">
   <link rel="stylesheet" href="/css/footer.css">
 
   <!-- Favicon -->
@@ -76,3 +77,122 @@
   </div>
 
 </section>
+
+<!-- ================= PRODUCT CATEGORY ================= -->
+<section class="product-category">
+
+  <div class="category-container">
+
+    <h2 class="category-title">Kategori Produk</h2>
+    <p class="category-subtitle">
+      Berbagai jenis alat berat untuk mendukung kebutuhan proyek Anda
+    </p>
+
+    <div class="category-grid">
+
+      <!-- Item -->
+      <div class="category-card">
+        <img src="/images/products/wheel-loader.jpg" alt="Wheel Loader">
+        <h4>Wheel Loader</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/excavator.jpg" alt="Excavator">
+        <h4>Excavator</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/bulldozer.jpg" alt="Bulldozer">
+        <h4>Bulldozer</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/motor-grader.jpg" alt="Motor Grader">
+        <h4>Motor Grader</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/mining-truck.jpg" alt="Mining Truck">
+        <h4>Mining Truck</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/roller.jpg" alt="Roller">
+        <h4>Roller</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/paver.jpg" alt="Paver">
+        <h4>Paver</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/cold-planer.jpg" alt="Cold Planer">
+        <h4>Cold Planer</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/skid-steer.jpg" alt="Skid Steer Loader">
+        <h4>Skid Steer</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/backhoe.jpg" alt="Backhoe Loader">
+        <h4>Backhoe Loader</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/forklift.png" alt="Forklift">
+        <h4>Forklift</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/aerial.png" alt="Aerial Work Platform">
+        <h4>Aerial Platform</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/crane.jpg" alt="Crane">
+        <h4>Crane</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/tractor.png" alt="Tractor">
+        <h4>Tractor</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/harvester.png" alt="Harvester">
+        <h4>Harvester</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/compressor.png" alt="Air Compressor">
+        <h4>Air Compressor</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/foundation.jpg" alt="Foundation Equipment">
+        <h4>Foundation</h4>
+      </div>
+
+      <div class="category-card">
+        <img src="/images/products/warehouse.png" alt="Warehouse Truck">
+        <h4>Warehouse Truck</h4>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
+
+
+<!-- ================= SCRIPT ================= -->
+<script src="/js/main.js"></script>
+
+</body>
+</html>
