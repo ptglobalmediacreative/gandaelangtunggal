@@ -85,37 +85,115 @@
   <div class="about-container">
 
     <h2 class="about-title">
-      Sekilas Tentang PT Ganda Elang Tangguh
+      PT Ganda Elang Tangguh
     </h2>
 
     <p class="about-text">
-      PT Ganda Elang Tangguh merupakan dealer alat berat yang terpercaya
-      dan berpengalaman dalam menyediakan solusi lengkap untuk kebutuhan
-      industri. Dengan komitmen tinggi terhadap kualitas dan kepuasan
-      pelanggan, kami terus membangun reputasi sebagai mitra bisnis yang
-      andal di Indonesia.
+      PT. Ganda Elang Tangguh adalah dealer alat berat yang profesional dan terpercaya, yang menyediakan solusi lengkap untuk kebutuhan alat berat pelanggan. Dengan komitmen kuat terhadap kualitas dan kepuasan pelanggan, kami telah membangun reputasi sebagai mitra yang andal di industri alat berat.
     </p>
 
     <p class="about-text">
-      Kami menyediakan berbagai produk alat berat berkualitas tinggi
-      dari produsen terkemuka, seperti excavator, bulldozer, wheel loader,
-      motor grader, serta berbagai unit pendukung lainnya.
+      Kami menawarkan berbagai pilihan alat berat berkualitas tinggi dari produsen terkemuka. Produk kami meliputi excavator, bulldozer, wheel loader, motor grader, dan lainnya. Setiap unit kami pilih dengan cermat untuk memastikan memenuhi standar tertinggi dalam hal performa, daya tahan, dan efisiensi.
     </p>
 
     <p class="about-text">
-      Didukung oleh tim profesional dan teknisi berpengalaman,
-      kami juga menyediakan layanan purna jual, suku cadang asli,
-      serta perawatan berkala untuk memastikan operasional pelanggan
-      tetap optimal dan produktif.
+      Salah satu keunggulan utama kami adalah pelayanan pelanggan yang luar biasa. Kami mengutamakan pemahaman terhadap kebutuhan pelanggan dan memberikan solusi yang disesuaikan dengan kebutuhan mereka. Tim ahli kami selalu siap membantu pelanggan dalam memilih alat yang tepat serta memberikan dukungan teknis selama proses pembelian.
     </p>
 
-    <a href="/about-detail.php" class="about-link">
-      → Selengkapnya Tentang Kami
-    </a>
+    <p class="about-text">
+      Kami percaya bahwa layanan purna jual yang andal sangat penting bagi kesuksesan pelanggan. Komitmen kami terhadap kepuasan pelanggan tidak berhenti setelah penjualan. Kami menyediakan berbagai suku cadang asli untuk memastikan kinerja optimal dan umur pakai alat yang lebih panjang. Selain itu, teknisi berpengalaman kami siap memberikan layanan perawatan dan perbaikan agar alat berat pelanggan selalu dalam kondisi terbaik.
+    </p>
+
+    <p class="about-text">
+      Kami terus berupaya melakukan peningkatan dan inovasi secara berkelanjutan. Kami selalu mengikuti perkembangan terbaru di industri alat berat untuk memberikan solusi yang paling modern dan efisien. Fokus kami pada inovasi memungkinkan kami menghadirkan teknologi dan fitur terkini yang dapat meningkatkan produktivitas serta efisiensi biaya.
+    </p>
+
+
 
   </div>
 
 </section>
+
+<!-- ================= ABOUT SUMMARY ================= -->
+<section class="about-summary">
+
+  <div class="about-container">
+
+    <h2 class="about-title">
+      Visi Kami
+    </h2>
+
+    <p class="about-text">
+      Sebagai dealer alat berat, tujuan kami adalah menjadi pilihan utama bagi pelanggan yang mencari peralatan berkualitas tinggi, layanan terbaik, serta dukungan purna jual yang andal. Kami berkomitmen untuk membangun kerja sama jangka panjang dengan pelanggan serta mendukung pertumbuhan dan kesuksesan mereka di industri alat berat.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- ================= ABOUT SUMMARY ================= -->
+<section class="about-summary">
+
+  <div class="about-container">
+
+    <h2 class="about-title">
+      Misi Kami
+    </h2>
+
+    <p class="about-text">
+      Sebagai dealer alat berat, tujuan kami adalah menjadi pilihan utama bagi pelanggan yang mencari peralatan berkualitas tinggi, layanan terbaik, serta dukungan purna jual yang andal. Kami berkomitmen untuk membangun kerja sama jangka panjang dengan pelanggan serta mendukung pertumbuhan dan kesuksesan mereka di industri alat berat.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- ================= MISSION ================= -->
+<section class="mission">
+
+  <div class="mission-container">
+
+    <h2 class="mission-title">
+      Misi Kami
+    </h2>
+
+    <div class="mission-item">
+      <h3 class="mission-subtitle">
+        Memberikan Keunggulan dalam Alat Berat
+      </h3>
+      <p class="mission-text">
+        Kami berkomitmen untuk menyediakan berbagai pilihan alat berat berkualitas tinggi
+        dari produsen terpercaya, sehingga pelanggan mendapatkan mesin yang andal,
+        efisien, dan sesuai dengan kebutuhan mereka.
+      </p>
+    </div>
+
+    <div class="mission-item">
+      <h3 class="mission-subtitle">
+        Membangun Hubungan Pelanggan yang Kuat
+      </h3>
+      <p class="mission-text">
+        Kami mengutamakan pemahaman terhadap kebutuhan pelanggan serta memberikan
+        solusi yang dipersonalisasi dan layanan terbaik untuk membangun kemitraan
+        jangka panjang yang saling menguntungkan.
+      </p>
+    </div>
+
+    <div class="mission-item">
+      <h3 class="mission-subtitle">
+        Memberikan Dukungan Purna Jual yang Andal
+      </h3>
+      <p class="mission-text">
+        Kami menyediakan layanan purna jual yang komprehensif, termasuk suku cadang asli,
+        perawatan berkala, serta dukungan teknis untuk memastikan alat pelanggan
+        selalu beroperasi secara optimal dan meminimalkan downtime.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
 
 
 <!-- ================= FOOTER ================= -->

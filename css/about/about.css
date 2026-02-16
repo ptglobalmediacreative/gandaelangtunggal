@@ -140,3 +140,133 @@
     font-size: 15px;
   }
 }
+
+/* ================= MISSION SECTION ================= */
+
+.mission {
+  width: 100%;
+  background: #f8fafc;
+
+  padding: 100px 20px 90px;
+
+  color: #0f172a;
+}
+
+.mission-container {
+  max-width: 1000px;
+  margin: auto;
+
+  text-align: center;
+}
+
+/* Judul */
+.mission-title {
+  font-size: 42px;
+  font-weight: 700;
+
+  margin-bottom: 45px;
+
+  color: #0f2a4d;
+
+  letter-spacing: 0.5px;
+}
+
+/* Item */
+.mission-item {
+  margin-bottom: 40px;
+  padding: 25px 30px;
+
+  background: #ffffff;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+
+  transition: all 0.3s ease;
+}
+
+.mission-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.1);
+}
+
+/* Sub Judul */
+.mission-subtitle {
+  font-size: 22px;
+  font-weight: 600;
+
+  margin-bottom: 15px;
+
+  color: #0b4bb3;
+}
+
+/* Text */
+.mission-text {
+  font-size: 18px;
+  line-height: 1.8;
+
+  color: #1f2933;
+}
+
+/* ================= RESPONSIVE SYSTEM ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .mission-container {
+    max-width: 850px;
+  }
+
+  .mission-title {
+    font-size: 36px;
+  }
+
+  .mission-subtitle {
+    font-size: 20px;
+  }
+
+  .mission-text {
+    font-size: 17px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .mission {
+    padding: 80px 18px 70px;
+  }
+
+  .mission-title {
+    font-size: 30px;
+  }
+
+  .mission-item {
+    padding: 22px 20px;
+  }
+
+  .mission-subtitle {
+    font-size: 19px;
+  }
+
+  .mission-text {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .mission {
+    padding: 65px 15px 60px;
+  }
+
+  .mission-title {
+    font-size: 26px;
+  }
+
+  .mission-subtitle {
+    font-size: 18px;
+  }
+
+  .mission-text {
+    font-size: 15px;
+  }
+}
