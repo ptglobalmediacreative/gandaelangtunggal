@@ -105,6 +105,12 @@ $stmtRec = $pdo->prepare("
 $stmtRec->execute([$product['id']]);
 $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
+echo "<pre>FEATURES DEBUG:\n";
+print_r($features);
+echo "\nGROUPED SPEC DEBUG:\n";
+print_r($groupedSpecs);
+echo "</pre>";
+exit;
 
 ?>
 
