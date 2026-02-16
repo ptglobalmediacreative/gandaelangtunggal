@@ -10,7 +10,6 @@ $stmt = $pdo->prepare("
         p.slug,
         p.gambar,
 
-        -- Ambil spesifikasi tertentu
         MAX(CASE WHEN ps.label = 'Operating Weight' THEN ps.nilai END) AS operating_weight,
         MAX(CASE WHEN ps.label = 'Rated power' THEN ps.nilai END) AS rated_power,
         MAX(CASE WHEN ps.label = 'Bucket Capacity' THEN ps.nilai END) AS bucket_capacity
@@ -22,7 +21,11 @@ $stmt = $pdo->prepare("
 
     WHERE p.status = 'aktif'
 
-    GROUP BY p.id
+    GROUP BY 
+        p.id,
+        p.nama_produk,
+        p.slug,
+        p.gambar
 
     ORDER BY p.id DESC
 ");
@@ -35,26 +38,16 @@ $products = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>PT Ganda Elang Tangguh - Produk</title>
 
-  <!-- Main CSS -->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/product/hero.css">
   <link rel="stylesheet" href="/css/product/product.css">
   <link rel="stylesheet" href="/css/footer.css">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/webp" href="/images/favicon.webp">
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  >
 </head>
 
 <body>
@@ -85,23 +78,18 @@ $products = $stmt->fetchAll();
   </div>
 </header>
 
-
 <!-- ================= HERO ================= -->
 <section
   class="hero hero-image"
   style="background: url('/images/wheelloader.jpg') center / cover no-repeat;"
 >
-
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-
     <div class="hero-breadcrumb">
       <a href="/index.php">Home</a>
       <span>></span>
-      <a href="/produk.php">Produk</a>
-      <span>></span>
-      <span class="current">Wheel Loaders</span>
+      <span class="current">Produk</span>
     </div>
 
     <h1>Power That Moves Productivity</h1>
@@ -110,15 +98,11 @@ $products = $stmt->fetchAll();
       High-performance wheel loaders designed for efficient material handling,
       superior durability, and maximum productivity across various applications.
     </p>
-
   </div>
-
 </section>
-
 
 <!-- ================= PRODUCT LIST ================= -->
 <section class="product-list">
-
   <div class="product-container">
 
     <h2 class="product-title">Daftar Produk</h2>
@@ -129,11 +113,8 @@ $products = $stmt->fetchAll();
         <?php foreach ($products as $row) : ?>
 
           <div class="product-card">
-
-            <a 
-              href="/produk-detail.php?slug=<?= htmlspecialchars($row['slug']); ?>" 
-              class="product-link"
-            >
+            <a href="/produk-detail.php?slug=<?= htmlspecialchars($row['slug']); ?>" 
+               class="product-link">
 
               <!-- IMAGE -->
               <div class="product-image">
@@ -145,7 +126,6 @@ $products = $stmt->fetchAll();
 
               <!-- INFO -->
               <div class="product-info">
-
                 <h3><?= htmlspecialchars($row['nama_produk']); ?></h3>
 
                 <ul class="product-spec">
@@ -153,21 +133,21 @@ $products = $stmt->fetchAll();
                   <?php if (!empty($row['operating_weight'])) : ?>
                     <li>
                       <span>Operating Weight</span>
-                      <strong><?= htmlspecialchars($row['operating_weight']); ?></strong>
+                      <span><?= htmlspecialchars($row['operating_weight']); ?></span>
                     </li>
                   <?php endif; ?>
 
                   <?php if (!empty($row['rated_power'])) : ?>
                     <li>
                       <span>Rated Power</span>
-                      <strong><?= htmlspecialchars($row['rated_power']); ?></strong>
+                      <span><?= htmlspecialchars($row['rated_power']); ?></span>
                     </li>
                   <?php endif; ?>
 
                   <?php if (!empty($row['bucket_capacity'])) : ?>
                     <li>
                       <span>Bucket Capacity</span>
-                      <strong><?= htmlspecialchars($row['bucket_capacity']); ?></strong>
+                      <span><?= htmlspecialchars($row['bucket_capacity']); ?></span>
                     </li>
                   <?php endif; ?>
 
@@ -176,29 +156,21 @@ $products = $stmt->fetchAll();
               </div>
 
             </a>
-
           </div>
 
         <?php endforeach; ?>
-
       <?php else : ?>
-
         <p class="no-product">Belum ada produk tersedia.</p>
-
       <?php endif; ?>
 
     </div>
 
   </div>
-
 </section>
-
 
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
-
-<!-- ================= SCRIPT ================= -->
 <script src="/js/main.js"></script>
 
 </body>
