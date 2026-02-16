@@ -14,7 +14,7 @@
   overflow: hidden;
   z-index: 1;
 
-  background: url("/images/product.webp") center / cover no-repeat;
+  background: url("/images/hero.jpg") center / cover no-repeat;
 }
 
 /* ================= OVERLAY ================= */
