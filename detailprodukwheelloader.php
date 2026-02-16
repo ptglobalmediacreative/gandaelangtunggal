@@ -1,6 +1,11 @@
 <?php
 require_once __DIR__ . '/admin/config.php';
 
+var_dump($features);
+var_dump($groupedSpecs);
+die;
+
+
 
 /* ================= GET SLUG ================= */
 if (!isset($_GET['slug'])) {
