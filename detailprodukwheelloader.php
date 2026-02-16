@@ -65,18 +65,18 @@ $stmtSpec = $pdo->prepare("
     SELECT *
     FROM produk_spesifikasi
     WHERE produk_id = ?
-    ORDER BY grup, sort_order ASC
+    ORDER BY `grup`, sort_order ASC
 ");
 
 $stmtSpec->execute([$product['id']]);
 $specs = $stmtSpec->fetchAll(PDO::FETCH_ASSOC);
 
 
-/* ================= grup SPEC ================= */
-$grupedSpecs = [];
+/* ================= GROUP SPEC ================= */
+$groupedSpecs = [];
 
 foreach ($specs as $s) {
-    $grupedSpecs[$s['grup']][] = $s;
+    $groupedSpecs[$s['grup']][] = $s;
 }
 
 
@@ -185,7 +185,7 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="feature-wrapper">
 
-<?php if($features): ?>
+<?php if(!empty($features)): ?>
 
 <?php foreach($features as $f): ?>
 
@@ -220,13 +220,13 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="spec-wrapper">
 
-<?php if($grupedSpecs): ?>
+<?php if(!empty($groupedSpecs)): ?>
 
-<?php foreach($grupedSpecs as $grup => $items): ?>
+<?php foreach($groupedSpecs as $group => $items): ?>
 
 <div class="spec-grup">
 
-<h3><?= htmlspecialchars($grup); ?></h3>
+<h3><?= htmlspecialchars($group); ?></h3>
 
 <table>
 
@@ -266,7 +266,7 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 <?php foreach($galleries as $g): ?>
 
 <div class="gallery-item">
-  <img src="/images/uploads/produk/<?= $g['image']; ?>">
+  <img src="/images/uploads/produk/<?= htmlspecialchars($g['image']); ?>">
 </div>
 
 <?php endforeach; ?>
@@ -288,7 +288,7 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 <a href="/detailproductwheelloader.php?slug=<?= $r['slug']; ?>"
    class="recommend-card">
 
-<img src="/images/uploads/produk/<?= $r['gambar']; ?>">
+<img src="/images/uploads/produk/<?= htmlspecialchars($r['gambar']); ?>">
 
 <h4><?= htmlspecialchars($r['nama_produk']); ?></h4>
 
