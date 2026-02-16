@@ -66,10 +66,11 @@
   <!-- Content -->
   <div class="hero-content">
 
-    <!-- Breadcrumb -->
-    <div class="hero-breadcrumb">
-      Home <span>></span> About Us
-    </div>
+  <div class="hero-breadcrumb">
+    <a href="/index.php">Home</a>
+    <span>></span>
+    <span class="current">About Us</span>
+  </div>
 
     <h1>ABOUT US</h1>
 
