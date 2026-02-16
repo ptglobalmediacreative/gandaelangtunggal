@@ -13,8 +13,6 @@
 
   overflow: hidden;
   z-index: 1;
-
-  background: url("/images/hero.jpg") center / cover no-repeat;
 }
 
 /* ================= OVERLAY ================= */

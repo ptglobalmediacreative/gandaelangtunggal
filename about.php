@@ -58,7 +58,10 @@
 
 
 <!-- ================= HERO ================= -->
-<section class="hero hero-image">
+<section
+  class="hero hero-image"
+  style="background: url('/images/about.png') center / cover no-repeat;"
+>
 
   <!-- Overlay -->
   <div class="hero-overlay"></div>
@@ -66,17 +69,19 @@
   <!-- Content -->
   <div class="hero-content">
 
-  <div class="hero-breadcrumb">
-    <a href="/index.php">Home</a>
-    <span>></span>
-    <span class="current">About Us</span>
-  </div>
+    <!-- Breadcrumb -->
+    <div class="hero-breadcrumb">
+      <a href="/index.php">Home</a>
+      <span>></span>
+      <span class="current">Product</span>
+    </div>
 
-    <h1>ABOUT US</h1>
+    <h1>Product</h1>
 
   </div>
 
 </section>
+
 
 
 <!-- ================= ABOUT SUMMARY ================= -->
