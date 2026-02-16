@@ -5,30 +5,16 @@
   position: relative;
 
   display: flex;
-  justify-content: flex-start; /* KE KIRI */
+  justify-content: flex-start;
   align-items: center;
 
   padding-top: 110px;
-  padding-left: 60px; /* JARAK DARI KIRI */
+  padding-left: 60px;
 
   overflow: hidden;
   z-index: 1;
 
   background: url("/images/about.png") center / cover no-repeat;
-}
-
-.hero-breadcrumb a {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.hero-breadcrumb a:hover {
-  color: #facc15; /* gold elegan */
-}
-
-.hero-breadcrumb .current {
-  opacity: 0.8;
 }
 
 /* ================= OVERLAY ================= */
@@ -55,7 +41,6 @@
   padding: 0 40px;
   color: #ffffff;
 
-  /* Supaya breadcrumb bisa kiri */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -74,9 +59,24 @@
   letter-spacing: 0.3px;
 }
 
+.hero-breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.hero-breadcrumb a:hover {
+  color: #facc15;
+}
+
 .hero-breadcrumb span {
   margin: 0 6px;
   opacity: 0.7;
+}
+
+.hero-breadcrumb .current {
+  opacity: 0.8;
 }
 
 /* ================= TITLE ================= */
@@ -90,7 +90,6 @@
   margin-bottom: 18px;
 
   letter-spacing: 1px;
-
   text-transform: uppercase;
 }
 
@@ -179,6 +178,7 @@
 @media (max-width: 900px) {
   .hero {
     padding-top: 100px;
+    padding-left: 30px;
   }
 
   .hero-content {
@@ -198,54 +198,96 @@
   }
 }
 
-/* Mobile */
+/* ================= MOBILE ================= */
+
 @media (max-width: 600px) {
   .hero {
-    padding-top: 90px;
+    padding-top: 85px;
+    padding-left: 0;
+
+    justify-content: center;
   }
 
-  /* Tengahin di HP */
+  /* Content center */
   .hero-content {
     align-items: center;
     text-align: center;
+
+    padding: 0 20px;
+    max-width: 100%;
   }
 
+  /* Breadcrumb */
   .hero-breadcrumb {
-    margin-bottom: 25px;
-    font-size: 13px;
+    margin-bottom: 18px;
+
+    font-size: 12px;
+    letter-spacing: 0.4px;
+
+    opacity: 0.85;
   }
 
+  .hero-breadcrumb span {
+    margin: 0 4px;
+  }
+
+  /* Title */
   .hero-content h1 {
-    font-size: 30px;
+    font-size: 28px;
+    line-height: 1.3;
+
+    margin-bottom: 14px;
   }
 
+  /* Text */
   .hero-content p {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+
+    max-width: 90%;
+    margin-bottom: 28px;
   }
 
+  /* Buttons */
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+
+    gap: 14px;
   }
 
   .btn-primary,
   .btn-secondary {
     width: 100%;
-    max-width: 260px;
+    max-width: 240px;
+
+    font-size: 14px;
+    padding: 12px 26px;
   }
 }
 
-/* Small Mobile */
+/* ================= SMALL MOBILE ================= */
+
 @media (max-width: 420px) {
   .hero {
-    padding-top: 80px;
+    padding-top: 75px;
+  }
+
+  .hero-breadcrumb {
+    font-size: 11.5px;
   }
 
   .hero-content h1 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .hero-content p {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    max-width: 220px;
+    font-size: 13.5px;
   }
 }
