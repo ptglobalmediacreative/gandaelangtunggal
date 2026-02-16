@@ -131,23 +131,6 @@
 
 </section>
 
-<!-- ================= ABOUT SUMMARY ================= -->
-<section class="about-summary">
-
-  <div class="about-container">
-
-    <h2 class="about-title">
-      Misi Kami
-    </h2>
-
-    <p class="about-text">
-      Sebagai dealer alat berat, tujuan kami adalah menjadi pilihan utama bagi pelanggan yang mencari peralatan berkualitas tinggi, layanan terbaik, serta dukungan purna jual yang andal. Kami berkomitmen untuk membangun kerja sama jangka panjang dengan pelanggan serta mendukung pertumbuhan dan kesuksesan mereka di industri alat berat.
-    </p>
-
-  </div>
-
-</section>
-
 <!-- ================= MISSION ================= -->
 <section class="mission">
 
