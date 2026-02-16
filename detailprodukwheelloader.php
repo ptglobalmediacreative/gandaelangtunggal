@@ -105,7 +105,9 @@ $stmtRec = $pdo->prepare("
 $stmtRec->execute([$product['id']]);
 $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
