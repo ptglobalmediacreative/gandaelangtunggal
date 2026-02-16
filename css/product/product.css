@@ -90,82 +90,6 @@
 }
 
 /* ==================================================
-   PRODUCT CATEGORY RESPONSIVE
-================================================== */
-
-@media (max-width: 1200px) {
-  .category-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .category-title {
-    font-size: 34px;
-  }
-}
-
-@media (max-width: 900px) {
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .category-title {
-    font-size: 30px;
-  }
-
-  .category-subtitle {
-    font-size: 16px;
-  }
-
-  .category-card img {
-    height: 110px;
-  }
-}
-
-@media (max-width: 600px) {
-  .product-category {
-    padding: 70px 16px;
-  }
-
-  .category-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .category-title {
-    font-size: 26px;
-  }
-
-  .category-subtitle {
-    font-size: 15px;
-    margin-bottom: 40px;
-  }
-
-  .category-card {
-    padding: 22px 18px;
-  }
-
-  .category-card img {
-    height: 95px;
-  }
-
-  .category-card h4 {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 420px) {
-  .category-title {
-    font-size: 24px;
-  }
-
-  .category-card img {
-    height: 85px;
-  }
-}
-
-/* ==================================================
    PRODUCT LIST
 ================================================== */
 
@@ -210,8 +134,9 @@
 .product-card {
   background: #ffffff;
   border-radius: 14px;
-  padding: 24px;
-  text-align: center;
+  padding: 26px 24px 28px;
+
+  text-align: left;
 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   transition: all 0.35s ease;
@@ -255,6 +180,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  margin-bottom: 15px;
 }
 
 .product-image img {
@@ -273,44 +200,72 @@
 /* Info */
 
 .product-info h3 {
-  margin-top: 18px;
+  margin: 12px 0 16px;
 
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 700;
 
   color: #0f2341;
 
   transition: 0.3s ease;
 }
 
-/* Gold Title */
-
 .product-card:hover .product-info h3 {
   color: #facc15;
 }
 
-/* Spec */
+/* ==================================================
+   PRODUCT SPEC (RAPIH VERSION)
+================================================== */
 
 .product-spec {
   list-style: none;
   padding: 0;
-  margin-top: 15px;
+  margin: 0;
 
-  text-align: left;
+  border-top: 1px solid #e5e7eb;
 }
+
+/* Item */
 
 .product-spec li {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  gap: 10px;
+
+  padding: 9px 0;
 
   font-size: 14px;
-  color: #374151;
 
-  margin-bottom: 6px;
+  border-bottom: 1px dashed #e5e7eb;
 }
 
-.product-card:hover .product-spec li {
+/* Label */
+
+.product-spec li span:first-child {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Value */
+
+.product-spec li span:last-child {
   color: #0f2341;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Hover Spec */
+
+.product-card:hover .product-spec li span:last-child {
+  color: #b45309;
+}
+
+/* Last Border Remove */
+
+.product-spec li:last-child {
+  border-bottom: none;
 }
 
 /* Empty */
@@ -322,7 +277,7 @@
 }
 
 /* ==================================================
-   PRODUCT LIST RESPONSIVE
+   RESPONSIVE
 ================================================== */
 
 @media (max-width: 1100px) {
@@ -344,5 +299,13 @@
 
   .product-title {
     font-size: 26px;
+  }
+
+  .product-info h3 {
+    font-size: 17px;
+  }
+
+  .product-spec li {
+    font-size: 13px;
   }
 }
