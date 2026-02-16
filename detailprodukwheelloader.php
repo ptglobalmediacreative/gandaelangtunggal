@@ -1,11 +1,6 @@
 <?php
 require_once __DIR__ . '/admin/config.php';
 
-var_dump($features);
-var_dump($groupedSpecs);
-die;
-
-
 
 /* ================= GET SLUG ================= */
 if (!isset($_GET['slug'])) {
@@ -109,7 +104,13 @@ $stmtRec = $pdo->prepare("
 
 $stmtRec->execute([$product['id']]);
 $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
+
+var_dump($features);
+var_dump($groupedSpecs);
+die;
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
