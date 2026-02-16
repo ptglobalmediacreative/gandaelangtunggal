@@ -1,3 +1,12 @@
+/* ================= RESET AREA ================= */
+
+.detail-section,
+.detail-section * {
+  color: #0f2341 !important;
+}
+
+/* ================= GENERAL ================= */
+
 html {
   scroll-behavior: smooth;
 }
@@ -6,6 +15,7 @@ html {
   padding: 80px 20px;
   max-width: 1200px;
   margin: auto;
+  background: #ffffff;
 }
 
 .detail-section.gray {
@@ -15,14 +25,14 @@ html {
 .detail-section h2 {
   text-align: center;
   margin-bottom: 50px;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
-  color: #0f2341;
 }
 
-/* MENU */
+/* ================= MENU ================= */
+
 .detail-menu {
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid #eee;
 }
 
@@ -37,20 +47,27 @@ html {
 
 .detail-menu a {
   text-decoration: none;
-  color: #0f2341;
   font-weight: 600;
+  transition: 0.3s;
 }
 
-/* FEATURES */
+.detail-menu a:hover {
+  color: #facc15 !important;
+}
+
+/* ================= FEATURES ================= */
+
 .feature-main {
   display: flex;
-  gap: 40px;
+  gap: 50px;
   align-items: center;
+  justify-content: center;
 }
 
 .feature-image img {
   width: 450px;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .feature-list ul {
@@ -60,43 +77,50 @@ html {
 
 .feature-list li {
   margin-bottom: 15px;
-  color: #0f2341;
+  font-size: 16px;
 }
 
-/* SPEC */
+/* ================= SPEC ================= */
+
 .spec-group {
   margin-bottom: 40px;
 }
 
 .spec-group h3 {
   margin-bottom: 15px;
-  color: #0f2341;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .spec-group table {
   width: 100%;
   border-collapse: collapse;
+  background: #ffffff;
 }
 
 .spec-group td {
-  padding: 10px;
+  padding: 12px;
   border-bottom: 1px solid #e5e7eb;
-  color: #0f2341;
+  font-size: 15px;
 }
 
-/* GALLERY */
+/* ================= GALLERY ================= */
+
 .gallery-wrapper {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gallery-wrapper img {
   width: 48%;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* RECOMMENDED */
+/* ================= RECOMMENDED ================= */
+
 .recommend-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -105,11 +129,11 @@ html {
 
 .recommend-grid img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .recommend-grid h4 {
   text-align: center;
   margin-top: 10px;
-  color: #0f2341;
+  font-weight: 600;
 }
