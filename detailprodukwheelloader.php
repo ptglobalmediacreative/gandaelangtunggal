@@ -1,8 +1,8 @@
 <?php
-// ================= DATABASE =================
 require_once __DIR__ . '/admin/config.php';
 
-// ================= GET SLUG =================
+
+/* ================= GET SLUG ================= */
 if (!isset($_GET['slug'])) {
     header("Location: /produk.php");
     exit;
@@ -11,7 +11,7 @@ if (!isset($_GET['slug'])) {
 $slug = $_GET['slug'];
 
 
-// ================= GET PRODUCT + CATEGORY =================
+/* ================= GET PRODUCT ================= */
 $stmt = $pdo->prepare("
     SELECT 
         p.*,
@@ -23,7 +23,7 @@ $stmt = $pdo->prepare("
 ");
 
 $stmt->execute([$slug]);
-$product = $stmt->fetch();
+$product = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$product) {
     header("Location: /produk.php");
@@ -31,21 +31,79 @@ if (!$product) {
 }
 
 
-// ================= GET HERO IMAGE (GALLERY) =================
+/* ================= HERO IMAGE ================= */
 $stmtGallery = $pdo->prepare("
     SELECT image 
-    FROM produk_gallery 
+    FROM produk_gallery
     WHERE produk_id = ?
     ORDER BY sort_order ASC
     LIMIT 1
 ");
 
 $stmtGallery->execute([$product['id']]);
-$heroImage = $stmtGallery->fetch();
+$heroImage = $stmtGallery->fetch(PDO::FETCH_ASSOC);
 
-$heroBackground = $heroImage 
+$heroBackground = $heroImage
     ? "/images/uploads/produk/" . $heroImage['image']
-    : "/images/hero.jpg"; // fallback kalau kosong
+    : "/images/hero.jpg";
+
+
+/* ================= FEATURES ================= */
+$stmtFeature = $pdo->prepare("
+    SELECT *
+    FROM produk_features
+    WHERE produk_id = ?
+    ORDER BY sort_order ASC
+");
+
+$stmtFeature->execute([$product['id']]);
+$features = $stmtFeature->fetchAll(PDO::FETCH_ASSOC);
+
+
+/* ================= SPECIFICATIONS ================= */
+$stmtSpec = $pdo->prepare("
+    SELECT *
+    FROM produk_spesifikasi
+    WHERE produk_id = ?
+    ORDER BY grup, sort_order ASC
+");
+
+$stmtSpec->execute([$product['id']]);
+$specs = $stmtSpec->fetchAll(PDO::FETCH_ASSOC);
+
+
+/* ================= GROUP SPEC ================= */
+$groupedSpecs = [];
+
+foreach ($specs as $s) {
+    $groupedSpecs[$s['grup']][] = $s;
+}
+
+
+/* ================= GALLERY ================= */
+$stmtGalleryAll = $pdo->prepare("
+    SELECT *
+    FROM produk_gallery
+    WHERE produk_id = ?
+    ORDER BY sort_order ASC
+");
+
+$stmtGalleryAll->execute([$product['id']]);
+$galleries = $stmtGalleryAll->fetchAll(PDO::FETCH_ASSOC);
+
+
+/* ================= RECOMMENDED ================= */
+$stmtRec = $pdo->prepare("
+    SELECT *
+    FROM produk
+    WHERE status = 'aktif'
+    AND id != ?
+    ORDER BY RAND()
+    LIMIT 4
+");
+
+$stmtRec->execute([$product['id']]);
+$recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -54,36 +112,33 @@ $heroBackground = $heroImage
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><?= htmlspecialchars($product['nama_produk']); ?> - PT Ganda Elang Tangguh</title>
+<title><?= htmlspecialchars($product['nama_produk']); ?></title>
 
-<!-- CSS -->
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/product/hero.css">
 <link rel="stylesheet" href="/css/product/detail-product.css">
 <link rel="stylesheet" href="/css/footer.css">
 
-<link rel="icon" type="image/webp" href="/images/favicon.webp">
+<link rel="icon" href="/images/favicon.webp">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT']."/header.php"; ?>
 
 
 <!-- ================= HERO ================= -->
 <section
   class="hero hero-image"
-  style="background: url('<?= $heroBackground ?>') center / cover no-repeat;"
+  style="background:url('<?= $heroBackground ?>') center/cover no-repeat;"
 >
 
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
 
-    <!-- Breadcrumb -->
     <div class="hero-breadcrumb">
 
       <a href="/index.php">Home</a>
@@ -101,7 +156,6 @@ $heroBackground = $heroImage
 
     </div>
 
-    <!-- Title -->
     <h1><?= htmlspecialchars($product['nama_produk']); ?></h1>
 
   </div>
@@ -109,8 +163,7 @@ $heroBackground = $heroImage
 </section>
 
 
-
-<!-- ================= MENU NAV ================= -->
+<!-- ================= MENU ================= -->
 <section class="detail-menu">
 
   <div class="detail-menu-container">
@@ -118,178 +171,137 @@ $heroBackground = $heroImage
     <a href="#features">Features</a>
     <a href="#specifications">Specifications</a>
     <a href="#gallery">Gallery</a>
-    <a href="#recommended">Recommended Equipment</a>
+    <a href="#recommended">Recommended</a>
 
   </div>
 
 </section>
-
 
 
 <!-- ================= FEATURES ================= -->
 <section id="features" class="detail-section">
 
-  <h2>FEATURES</h2>
+<h2>FEATURES</h2>
 
-  <div class="feature-wrapper">
+<div class="feature-wrapper">
 
-    <?php
-    $stmtFeature = $pdo->prepare("
-        SELECT * FROM produk_features
-        WHERE produk_id = ?
-        ORDER BY sort_order ASC
-    ");
-    $stmtFeature->execute([$product['id']]);
-    $features = $stmtFeature->fetchAll();
-    ?>
+<?php if($features): ?>
 
-    <?php foreach($features as $f): ?>
+<?php foreach($features as $f): ?>
 
-      <div class="feature-box">
+<div class="feature-box">
 
-        <img src="/images/uploads/produk/<?= $f['image']; ?>" alt="">
+  <img src="/images/uploads/produk/<?= htmlspecialchars($f['image']); ?>">
 
-        <div>
-          <h3><?= htmlspecialchars($f['title']); ?></h3>
-          <p><?= nl2br(htmlspecialchars($f['description'])); ?></p>
-        </div>
-
-      </div>
-
-    <?php endforeach; ?>
-
+  <div>
+    <h3><?= htmlspecialchars($f['title']); ?></h3>
+    <p><?= nl2br(htmlspecialchars($f['description'])); ?></p>
   </div>
+
+</div>
+
+<?php endforeach; ?>
+
+<?php else: ?>
+
+<p style="text-align:center;">Belum ada fitur.</p>
+
+<?php endif; ?>
+
+</div>
 
 </section>
 
 
-
-<!-- ================= SPECIFICATIONS ================= -->
+<!-- ================= SPEC ================= -->
 <section id="specifications" class="detail-section gray">
 
-  <h2>SPECIFICATIONS</h2>
+<h2>SPECIFICATIONS</h2>
 
-  <?php
-  $stmtSpec = $pdo->prepare("
-      SELECT * FROM produk_spesifikasi
-      WHERE produk_id = ?
-      ORDER BY grup, sort_order ASC
-  ");
-  $stmtSpec->execute([$product['id']]);
-  $specs = $stmtSpec->fetchAll();
-  ?>
+<div class="spec-wrapper">
 
-  <?php
-  $grouped = [];
+<?php if($groupedSpecs): ?>
 
-  foreach ($specs as $s) {
-      $grouped[$s['grup']][] = $s;
-  }
-  ?>
+<?php foreach($groupedSpecs as $group => $items): ?>
 
-  <div class="spec-wrapper">
+<div class="spec-group">
 
-    <?php foreach($grouped as $group => $items): ?>
+<h3><?= htmlspecialchars($group); ?></h3>
 
-      <div class="spec-group">
+<table>
 
-        <h3><?= htmlspecialchars($group); ?></h3>
+<?php foreach($items as $row): ?>
 
-        <table>
+<tr>
+  <td><?= htmlspecialchars($row['label']); ?></td>
+  <td><?= htmlspecialchars($row['nilai']); ?></td>
+</tr>
 
-          <?php foreach($items as $row): ?>
+<?php endforeach; ?>
 
-            <tr>
-              <td><?= htmlspecialchars($row['label']); ?></td>
-              <td><?= htmlspecialchars($row['nilai']); ?></td>
-            </tr>
+</table>
 
-          <?php endforeach; ?>
+</div>
 
-        </table>
+<?php endforeach; ?>
 
-      </div>
+<?php else: ?>
 
-    <?php endforeach; ?>
+<p style="text-align:center;">Belum ada spesifikasi.</p>
 
-  </div>
+<?php endif; ?>
+
+</div>
 
 </section>
-
 
 
 <!-- ================= GALLERY ================= -->
 <section id="gallery" class="detail-section">
 
-  <h2>GALLERY</h2>
+<h2>GALLERY</h2>
 
-  <?php
-  $stmtGalleryAll = $pdo->prepare("
-      SELECT * FROM produk_gallery
-      WHERE produk_id = ?
-      ORDER BY sort_order ASC
-  ");
-  $stmtGalleryAll->execute([$product['id']]);
-  $galleries = $stmtGalleryAll->fetchAll();
-  ?>
+<div class="gallery-wrapper">
 
-  <div class="gallery-wrapper">
+<?php foreach($galleries as $g): ?>
 
-    <?php foreach($galleries as $g): ?>
+<div class="gallery-item">
+  <img src="/images/uploads/produk/<?= $g['image']; ?>">
+</div>
 
-      <div class="gallery-item">
-        <img src="/images/uploads/produk/<?= $g['image']; ?>">
-      </div>
+<?php endforeach; ?>
 
-    <?php endforeach; ?>
-
-  </div>
+</div>
 
 </section>
-
 
 
 <!-- ================= RECOMMENDED ================= -->
 <section id="recommended" class="detail-section gray">
 
-  <h2>RECOMMENDED EQUIPMENT</h2>
+<h2>RECOMMENDED EQUIPMENT</h2>
 
-  <?php
-  $stmtRec = $pdo->prepare("
-      SELECT * FROM produk
-      WHERE status = 'aktif'
-      AND id != ?
-      ORDER BY RAND()
-      LIMIT 4
-  ");
-  $stmtRec->execute([$product['id']]);
-  $recommended = $stmtRec->fetchAll();
-  ?>
+<div class="recommend-grid">
 
-  <div class="recommend-grid">
+<?php foreach($recommended as $r): ?>
 
-    <?php foreach($recommended as $r): ?>
+<a href="/detailproductwheelloader.php?slug=<?= $r['slug']; ?>"
+   class="recommend-card">
 
-      <a href="/detailproductwheelloader.php?slug=<?= $r['slug']; ?>" 
-         class="recommend-card">
+<img src="/images/uploads/produk/<?= $r['gambar']; ?>">
 
-        <img src="/images/uploads/produk/<?= $r['gambar']; ?>">
+<h4><?= htmlspecialchars($r['nama_produk']); ?></h4>
 
-        <h4><?= htmlspecialchars($r['nama_produk']); ?></h4>
+</a>
 
-      </a>
+<?php endforeach; ?>
 
-    <?php endforeach; ?>
-
-  </div>
+</div>
 
 </section>
 
 
-
-<!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
-
 
 <script src="/js/main.js"></script>
 
