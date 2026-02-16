@@ -73,16 +73,6 @@
 
     <h1>ABOUT US</h1>
 
-    <p>
-      PT Ganda Elang Tangguh menghadirkan solusi alat berat profesional
-      dan layanan terbaik di Indonesia.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="/produk.php" class="btn-primary">Lihat Produk</a>
-      <a href="/kontak.php" class="btn-secondary">Hubungi Kami</a>
-    </div>
-
   </div>
 
 </section>

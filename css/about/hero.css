@@ -35,29 +35,58 @@
   position: relative;
   z-index: 5;
 
-  text-align: center;
-
-  max-width: 900px;
+  max-width: 1200px;
   width: 100%;
 
-  padding: 0 24px;
+  padding: 0 40px;
   color: #ffffff;
+
+  /* Supaya breadcrumb bisa kiri */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
+/* ================= BREADCRUMB ================= */
+
+.hero-breadcrumb {
+  font-size: 14px;
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  margin-bottom: 40px;
+
+  letter-spacing: 0.3px;
+}
+
+.hero-breadcrumb span {
+  margin: 0 6px;
+  opacity: 0.7;
+}
+
+/* ================= TITLE ================= */
+
 .hero-content h1 {
-  font-size: 56px;
+  font-size: 58px;
   font-weight: 700;
 
   line-height: 1.2;
 
   margin-bottom: 18px;
 
-  letter-spacing: 0.6px;
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
 }
+
+/* ================= TEXT ================= */
 
 .hero-content p {
   font-size: 21px;
   line-height: 1.7;
+
+  max-width: 650px;
 
   margin-bottom: 36px;
 
@@ -68,11 +97,12 @@
 
 .hero-buttons {
   display: flex;
-  justify-content: center;
   gap: 22px;
 
   flex-wrap: wrap;
 }
+
+/* Primary */
 
 .btn-primary {
   background: linear-gradient(135deg, #facc15, #fde047);
@@ -93,8 +123,11 @@
 .btn-primary:hover {
   background: linear-gradient(135deg, #fde047, #facc15);
   transform: translateY(-4px);
+
   box-shadow: 0 10px 25px rgba(250, 204, 21, 0.45);
 }
+
+/* Secondary */
 
 .btn-secondary {
   border: 2px solid #facc15;
@@ -115,6 +148,7 @@
   color: #0f172a;
 
   transform: translateY(-4px);
+
   box-shadow: 0 6px 18px rgba(250, 204, 21, 0.35);
 }
 
@@ -131,6 +165,10 @@
 @media (max-width: 900px) {
   .hero {
     padding-top: 100px;
+  }
+
+  .hero-content {
+    padding: 0 30px;
   }
 
   .hero-content h1 {
@@ -150,6 +188,17 @@
 @media (max-width: 600px) {
   .hero {
     padding-top: 90px;
+  }
+
+  /* Tengahin di HP */
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-breadcrumb {
+    margin-bottom: 25px;
+    font-size: 13px;
   }
 
   .hero-content h1 {
