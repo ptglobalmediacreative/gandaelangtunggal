@@ -73,11 +73,21 @@
     <div class="hero-breadcrumb">
       <a href="/index.php">Home</a>
       <span>></span>
-      <span class="current">Product</span>
+      <a href="/produk.php">Produk</a>
+      <span>></span>
+      <span class="current">Wheel Loaders</span>
     </div>
 
-    <h1>Product</h1>
+    <!-- Title -->
+    <h1>Power That Moves Productivity</h1>
+
+    <!-- Subtext / Description -->
+    <p class="hero-subtext">
+      High-performance wheel loaders designed for efficient material handling,
+      superior durability, and maximum productivity across various applications.
+    </p>
 
   </div>
 
 </section>
+
