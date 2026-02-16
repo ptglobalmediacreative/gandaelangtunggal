@@ -118,9 +118,6 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
-<?php include $_SERVER['DOCUMENT_ROOT']."/header.php"; ?>
-
-
 <!-- ================= HERO ================= -->
 <section
   class="hero hero-image"
