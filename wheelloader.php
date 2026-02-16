@@ -1,3 +1,17 @@
+<?php
+require_once __DIR__ . '/admin/config.php';
+
+$stmt = $pdo->prepare("
+    SELECT produk.*, categories.nama_kategori 
+    FROM produk 
+    LEFT JOIN categories ON produk.category_id = categories.id
+    WHERE produk.status = 'aktif'
+    ORDER BY produk.id DESC
+");
+$stmt->execute();
+$products = $stmt->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
