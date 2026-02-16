@@ -72,11 +72,11 @@ $stmtSpec->execute([$product['id']]);
 $specs = $stmtSpec->fetchAll(PDO::FETCH_ASSOC);
 
 
-/* ================= GROUP SPEC ================= */
-$groupedSpecs = [];
+/* ================= grup SPEC ================= */
+$grupedSpecs = [];
 
 foreach ($specs as $s) {
-    $groupedSpecs[$s['grup']][] = $s;
+    $grupedSpecs[$s['grup']][] = $s;
 }
 
 
@@ -220,13 +220,13 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="spec-wrapper">
 
-<?php if($groupedSpecs): ?>
+<?php if($grupedSpecs): ?>
 
-<?php foreach($groupedSpecs as $group => $items): ?>
+<?php foreach($grupedSpecs as $grup => $items): ?>
 
-<div class="spec-group">
+<div class="spec-grup">
 
-<h3><?= htmlspecialchars($group); ?></h3>
+<h3><?= htmlspecialchars($grup); ?></h3>
 
 <table>
 
