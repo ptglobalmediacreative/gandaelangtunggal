@@ -69,7 +69,7 @@
 
 .category-card img {
   width: 100%;
-  height: 125px; /* LEBIH BESAR */
+  height: 135px; /* LEBIH BESAR */
 
   object-fit: contain;
 
@@ -85,7 +85,7 @@
 /* ================= TEXT ================= */
 
 .category-card h4 {
-  font-size: 15px; /* LEBIH BESAR */
+  font-size: 18px; /* LEBIH BESAR */
   font-weight: 600;
 
   color: #0f2341;
