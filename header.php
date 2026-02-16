@@ -37,7 +37,7 @@
 
             <a href="/index.php">Beranda</a>
             <a href="/about.php">Tentang Kami</a>
-            <a href="#">Produk</a>
+            <a href="/produk.php">Produk</a>
             <a href="#">Layanan Purna Jual</a>
             <a href="#">Hubungi Kami</a>
             <a href="#">Blog & Artikel</a>
