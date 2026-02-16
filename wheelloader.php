@@ -90,7 +90,9 @@ $products = $stmt->fetchAll();
     <div class="hero-breadcrumb">
       <a href="/index.php">Home</a>
       <span>></span>
-      <span class="current">Produk</span>
+      <a href="/product.php">Product</a>
+      <span>></span>
+      <span class="current">Wheel Loaders</span>
     </div>
 
     <h1>Power That Moves Productivity</h1>
