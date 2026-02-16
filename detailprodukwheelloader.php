@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/admin/config.php';
 
-
 /* ================= GET SLUG ================= */
 if (!isset($_GET['slug'])) {
     header("Location: /produk.php");
@@ -21,7 +20,6 @@ $stmt = $pdo->prepare("
     WHERE p.slug = ?
     LIMIT 1
 ");
-
 $stmt->execute([$slug]);
 $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -32,19 +30,18 @@ if (!$product) {
 
 
 /* ================= HERO IMAGE ================= */
-$stmtGallery = $pdo->prepare("
-    SELECT image 
+$stmtHero = $pdo->prepare("
+    SELECT image
     FROM produk_gallery
     WHERE produk_id = ?
     ORDER BY sort_order ASC
     LIMIT 1
 ");
+$stmtHero->execute([$product['id']]);
+$hero = $stmtHero->fetch(PDO::FETCH_ASSOC);
 
-$stmtGallery->execute([$product['id']]);
-$heroImage = $stmtGallery->fetch(PDO::FETCH_ASSOC);
-
-$heroBackground = $heroImage
-    ? "/images/uploads/produk/" . $heroImage['image']
+$heroImage = $hero
+    ? "/images/uploads/produk/".$hero['image']
     : "/images/hero.jpg";
 
 
@@ -55,19 +52,17 @@ $stmtFeature = $pdo->prepare("
     WHERE produk_id = ?
     ORDER BY sort_order ASC
 ");
-
 $stmtFeature->execute([$product['id']]);
 $features = $stmtFeature->fetchAll(PDO::FETCH_ASSOC);
 
 
-/* ================= SPECIFICATIONS ================= */
+/* ================= SPEC ================= */
 $stmtSpec = $pdo->prepare("
     SELECT *
     FROM produk_spesifikasi
     WHERE produk_id = ?
-    ORDER BY `grup`, sort_order ASC
+    ORDER BY grup, sort_order ASC
 ");
-
 $stmtSpec->execute([$product['id']]);
 $specs = $stmtSpec->fetchAll(PDO::FETCH_ASSOC);
 
@@ -81,15 +76,14 @@ foreach ($specs as $s) {
 
 
 /* ================= GALLERY ================= */
-$stmtGalleryAll = $pdo->prepare("
+$stmtGallery = $pdo->prepare("
     SELECT *
     FROM produk_gallery
     WHERE produk_id = ?
     ORDER BY sort_order ASC
 ");
-
-$stmtGalleryAll->execute([$product['id']]);
-$galleries = $stmtGalleryAll->fetchAll(PDO::FETCH_ASSOC);
+$stmtGallery->execute([$product['id']]);
+$galleries = $stmtGallery->fetchAll(PDO::FETCH_ASSOC);
 
 
 /* ================= RECOMMENDED ================= */
@@ -101,20 +95,9 @@ $stmtRec = $pdo->prepare("
     ORDER BY RAND()
     LIMIT 4
 ");
-
 $stmtRec->execute([$product['id']]);
 $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
-
-echo "<pre>FEATURES DEBUG:\n";
-print_r($features);
-echo "\nGROUPED SPEC DEBUG:\n";
-print_r($groupedSpecs);
-echo "</pre>";
-exit;
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -141,7 +124,7 @@ exit;
 <!-- ================= HERO ================= -->
 <section
   class="hero hero-image"
-  style="background:url('<?= $heroBackground ?>') center/cover no-repeat;"
+  style="background:url('<?= $heroImage ?>') center/cover no-repeat;"
 >
 
   <div class="hero-overlay"></div>
@@ -194,7 +177,7 @@ exit;
 
 <div class="feature-wrapper">
 
-<?php if(!empty($features)): ?>
+<?php if($features): ?>
 
 <?php foreach($features as $f): ?>
 
@@ -213,7 +196,7 @@ exit;
 
 <?php else: ?>
 
-<p style="text-align:center;">Belum ada fitur.</p>
+<p class="empty">Belum ada fitur.</p>
 
 <?php endif; ?>
 
@@ -229,11 +212,11 @@ exit;
 
 <div class="spec-wrapper">
 
-<?php if(!empty($groupedSpecs)): ?>
+<?php if($groupedSpecs): ?>
 
 <?php foreach($groupedSpecs as $group => $items): ?>
 
-<div class="spec-grup">
+<div class="spec-group">
 
 <h3><?= htmlspecialchars($group); ?></h3>
 
@@ -256,7 +239,7 @@ exit;
 
 <?php else: ?>
 
-<p style="text-align:center;">Belum ada spesifikasi.</p>
+<p class="empty">Belum ada spesifikasi.</p>
 
 <?php endif; ?>
 
@@ -294,7 +277,7 @@ exit;
 
 <?php foreach($recommended as $r): ?>
 
-<a href="/detailproductwheelloader.php?slug=<?= $r['slug']; ?>"
+<a href="/detailprodukwheelloader.php?slug=<?= $r['slug']; ?>"
    class="recommend-card">
 
 <img src="/images/uploads/produk/<?= htmlspecialchars($r['gambar']); ?>">
