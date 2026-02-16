@@ -96,7 +96,7 @@ $recommended = $stmt->fetchAll();
 
 <!-- ================= HERO ================= -->
 <section class="detail-hero"
-style="background:url('/images/uploads/produk/<?= $product['gambar']; ?>') center/cover no-repeat;">
+style="background:url('/images/uploads/produk/<?= $product_gallery['gambar']; ?>') center/cover no-repeat;">
 
 <div class="hero-overlay"></div>
 
