@@ -80,7 +80,7 @@ $recommended = $stmt->fetchAll();
 
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/product/hero.css">
-<link rel="stylesheet" href="/css/product/detailproduct.css">
+<link rel="stylesheet" href="/css/product/detailproduk.css">
 <link rel="stylesheet" href="/css/footer.css">
 
 <link rel="icon" href="/images/favicon.webp">
