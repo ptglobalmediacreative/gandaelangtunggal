@@ -229,4 +229,12 @@
   </div>
 </section>
 
+<!-- ================= FOOTER ================= -->
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
+
+<!-- ================= SCRIPT ================= -->
+<script src="/js/main.js"></script>
+
+</body>
+</html>
