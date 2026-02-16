@@ -17,6 +17,20 @@
   background: url("/images/about.png") center / cover no-repeat;
 }
 
+.hero-breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.hero-breadcrumb a:hover {
+  color: #facc15; /* gold elegan */
+}
+
+.hero-breadcrumb .current {
+  opacity: 0.8;
+}
+
 /* ================= OVERLAY ================= */
 
 .hero::before {
