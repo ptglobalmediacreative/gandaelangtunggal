@@ -120,7 +120,7 @@ $products = $stmt->fetchAll();
           <div class="product-card">
 
             <!-- LINK -->
-            <a href="/produk-detail.php?slug=<?= htmlspecialchars($row['slug']); ?>" 
+            <a href="/detailprodukwheelloader.php?slug=<?= htmlspecialchars($row['slug']); ?>" 
                class="product-link">
 
               <!-- IMAGE -->
