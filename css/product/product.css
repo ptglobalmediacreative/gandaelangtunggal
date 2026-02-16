@@ -78,7 +78,6 @@
 .category-card h4 {
   font-size: 18px;
   font-weight: 600;
-
   color: #0f2341;
 
   text-transform: uppercase;
@@ -112,7 +111,7 @@
   font-size: 34px;
   font-weight: 700;
   color: #0f2341;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
 }
 
 /* ---------- GRID ---------- */
@@ -129,6 +128,7 @@
   display: block;
   text-decoration: none;
   color: inherit;
+  height: 100%;
 }
 
 /* ---------- CARD ---------- */
@@ -136,6 +136,7 @@
 .product-card {
   background: #ffffff;
   border-radius: 14px;
+
   padding: 26px 24px 28px;
 
   text-align: left;
@@ -145,6 +146,8 @@
 
   position: relative;
   overflow: hidden;
+
+  height: 100%;
 }
 
 /* Gold Line */
@@ -183,7 +186,7 @@
   align-items: center;
   justify-content: center;
 
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .product-image img {
@@ -202,7 +205,7 @@
 /* ---------- INFO ---------- */
 
 .product-info h3 {
-  margin: 12px 0 16px;
+  margin: 12px 0 14px;
 
   font-size: 19px;
   font-weight: 700;
@@ -223,12 +226,10 @@
 .product-spec {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 14px;
 
   border-top: 1px solid #e5e7eb;
 }
-
-/* Item */
 
 .product-spec li {
   display: grid;
@@ -255,20 +256,39 @@
 .product-spec li span:last-child {
   color: #0f2341;
   font-weight: 600;
-
   text-align: right;
 }
-
-/* Hover Value */
 
 .product-card:hover .product-spec li span:last-child {
   color: #b45309;
 }
 
-/* Remove Last Border */
-
 .product-spec li:last-child {
   border-bottom: none;
+}
+
+/* ==================================================
+   PRODUCT BUTTON
+================================================== */
+
+.product-btn {
+  margin-top: 10px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #1e3a8a;
+
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .product-btn {
+  color: #facc15;
+  transform: translateX(4px);
 }
 
 /* ---------- EMPTY ---------- */

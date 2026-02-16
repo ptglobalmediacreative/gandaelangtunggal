@@ -146,8 +146,9 @@ $products = $stmt->fetchAll();
 
                 <!-- BUTTON -->
                 <div class="product-btn">
-                  Detail Selengkapnya →
+                Detail Selengkapnya <i class="fa-solid fa-arrow-right"></i>
                 </div>
+
 
               </div>
 
