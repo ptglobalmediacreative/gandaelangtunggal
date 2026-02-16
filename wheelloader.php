@@ -2,16 +2,29 @@
 // ================= DATABASE =================
 require_once __DIR__ . '/admin/config.php';
 
-// ================= GET PRODUCT =================
+// ================= GET PRODUCT + SPEC =================
 $stmt = $pdo->prepare("
     SELECT 
-        produk.*,
-        categories.name AS nama_kategori
-    FROM produk
-    LEFT JOIN categories 
-        ON produk.category_id = categories.id
-    WHERE produk.status = 'aktif'
-    ORDER BY produk.id DESC
+        p.id,
+        p.nama_produk,
+        p.slug,
+        p.gambar,
+
+        -- Ambil spesifikasi tertentu
+        MAX(CASE WHEN ps.label = 'Operating Weight' THEN ps.nilai END) AS operating_weight,
+        MAX(CASE WHEN ps.label = 'Rated power' THEN ps.nilai END) AS rated_power,
+        MAX(CASE WHEN ps.label = 'Bucket Capacity' THEN ps.nilai END) AS bucket_capacity
+
+    FROM produk p
+
+    LEFT JOIN produk_spesifikasi ps 
+        ON p.id = ps.produk_id
+
+    WHERE p.status = 'aktif'
+
+    GROUP BY p.id
+
+    ORDER BY p.id DESC
 ");
 
 $stmt->execute();
@@ -50,12 +63,10 @@ $products = $stmt->fetchAll();
 <header class="header">
   <div class="container">
 
-    <!-- Logo -->
     <div class="logo">
       <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
       <a href="/index.php">Beranda</a>
       <a href="/about.php">Tentang Kami</a>
@@ -65,7 +76,6 @@ $products = $stmt->fetchAll();
       <a href="/blog.php">Blog & Artikel</a>
     </nav>
 
-    <!-- Hamburger -->
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -82,13 +92,10 @@ $products = $stmt->fetchAll();
   style="background: url('/images/wheelloader.jpg') center / cover no-repeat;"
 >
 
-  <!-- Overlay -->
   <div class="hero-overlay"></div>
 
-  <!-- Content -->
   <div class="hero-content">
 
-    <!-- Breadcrumb -->
     <div class="hero-breadcrumb">
       <a href="/index.php">Home</a>
       <span>></span>
@@ -97,10 +104,8 @@ $products = $stmt->fetchAll();
       <span class="current">Wheel Loaders</span>
     </div>
 
-    <!-- Title -->
     <h1>Power That Moves Productivity</h1>
 
-    <!-- Subtext -->
     <p class="hero-subtext">
       High-performance wheel loaders designed for efficient material handling,
       superior durability, and maximum productivity across various applications.
@@ -130,6 +135,7 @@ $products = $stmt->fetchAll();
               class="product-link"
             >
 
+              <!-- IMAGE -->
               <div class="product-image">
                 <img 
                   src="/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>" 
@@ -137,8 +143,36 @@ $products = $stmt->fetchAll();
                 >
               </div>
 
+              <!-- INFO -->
               <div class="product-info">
+
                 <h3><?= htmlspecialchars($row['nama_produk']); ?></h3>
+
+                <ul class="product-spec">
+
+                  <?php if (!empty($row['operating_weight'])) : ?>
+                    <li>
+                      <span>Operating Weight</span>
+                      <strong><?= htmlspecialchars($row['operating_weight']); ?></strong>
+                    </li>
+                  <?php endif; ?>
+
+                  <?php if (!empty($row['rated_power'])) : ?>
+                    <li>
+                      <span>Rated Power</span>
+                      <strong><?= htmlspecialchars($row['rated_power']); ?></strong>
+                    </li>
+                  <?php endif; ?>
+
+                  <?php if (!empty($row['bucket_capacity'])) : ?>
+                    <li>
+                      <span>Bucket Capacity</span>
+                      <strong><?= htmlspecialchars($row['bucket_capacity']); ?></strong>
+                    </li>
+                  <?php endif; ?>
+
+                </ul>
+
               </div>
 
             </a>
@@ -146,6 +180,7 @@ $products = $stmt->fetchAll();
           </div>
 
         <?php endforeach; ?>
+
       <?php else : ?>
 
         <p class="no-product">Belum ada produk tersedia.</p>

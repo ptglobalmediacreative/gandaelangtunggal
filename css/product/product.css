@@ -46,14 +46,15 @@
   text-align: center;
 
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.09);
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
 
   cursor: pointer;
 }
 
 .category-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 45px rgba(250, 204, 21, 0.35);
+  border-bottom: 4px solid #facc15;
 }
 
 /* Image */
@@ -80,6 +81,12 @@
 
   text-transform: uppercase;
   letter-spacing: 0.6px;
+
+  transition: 0.3s ease;
+}
+
+.category-card:hover h4 {
+  color: #facc15;
 }
 
 /* ==================================================
@@ -207,12 +214,37 @@
   text-align: center;
 
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+
+  position: relative;
+  overflow: hidden;
 }
 
+/* Gold Line */
+
+.product-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 0%;
+  height: 4px;
+
+  background: linear-gradient(90deg, #facc15, #fde047, #facc15);
+
+  transition: 0.35s ease;
+}
+
+/* Hover Card */
+
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(250, 204, 21, 0.35);
+}
+
+.product-card:hover::after {
+  width: 100%;
 }
 
 /* Image */
@@ -235,10 +267,10 @@
 }
 
 .product-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
-/* Title */
+/* Info */
 
 .product-info h3 {
   margin-top: 18px;
@@ -246,6 +278,38 @@
   font-size: 18px;
   font-weight: 600;
 
+  color: #0f2341;
+
+  transition: 0.3s ease;
+}
+
+/* Gold Title */
+
+.product-card:hover .product-info h3 {
+  color: #facc15;
+}
+
+/* Spec */
+
+.product-spec {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+
+  text-align: left;
+}
+
+.product-spec li {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 14px;
+  color: #374151;
+
+  margin-bottom: 6px;
+}
+
+.product-card:hover .product-spec li {
   color: #0f2341;
 }
 
