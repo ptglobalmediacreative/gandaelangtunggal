@@ -2,7 +2,7 @@
 // ================= DATABASE =================
 require_once __DIR__ . '/admin/config.php';
 
-// ================= GET PRODUCT + SPEC =================
+// ================= GET PRODUCT + OPERATING WEIGHT =================
 $stmt = $pdo->prepare("
     SELECT 
         p.id,
@@ -10,9 +10,7 @@ $stmt = $pdo->prepare("
         p.slug,
         p.gambar,
 
-        MAX(CASE WHEN ps.label = 'Operating Weight' THEN ps.nilai END) AS operating_weight,
-        MAX(CASE WHEN ps.label = 'Rated power' THEN ps.nilai END) AS rated_power,
-        MAX(CASE WHEN ps.label = 'Bucket Capacity' THEN ps.nilai END) AS bucket_capacity
+        MAX(CASE WHEN ps.label = 'Operating Weight' THEN ps.nilai END) AS operating_weight
 
     FROM produk p
 
@@ -38,8 +36,10 @@ $products = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>PT Ganda Elang Tangguh - Produk</title>
 
+  <!-- Main CSS -->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/product/hero.css">
   <link rel="stylesheet" href="/css/product/product.css">
@@ -86,6 +86,7 @@ $products = $stmt->fetchAll();
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
+
     <div class="hero-breadcrumb">
       <a href="/index.php">Home</a>
       <span>></span>
@@ -96,13 +97,15 @@ $products = $stmt->fetchAll();
 
     <p class="hero-subtext">
       High-performance wheel loaders designed for efficient material handling,
-      superior durability, and maximum productivity across various applications.
+      superior durability, and maximum productivity.
     </p>
+
   </div>
 </section>
 
 <!-- ================= PRODUCT LIST ================= -->
 <section class="product-list">
+
   <div class="product-container">
 
     <h2 class="product-title">Daftar Produk</h2>
@@ -113,6 +116,8 @@ $products = $stmt->fetchAll();
         <?php foreach ($products as $row) : ?>
 
           <div class="product-card">
+
+            <!-- LINK -->
             <a href="/produk-detail.php?slug=<?= htmlspecialchars($row['slug']); ?>" 
                class="product-link">
 
@@ -126,46 +131,41 @@ $products = $stmt->fetchAll();
 
               <!-- INFO -->
               <div class="product-info">
+
                 <h3><?= htmlspecialchars($row['nama_produk']); ?></h3>
 
-                <ul class="product-spec">
-
-                  <?php if (!empty($row['operating_weight'])) : ?>
+                <!-- SPEC -->
+                <?php if (!empty($row['operating_weight'])) : ?>
+                  <ul class="product-spec">
                     <li>
                       <span>Operating Weight</span>
                       <span><?= htmlspecialchars($row['operating_weight']); ?></span>
                     </li>
-                  <?php endif; ?>
+                  </ul>
+                <?php endif; ?>
 
-                  <?php if (!empty($row['rated_power'])) : ?>
-                    <li>
-                      <span>Rated Power</span>
-                      <span><?= htmlspecialchars($row['rated_power']); ?></span>
-                    </li>
-                  <?php endif; ?>
-
-                  <?php if (!empty($row['bucket_capacity'])) : ?>
-                    <li>
-                      <span>Bucket Capacity</span>
-                      <span><?= htmlspecialchars($row['bucket_capacity']); ?></span>
-                    </li>
-                  <?php endif; ?>
-
-                </ul>
+                <!-- BUTTON -->
+                <div class="product-btn">
+                  Detail Selengkapnya →
+                </div>
 
               </div>
 
             </a>
+
           </div>
 
         <?php endforeach; ?>
       <?php else : ?>
+
         <p class="no-product">Belum ada produk tersedia.</p>
+
       <?php endif; ?>
 
     </div>
 
   </div>
+
 </section>
 
 <!-- ================= FOOTER ================= -->
