@@ -5,15 +5,15 @@
   position: relative;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* KE KIRI */
   align-items: center;
 
   padding-top: 110px;
+  padding-left: 60px; /* JARAK DARI KIRI */
 
   overflow: hidden;
   z-index: 1;
 
-  /* BACKGROUND IMAGE */
   background: url("/images/about.png") center / cover no-repeat;
 }
 
