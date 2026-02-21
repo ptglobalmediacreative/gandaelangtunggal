@@ -321,10 +321,10 @@
   }
 
   .pd-menu-inner {
-    flex-direction: row; /* BALIK JADI HORIZONTAL */
-    justify-content: center;
-    gap: 15px;
-    padding: 10px 12px;
+    flex-direction: row;
+    justify-content: flex-start; /* MULAI DARI KIRI */
+    padding: 8px 0;
+    overflow: hidden;
   }
 
   /* HILANGKAN NAMA + GAMBAR PRODUK */
@@ -333,27 +333,42 @@
     display: none;
   }
 
-  /* NAV MENU */
+  /* NAV MENU -> HORIZONTAL SCROLL */
 
   .pd-menu-nav {
-    flex-wrap: nowrap; /* JANGAN TURUN BARIS */
-    justify-content: center;
-    gap: 14px;
-    overflow-x: auto; /* Kalau kepanjangan bisa geser */
-    scrollbar-width: none;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 18px;
+
+    padding: 0 15px;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none; /* Firefox */
   }
+
+  /* HILANGKAN SCROLLBAR */
 
   .pd-menu-nav::-webkit-scrollbar {
-    display: none;
+    display: none; /* Chrome */
   }
+
+  /* ITEM MENU */
 
   .pd-menu-nav a {
-    font-size: 13px; /* KECILIN */
-    white-space: nowrap; /* Jangan patah */
-    padding-bottom: 3px;
+    flex-shrink: 0; /* JANGAN CIUT */
+    font-size: 13px;
+    white-space: nowrap;
+    padding: 6px 2px;
   }
 
-  /* HERO */
+  /* ================= HERO ================= */
 
   .pd-hero {
     height: 300px;
@@ -367,7 +382,7 @@
     font-size: 30px;
   }
 
-  /* FEATURE */
+  /* ================= FEATURE ================= */
 
   .pd-feature-row {
     grid-template-columns: 1fr;
@@ -375,7 +390,7 @@
     margin-bottom: 45px;
   }
 
-  /* SECTION */
+  /* ================= SECTION ================= */
 
   .pd-section {
     padding: 50px 15px;
@@ -385,7 +400,7 @@
     font-size: 26px;
   }
 
-  /* SPEC */
+  /* ================= SPEC ================= */
 
   .pd-spec-box {
     padding: 0 10px;
@@ -396,7 +411,7 @@
     padding: 10px 12px;
   }
 
-  /* GALLERY */
+  /* ================= GALLERY ================= */
 
   .pd-gallery {
     max-width: 100%;
@@ -410,7 +425,7 @@
     font-size: 18px;
   }
 
-  /* RECOMMENDED */
+  /* ================= RECOMMENDED ================= */
 
   .pd-rec {
     grid-template-columns: repeat(2, 1fr);
@@ -427,15 +442,11 @@
   }
 }
 
-/* SMALL MOBILE */
+/* ================= SMALL MOBILE ================= */
 
 @media (max-width: 480px) {
-  .pd-menu-product {
-    font-size: 18px;
-  }
-
   .pd-menu-nav a {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .pd-hero h1 {
