@@ -100,11 +100,10 @@ $products = $stmt->fetchAll();
       <span class="current">Excavator</span>
     </div>
 
-    <h1>Power That Moves Productivity</h1>
+    <h1>Built to Dig Deeper</h1>
 
     <p class="hero-subtext">
-      High-performance Excavator designed for efficient material handling,
-      superior durability, and maximum productivity.
+      Powerful and versatile excavators engineered for heavy-duty digging, lifting, and earthmoving applications in diverse terrains.
     </p>
 
   </div>
