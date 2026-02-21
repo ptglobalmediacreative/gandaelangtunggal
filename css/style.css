@@ -38,32 +38,13 @@ body {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Garis biru bawah */
-.header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
+/* Garis bawah elegan (abu tipis) */
 
-  width: 100%;
-  height: 3px;
-
-  background: linear-gradient(90deg, #1e3a8a, #2563eb, #1e40af);
-
-  opacity: 0;
-  transition: 0.3s;
-}
-
-/* Aktif */
-.header:hover::after,
-.header.scrolled::after,
-.header.menu-open::after {
-  opacity: 1;
-}
-
-/* Hide scroll */
-.header.hide {
-  transform: translateY(-120%);
+.header.scrolled,
+.header:hover,
+.header.menu-open {
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* ================= CONTAINER ================= */
