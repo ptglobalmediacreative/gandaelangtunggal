@@ -145,28 +145,28 @@ style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
 
 
 <!-- MENU -->
-<section class="detail-menu">
-<div class="detail-menu-container">
-<a href="#features">Features</a>
-<a href="#specifications">Specifications</a>
-<a href="#gallery">Gallery</a>
-<a href="#recommended">Recommended</a>
+<section class="pd-menu">
+<div class="pd-menu-container">
+<a href="#pd-features">Features</a>
+<a href="#pd-specifications">Specifications</a>
+<a href="#pd-gallery">Gallery</a>
+<a href="#pd-recommended">Recommended</a>
 </div>
 </section>
 
 
 <!-- FEATURES -->
-<section id="features" class="detail-section">
+<section id="pd-features" class="pd-section">
 <h2>FEATURES</h2>
 
 <?php if($features): ?>
-<div class="feature-main">
+<div class="pd-feature-main">
 
-    <div class="feature-image">
+    <div class="pd-feature-image">
         <img src="/images/uploads/produk/<?= htmlspecialchars($features[0]['image']); ?>">
     </div>
 
-    <div class="feature-list">
+    <div class="pd-feature-list">
         <ul>
         <?php foreach($features as $f): ?>
             <li>
@@ -179,19 +179,20 @@ style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
 
 </div>
 <?php else: ?>
-<p class="empty">Belum ada fitur.</p>
+<p class="pd-empty">Belum ada fitur.</p>
 <?php endif; ?>
 </section>
 
 
 <!-- SPEC -->
-<section id="specifications" class="detail-section gray">
+<section id="pd-specifications" class="pd-section pd-gray">
 <h2>SPECIFICATIONS</h2>
 
 <?php foreach($groupedSpecs as $group => $items): ?>
-<div class="spec-group">
+<div class="pd-spec-group">
 <h3><?= htmlspecialchars($group); ?></h3>
-<table>
+
+<table class="pd-spec-table">
 <?php foreach($items as $row): ?>
 <tr>
 <td><?= htmlspecialchars($row['label']); ?></td>
@@ -199,6 +200,7 @@ style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
 </tr>
 <?php endforeach; ?>
 </table>
+
 </div>
 <?php endforeach; ?>
 
@@ -206,27 +208,33 @@ style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
 
 
 <!-- GALLERY -->
-<section id="gallery" class="detail-section">
+<section id="pd-gallery" class="pd-section">
 <h2>GALLERY</h2>
-<div class="gallery-wrapper">
+
+<div class="pd-gallery-wrapper">
 <?php foreach($galleries as $g): ?>
 <img src="/images/uploads/produk/<?= htmlspecialchars($g['image']); ?>">
 <?php endforeach; ?>
 </div>
+
 </section>
 
 
 <!-- RECOMMENDED -->
-<section id="recommended" class="detail-section gray">
+<section id="pd-recommended" class="pd-section pd-gray">
 <h2>RECOMMENDED EQUIPMENT</h2>
-<div class="recommend-grid">
+
+<div class="pd-recommend-grid">
 <?php foreach($recommended as $r): ?>
-<a href="/detailprodukwheelloader.php?slug=<?= $r['slug']; ?>">
+<a href="/detailprodukwheelloader.php?slug=<?= $r['slug']; ?>" class="pd-recommend-item">
+
 <img src="/images/uploads/produk/<?= $r['gambar']; ?>">
 <h4><?= htmlspecialchars($r['nama_produk']); ?></h4>
+
 </a>
 <?php endforeach; ?>
 </div>
+
 </section>
 
 <?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
