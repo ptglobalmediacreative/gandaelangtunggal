@@ -496,3 +496,52 @@
     font-size: 24px;
   }
 }
+
+/* ================= SCROLL ANIMATION ================= */
+
+/* Default hidden */
+.pd-section,
+.pd-feature-row,
+.pd-spec-box,
+.pd-slide,
+.pd-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* Show when visible */
+.pd-section.show,
+.pd-feature-row.show,
+.pd-spec-box.show,
+.pd-slide.show,
+.pd-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay animation for feature rows */
+.pd-feature-row:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.pd-feature-row:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.pd-feature-row:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.pd-hero-content {
+  animation: heroFade 1.2s ease forwards;
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

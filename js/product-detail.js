@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* GALLERY */
+  /* ==================================================
+     GALLERY SLIDER
+  ================================================== */
 
   const track = document.querySelector(".pd-track");
   const slides = document.querySelectorAll(".pd-slide");
@@ -7,60 +9,91 @@ document.addEventListener("DOMContentLoaded", () => {
   const prev = document.querySelector(".pd-btn.prev");
   const next = document.querySelector(".pd-btn.next");
 
-  let i = 0;
+  let index = 0;
 
-  function move() {
-    track.style.transform = `translateX(-${i * 100}%)`;
+  function moveSlide() {
+    if (!track) return;
+    track.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  if (next) {
-    next.onclick = () => {
-      i++;
-      if (i >= slides.length) i = 0;
-      move();
-    };
+  if (next && prev && slides.length) {
+    next.addEventListener("click", () => {
+      index++;
+      if (index >= slides.length) index = 0;
+      moveSlide();
+    });
 
-    prev.onclick = () => {
-      i--;
-      if (i < 0) i = slides.length - 1;
-      move();
-    };
+    prev.addEventListener("click", () => {
+      index--;
+      if (index < 0) index = slides.length - 1;
+      moveSlide();
+    });
   }
 
-  /* MENU ACTIVE */
+  /* ==================================================
+     MENU ACTIVE + STICKY SHADOW
+  ================================================== */
 
   const links = document.querySelectorAll(".pd-menu-nav a");
   const sections = document.querySelectorAll(".pd-section");
+  const pdMenu = document.querySelector(".pd-menu");
 
-  window.addEventListener("scroll", () => {
-    let cur = "";
+  function handleScrollMenu() {
+    let current = "";
 
-    sections.forEach((s) => {
-      if (pageYOffset >= s.offsetTop - 150) {
-        cur = s.id;
+    sections.forEach((section) => {
+      if (window.scrollY >= section.offsetTop - 180) {
+        current = section.getAttribute("id");
       }
     });
 
-    // Sticky product menu effect
+    /* Active menu */
+    links.forEach((link) => {
+      link.classList.remove("active");
 
-    const pdMenu = document.querySelector(".pd-menu");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
 
+    /* Sticky shadow */
     if (pdMenu) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 400) {
-          pdMenu.classList.add("stuck");
-        } else {
-          pdMenu.classList.remove("stuck");
-        }
-      });
-    }
-
-    links.forEach((a) => {
-      a.classList.remove("active");
-
-      if (a.getAttribute("href") === "#" + cur) {
-        a.classList.add("active");
+      if (window.scrollY > 400) {
+        pdMenu.classList.add("stuck");
+      } else {
+        pdMenu.classList.remove("stuck");
       }
+    }
+  }
+
+  window.addEventListener("scroll", handleScrollMenu);
+
+  /* ==================================================
+     SCROLL REVEAL ANIMATION
+  ================================================== */
+
+  const revealItems = document.querySelectorAll(
+    ".pd-section, .pd-feature-row, .pd-spec-box, .pd-slide, .pd-card",
+  );
+
+  if (revealItems.length) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            revealObserver.unobserve(entry.target); // Stop observe after show
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    );
+
+    revealItems.forEach((item) => {
+      revealObserver.observe(item);
     });
-  });
+  }
 });
