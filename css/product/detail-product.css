@@ -245,3 +245,79 @@ body {
     right: 10px;
   }
 }
+
+/* ================= FORCE FIX DARK THEME ================= */
+
+/* Reset background halaman detail */
+
+body {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* Paksa semua section produk putih */
+
+.pd-section,
+#pd-features,
+#pd-specifications,
+#pd-gallery,
+#pd-recommended {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* Background abu khusus */
+
+.pd-gray {
+  background: #f5f7fa !important;
+}
+
+/* Reset text */
+
+.pd-section h2,
+.pd-section h3,
+.pd-section p,
+.pd-section li,
+.pd-section td,
+.pd-section strong {
+  color: #111827 !important;
+}
+
+/* Hilangkan inherit warna putih */
+
+.pd-section * {
+  text-shadow: none !important;
+}
+
+/* Fix feature box */
+
+.pd-feature-main {
+  background: #ffffff !important;
+}
+
+.pd-feature-list {
+  background: #f8fafc !important;
+}
+
+/* Fix table */
+
+.pd-spec-table {
+  background: #ffffff !important;
+}
+
+.pd-spec-table td:first-child {
+  background: #f3f4f6 !important;
+}
+
+/* Fix gallery area */
+
+.pd-gallery-slider {
+  background: transparent !important;
+}
+
+/* Fix recommended card */
+
+.pd-recommend-item {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
