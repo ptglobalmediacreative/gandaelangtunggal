@@ -94,11 +94,11 @@
 
     <div class="category-grid">
 
-      <!-- Item -->
-      <div class="category-card">
-        <img src="/images/products/wheel-loader.jpg" alt="Wheel Loader">
-        <h4>Wheel Loader</h4>
-      </div>
+    <!-- Item -->
+    <a href="/detailprodukwheelloader.php" class="category-card">
+      <img src="/images/products/wheel-loader.jpg" alt="Wheel Loader">
+      <h4>Wheel Loader</h4>
+    </a>
 
       <div class="category-card">
         <img src="/images/products/excavator.jpg" alt="Excavator">
