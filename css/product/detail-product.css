@@ -51,10 +51,12 @@
 .pd-menu-inner {
   max-width: 1200px;
   margin: auto;
+
   display: flex;
-  justify-content: center; /* CENTER SEMUA */
+  justify-content: space-between; /* KIRI - KANAN */
+
   align-items: center;
-  gap: 50px;
+
   padding: 15px 20px;
 }
 
