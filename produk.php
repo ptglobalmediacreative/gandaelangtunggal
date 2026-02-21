@@ -95,7 +95,7 @@
     <div class="category-grid">
 
     <!-- Item -->
-    <a href="/detailprodukwheelloader.php" class="category-card">
+    <a href="/wheelloader.php" class="category-card">
       <img src="/images/products/wheel-loader.jpg" alt="Wheel Loader">
       <h4>Wheel Loader</h4>
     </a>
