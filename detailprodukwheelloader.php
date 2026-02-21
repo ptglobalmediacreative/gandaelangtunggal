@@ -99,6 +99,35 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
+<!-- Header -->
+ <header class="header">
+    <div class="container">
+
+        <div class="logo">
+            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+        </div>
+
+        <nav class="navbar" id="navbar">
+
+            <a href="/index.php">Beranda</a>
+            <a href="/about.php">Tentang Kami</a>
+            <a href="/produk.php">Produk</a>
+            <a href="#">Layanan Purna Jual</a>
+            <a href="#">Hubungi Kami</a>
+            <a href="#">Blog & Artikel</a>
+
+        </nav>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+</header>
+
 <!-- HERO -->
 <section class="hero hero-image"
 style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
