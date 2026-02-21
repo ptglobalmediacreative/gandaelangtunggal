@@ -311,16 +311,136 @@
   font-weight: 600;
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE RESPONSIVE ================= */
 
 @media (max-width: 900px) {
-  .pd-feature-row {
-    grid-template-columns: 1fr;
+  /* MENU */
+
+  .pd-menu {
+    top: 70px; /* lebih rapat di mobile */
   }
+
+  .pd-menu-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 15px;
+  }
+
+  /* HILANGKAN GAMBAR PRODUK */
+
+  .pd-menu-product img {
+    display: none;
+  }
+
+  .pd-menu-product {
+    font-size: 20px;
+    justify-content: center;
+  }
+
+  /* NAV MENU */
 
   .pd-menu-nav {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 18px;
+  }
+
+  .pd-menu-nav a {
+    font-size: 15px;
+    padding-bottom: 4px;
+  }
+
+  /* HERO */
+
+  .pd-hero {
+    height: 300px;
+  }
+
+  .pd-hero-content {
+    padding-top: 110px;
+  }
+
+  .pd-hero h1 {
+    font-size: 30px;
+  }
+
+  /* FEATURE */
+
+  .pd-feature-row {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 45px;
+  }
+
+  /* SECTION */
+
+  .pd-section {
+    padding: 50px 15px;
+  }
+
+  .pd-section h2 {
+    font-size: 26px;
+  }
+
+  /* SPEC */
+
+  .pd-spec-box {
+    padding: 0 10px;
+  }
+
+  .pd-spec-box td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  /* GALLERY */
+
+  .pd-gallery {
+    max-width: 100%;
+    padding: 0 10px;
+    gap: 10px;
+  }
+
+  .pd-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  /* RECOMMENDED */
+
+  .pd-rec {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .pd-card img {
+    height: 150px;
+  }
+
+  .pd-card h4 {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+  .pd-menu-product {
+    font-size: 18px;
+  }
+
+  .pd-menu-nav a {
+    font-size: 14px;
+  }
+
+  .pd-hero h1 {
+    font-size: 26px;
+  }
+
+  .pd-rec {
+    grid-template-columns: 1fr;
   }
 }
