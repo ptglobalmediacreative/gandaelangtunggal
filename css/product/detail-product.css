@@ -1,6 +1,8 @@
-/* ===============================
+/* ==================================================
    PRODUCT DETAIL - POLISHED
-================================ */
+================================================== */
+
+/* ================= BASE ================= */
 
 .pd-page {
   font-family: Inter, sans-serif;
@@ -27,6 +29,7 @@
   color: #fff;
   text-align: center;
   padding-top: 140px;
+  animation: heroFade 1.2s ease forwards;
 }
 
 .pd-hero h1 {
@@ -34,18 +37,21 @@
   font-weight: 700;
 }
 
-/* ================= MENU FIX CENTER INLINE ================= */
+/* ================= MENU ================= */
 
 .pd-menu {
+  position: sticky;
+  top: 85px;
+  z-index: 9999;
+
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
 
-  position: sticky;
-  top: 85px; /* JARAK DARI HEADER */
-
-  z-index: 9999;
-
   transition: 0.3s ease;
+}
+
+.pd-menu.stuck {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .pd-menu-inner {
@@ -53,34 +59,24 @@
   margin: auto;
 
   display: flex;
-  justify-content: space-between; /* KIRI - KANAN */
-
+  justify-content: space-between;
   align-items: center;
 
   padding: 15px 20px;
 }
+
+/* Product Info */
 
 .pd-menu-product {
   display: flex;
   align-items: center;
   gap: 12px;
 
-  font-weight: 700;
   font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
 
   color: #0b3a82;
-
-  letter-spacing: 0.4px;
-}
-
-/* Shadow saat sticky aktif */
-
-.pd-menu {
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-
-.pd-menu.stuck {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .pd-menu-product img {
@@ -88,6 +84,8 @@
   height: 50px;
   object-fit: cover;
 }
+
+/* Navigation */
 
 .pd-menu-nav {
   display: flex;
@@ -98,9 +96,8 @@
   text-decoration: none;
   color: #0f172a;
 
-  font-weight: 600;
   font-size: 17px;
-
+  font-weight: 600;
   letter-spacing: 0.3px;
 
   position: relative;
@@ -109,10 +106,7 @@
   transition: 0.3s;
 }
 
-.pd-menu-nav a:hover {
-  color: #0b3a82;
-}
-
+.pd-menu-nav a:hover,
 .pd-menu-nav a.active {
   color: #0b3a82;
 }
@@ -122,8 +116,10 @@
   position: absolute;
   left: 0;
   bottom: 0;
+
   width: 100%;
   height: 3px;
+
   background: #ff6a00;
 }
 
@@ -133,27 +129,32 @@
   padding: 70px 20px;
 }
 
+.pd-gray {
+  background: #f3f5f9;
+}
+
 .pd-section h2 {
   text-align: center;
+
   font-size: 32px;
   font-weight: 700;
   color: #0b3a82;
+
   margin-bottom: 35px;
   position: relative;
 }
 
 .pd-section h2::after {
   content: "";
+  display: block;
+
   width: 70px;
   height: 4px;
-  background: #ff6a00;
-  display: block;
-  margin: 12px auto 0;
-  border-radius: 2px;
-}
 
-.pd-gray {
-  background: #f3f5f9;
+  margin: 12px auto 0;
+
+  background: #ff6a00;
+  border-radius: 2px;
 }
 
 /* ================= FEATURES ================= */
@@ -166,8 +167,10 @@
 .pd-feature-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   gap: 40px;
   align-items: center;
+
   margin-bottom: 60px;
 }
 
@@ -187,7 +190,6 @@
 .pd-feature-text h3 {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #0f172a;
 }
 
 .pd-feature-text p {
@@ -205,6 +207,7 @@
 .pd-spec-box h3 {
   border-left: 4px solid #ff6a00;
   padding-left: 10px;
+
   margin-bottom: 15px;
   font-size: 18px;
 }
@@ -212,6 +215,7 @@
 .pd-spec-box table {
   width: 100%;
   border-collapse: collapse;
+
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
@@ -233,14 +237,15 @@
 .pd-gallery {
   max-width: 950px;
   margin: auto;
+
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
 .pd-window {
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
 }
 
 .pd-track {
@@ -257,17 +262,21 @@
   border-radius: 12px;
 }
 
-/* BUTTON STYLE */
+/* Buttons */
 
 .pd-btn {
   width: 45px;
   height: 45px;
+
   border-radius: 50%;
   border: none;
+
   background: #0b3a82;
   color: #fff;
+
   font-size: 22px;
   cursor: pointer;
+
   transition: 0.3s;
 }
 
@@ -280,6 +289,7 @@
 .pd-rec {
   max-width: 1100px;
   margin: auto;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 25px;
@@ -289,9 +299,12 @@
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
+
   text-decoration: none;
-  color: #0f172a;
+  color: inherit;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
   transition: 0.3s;
 }
 
@@ -309,27 +322,21 @@
   padding: 15px;
   text-align: center;
   font-weight: 600;
+  color: #0b3a82;
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 900px) {
-  /* ================= MENU MOBILE ================= */
+  /* MENU */
 
   .pd-menu {
-    position: sticky;
     top: 60px;
-    z-index: 9999;
-    background: #fff;
-    border-bottom: 1px solid #e5e7eb;
   }
 
   .pd-menu-inner {
-    flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
     padding: 6px 0;
-    overflow: hidden;
   }
 
   .pd-menu-product {
@@ -337,11 +344,11 @@
   }
 
   .pd-menu-nav {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 14px;
-    padding: 0 12px;
     width: 100%;
+    padding: 0 12px;
+
+    gap: 14px;
+
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -351,14 +358,11 @@
   }
 
   .pd-menu-nav a {
-    flex-shrink: 0;
     font-size: 12px;
-    font-weight: 600;
     white-space: nowrap;
-    padding: 4px 2px;
   }
 
-  /* ================= HERO ================= */
+  /* HERO */
 
   .pd-hero {
     height: 280px;
@@ -372,15 +376,14 @@
     font-size: 28px;
   }
 
-  /* ================= FEATURE ================= */
+  /* FEATURES */
 
   .pd-feature-row {
     grid-template-columns: 1fr;
     gap: 25px;
-    margin-bottom: 40px;
   }
 
-  /* ================= SECTION ================= */
+  /* SECTION */
 
   .pd-section {
     padding: 45px 15px;
@@ -390,23 +393,10 @@
     font-size: 24px;
   }
 
-  /* ================= SPEC ================= */
-
-  .pd-spec-box {
-    padding: 0 10px;
-  }
-
-  .pd-spec-box td {
-    font-size: 13px;
-    padding: 8px 10px;
-  }
-
-  /* ================= GALLERY ================= */
+  /* GALLERY */
 
   .pd-gallery {
-    max-width: 100%;
     padding: 0 10px;
-    gap: 8px;
   }
 
   .pd-btn {
@@ -415,33 +405,18 @@
     font-size: 16px;
   }
 
-  /* =================================================
-     RECOMMENDED → TRUE CENTER SLIDER
-  ================================================= */
+  /* RECOMMENDED SLIDER */
 
   .pd-rec {
     display: flex;
 
-    gap: 0;
-
     overflow-x: auto;
-    overflow-y: hidden;
 
     scroll-snap-type: x mandatory;
     scroll-padding: 50%;
 
-    -webkit-overflow-scrolling: touch;
-
     padding: 20px 0 35px;
-
-    scrollbar-width: none;
   }
-
-  .pd-rec::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* CARD FULL WIDTH */
 
   .pd-card {
     flex: 0 0 100%;
@@ -450,30 +425,12 @@
     scroll-snap-align: center;
 
     padding: 0 12px;
-
-    box-sizing: border-box;
-
-    transition: 0.4s ease;
   }
-
-  /* IMAGE FULL & CLEAR */
 
   .pd-card img {
-    width: 100%;
     height: 260px;
-
     object-fit: contain;
-
-    background: #ffffff;
     padding: 20px;
-  }
-
-  .pd-card h4 {
-    font-size: 15px;
-    padding: 12px 10px;
-    text-align: center;
-    font-weight: 600;
-    color: #0b3a82;
   }
 }
 
@@ -499,7 +456,6 @@
 
 /* ================= SCROLL ANIMATION ================= */
 
-/* Default hidden */
 .pd-section,
 .pd-feature-row,
 .pd-spec-box,
@@ -510,7 +466,6 @@
   transition: all 0.8s ease;
 }
 
-/* Show when visible */
 .pd-section.show,
 .pd-feature-row.show,
 .pd-spec-box.show,
@@ -520,20 +475,7 @@
   transform: translateY(0);
 }
 
-/* Delay animation for feature rows */
-.pd-feature-row:nth-child(2) {
-  transition-delay: 0.1s;
-}
-.pd-feature-row:nth-child(3) {
-  transition-delay: 0.2s;
-}
-.pd-feature-row:nth-child(4) {
-  transition-delay: 0.3s;
-}
-
-.pd-hero-content {
-  animation: heroFade 1.2s ease forwards;
-}
+/* ================= HERO ANIMATION ================= */
 
 @keyframes heroFade {
   from {
