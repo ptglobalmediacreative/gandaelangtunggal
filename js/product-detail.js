@@ -1,47 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* SLIDER */
+  /* GALLERY */
 
   const track = document.querySelector(".pd-track");
   const slides = document.querySelectorAll(".pd-slide");
+
   const prev = document.querySelector(".pd-btn.prev");
   const next = document.querySelector(".pd-btn.next");
 
-  let index = 0;
+  let i = 0;
 
-  function update() {
-    track.style.transform = `translateX(-${index * 100}%)`;
+  function move() {
+    track.style.transform = `translateX(-${i * 100}%)`;
   }
 
   if (next) {
     next.onclick = () => {
-      index = (index + 1) % slides.length;
-      update();
+      i++;
+      if (i >= slides.length) i = 0;
+      move();
     };
 
     prev.onclick = () => {
-      index = (index - 1 + slides.length) % slides.length;
-      update();
+      i--;
+      if (i < 0) i = slides.length - 1;
+      move();
     };
   }
 
-  /* ACTIVE MENU */
+  /* MENU ACTIVE */
 
-  const links = document.querySelectorAll(".pd-menu a");
+  const links = document.querySelectorAll(".pd-menu-nav a");
   const sections = document.querySelectorAll(".pd-section");
 
   window.addEventListener("scroll", () => {
-    let current = "";
+    let cur = "";
 
-    sections.forEach((sec) => {
-      if (pageYOffset >= sec.offsetTop - 150) {
-        current = sec.id;
+    sections.forEach((s) => {
+      if (pageYOffset >= s.offsetTop - 150) {
+        cur = s.id;
       }
     });
 
     links.forEach((a) => {
       a.classList.remove("active");
 
-      if (a.getAttribute("href") === "#" + current) {
+      if (a.getAttribute("href") === "#" + cur) {
         a.classList.add("active");
       }
     });
