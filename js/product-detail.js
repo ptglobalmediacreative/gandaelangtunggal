@@ -41,6 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // Sticky product menu effect
+
+    const pdMenu = document.querySelector(".pd-menu");
+
+    if (pdMenu) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+          pdMenu.classList.add("stuck");
+        } else {
+          pdMenu.classList.remove("stuck");
+        }
+      });
+    }
+
     links.forEach((a) => {
       a.classList.remove("active");
 

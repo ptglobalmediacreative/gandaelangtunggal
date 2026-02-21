@@ -39,9 +39,13 @@
 .pd-menu {
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
+
   position: sticky;
-  top: 0;
-  z-index: 99;
+  top: 85px; /* JARAK DARI HEADER */
+
+  z-index: 9999;
+
+  transition: 0.3s ease;
 }
 
 .pd-menu-inner {
@@ -58,8 +62,23 @@
   display: flex;
   align-items: center;
   gap: 12px;
+
   font-weight: 700;
-  font-size: 22px;
+  font-size: 24px;
+
+  color: #0b3a82;
+
+  letter-spacing: 0.4px;
+}
+
+/* Shadow saat sticky aktif */
+
+.pd-menu {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.pd-menu.stuck {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .pd-menu-product img {
@@ -76,9 +95,15 @@
 .pd-menu-nav a {
   text-decoration: none;
   color: #0f172a;
-  font-weight: 500;
+
+  font-weight: 600;
+  font-size: 17px;
+
+  letter-spacing: 0.3px;
+
   position: relative;
   padding-bottom: 6px;
+
   transition: 0.3s;
 }
 
