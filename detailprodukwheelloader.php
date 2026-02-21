@@ -86,9 +86,6 @@ $rec=$q->fetchAll();
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<script src="/js/product-detail.js" defer></script>
-<script src="/js/headbar.js" defer></script>
-
 </head>
 
 <body>
