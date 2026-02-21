@@ -40,11 +40,27 @@ body {
 
 /* Garis bawah elegan (abu tipis) */
 
-.header.scrolled,
-.header:hover,
-.header.menu-open {
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(0, 0, 0, 0.08);
+
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+/* Aktif saat scroll / hover */
+
+.header:hover::after,
+.header.scrolled::after,
+.header.menu-open::after {
+  opacity: 1;
 }
 
 /* ================= CONTAINER ================= */
