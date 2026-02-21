@@ -74,6 +74,7 @@ $rec=$q->fetchAll();
 
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/product/detail-product.css">
+<link rel="stylesheet" href="/css/product/hero.css">
 <link rel="stylesheet" href="/css/footer.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -105,7 +106,7 @@ $rec=$q->fetchAll();
 
       <a href="/produk.php">Product</a>
       <span>></span>
-      
+
       <a href="/produk.php">Product</a>
       <span>></span>
 
