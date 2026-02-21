@@ -83,161 +83,211 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= htmlspecialchars($product['nama_produk']); ?></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/product/hero.css">
-<link rel="stylesheet" href="/css/product/detail-product.css">
-<link rel="stylesheet" href="/css/footer.css">
+    <title><?= htmlspecialchars($product['nama_produk']); ?></title>
 
-<link rel="icon" href="/images/favicon.webp">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/product/hero.css">
+    <link rel="stylesheet" href="/css/product/detail-product.css">
+    <link rel="stylesheet" href="/css/footer.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.webp">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- Header -->
- <header class="header">
-    <div class="container">
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="container">
 
-        <div class="logo">
-            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+            <div class="logo">
+                <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+            </div>
+
+            <nav class="navbar" id="navbar">
+                <a href="/index.php">Beranda</a>
+                <a href="/about.php">Tentang Kami</a>
+                <a href="/produk.php">Produk</a>
+                <a href="#">Layanan Purna Jual</a>
+                <a href="#">Hubungi Kami</a>
+                <a href="#">Blog & Artikel</a>
+            </nav>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <section
+        class="hero hero-image"
+        style="background:url('<?= $heroImage ?>') center/cover no-repeat;"
+    >
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-breadcrumb">
+                <a href="/index.php">Home</a> >
+                <a href="/produk.php">Product</a> >
+                <span><?= htmlspecialchars($product['kategori_nama']); ?></span> >
+                <span class="current"><?= htmlspecialchars($product['nama_produk']); ?></span>
+            </div>
+
+            <h1><?= htmlspecialchars($product['nama_produk']); ?></h1>
+
         </div>
 
-        <nav class="navbar" id="navbar">
+    </section>
 
-            <a href="/index.php">Beranda</a>
-            <a href="/about.php">Tentang Kami</a>
-            <a href="/produk.php">Produk</a>
-            <a href="#">Layanan Purna Jual</a>
-            <a href="#">Hubungi Kami</a>
-            <a href="#">Blog & Artikel</a>
 
-        </nav>
+    <!-- ================= MENU ================= -->
+    <section class="pd-menu">
+        <div class="pd-menu-container">
 
-        <!-- Hamburger -->
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <a href="#pd-features">Features</a>
+            <a href="#pd-specifications">Specifications</a>
+            <a href="#pd-gallery">Gallery</a>
+            <a href="#pd-recommended">Recommended</a>
+
         </div>
-
-    </div>
-</header>
-
-<!-- HERO -->
-<section class="hero hero-image"
-style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
-<div class="hero-overlay"></div>
-<div class="hero-content">
-<div class="hero-breadcrumb">
-<a href="/index.php">Home</a> >
-<a href="/produk.php">Product</a> >
-<span><?= htmlspecialchars($product['kategori_nama']); ?></span> >
-<span class="current"><?= htmlspecialchars($product['nama_produk']); ?></span>
-</div>
-<h1><?= htmlspecialchars($product['nama_produk']); ?></h1>
-</div>
-</section>
+    </section>
 
 
-<!-- MENU -->
-<section class="pd-menu">
-<div class="pd-menu-container">
-<a href="#pd-features">Features</a>
-<a href="#pd-specifications">Specifications</a>
-<a href="#pd-gallery">Gallery</a>
-<a href="#pd-recommended">Recommended</a>
-</div>
-</section>
+    <!-- ================= FEATURES ================= -->
+    <section id="pd-features" class="pd-section">
+
+        <h2>FEATURES</h2>
+
+        <?php if ($features): ?>
+
+            <div class="pd-feature-main">
+
+                <div class="pd-feature-image">
+                    <img src="/images/uploads/produk/<?= htmlspecialchars($features[0]['image']); ?>" alt="">
+                </div>
+
+                <div class="pd-feature-list">
+
+                    <ul>
+                        <?php foreach ($features as $f): ?>
+                            <li>
+                                <strong><?= htmlspecialchars($f['title']); ?></strong><br>
+                                <?= htmlspecialchars($f['description']); ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        <?php else: ?>
+
+            <p class="pd-empty">Belum ada fitur.</p>
+
+        <?php endif; ?>
+
+    </section>
 
 
-<!-- FEATURES -->
-<section id="pd-features" class="pd-section">
-<h2>FEATURES</h2>
+    <!-- ================= SPECIFICATIONS ================= -->
+    <section id="pd-specifications" class="pd-section pd-gray">
 
-<?php if($features): ?>
-<div class="pd-feature-main">
+        <h2>SPECIFICATIONS</h2>
 
-    <div class="pd-feature-image">
-        <img src="/images/uploads/produk/<?= htmlspecialchars($features[0]['image']); ?>">
-    </div>
+        <?php foreach ($groupedSpecs as $group => $items): ?>
 
-    <div class="pd-feature-list">
-        <ul>
-        <?php foreach($features as $f): ?>
-            <li>
-                <strong><?= htmlspecialchars($f['title']); ?></strong><br>
-                <?= htmlspecialchars($f['description']); ?>
-            </li>
+            <div class="pd-spec-group">
+
+                <h3><?= htmlspecialchars($group); ?></h3>
+
+                <table class="pd-spec-table">
+
+                    <?php foreach ($items as $row): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($row['label']); ?></td>
+                            <td><?= htmlspecialchars($row['nilai']); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+
+                </table>
+
+            </div>
+
         <?php endforeach; ?>
-        </ul>
-    </div>
 
-</div>
-<?php else: ?>
-<p class="pd-empty">Belum ada fitur.</p>
-<?php endif; ?>
-</section>
+    </section>
 
 
-<!-- SPEC -->
-<section id="pd-specifications" class="pd-section pd-gray">
-<h2>SPECIFICATIONS</h2>
+    <!-- ================= GALLERY ================= -->
+    <section id="pd-gallery" class="pd-section">
 
-<?php foreach($groupedSpecs as $group => $items): ?>
-<div class="pd-spec-group">
-<h3><?= htmlspecialchars($group); ?></h3>
+        <h2>GALLERY</h2>
 
-<table class="pd-spec-table">
-<?php foreach($items as $row): ?>
-<tr>
-<td><?= htmlspecialchars($row['label']); ?></td>
-<td><?= htmlspecialchars($row['nilai']); ?></td>
-</tr>
-<?php endforeach; ?>
-</table>
+        <div class="pd-gallery-wrapper">
 
-</div>
-<?php endforeach; ?>
+            <?php foreach ($galleries as $g): ?>
+                <img
+                    src="/images/uploads/produk/<?= htmlspecialchars($g['image']); ?>"
+                    alt=""
+                >
+            <?php endforeach; ?>
 
-</section>
+        </div>
+
+    </section>
 
 
-<!-- GALLERY -->
-<section id="pd-gallery" class="pd-section">
-<h2>GALLERY</h2>
+    <!-- ================= RECOMMENDED ================= -->
+    <section id="pd-recommended" class="pd-section pd-gray">
 
-<div class="pd-gallery-wrapper">
-<?php foreach($galleries as $g): ?>
-<img src="/images/uploads/produk/<?= htmlspecialchars($g['image']); ?>">
-<?php endforeach; ?>
-</div>
+        <h2>RECOMMENDED EQUIPMENT</h2>
 
-</section>
+        <div class="pd-recommend-grid">
+
+            <?php foreach ($recommended as $r): ?>
+
+                <a
+                    href="/detailprodukwheelloader.php?slug=<?= $r['slug']; ?>"
+                    class="pd-recommend-item"
+                >
+
+                    <img
+                        src="/images/uploads/produk/<?= htmlspecialchars($r['gambar']); ?>"
+                        alt=""
+                    >
+
+                    <h4><?= htmlspecialchars($r['nama_produk']); ?></h4>
+
+                </a>
+
+            <?php endforeach; ?>
+
+        </div>
+
+    </section>
 
 
-<!-- RECOMMENDED -->
-<section id="pd-recommended" class="pd-section pd-gray">
-<h2>RECOMMENDED EQUIPMENT</h2>
+    <!-- ================= FOOTER ================= -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
-<div class="pd-recommend-grid">
-<?php foreach($recommended as $r): ?>
-<a href="/detailprodukwheelloader.php?slug=<?= $r['slug']; ?>" class="pd-recommend-item">
-
-<img src="/images/uploads/produk/<?= $r['gambar']; ?>">
-<h4><?= htmlspecialchars($r['nama_produk']); ?></h4>
-
-</a>
-<?php endforeach; ?>
-</div>
-
-</section>
-
-<?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
 
 </body>
 </html>
