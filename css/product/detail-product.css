@@ -67,43 +67,22 @@
   width: 100%;
 }
 
-/* ===================================================
-   FEATURES
-   =================================================== */
+/* ================= FEATURES FIX ================= */
 
 .pd-feature-main {
-  max-width: 1200px;
+  max-width: 1300px; /* lebih lebar */
   margin: auto;
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 55% 45%; /* fix ratio */
   gap: 60px;
   align-items: center;
 }
 
 .pd-feature-image img {
   width: 100%;
-  border-radius: 10px;
+  max-height: 520px;
   object-fit: cover;
-}
-
-.pd-feature-list ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.pd-feature-list li {
-  margin-bottom: 28px;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #374151;
-}
-
-.pd-feature-list strong {
-  display: block;
-  font-size: 18px;
-  color: #111827;
-  margin-bottom: 6px;
+  border-radius: 12px;
 }
 
 /* ===================================================
@@ -146,27 +125,27 @@
   background: #f9fafb;
 }
 
-/* ===================================================
-   GALLERY
-   =================================================== */
+/* ================= GALLERY FIX ================= */
 
 .pd-gallery-wrapper {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
+
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(3, 1fr); /* FIX 3 kolom */
+  gap: 30px;
 }
 
-.pd-gallery-wrapper img {
-  width: 100%;
-  border-radius: 10px;
-  transition: 0.4s ease;
-  cursor: pointer;
+@media (max-width: 1024px) {
+  .pd-gallery-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.pd-gallery-wrapper img:hover {
-  transform: scale(1.05);
+@media (max-width: 600px) {
+  .pd-gallery-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ===================================================
