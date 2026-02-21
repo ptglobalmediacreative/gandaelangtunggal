@@ -18,18 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       header.classList.remove("scrolled");
     }
-
-    // Hide when scroll down
-    if (currentScroll > lastScroll && currentScroll > 150) {
-      header.classList.add("hide");
-    }
-
-    // Show when scroll up
-    if (currentScroll < lastScroll) {
-      header.classList.remove("hide");
-    }
-
-    lastScroll = currentScroll;
   });
 
   /* ================= WHY US PARALLAX ================= */
