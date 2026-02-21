@@ -77,9 +77,17 @@ $rec=$q->fetchAll();
 <link rel="stylesheet" href="/css/product/hero.css">
 <link rel="stylesheet" href="/css/footer.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <script src="/js/product-detail.js" defer></script>
+<script src="/js/headbar.js" defer></script>
 
 </head>
 
