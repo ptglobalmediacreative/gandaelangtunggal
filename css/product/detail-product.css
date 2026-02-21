@@ -318,19 +318,19 @@
 
   .pd-menu {
     position: sticky;
-    top: 60px; /* SESUAIKAN TINGGI HEADER */
-    z-index: 9999;
+    top: 70px; /* sesuaikan tinggi header mobile */
+    z-index: 9998;
     background: #fff;
     border-bottom: 1px solid #e5e7eb;
+    transform: none !important; /* supaya tidak ikut hide */
   }
 
   .pd-menu-inner {
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center; /* AGAK KE TENGAH */
     align-items: center;
 
     padding: 6px 0;
-    overflow: hidden;
   }
 
   /* HILANGKAN NAMA + GAMBAR PRODUK */
@@ -345,10 +345,11 @@
     display: flex;
     flex-wrap: nowrap;
 
-    gap: 14px;
-    padding: 0 12px;
+    gap: 16px;
+    padding: 0 20px;
 
-    width: 100%;
+    max-width: 95%;
+    margin: 0 auto; /* CENTER CONTAINER */
 
     overflow-x: auto;
     overflow-y: hidden;
@@ -363,14 +364,14 @@
     display: none;
   }
 
-  /* ITEM MENU (LEBIH KECIL) */
+  /* ITEM MENU */
 
   .pd-menu-nav a {
     flex-shrink: 0;
-    font-size: 12px; /* DIKECILKAN */
+    font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
-    padding: 4px 2px;
+    padding: 4px 4px;
   }
 
   /* ================= HERO ================= */
@@ -451,7 +452,7 @@
 
 @media (max-width: 480px) {
   .pd-menu-nav a {
-    font-size: 11px; /* LEBIH KECIL LAGI */
+    font-size: 11px;
   }
 
   .pd-hero h1 {
