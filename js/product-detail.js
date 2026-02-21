@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* ==================================================
-     GALLERY SLIDER
-  ================================================== */
+  /* =====================================
+     GALLERY SLIDER (AUTO + BUTTON)
+  ===================================== */
 
   const track = document.querySelector(".pd-track");
   const slides = document.querySelectorAll(".pd-slide");
@@ -9,30 +9,112 @@ document.addEventListener("DOMContentLoaded", () => {
   const prev = document.querySelector(".pd-btn.prev");
   const next = document.querySelector(".pd-btn.next");
 
-  let index = 0;
+  let galleryIndex = 0;
+  let galleryTimer;
 
-  function moveSlide() {
+  function moveGallery() {
     if (!track) return;
-    track.style.transform = `translateX(-${index * 100}%)`;
+    track.style.transform = `translateX(-${galleryIndex * 100}%)`;
   }
 
-  if (next && prev && slides.length) {
-    next.addEventListener("click", () => {
-      index++;
-      if (index >= slides.length) index = 0;
-      moveSlide();
-    });
+  function nextGallery() {
+    galleryIndex++;
+    if (galleryIndex >= slides.length) galleryIndex = 0;
+    moveGallery();
+  }
 
-    prev.addEventListener("click", () => {
-      index--;
-      if (index < 0) index = slides.length - 1;
-      moveSlide();
+  function prevGallery() {
+    galleryIndex--;
+    if (galleryIndex < 0) galleryIndex = slides.length - 1;
+    moveGallery();
+  }
+
+  function startGalleryAuto() {
+    galleryTimer = setInterval(nextGallery, 4000);
+  }
+
+  function stopGalleryAuto() {
+    clearInterval(galleryTimer);
+  }
+
+  if (track && slides.length > 1) {
+    startGalleryAuto();
+
+    if (next && prev) {
+      next.addEventListener("click", () => {
+        stopGalleryAuto();
+        nextGallery();
+        startGalleryAuto();
+      });
+
+      prev.addEventListener("click", () => {
+        stopGalleryAuto();
+        prevGallery();
+        startGalleryAuto();
+      });
+    }
+  }
+
+  /* =====================================
+     RECOMMENDED AUTO SLIDER (CENTER)
+  ===================================== */
+
+  const recWrapper = document.querySelector(".pd-rec");
+  const recCards = document.querySelectorAll(".pd-card");
+
+  let recIndex = 0;
+  let recTimer;
+
+  function scrollToCard(index) {
+    if (!recWrapper || !recCards[index]) return;
+
+    const card = recCards[index];
+
+    const wrapperWidth = recWrapper.offsetWidth;
+    const cardWidth = card.offsetWidth;
+
+    const scrollPos = card.offsetLeft - wrapperWidth / 2 + cardWidth / 2;
+
+    recWrapper.scrollTo({
+      left: scrollPos,
+      behavior: "smooth",
     });
   }
 
-  /* ==================================================
+  function nextRec() {
+    recIndex++;
+    if (recIndex >= recCards.length) recIndex = 0;
+    scrollToCard(recIndex);
+  }
+
+  function startRecAuto() {
+    recTimer = setInterval(nextRec, 4500);
+  }
+
+  function stopRecAuto() {
+    clearInterval(recTimer);
+  }
+
+  if (recWrapper && recCards.length > 1) {
+    startRecAuto();
+
+    // Stop when user swipe
+    recWrapper.addEventListener("touchstart", stopRecAuto);
+    recWrapper.addEventListener("mousedown", stopRecAuto);
+
+    // Resume after scroll
+    recWrapper.addEventListener("scroll", () => {
+      clearTimeout(recWrapper._scrollTimer);
+
+      recWrapper._scrollTimer = setTimeout(() => {
+        startRecAuto();
+      }, 2000);
+    });
+  }
+
+  /* =====================================
      MENU ACTIVE + STICKY SHADOW
-  ================================================== */
+  ===================================== */
 
   const links = document.querySelectorAll(".pd-menu-nav a");
   const sections = document.querySelectorAll(".pd-section");
@@ -47,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    /* Active menu */
+    // Active link
     links.forEach((link) => {
       link.classList.remove("active");
 
@@ -56,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    /* Sticky shadow */
+    // Sticky shadow
     if (pdMenu) {
       if (window.scrollY > 400) {
         pdMenu.classList.add("stuck");
@@ -68,9 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", handleScrollMenu);
 
-  /* ==================================================
+  /* =====================================
      SCROLL REVEAL ANIMATION
-  ================================================== */
+  ===================================== */
 
   const revealItems = document.querySelectorAll(
     ".pd-section, .pd-feature-row, .pd-spec-box, .pd-slide, .pd-card",
@@ -82,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            revealObserver.unobserve(entry.target); // Stop observe after show
+            revealObserver.unobserve(entry.target);
           }
         });
       },
