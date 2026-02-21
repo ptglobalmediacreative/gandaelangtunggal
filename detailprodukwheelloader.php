@@ -105,6 +105,9 @@ $rec=$q->fetchAll();
 
       <a href="/produk.php">Product</a>
       <span>></span>
+      
+      <a href="/produk.php">Product</a>
+      <span>></span>
 
       <span class="current">
         <?= htmlspecialchars($product['nama_produk']); ?>
