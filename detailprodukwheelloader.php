@@ -107,7 +107,7 @@ $rec=$q->fetchAll();
       <a href="/produk.php">Product</a>
       <span>></span>
 
-      <a href="/produk.php">Product</a>
+      <a href="/wheelloader.php">Wheel Loaders</a>
       <span>></span>
 
       <span class="current">
@@ -117,11 +117,6 @@ $rec=$q->fetchAll();
 
     <!-- Title -->
     <h1><?= htmlspecialchars($product['nama_produk']); ?></h1>
-
-    <!-- Subtext (opsional) -->
-    <p class="hero-subtext">
-      High-performance equipment designed for superior durability and maximum productivity.
-    </p>
 
   </div>
 
