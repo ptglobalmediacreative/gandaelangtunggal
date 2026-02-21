@@ -143,7 +143,7 @@ $rec=$q->fetchAll();
 <a href="#pd-features">Features</a>
 <a href="#pd-specifications">Specifications</a>
 <a href="#pd-gallery">Gallery</a>
-<a href="#pd-recommended">Recommended</a>
+<a href="#pd-recommended">Recommended Equipment</a>
 </div>
 
 </div>
