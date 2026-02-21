@@ -248,8 +248,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <div class="pd-gallery">
 
-<button class="pd-btn prev">&#10094;</button>
-
 <div class="pd-window">
 
 <div class="pd-track">
@@ -265,8 +263,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 </div>
-
-<button class="pd-btn next">&#10095;</button>
 
 </div>
 
