@@ -88,14 +88,38 @@ $rec=$q->fetchAll();
 
 <?php include $_SERVER['DOCUMENT_ROOT']."/header.php"; ?>
 
-<!-- HERO -->
-<section class="pd-hero" style="background:url('<?=$heroImage?>') center/cover no-repeat">
+<!-- ================= HERO ================= -->
+<section
+  class="hero hero-image"
+  style="background: url('<?= $heroImage ?>') center / cover no-repeat;"
+>
 
-<div class="pd-hero-overlay"></div>
+  <div class="hero-overlay"></div>
 
-<div class="pd-hero-content">
-<h1><?=htmlspecialchars($product['nama_produk'])?></h1>
-</div>
+  <div class="hero-content">
+
+    <!-- Breadcrumb -->
+    <div class="hero-breadcrumb">
+      <a href="/index.php">Home</a>
+      <span>></span>
+
+      <a href="/produk.php">Product</a>
+      <span>></span>
+
+      <span class="current">
+        <?= htmlspecialchars($product['nama_produk']); ?>
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h1><?= htmlspecialchars($product['nama_produk']); ?></h1>
+
+    <!-- Subtext (opsional) -->
+    <p class="hero-subtext">
+      High-performance equipment designed for superior durability and maximum productivity.
+    </p>
+
+  </div>
 
 </section>
 
