@@ -317,13 +317,19 @@
   /* ================= MENU MOBILE ================= */
 
   .pd-menu {
-    top: 65px;
+    position: sticky;
+    top: 60px; /* SESUAIKAN TINGGI HEADER */
+    z-index: 9999;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .pd-menu-inner {
     flex-direction: row;
-    justify-content: flex-start; /* MULAI DARI KIRI */
-    padding: 8px 0;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 6px 0;
     overflow: hidden;
   }
 
@@ -333,14 +339,14 @@
     display: none;
   }
 
-  /* NAV MENU -> HORIZONTAL SCROLL */
+  /* NAV MENU SCROLL */
 
   .pd-menu-nav {
     display: flex;
     flex-wrap: nowrap;
-    gap: 18px;
 
-    padding: 0 15px;
+    gap: 14px;
+    padding: 0 12px;
 
     width: 100%;
 
@@ -350,36 +356,35 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
   }
-
-  /* HILANGKAN SCROLLBAR */
 
   .pd-menu-nav::-webkit-scrollbar {
-    display: none; /* Chrome */
+    display: none;
   }
 
-  /* ITEM MENU */
+  /* ITEM MENU (LEBIH KECIL) */
 
   .pd-menu-nav a {
-    flex-shrink: 0; /* JANGAN CIUT */
-    font-size: 13px;
+    flex-shrink: 0;
+    font-size: 12px; /* DIKECILKAN */
+    font-weight: 600;
     white-space: nowrap;
-    padding: 6px 2px;
+    padding: 4px 2px;
   }
 
   /* ================= HERO ================= */
 
   .pd-hero {
-    height: 300px;
+    height: 280px;
   }
 
   .pd-hero-content {
-    padding-top: 110px;
+    padding-top: 100px;
   }
 
   .pd-hero h1 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   /* ================= FEATURE ================= */
@@ -387,17 +392,17 @@
   .pd-feature-row {
     grid-template-columns: 1fr;
     gap: 25px;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
   }
 
   /* ================= SECTION ================= */
 
   .pd-section {
-    padding: 50px 15px;
+    padding: 45px 15px;
   }
 
   .pd-section h2 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   /* ================= SPEC ================= */
@@ -407,8 +412,8 @@
   }
 
   .pd-spec-box td {
-    font-size: 14px;
-    padding: 10px 12px;
+    font-size: 13px;
+    padding: 8px 10px;
   }
 
   /* ================= GALLERY ================= */
@@ -416,29 +421,29 @@
   .pd-gallery {
     max-width: 100%;
     padding: 0 10px;
-    gap: 10px;
+    gap: 8px;
   }
 
   .pd-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 18px;
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
   }
 
   /* ================= RECOMMENDED ================= */
 
   .pd-rec {
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    gap: 16px;
   }
 
   .pd-card img {
-    height: 150px;
+    height: 140px;
   }
 
   .pd-card h4 {
-    font-size: 14px;
-    padding: 12px;
+    font-size: 13px;
+    padding: 10px;
   }
 }
 
@@ -446,11 +451,11 @@
 
 @media (max-width: 480px) {
   .pd-menu-nav a {
-    font-size: 12px;
+    font-size: 11px; /* LEBIH KECIL LAGI */
   }
 
   .pd-hero h1 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .pd-rec {
