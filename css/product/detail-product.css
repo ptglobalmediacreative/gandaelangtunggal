@@ -314,41 +314,43 @@
 /* ================= MOBILE RESPONSIVE ================= */
 
 @media (max-width: 900px) {
-  /* MENU */
+  /* ================= MENU MOBILE ================= */
 
   .pd-menu {
-    top: 70px; /* lebih rapat di mobile */
+    top: 65px;
   }
 
   .pd-menu-inner {
-    flex-direction: column;
+    flex-direction: row; /* BALIK JADI HORIZONTAL */
     justify-content: center;
-    gap: 12px;
-    padding: 12px 15px;
+    gap: 15px;
+    padding: 10px 12px;
   }
 
-  /* HILANGKAN GAMBAR PRODUK */
-
-  .pd-menu-product img {
-    display: none;
-  }
+  /* HILANGKAN NAMA + GAMBAR PRODUK */
 
   .pd-menu-product {
-    font-size: 20px;
-    justify-content: center;
+    display: none;
   }
 
   /* NAV MENU */
 
   .pd-menu-nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* JANGAN TURUN BARIS */
     justify-content: center;
-    gap: 18px;
+    gap: 14px;
+    overflow-x: auto; /* Kalau kepanjangan bisa geser */
+    scrollbar-width: none;
+  }
+
+  .pd-menu-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .pd-menu-nav a {
-    font-size: 15px;
-    padding-bottom: 4px;
+    font-size: 13px; /* KECILIN */
+    white-space: nowrap; /* Jangan patah */
+    padding-bottom: 3px;
   }
 
   /* HERO */
