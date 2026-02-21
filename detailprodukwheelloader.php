@@ -87,7 +87,34 @@ $rec=$q->fetchAll();
 
 <div class="pd-page">
 
-<?php include $_SERVER['DOCUMENT_ROOT']."/header.php"; ?>
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <a href="/index.php">Beranda</a>
+      <a href="/about.php">Tentang Kami</a>
+      <a href="/produk.php" class="active">Produk</a>
+      <a href="/layanan.php">Layanan Purna Jual</a>
+      <a href="/kontak.php">Hubungi Kami</a>
+      <a href="/blog.php">Blog & Artikel</a>
+    </nav>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+</header>
 
 <!-- ================= HERO ================= -->
 <section
