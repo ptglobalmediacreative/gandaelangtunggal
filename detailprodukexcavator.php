@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/admin/config.php';
 
+/* ================= VALIDASI SLUG ================= */
+
 if (!isset($_GET['slug'])) {
     header("Location: /produk.php");
     exit;
@@ -8,59 +10,105 @@ if (!isset($_GET['slug'])) {
 
 $slug = $_GET['slug'];
 
-/* PRODUCT */
+
+/* ================= PRODUCT (KHUSUS CATEGORY 2 = EXCAVATOR) ================= */
+
 $stmt = $pdo->prepare("
-SELECT p.*, c.name AS kategori
-FROM produk p
-LEFT JOIN categories c ON p.category_id=c.id
-WHERE p.slug=?
-LIMIT 1
+    SELECT p.*, c.name AS kategori
+    FROM produk p
+    LEFT JOIN categories c ON p.category_id = c.id
+    WHERE p.slug = ?
+      AND p.category_id = 2
+      AND p.status = 'aktif'
+    LIMIT 1
 ");
+
 $stmt->execute([$slug]);
 $product = $stmt->fetch();
 
-if(!$product){
-    header("Location:/produk.php");
+if (!$product) {
+    header("Location: /produk.php");
     exit;
 }
 
-/* HERO */
+
+/* ================= HERO (DARI EXCAVATOR) ================= */
+
 $q = $pdo->prepare("
-SELECT image FROM produk_gallery
-WHERE produk_id=?
-ORDER BY sort_order ASC LIMIT 1
+    SELECT image
+    FROM produk_gallery
+    WHERE produk_id = ?
+    ORDER BY sort_order ASC
+    LIMIT 1
 ");
+
 $q->execute([$product['id']]);
 $hero = $q->fetch();
 
-$heroImage = $hero ?
-"/images/uploads/produk/".$hero['image']
-:"/images/hero.jpg";
+$heroImage = $hero
+    ? "/images/uploads/produk/" . $hero['image']
+    : "/images/hero.jpg";
 
-/* FEATURES */
-$q=$pdo->prepare("SELECT * FROM produk_features WHERE produk_id=? ORDER BY sort_order");
+
+/* ================= FEATURES ================= */
+
+$q = $pdo->prepare("
+    SELECT *
+    FROM produk_features
+    WHERE produk_id = ?
+    ORDER BY sort_order
+");
+
 $q->execute([$product['id']]);
-$features=$q->fetchAll();
+$features = $q->fetchAll();
 
-/* SPEC */
-$q=$pdo->prepare("SELECT * FROM produk_spesifikasi WHERE produk_id=? ORDER BY grup,sort_order");
+
+/* ================= SPECIFICATIONS ================= */
+
+$q = $pdo->prepare("
+    SELECT *
+    FROM produk_spesifikasi
+    WHERE produk_id = ?
+    ORDER BY grup, sort_order
+");
+
 $q->execute([$product['id']]);
-$specs=$q->fetchAll();
+$specs = $q->fetchAll();
 
-$group=[];
-foreach($specs as $s){
-  $group[$s['grup']][]=$s;
+$group = [];
+
+foreach ($specs as $s) {
+    $group[$s['grup']][] = $s;
 }
 
-/* GALLERY */
-$q=$pdo->prepare("SELECT * FROM produk_gallery WHERE produk_id=? ORDER BY sort_order");
-$q->execute([$product['id']]);
-$gallery=$q->fetchAll();
 
-/* RECOMMENDED */
-$q=$pdo->prepare("SELECT * FROM produk WHERE status='aktif' AND id!=? LIMIT 4");
+/* ================= GALLERY ================= */
+
+$q = $pdo->prepare("
+    SELECT *
+    FROM produk_gallery
+    WHERE produk_id = ?
+    ORDER BY sort_order
+");
+
 $q->execute([$product['id']]);
-$rec=$q->fetchAll();
+$gallery = $q->fetchAll();
+
+
+/* ================= RECOMMENDED (SESAMA EXCAVATOR) ================= */
+
+$q = $pdo->prepare("
+    SELECT *
+    FROM produk
+    WHERE status = 'aktif'
+      AND category_id = 2
+      AND id != ?
+    ORDER BY RAND()
+    LIMIT 4
+");
+
+$q->execute([$product['id']]);
+$rec = $q->fetchAll();
 ?>
 
 <!DOCTYPE html>
