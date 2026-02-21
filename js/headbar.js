@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
   const hamburger = document.getElementById("hamburger");
   const navbar = document.getElementById("navbar");
+  const heroVideo = document.querySelector(".hero-video");
 
   let lastScroll = 0;
 
@@ -18,7 +19,44 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       header.classList.remove("scrolled");
     }
+
+    lastScroll = currentScroll;
   });
+
+  /* ================= HERO VIDEO AUTO PLAY (MOBILE SAFE) ================= */
+
+  if (heroVideo) {
+    function forcePlayVideo() {
+      const playPromise = heroVideo.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          setTimeout(forcePlayVideo, 500);
+        });
+      }
+    }
+
+    // Paksa play saat load
+    forcePlayVideo();
+
+    // Kalau kepause → play lagi
+    heroVideo.addEventListener("pause", () => {
+      forcePlayVideo();
+    });
+
+    // Kalau selesai → ulang
+    heroVideo.addEventListener("ended", () => {
+      heroVideo.currentTime = 0;
+      forcePlayVideo();
+    });
+
+    // Kalau balik dari tab lain
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        forcePlayVideo();
+      }
+    });
+  }
 
   /* ================= WHY US PARALLAX ================= */
 
