@@ -27,8 +27,8 @@
         <p>Solusi Alat Berat Profesional di Indonesia</p>
 
         <div class="hero-buttons">
-            <a href="#" class="btn-primary">Lihat Produk</a>
-            <a href="#" class="btn-secondary">Hubungi Kami</a>
+            <a href="/produk.php" class="btn-primary">Lihat Produk</a>
+            <a href="/contact.php" class="btn-secondary">Hubungi Kami</a>
         </div>
 
     </div>
