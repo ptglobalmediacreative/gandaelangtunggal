@@ -1,14 +1,12 @@
 <?php
 require_once __DIR__ . '/admin/config.php';
 
-/* ================= VALIDASI SLUG ================= */
 if (!isset($_GET['slug'])) {
     header("Location: /produk.php");
     exit;
 }
 
 $slug = $_GET['slug'];
-
 
 /* ================= PRODUCT ================= */
 $stmt = $pdo->prepare("
@@ -26,7 +24,6 @@ if (!$product) {
     exit;
 }
 
-
 /* ================= HERO ================= */
 $stmtHero = $pdo->prepare("
     SELECT image FROM produk_gallery
@@ -41,7 +38,6 @@ $heroImage = $hero
     ? "/images/uploads/produk/" . $hero['image']
     : "/images/hero.jpg";
 
-
 /* ================= FEATURES ================= */
 $stmtFeature = $pdo->prepare("
     SELECT * FROM produk_features
@@ -50,7 +46,6 @@ $stmtFeature = $pdo->prepare("
 ");
 $stmtFeature->execute([$product['id']]);
 $features = $stmtFeature->fetchAll(PDO::FETCH_ASSOC);
-
 
 /* ================= SPEC ================= */
 $stmtSpec = $pdo->prepare("
@@ -66,7 +61,6 @@ foreach ($specs as $s) {
     $groupedSpecs[$s['grup']][] = $s;
 }
 
-
 /* ================= GALLERY ================= */
 $stmtGallery = $pdo->prepare("
     SELECT * FROM produk_gallery
@@ -75,7 +69,6 @@ $stmtGallery = $pdo->prepare("
 ");
 $stmtGallery->execute([$product['id']]);
 $galleries = $stmtGallery->fetchAll(PDO::FETCH_ASSOC);
-
 
 /* ================= RECOMMENDED ================= */
 $stmtRec = $pdo->prepare("
@@ -98,7 +91,6 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 <title><?= htmlspecialchars($product['nama_produk']); ?></title>
 
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/product/hero.css">
 <link rel="stylesheet" href="/css/product/detail-product.css">
 <link rel="stylesheet" href="/css/footer.css">
 
@@ -113,80 +105,65 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="pd-page">
 
-<!-- ================= HEADER ================= -->
-<header class="header">
-<div class="container">
-
-<div class="logo">
-<img src="/images/logo.webp" alt="Logo">
-</div>
-
-<nav class="navbar">
-<a href="/">Home</a>
-<a href="/about.php">Tentang Kami</a>
-<a href="/produk.php">Produk</a>
-<a href="#">Layanan</a>
-<a href="#">Kontak</a>
-</nav>
-
-</div>
-</header>
+<!-- HEADER -->
+<?php include $_SERVER['DOCUMENT_ROOT']."/header.php"; ?>
 
 
-<!-- ================= HERO ================= -->
-<section class="hero hero-image"
-style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
+<!-- HERO -->
+<section class="pd-hero" style="background:url('<?= $heroImage ?>') center/cover no-repeat">
 
-<div class="hero-overlay"></div>
+<div class="pd-hero-overlay"></div>
 
-<div class="hero-content">
-
-<div class="hero-breadcrumb">
-<a href="/">Home</a> >
-<a href="/produk.php">Produk</a> >
-<span><?= htmlspecialchars($product['nama_produk']); ?></span>
-</div>
+<div class="pd-hero-content">
 
 <h1><?= htmlspecialchars($product['nama_produk']); ?></h1>
 
+<p>
+<a href="/">Home</a> /
+<a href="/produk.php">Produk</a> /
+<?= htmlspecialchars($product['nama_produk']); ?>
+</p>
+
 </div>
 
 </section>
 
 
-<!-- ================= MENU ================= -->
-<section class="pd-menu">
+<!-- MENU -->
+<nav class="pd-menu">
 
-<div class="pd-menu-container">
+<div class="pd-menu-inner">
+
 <a href="#pd-features">Features</a>
 <a href="#pd-specifications">Specifications</a>
 <a href="#pd-gallery">Gallery</a>
-<a href="#pd-recommended">Recommended</a>
+<a href="#pd-recommended">Recommended Equipment</a>
+
 </div>
 
-</section>
+</nav>
 
 
-<!-- ================= FEATURES ================= -->
+<!-- FEATURES -->
 <section id="pd-features" class="pd-section">
 
 <h2>FEATURES</h2>
 
-<?php if ($features): ?>
+<?php if($features): ?>
 
-<div class="pd-feature-main">
+<div class="pd-feature-box">
 
-<div class="pd-feature-image">
+<div class="pd-feature-img">
 <img src="/images/uploads/produk/<?= htmlspecialchars($features[0]['image']); ?>">
 </div>
 
-<div class="pd-feature-list">
+<div class="pd-feature-text">
 
 <ul>
-<?php foreach ($features as $f): ?>
+<?php foreach($features as $f): ?>
 <li>
 <strong><?= htmlspecialchars($f['title']); ?></strong>
-<p><?= htmlspecialchars($f['description']); ?></p>
+<?= htmlspecialchars($f['description']); ?>
 </li>
 <?php endforeach; ?>
 </ul>
@@ -195,29 +172,25 @@ style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
 
 </div>
 
-<?php else: ?>
-
-<p class="pd-empty">Belum ada fitur.</p>
-
 <?php endif; ?>
 
 </section>
 
 
-<!-- ================= SPEC ================= -->
+<!-- SPEC -->
 <section id="pd-specifications" class="pd-section pd-gray">
 
 <h2>SPECIFICATIONS</h2>
 
-<?php foreach ($groupedSpecs as $group => $items): ?>
+<?php foreach($groupedSpecs as $group => $items): ?>
 
-<div class="pd-spec-group">
+<div class="pd-spec-block">
 
 <h3><?= htmlspecialchars($group); ?></h3>
 
-<table class="pd-spec-table">
+<table>
 
-<?php foreach ($items as $row): ?>
+<?php foreach($items as $row): ?>
 <tr>
 <td><?= htmlspecialchars($row['label']); ?></td>
 <td><?= htmlspecialchars($row['nilai']); ?></td>
@@ -233,43 +206,42 @@ style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
 </section>
 
 
-<!-- ================= GALLERY ================= -->
+<!-- GALLERY -->
 <section id="pd-gallery" class="pd-section">
 
 <h2>GALLERY</h2>
 
-<div class="pd-gallery-slider">
+<div class="pd-slider">
 
-<button class="pd-gal-btn prev">&#10094;</button>
+<button class="pd-btn prev">&#10094;</button>
 
-<div class="pd-gallery-track">
+<div class="pd-track">
 
-<?php foreach ($galleries as $g): ?>
-<div class="pd-gal-item">
+<?php foreach($galleries as $g): ?>
+<div class="pd-slide">
 <img src="/images/uploads/produk/<?= htmlspecialchars($g['image']); ?>">
 </div>
 <?php endforeach; ?>
 
 </div>
 
-<button class="pd-gal-btn next">&#10095;</button>
+<button class="pd-btn next">&#10095;</button>
 
 </div>
 
 </section>
 
 
-<!-- ================= RECOMMENDED ================= -->
+<!-- RECOMMENDED -->
 <section id="pd-recommended" class="pd-section pd-gray">
 
 <h2>RECOMMENDED EQUIPMENT</h2>
 
-<div class="pd-recommend-grid">
+<div class="pd-recommend">
 
-<?php foreach ($recommended as $r): ?>
+<?php foreach($recommended as $r): ?>
 
-<a href="/detailprodukwheelloader.php?slug=<?= $r['slug']; ?>"
-class="pd-recommend-item">
+<a href="/detailprodukwheelloader.php?slug=<?= $r['slug']; ?>" class="pd-card">
 
 <img src="/images/uploads/produk/<?= htmlspecialchars($r['gambar']); ?>">
 
@@ -284,8 +256,8 @@ class="pd-recommend-item">
 </section>
 
 
-<!-- ================= FOOTER ================= -->
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
+<!-- FOOTER -->
+<?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
 
 </div>
 

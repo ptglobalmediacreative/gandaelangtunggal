@@ -1,32 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-  /* ================= GALLERY SLIDER ================= */
+document.addEventListener("DOMContentLoaded", () => {
+  /* SLIDER */
 
-  const track = document.querySelector(".pd-gallery-track");
-  const items = document.querySelectorAll(".pd-gal-item");
-  const prev = document.querySelector(".pd-gal-btn.prev");
-  const next = document.querySelector(".pd-gal-btn.next");
+  const track = document.querySelector(".pd-track");
+  const slides = document.querySelectorAll(".pd-slide");
+  const prev = document.querySelector(".pd-btn.prev");
+  const next = document.querySelector(".pd-btn.next");
 
-  if (track && items.length > 0) {
-    let index = 0;
+  let index = 0;
 
-    function update() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    next.addEventListener("click", () => {
-      index++;
-      if (index >= items.length) index = 0;
-      update();
-    });
-
-    prev.addEventListener("click", () => {
-      index--;
-      if (index < 0) index = items.length - 1;
-      update();
-    });
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  /* ================= ACTIVE MENU ================= */
+  if (next) {
+    next.onclick = () => {
+      index = (index + 1) % slides.length;
+      update();
+    };
+
+    prev.onclick = () => {
+      index = (index - 1 + slides.length) % slides.length;
+      update();
+    };
+  }
+
+  /* ACTIVE MENU */
 
   const links = document.querySelectorAll(".pd-menu a");
   const sections = document.querySelectorAll(".pd-section");
@@ -34,11 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", () => {
     let current = "";
 
-    sections.forEach((section) => {
-      const top = section.offsetTop - 150;
-
-      if (pageYOffset >= top) {
-        current = section.getAttribute("id");
+    sections.forEach((sec) => {
+      if (pageYOffset >= sec.offsetTop - 150) {
+        current = sec.id;
       }
     });
 
