@@ -62,11 +62,8 @@
   class="hero hero-image"
   style="background: url('/images/hero.jpg') center / cover no-repeat;"
 >
-
-  <!-- Overlay -->
   <div class="hero-overlay"></div>
 
-  <!-- Content -->
   <div class="hero-content">
 
     <!-- Breadcrumb -->
@@ -79,8 +76,8 @@
     <h1>Product</h1>
 
   </div>
-
 </section>
+
 
 <!-- ================= PRODUCT CATEGORY ================= -->
 <section class="product-category">
@@ -88,108 +85,130 @@
   <div class="category-container">
 
     <h2 class="category-title">Kategori Produk</h2>
+
     <p class="category-subtitle">
       Berbagai jenis alat berat untuk mendukung kebutuhan proyek Anda
     </p>
 
+
+    <!-- GRID -->
     <div class="category-grid">
 
-    <!-- Item -->
-    <a href="/wheelloader.php" class="category-card">
-      <img src="/images/products/wheel-loader.jpg" alt="Wheel Loader">
-      <h4>Wheel Loader</h4>
-    </a>
+      <!-- Wheel Loader -->
+      <a href="/wheelloader.php" class="category-card">
+        <img src="/images/products/wheel-loader.jpg" alt="Wheel Loader">
+        <h4>Wheel Loader</h4>
+      </a>
 
-      <div class="category-card">
+      <!-- Excavator -->
+      <a href="/excavator.php" class="category-card">
         <img src="/images/products/excavator.jpg" alt="Excavator">
         <h4>Excavator</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Bulldozer -->
+      <a href="/bulldozer.php" class="category-card">
         <img src="/images/products/bulldozer.jpg" alt="Bulldozer">
         <h4>Bulldozer</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Motor Grader -->
+      <a href="/motorgrader.php" class="category-card">
         <img src="/images/products/motor-grader.jpg" alt="Motor Grader">
         <h4>Motor Grader</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Mining Truck -->
+      <a href="/miningtruck.php" class="category-card">
         <img src="/images/products/mining-truck.jpg" alt="Mining Truck">
         <h4>Mining Truck</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Roller -->
+      <a href="/roller.php" class="category-card">
         <img src="/images/products/roller.jpg" alt="Roller">
         <h4>Roller</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Paver -->
+      <a href="/paver.php" class="category-card">
         <img src="/images/products/paver.jpg" alt="Paver">
         <h4>Paver</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Cold Planer -->
+      <a href="/coldplaner.php" class="category-card">
         <img src="/images/products/cold-planer.jpg" alt="Cold Planer">
         <h4>Cold Planer</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Skid Steer -->
+      <a href="/skidsteer.php" class="category-card">
         <img src="/images/products/skid-steer.jpg" alt="Skid Steer Loader">
         <h4>Skid Steer</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Backhoe -->
+      <a href="/backhoe.php" class="category-card">
         <img src="/images/products/backhoe.jpg" alt="Backhoe Loader">
         <h4>Backhoe Loader</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Forklift -->
+      <a href="/forklift.php" class="category-card">
         <img src="/images/products/forklift.png" alt="Forklift">
         <h4>Forklift</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
-        <img src="/images/products/aerial.png" alt="Aerial Work Platform">
+      <!-- Aerial -->
+      <a href="/aerial.php" class="category-card">
+        <img src="/images/products/aerial.png" alt="Aerial Platform">
         <h4>Aerial Platform</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Crane -->
+      <a href="/crane.php" class="category-card">
         <img src="/images/products/crane.jpg" alt="Crane">
         <h4>Crane</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Tractor -->
+      <a href="/tractor.php" class="category-card">
         <img src="/images/products/tractor.png" alt="Tractor">
         <h4>Tractor</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Harvester -->
+      <a href="/harvester.php" class="category-card">
         <img src="/images/products/harvester.png" alt="Harvester">
         <h4>Harvester</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Compressor -->
+      <a href="/compressor.php" class="category-card">
         <img src="/images/products/compressor.png" alt="Air Compressor">
         <h4>Air Compressor</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
-        <img src="/images/products/foundation.jpg" alt="Foundation Equipment">
+      <!-- Foundation -->
+      <a href="/foundation.php" class="category-card">
+        <img src="/images/products/foundation.jpg" alt="Foundation">
         <h4>Foundation</h4>
-      </div>
+      </a>
 
-      <div class="category-card">
+      <!-- Warehouse -->
+      <a href="/warehouse.php" class="category-card">
         <img src="/images/products/warehouse.png" alt="Warehouse Truck">
         <h4>Warehouse Truck</h4>
-      </div>
+      </a>
 
     </div>
+    <!-- END GRID -->
 
   </div>
 
 </section>
+
 
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
