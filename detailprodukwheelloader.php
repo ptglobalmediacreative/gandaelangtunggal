@@ -146,7 +146,7 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
             <div class="hero-breadcrumb">
                 <a href="/index.php">Home</a> >
                 <a href="/produk.php">Product</a> >
-                <span><?= htmlspecialchars($product['kategori_nama']); ?></span> >
+                <a href="/wheelloader.php">Wheel Loaders</a> >
                 <span class="current"><?= htmlspecialchars($product['nama_produk']); ?></span>
             </div>
 
