@@ -1,6 +1,9 @@
-/* ===================================================
-   PRODUCT DETAIL PAGE - INDUSTRIAL STYLE
-   =================================================== */
+/* ================= PRODUCT DETAIL ================= */
+
+body {
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+}
 
 .pd-section {
   padding: 90px 20px;
@@ -8,23 +11,20 @@
 
 .pd-section h2 {
   text-align: center;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
-  letter-spacing: 1px;
   margin-bottom: 60px;
-  color: #111827;
+  color: #0f172a;
 }
 
 .pd-gray {
   background: #f5f7fa;
 }
 
-/* ===================================================
-   MENU (Sticky Navigation)
-   =================================================== */
+/* ================= MENU ================= */
 
 .pd-menu {
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
@@ -32,142 +32,175 @@
 }
 
 .pd-menu-container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
   display: flex;
   justify-content: center;
   gap: 50px;
-  padding: 18px 20px;
+  padding: 18px;
 }
 
 .pd-menu a {
   text-decoration: none;
   font-weight: 600;
-  color: #1f2937;
+  color: #111827;
   position: relative;
-  transition: 0.3s ease;
 }
 
 .pd-menu a:hover {
-  color: #d97706; /* industrial orange */
+  color: #ff7a00;
 }
 
 .pd-menu a::after {
   content: "";
   position: absolute;
-  bottom: -6px;
   left: 0;
-  width: 0%;
+  bottom: -6px;
+  width: 0;
   height: 2px;
-  background: #d97706;
-  transition: 0.3s ease;
+  background: #ff7a00;
+  transition: 0.3s;
 }
 
 .pd-menu a:hover::after {
   width: 100%;
 }
 
-/* ================= FEATURES FIX ================= */
+/* ================= FEATURES ================= */
 
 .pd-feature-main {
-  max-width: 1300px; /* lebih lebar */
+  max-width: 1400px;
   margin: auto;
   display: grid;
-  grid-template-columns: 55% 45%; /* fix ratio */
-  gap: 60px;
-  align-items: center;
+  grid-template-columns: 1.2fr 1fr;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
 }
 
 .pd-feature-image img {
   width: 100%;
-  max-height: 520px;
+  height: 100%;
+  min-height: 420px;
   object-fit: cover;
-  border-radius: 12px;
 }
 
-/* ===================================================
-   SPECIFICATIONS
-   =================================================== */
+.pd-feature-list {
+  background: #f8fafc;
+  padding: 60px;
+}
+
+.pd-feature-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pd-feature-list li {
+  margin-bottom: 25px;
+}
+
+.pd-feature-list strong {
+  font-size: 18px;
+  color: #111827;
+}
+
+.pd-feature-list p {
+  color: #374151;
+  line-height: 1.7;
+}
+
+/* ================= SPEC ================= */
 
 .pd-spec-group {
-  max-width: 1000px;
-  margin: 0 auto 50px;
+  max-width: 1100px;
+  margin: auto auto 50px;
 }
 
 .pd-spec-group h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #111827;
-  border-left: 4px solid #d97706;
+  border-left: 4px solid #ff7a00;
   padding-left: 12px;
+  margin-bottom: 15px;
 }
 
 .pd-spec-table {
   width: 100%;
   border-collapse: collapse;
-  background: #ffffff;
-}
-
-.pd-spec-table tr {
-  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
 }
 
 .pd-spec-table td {
   padding: 14px 18px;
-  font-size: 15px;
-  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .pd-spec-table td:first-child {
-  font-weight: 500;
-  width: 50%;
   background: #f9fafb;
+  font-weight: 600;
 }
 
-/* ================= GALLERY FIX ================= */
+/* ================= GALLERY ================= */
 
-.pd-gallery-wrapper {
-  max-width: 1300px;
-  margin: auto;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* FIX 3 kolom */
-  gap: 30px;
-}
-
-@media (max-width: 1024px) {
-  .pd-gallery-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .pd-gallery-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===================================================
-   RECOMMENDED EQUIPMENT
-   =================================================== */
-
-.pd-recommend-grid {
+.pd-gallery-slider {
   max-width: 1200px;
   margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-gallery-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.pd-gal-item {
+  min-width: 100%;
+}
+
+.pd-gal-item img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+/* BUTTON */
+
+.pd-gal-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 42px;
+  cursor: pointer;
+  color: #0f172a;
+}
+
+.pd-gal-btn.prev {
+  left: -50px;
+}
+
+.pd-gal-btn.next {
+  right: -50px;
+}
+
+/* ================= RECOMMENDED ================= */
+
+.pd-recommend-grid {
+  max-width: 1300px;
+  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 30px;
 }
 
 .pd-recommend-item {
-  background: #ffffff;
+  background: #fff;
   border-radius: 12px;
+  overflow: hidden;
   text-decoration: none;
   color: #111827;
-  overflow: hidden;
-  transition: 0.35s ease;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
 }
 
 .pd-recommend-item img {
@@ -178,38 +211,37 @@
 
 .pd-recommend-item h4 {
   padding: 18px;
-  font-size: 17px;
-  font-weight: 600;
   text-align: center;
 }
 
 .pd-recommend-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
 }
 
-/* ===================================================
-   EMPTY STATE
-   =================================================== */
+/* ================= EMPTY ================= */
 
 .pd-empty {
   text-align: center;
   color: #9ca3af;
-  font-size: 15px;
 }
 
-/* ===================================================
-   RESPONSIVE
-   =================================================== */
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 992px) {
   .pd-feature-main {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 
   .pd-menu-container {
-    gap: 25px;
     flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .pd-gal-btn.prev {
+    left: 10px;
+  }
+
+  .pd-gal-btn.next {
+    right: 10px;
   }
 }
