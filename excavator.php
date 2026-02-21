@@ -18,6 +18,7 @@ $stmt = $pdo->prepare("
         ON p.id = ps.produk_id
 
     WHERE p.status = 'aktif'
+    AND p.category_id = 2
 
     GROUP BY 
         p.id,
