@@ -1,12 +1,14 @@
 <?php
 require_once __DIR__ . '/admin/config.php';
 
+/* ================= VALIDASI SLUG ================= */
 if (!isset($_GET['slug'])) {
     header("Location: /produk.php");
     exit;
 }
 
 $slug = $_GET['slug'];
+
 
 /* ================= PRODUCT ================= */
 $stmt = $pdo->prepare("
@@ -24,6 +26,7 @@ if (!$product) {
     exit;
 }
 
+
 /* ================= HERO ================= */
 $stmtHero = $pdo->prepare("
     SELECT image FROM produk_gallery
@@ -38,6 +41,7 @@ $heroImage = $hero
     ? "/images/uploads/produk/" . $hero['image']
     : "/images/hero.jpg";
 
+
 /* ================= FEATURES ================= */
 $stmtFeature = $pdo->prepare("
     SELECT * FROM produk_features
@@ -46,6 +50,7 @@ $stmtFeature = $pdo->prepare("
 ");
 $stmtFeature->execute([$product['id']]);
 $features = $stmtFeature->fetchAll(PDO::FETCH_ASSOC);
+
 
 /* ================= SPEC ================= */
 $stmtSpec = $pdo->prepare("
@@ -61,6 +66,7 @@ foreach ($specs as $s) {
     $groupedSpecs[$s['grup']][] = $s;
 }
 
+
 /* ================= GALLERY ================= */
 $stmtGallery = $pdo->prepare("
     SELECT * FROM produk_gallery
@@ -69,6 +75,7 @@ $stmtGallery = $pdo->prepare("
 ");
 $stmtGallery->execute([$product['id']]);
 $galleries = $stmtGallery->fetchAll(PDO::FETCH_ASSOC);
+
 
 /* ================= RECOMMENDED ================= */
 $stmtRec = $pdo->prepare("
@@ -104,6 +111,8 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
+<div class="pd-page">
+
 <!-- ================= HEADER ================= -->
 <header class="header">
 <div class="container">
@@ -113,7 +122,7 @@ $recommended = $stmtRec->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <nav class="navbar">
-<a href="/index.php">Beranda</a>
+<a href="/">Home</a>
 <a href="/about.php">Tentang Kami</a>
 <a href="/produk.php">Produk</a>
 <a href="#">Layanan</a>
@@ -149,12 +158,10 @@ style="background:url('<?= $heroImage ?>') center/cover no-repeat;">
 <section class="pd-menu">
 
 <div class="pd-menu-container">
-
 <a href="#pd-features">Features</a>
 <a href="#pd-specifications">Specifications</a>
 <a href="#pd-gallery">Gallery</a>
 <a href="#pd-recommended">Recommended</a>
-
 </div>
 
 </section>
@@ -279,6 +286,8 @@ class="pd-recommend-item">
 
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
+
+</div>
 
 </body>
 </html>
