@@ -106,7 +106,10 @@ $rec=$q->fetchAll();
 <div class="pd-menu-inner">
 
 <div class="pd-menu-product">
-<img src="<?=$heroImage?>">
+<img 
+    src="/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>" 
+    alt="<?= htmlspecialchars($row['nama_produk']); ?>"
+>
 <span><?=$product['nama_produk']?></span>
 </div>
 
