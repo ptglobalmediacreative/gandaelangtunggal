@@ -105,7 +105,9 @@ body {
   align-items: center;
   gap: 26px;
 }
-
+.header.scrolled {
+  padding: 10px 0;
+}
 /* ================= NAV LINK ================= */
 
 .navbar a {
