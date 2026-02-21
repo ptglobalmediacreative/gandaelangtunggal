@@ -416,16 +416,19 @@
   }
 
   /* =================================================
-   RECOMMENDED → SLIDER MOBILE (CENTERED & SHARP)
-================================================= */
+     RECOMMENDED → CLEAN SLIDER MOBILE
+  ================================================= */
 
   .pd-rec {
     display: flex;
-    justify-content: center; /* CENTER */
+    justify-content: center;
     align-items: center;
 
     overflow-x: auto;
+    overflow-y: hidden;
+
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 
     padding: 20px 0 35px;
 
@@ -436,7 +439,7 @@
     display: none;
   }
 
-  /* CARD FULL CENTER */
+  /* CARD CENTERED */
 
   .pd-card {
     flex: 0 0 90%;
@@ -446,32 +449,30 @@
 
     scroll-snap-align: center;
 
-    transform: scale(1); /* HAPUS SCALE KECIL */
-    opacity: 1; /* HAPUS OPACITY */
+    transition: 0.4s ease;
+
+    transform: scale(1);
+    opacity: 1;
   }
 
-  /* GAMBAR FULL & TAJAM */
+  /* IMAGE SHARP & FULL */
 
   .pd-card img {
     width: 100%;
     height: 240px;
 
-    object-fit: contain; /* TIDAK KEPOTONG */
+    object-fit: contain;
+
     background: #ffffff;
-
     padding: 20px;
-
-    image-rendering: auto;
   }
 
-  /* JUDUL */
-
   .pd-card h4 {
-    text-align: center;
     font-size: 15px;
+    padding: 12px 10px;
+    text-align: center;
     font-weight: 600;
     color: #0b3a82;
-    margin-top: 10px;
   }
 
   /* ================= DOT INDICATOR ================= */
@@ -480,17 +481,14 @@
     display: flex;
     justify-content: center;
     gap: 8px;
-
     margin-top: 10px;
   }
 
   .pd-dots span {
     width: 8px;
     height: 8px;
-
     border-radius: 50%;
     background: #cbd5e1;
-
     transition: 0.3s;
   }
 
@@ -505,16 +503,16 @@
 
 @media (max-width: 480px) {
   .pd-card {
-    flex: 0 0 92%;
-    max-width: 92%;
+    flex: 0 0 94%;
+    max-width: 94%;
   }
 
   .pd-card img {
-    height: 200px;
+    height: 210px;
   }
 
   .pd-card h4 {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .pd-menu-nav a {
