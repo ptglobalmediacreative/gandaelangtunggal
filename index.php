@@ -190,6 +190,25 @@
       <div class="service-card fade-up">
 
         <div class="service-icon">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+
+        <h3>Suku Cadang</h3>
+
+        <p>
+          Kami menyediakan suku cadang asli
+          untuk menjaga performa dan keandalan
+          alat berat pelanggan.
+        </p>
+
+        <a href="#">Lebih Lanjut →</a>
+
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card fade-up">
+
+        <div class="service-icon">
           <i class="fa-solid fa-screwdriver-wrench"></i>
         </div>
 
