@@ -119,7 +119,7 @@
       </a>
 
       <!-- Mining Truck -->
-      <a href="/miningtruck.php" class="category-card">
+      <a href="/minningtruck.php" class="category-card">
         <img src="/images/products/mining-truck.jpg" alt="Mining Truck">
         <h4>Mining Truck</h4>
       </a>
@@ -149,7 +149,7 @@
       </a>
 
       <!-- Backhoe -->
-      <a href="/backhoe.php" class="category-card">
+      <a href="/backhoeloader.php" class="category-card">
         <img src="/images/products/backhoe.jpg" alt="Backhoe Loader">
         <h4>Backhoe Loader</h4>
       </a>
@@ -161,7 +161,7 @@
       </a>
 
       <!-- Aerial -->
-      <a href="/aerial.php" class="category-card">
+      <a href="/aerialplatform.php" class="category-card">
         <img src="/images/products/aerial.png" alt="Aerial Platform">
         <h4>Aerial Platform</h4>
       </a>
@@ -179,13 +179,13 @@
       </a>
 
       <!-- Harvester -->
-      <a href="/harvester.php" class="category-card">
+      <a href="/halvester.php" class="category-card">
         <img src="/images/products/harvester.png" alt="Harvester">
         <h4>Harvester</h4>
       </a>
 
       <!-- Compressor -->
-      <a href="/compressor.php" class="category-card">
+      <a href="/aircompressor.php" class="category-card">
         <img src="/images/products/compressor.png" alt="Air Compressor">
         <h4>Air Compressor</h4>
       </a>
@@ -197,7 +197,7 @@
       </a>
 
       <!-- Warehouse -->
-      <a href="/warehouse.php" class="category-card">
+      <a href="/warehousetruck.php" class="category-card">
         <img src="/images/products/warehouse.png" alt="Warehouse Truck">
         <h4>Warehouse Truck</h4>
       </a>
