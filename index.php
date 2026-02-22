@@ -190,15 +190,13 @@
       <div class="service-card fade-up">
 
         <div class="service-icon">
-          <i class="fa-solid fa-gear"></i>
+          <i class="fa-solid fa-chalkboard-user"></i>
         </div>
 
-        <h3>Suku Cadang</h3>
+        <h3>Training</h3>
 
         <p>
-          Kami menyediakan suku cadang asli
-          untuk menjaga performa dan keandalan
-          alat berat pelanggan.
+          Kami menyediakan pelatihan khusus seputar alat berat Liu Gong.
         </p>
 
         <a href="#">Lebih Lanjut →</a>
