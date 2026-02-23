@@ -82,7 +82,7 @@
 
 </section>
 
-<!-- ================= CONTACT SECTION ================= -->
+<!-- ================= SIMPLE CONTACT ================= -->
 <section class="contact-simple">
 
   <div class="contact-container">
@@ -94,32 +94,31 @@
 
     <div class="contact-card">
 
-      <!-- FORM -->
+      <!-- LEFT FORM -->
       <div class="contact-form-simple">
 
-        <form action="send-mail.php" method="post">
+        <label>Your Name:</label>
+        <input type="text">
 
-          <label>Your Name:</label>
-          <input type="text" name="name" required>
+        <label>Your Phone Number:</label>
+        <input type="text">
 
-          <label>Your Phone Number:</label>
-          <input type="text" name="phone" required>
+        <label>Your Email:</label>
+        <input type="text">
 
-          <label>Email:</label>
-          <input type="email" name="email" required>
+        <label>Message:</label>
+        <textarea></textarea>
 
-          <label>Message:</label>
-          <textarea name="message" required></textarea>
-
-          <button type="submit">Submit</button>
-
-        </form>
+        <button>Submit</button>
 
       </div>
 
-      <!-- MAP -->
+      <!-- RIGHT MAP -->
       <div class="contact-map-simple">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid!4v1771856556113!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid"
+          loading="lazy">
+        </iframe>
       </div>
 
     </div>

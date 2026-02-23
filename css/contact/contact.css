@@ -1,3 +1,5 @@
+/* ================= SIMPLE CONTACT ================= */
+
 .contact-simple {
   background: #f3f4f6;
   padding: 80px 20px;
@@ -23,6 +25,8 @@
   color: #6b7280;
 }
 
+/* CARD */
+
 .contact-card {
   background: #ffffff;
   border-radius: 14px;
@@ -32,6 +36,8 @@
   gap: 40px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
+
+/* FORM */
 
 .contact-form-simple {
   display: flex;
@@ -59,7 +65,7 @@
 
 .contact-form-simple button {
   margin-top: 20px;
-  width: 120px;
+  width: 100px;
   padding: 10px;
   border: none;
   background: #facc15;
@@ -72,6 +78,8 @@
   background: #eab308;
 }
 
+/* MAP */
+
 .contact-map-simple iframe {
   width: 100%;
   height: 100%;
@@ -79,6 +87,8 @@
   border-radius: 10px;
   border: 1px solid #e5e7eb;
 }
+
+/* RESPONSIVE */
 
 @media (max-width: 900px) {
   .contact-card {
