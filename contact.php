@@ -73,10 +73,10 @@
     <div class="hero-breadcrumb">
       <a href="/index.php">Home</a>
       <span>></span>
-      <span class="current">Aftersales</span>
+      <span class="current">Contact Us</span>
     </div>
 
-    <h1>Aftersales</h1>
+    <h1>Contact Us</h1>
 
   </div>
 
