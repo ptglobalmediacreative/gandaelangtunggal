@@ -1,140 +1,136 @@
-/* ================= CONTACT CORPORATE ================= */
+/* ================= CLEAN PREMIUM CONTACT ================= */
 
-.contact-corporate {
-  padding: 120px 20px;
-  background: linear-gradient(135deg, #020617, #020617, #1e293b);
+.contact-clean {
+  padding: 140px 20px;
+  background: #ffffff;
 }
 
-.contact-corporate .container {
-  max-width: 1300px;
+.contact-clean .container {
+  max-width: 1200px;
   margin: auto;
 }
 
-/* ================= BOX ================= */
+/* ================= HEADER ================= */
 
-.contact-box {
-  background: #ffffff;
-  border-radius: 28px;
+.contact-head {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 80px;
+}
+
+.contact-head h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+}
+
+.contact-head p {
+  font-size: 17px;
+  color: #64748b;
+  line-height: 1.8;
+}
+
+/* ================= LAYOUT ================= */
+
+.contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1.1fr 1.2fr;
-  overflow: hidden;
-  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.4);
-}
-
-/* ================= LEFT ================= */
-
-.contact-info {
-  padding: 55px 45px;
-  background: #020617;
-  color: #ffffff;
-}
-
-.contact-info h2 {
-  font-size: 30px;
-  margin-bottom: 15px;
-}
-
-.contact-info p {
-  color: #cbd5e1;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.contact-info ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-info li {
-  display: flex;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-  font-size: 15px;
-}
-
-.contact-info i {
-  color: #f59e0b;
 }
 
 /* ================= FORM ================= */
 
-.contact-form-box {
-  padding: 55px 45px;
+.contact-form-clean {
+  background: #ffffff;
+  padding: 55px;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+  border: 1px solid #f1f5f9;
+}
+
+.form-row {
+  margin-bottom: 25px;
+}
+
+.contact-form-clean input,
+.contact-form-clean textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+  font-family: "Inter", sans-serif;
   background: #f8fafc;
 }
 
-.contact-form-box h3 {
-  font-size: 22px;
-  margin-bottom: 25px;
-  color: #020617;
-}
-
-.contact-form-box form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.contact-form-box input,
-.contact-form-box textarea {
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
-  font-size: 14px;
-  outline: none;
-  transition: 0.3s;
-}
-
-.contact-form-box textarea {
-  min-height: 110px;
+.contact-form-clean textarea {
+  min-height: 130px;
   resize: none;
 }
 
-.contact-form-box input:focus,
-.contact-form-box textarea:focus {
+.contact-form-clean input:focus,
+.contact-form-clean textarea:focus {
   border-color: #f59e0b;
-  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
 }
 
 /* BUTTON */
 
-.contact-form-box button {
-  background: #f59e0b;
+.contact-form-clean button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 40px;
   border: none;
-  padding: 13px;
-  border-radius: 30px;
   font-weight: 600;
+  font-size: 15px;
+  background: #f59e0b;
   color: #ffffff;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-.contact-form-box button:hover {
+.contact-form-clean button:hover {
   background: #d97706;
+  transform: translateY(-2px);
 }
 
 /* ================= MAP ================= */
 
-.contact-map-box {
-  position: relative;
+.contact-map-clean {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+  border: 1px solid #f1f5f9;
 }
 
-.contact-map-box iframe {
+.contact-map-clean iframe {
   width: 100%;
-  height: 100%;
-  min-height: 100%;
-  border: none;
+  height: 500px;
+  border: 0;
 }
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 1100px) {
-  .contact-box {
+@media (max-width: 900px) {
+  .contact-layout {
     grid-template-columns: 1fr;
   }
 
-  .contact-map-box iframe {
+  .contact-map-clean iframe {
     height: 350px;
+  }
+
+  .contact-form-clean {
+    padding: 35px;
+  }
+
+  .contact-head h2 {
+    font-size: 32px;
   }
 }
