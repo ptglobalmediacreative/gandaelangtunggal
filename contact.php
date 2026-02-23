@@ -88,7 +88,6 @@
   <div class="contact-container">
 
     <div class="contact-title">
-      <span class="contact-subtitle">Hubungi Kami</span>
       <h2>Contact Our Professional Team</h2>
       <p>
         Konsultasikan kebutuhan layanan dan dukungan unit Anda
