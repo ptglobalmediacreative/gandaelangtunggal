@@ -6,154 +6,135 @@
 }
 
 .aftersales .container {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* ================= HEADER ================= */
+/* ================= WRAPPER ================= */
 
-.aftersales-header {
-  text-align: center;
-  max-width: 750px;
-  margin: 0 auto 100px;
+.aftersales-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 70px;
+  align-items: center;
 }
 
-.aftersales-header .subtitle {
+/* ================= LEFT ================= */
+
+.aftersales-info span {
   display: inline-block;
-  padding: 6px 18px;
+  background: #fff7ed;
+  color: #f59e0b;
+  padding: 6px 16px;
+  border-radius: 30px;
   font-size: 13px;
   font-weight: 600;
-  background: rgba(245, 158, 11, 0.1);
-  color: #f59e0b;
-  border-radius: 30px;
-  margin-bottom: 18px;
-  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 
-.aftersales-header h2 {
+.aftersales-info h2 {
   font-size: 38px;
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  line-height: 1.3;
 }
 
-.aftersales-header p {
+.aftersales-info p {
   font-size: 16px;
   color: #64748b;
   line-height: 1.7;
+  margin-bottom: 25px;
 }
 
-/* ================= ZIGZAG LAYOUT ================= */
+/* LIST */
 
-.aftersales-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
+.aftersales-info ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 35px;
 }
 
-/* CARD STYLE */
-
-.aftersales-card {
-  width: 60%;
-  background: #ffffff;
-  padding: 45px;
-  border-radius: 20px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.06);
-  position: relative;
-  transition: 0.4s ease;
-}
-
-.aftersales-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-}
-
-/* SELANG SELING */
-
-.aftersales-card:nth-child(odd) {
-  align-self: flex-start;
-}
-
-.aftersales-card:nth-child(even) {
-  align-self: flex-end;
-}
-
-/* ICON */
-
-.aftersales-card .icon {
-  width: 65px;
-  height: 65px;
-  background: linear-gradient(135deg, #f59e0b, #fbbf24);
-  color: #fff;
-  border-radius: 16px;
+.aftersales-info li {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  margin-bottom: 25px;
-  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #0f172a;
+  font-weight: 500;
 }
 
-/* TEXT */
+.aftersales-info i {
+  color: #22c55e;
+}
 
-.aftersales-card h3 {
-  font-size: 22px;
+/* BUTTON */
+
+.btn-main {
+  display: inline-block;
+  background: #f59e0b;
+  color: #fff;
+  padding: 13px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-main:hover {
+  background: #d97706;
+}
+
+/* ================= RIGHT ================= */
+
+.aftersales-services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+
+.service-card {
+  background: #ffffff;
+  padding: 35px 28px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.service-card i {
+  font-size: 26px;
+  color: #f59e0b;
   margin-bottom: 15px;
+}
+
+.service-card h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
   color: #0f172a;
 }
 
-.aftersales-card p {
-  font-size: 15px;
+.service-card p {
+  font-size: 14px;
   color: #64748b;
-  line-height: 1.7;
-}
-
-/* ================= CTA ================= */
-
-.aftersales-cta {
-  margin-top: 120px;
-  text-align: center;
-  padding: 70px 40px;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  border-radius: 25px;
-  color: #ffffff;
-}
-
-.aftersales-cta h3 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-.aftersales-cta p {
-  color: #cbd5e1;
-  margin-bottom: 25px;
-}
-
-.btn-aftersales {
-  display: inline-block;
-  padding: 14px 35px;
-  background: #f59e0b;
-  color: #fff;
-  border-radius: 40px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.btn-aftersales:hover {
-  background: #d97706;
-  transform: translateY(-3px);
+  line-height: 1.6;
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
-  .aftersales-card {
-    width: 100%;
-    align-self: center !important;
+  .aftersales-wrapper {
+    grid-template-columns: 1fr;
   }
 
-  .aftersales-grid {
-    gap: 40px;
+  .aftersales-services {
+    grid-template-columns: 1fr;
   }
 }

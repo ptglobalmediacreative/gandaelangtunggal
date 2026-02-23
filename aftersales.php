@@ -86,73 +86,67 @@
 <section class="aftersales">
   <div class="container">
 
-    <div class="aftersales-header">
-      <span class="subtitle">Layanan Purna Jual</span>
-      <h2>Dukungan Profesional untuk Performa Maksimal</h2>
-      <p>
-        PT Ganda Elang Tangguh berkomitmen memberikan layanan purna jual terbaik 
-        untuk memastikan setiap unit alat berat Anda bekerja optimal, efisien, 
-        dan memiliki umur operasional yang panjang.
-      </p>
-    </div>
+    <div class="aftersales-wrapper">
 
-    <div class="aftersales-grid">
+      <!-- LEFT CONTENT -->
+      <div class="aftersales-info">
 
-      <!-- Item 1 -->
-      <div class="aftersales-card">
-        <div class="icon">
+        <span>Layanan Purna Jual</span>
+
+        <h2>
+          Solusi Aftersales Terpercaya
+          untuk Kinerja Unit Anda
+        </h2>
+
+        <p>
+          PT Ganda Elang Tangguh menghadirkan layanan purna jual
+          profesional untuk menjaga performa alat berat Anda
+          tetap optimal, aman, dan berkelanjutan.
+        </p>
+
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Teknisi Bersertifikat</li>
+          <li><i class="fa-solid fa-check"></i> Dukungan 24 Jam</li>
+          <li><i class="fa-solid fa-check"></i> Sparepart Original</li>
+          <li><i class="fa-solid fa-check"></i> Respon Cepat</li>
+        </ul>
+
+        <a href="/kontak.php" class="btn-main">
+          Konsultasi Sekarang
+        </a>
+
+      </div>
+
+
+      <!-- RIGHT CARDS -->
+      <div class="aftersales-services">
+
+        <div class="service-card">
           <i class="fa-solid fa-screwdriver-wrench"></i>
+          <h3>Servis Berkala</h3>
+          <p>Perawatan rutin untuk menjaga performa mesin tetap maksimal.</p>
         </div>
-        <h3>Perawatan & Servis Berkala</h3>
-        <p>
-          Layanan maintenance rutin yang dilakukan oleh teknisi berpengalaman 
-          untuk menjaga performa dan mencegah kerusakan yang tidak terduga.
-        </p>
-      </div>
 
-      <!-- Item 2 -->
-      <div class="aftersales-card">
-        <div class="icon">
+        <div class="service-card">
           <i class="fa-solid fa-truck-fast"></i>
+          <h3>On-Site Support</h3>
+          <p>Dukungan teknisi langsung di lokasi proyek Anda.</p>
         </div>
-        <h3>Respons Cepat di Lapangan</h3>
-        <p>
-          Tim teknis kami siap memberikan dukungan langsung di lokasi proyek 
-          Anda dengan penanganan cepat dan solusi yang tepat.
-        </p>
-      </div>
 
-      <!-- Item 3 -->
-      <div class="aftersales-card">
-        <div class="icon">
+        <div class="service-card">
           <i class="fa-solid fa-gears"></i>
+          <h3>Suku Cadang</h3>
+          <p>Penyediaan sparepart original dan bergaransi.</p>
         </div>
-        <h3>Suku Cadang Original</h3>
-        <p>
-          Ketersediaan spare part asli dan berkualitas untuk memastikan 
-          ketahanan unit serta menjaga standar performa pabrikan.
-        </p>
-      </div>
 
-      <!-- Item 4 -->
-      <div class="aftersales-card">
-        <div class="icon">
+        <div class="service-card">
           <i class="fa-solid fa-headset"></i>
+          <h3>Helpdesk Teknis</h3>
+          <p>Layanan konsultasi untuk troubleshooting unit Anda.</p>
         </div>
-        <h3>Konsultasi Teknis</h3>
-        <p>
-          Dukungan teknis profesional untuk membantu Anda dalam 
-          pengoperasian, troubleshooting, dan optimalisasi unit.
-        </p>
+
       </div>
 
-    </div>
-
-    <!-- CTA -->
-    <div class="aftersales-cta">
-      <h3>Butuh Dukungan Teknis?</h3>
-      <p>Tim kami siap membantu kebutuhan layanan unit Anda.</p>
-      <a href="/kontak.php" class="btn-aftersales">Hubungi Kami</a>
     </div>
 
   </div>
