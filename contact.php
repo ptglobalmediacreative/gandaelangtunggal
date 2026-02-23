@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PT Ganda Elang Tangguh - About Us</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/contact/hero.css">
+  <link rel="stylesheet" href="/css/contact/contact.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <a href="/index.php">Beranda</a>
+      <a href="/about.php">Tentang Kami</a>
+      <a href="/produk.php">Produk</a>
+      <a href="/aftersales.php" class="active">Layanan Purna Jual</a>
+      <a href="/kontak.php">Hubungi Kami</a>
+      <a href="/blog.php">Blog & Artikel</a>
+    </nav>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section
+  class="hero hero-image"
+  style="background: url('/images/about.png') center / cover no-repeat;"
+>
+
+  <!-- Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Content -->
+  <div class="hero-content">
+
+    <!-- Breadcrumb -->
+    <div class="hero-breadcrumb">
+      <a href="/index.php">Home</a>
+      <span>></span>
+      <span class="current">Aftersales</span>
+    </div>
+
+    <h1>Aftersales</h1>
+
+  </div>
+
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="contact-header">
+      <span>Hubungi Kami</span>
+      <h2>Konsultasi & Dukungan Aftersales</h2>
+      <p>
+        Silakan hubungi tim kami untuk informasi layanan,
+        perawatan unit, maupun kebutuhan teknis lainnya.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="contact-wrapper">
+
+      <!-- Form -->
+      <div class="contact-form">
+
+        <h3>Kirim Pesan</h3>
+
+        <form action="#" method="post">
+
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" name="name" placeholder="Masukkan nama Anda" required>
+          </div>
+
+          <div class="form-group">
+            <label>Number Phone</label>
+            <input type="tel" name="phone" placeholder="Masukkan nomor telepon" required>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Masukkan email Anda" required>
+          </div>
+
+          <div class="form-group">
+            <label>Messages</label>
+            <textarea name="message" placeholder="Tulis pesan Anda..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-contact">
+            Kirim Pesan
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <!-- Maps -->
+      <div class="contact-map">
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid!4v1771856556113!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
+
+
+<!-- ================= SCRIPT ================= -->
+<script src="/js/main.js"></script>
+
+</body>
+</html>
