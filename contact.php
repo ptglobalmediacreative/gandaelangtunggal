@@ -82,55 +82,59 @@
 
 </section>
 
-<!-- ================= PREMIUM CONTACT ================= -->
-<section class="contact-premium">
-
-  <div class="contact-bg"></div>
+<!-- ================= CONTACT CORPORATE ================= -->
+<section class="contact-corporate">
 
   <div class="container">
 
-    <div class="contact-wrap">
+    <div class="contact-box">
 
-      <!-- FORM -->
-      <div class="contact-card">
+      <!-- LEFT -->
+      <div class="contact-info">
 
-        <h2>Hubungi Tim Kami</h2>
-        <p>Konsultasikan kebutuhan layanan unit Anda bersama tim profesional kami.</p>
+        <h2>Hubungi Tim Profesional Kami</h2>
+
+        <p>
+          Dapatkan solusi terbaik untuk perawatan dan
+          dukungan alat berat Anda bersama PT Ganda Elang Tangguh.
+        </p>
+
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> Jakarta Utara</li>
+          <li><i class="fa-solid fa-phone"></i> +62 812-XXXX-XXXX</li>
+          <li><i class="fa-solid fa-envelope"></i> info@gandaelang.co.id</li>
+        </ul>
+
+      </div>
+
+
+      <!-- CENTER FORM -->
+      <div class="contact-form-box">
+
+        <h3>Kirim Pesan</h3>
 
         <form>
 
-          <div class="input-group">
-            <input type="text" required>
-            <label>Your Name</label>
-          </div>
+          <input type="text" placeholder="Your Name" required>
 
-          <div class="input-group">
-            <input type="tel" required>
-            <label>Number Phone</label>
-          </div>
+          <input type="tel" placeholder="Number Phone" required>
 
-          <div class="input-group">
-            <input type="email" required>
-            <label>Email</label>
-          </div>
+          <input type="email" placeholder="Email" required>
 
-          <div class="input-group">
-            <textarea required></textarea>
-            <label>Messages</label>
-          </div>
+          <textarea placeholder="Messages" required></textarea>
 
-          <button type="submit">Send Message</button>
+          <button type="submit">Kirim Pesan</button>
 
         </form>
 
       </div>
 
 
-      <!-- MAP -->
-      <div class="contact-map-premium">
+      <!-- RIGHT MAP -->
+      <div class="contact-map-box">
 
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid"
           loading="lazy">
         </iframe>
 
