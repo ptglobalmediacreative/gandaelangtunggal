@@ -88,8 +88,12 @@
   <div class="contact-container">
 
     <div class="contact-title">
-      <h2>Contact Us</h2>
-      <p>Fill out the form below to get in touch with us.</p>
+      <span class="contact-subtitle">Hubungi Kami</span>
+      <h2>Contact Our Professional Team</h2>
+      <p>
+        Konsultasikan kebutuhan layanan dan dukungan unit Anda
+        bersama tim PT Ganda Elang Tangguh.
+      </p>
     </div>
 
     <div class="contact-card">
@@ -97,25 +101,36 @@
       <!-- LEFT FORM -->
       <div class="contact-form-simple">
 
-        <label>Your Name:</label>
-        <input type="text">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your full name">
+        </div>
 
-        <label>Your Phone Number:</label>
-        <input type="text">
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="text" placeholder="Enter your phone number">
+        </div>
 
-        <label>Your Email:</label>
-        <input type="text">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="Enter your email address">
+        </div>
 
-        <label>Message:</label>
-        <textarea></textarea>
+        <div class="form-group">
+          <label>Your Message</label>
+          <textarea placeholder="Write your message here..."></textarea>
+        </div>
 
-        <button>Submit</button>
+        <button class="btn-contact">Send Message</button>
 
       </div>
 
       <!-- RIGHT MAP -->
       <div class="contact-map-simple">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid!4v1771856556113!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid"
+          loading="lazy">
+        </iframe>
       </div>
 
     </div>
