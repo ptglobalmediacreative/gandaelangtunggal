@@ -41,7 +41,7 @@
       <a href="/index.php">Beranda</a>
       <a href="/about.php" class="active">Tentang Kami</a>
       <a href="/produk.php">Produk</a>
-      <a href="/layanan.php">Layanan Purna Jual</a>
+      <a href="/aftersales.php" class="active">Layanan Purna Jual</a>
       <a href="/kontak.php">Hubungi Kami</a>
       <a href="/blog.php">Blog & Artikel</a>
     </nav>
