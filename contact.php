@@ -82,54 +82,45 @@
 
 </section>
 
-<!-- ================= PREMIUM WHITE CONTACT ================= -->
-<section class="contact-clean">
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-simple">
 
-  <div class="container">
+  <div class="contact-container">
 
-    <!-- Header -->
-    <div class="contact-head">
-      <h2>Hubungi Tim Kami</h2>
-      <p>
-        Konsultasikan kebutuhan layanan dan dukungan unit Anda
-        bersama tim profesional PT Ganda Elang Tangguh.
-      </p>
+    <div class="contact-title">
+      <h2>Contact Us</h2>
+      <p>Fill out the form below to get in touch with us.</p>
     </div>
 
-    <div class="contact-layout">
+    <div class="contact-card">
 
       <!-- FORM -->
-      <div class="contact-form-clean">
+      <div class="contact-form-simple">
 
-        <form>
+        <form action="send-mail.php" method="post">
 
-          <div class="form-row">
-            <input type="text" placeholder="Your Name" required>
-          </div>
+          <label>Your Name:</label>
+          <input type="text" name="name" required>
 
-          <div class="form-row">
-            <input type="tel" placeholder="Number Phone" required>
-          </div>
+          <label>Your Phone Number:</label>
+          <input type="text" name="phone" required>
 
-          <div class="form-row">
-            <input type="email" placeholder="Email" required>
-          </div>
+          <label>Email:</label>
+          <input type="email" name="email" required>
 
-          <div class="form-row">
-            <textarea placeholder="Messages" required></textarea>
-          </div>
+          <label>Message:</label>
+          <textarea name="message" required></textarea>
 
-          <button type="submit">Kirim Pesan</button>
+          <button type="submit">Submit</button>
 
         </form>
 
       </div>
 
-
       <!-- MAP -->
-      <div class="contact-map-clean">
+      <div class="contact-map-simple">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0683472713463!2d106.77268407316569!3d-6.121503360022286!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7005d2d391b%3A0xdf080d223c96ca6f!2sPT.%20Ganda%20Elang%20Tangguh!5e0!3m2!1sid!2sid"
           loading="lazy">
         </iframe>
       </div>
