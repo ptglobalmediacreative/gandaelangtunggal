@@ -165,7 +165,7 @@ p {
 
 <div class="container">
 
-  <img src="/images/logo.png" class="logo" alt="Logo PT Ganda Elang Tangguh">
+  <img src="/images/favicon.webp" class="logo" alt="Logo PT Ganda Elang Tangguh">
 
   <h1>Website Sedang Dalam Pembaruan</h1>
 
