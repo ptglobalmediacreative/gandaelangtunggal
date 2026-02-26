@@ -156,8 +156,76 @@ p {
 }
 
 @media(max-width:768px){
-  h1 { font-size: 28px; }
-  p { font-size: 16px; }
+
+  body {
+    padding: 20px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  body::after {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    right: -150px;
+    filter: blur(100px);
+  }
+
+  .container {
+    padding: 30px 15px;
+  }
+
+  .logo {
+    width: 140px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .countdown {
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .time-box {
+    min-width: 70px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .time-box h2 {
+    font-size: 20px;
+  }
+
+  .time-box span {
+    font-size: 12px;
+  }
+
+  .progress-container {
+    margin-bottom: 30px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    font-size: 14px;
+  }
+
 }
 </style>
 </head>
