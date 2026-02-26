@@ -1,3 +1,29 @@
+<?php
+require_once __DIR__ . '/admin/config.php';
+
+if (isset($_POST['kirim'])) {
+
+    $nama     = trim($_POST['nama']);
+    $telepon  = trim($_POST['telepon']);
+    $email    = trim($_POST['email']);
+    $pesan    = trim($_POST['pesan']);
+
+    if ($nama && $telepon && $email && $pesan) {
+
+        $stmt = $pdo->prepare("
+            INSERT INTO pesan (nama, telepon, email, pesan, created_at)
+            VALUES (?, ?, ?, ?, NOW())
+        ");
+
+        $stmt->execute([$nama, $telepon, $email, $pesan]);
+
+        echo "<script>alert('Pesan berhasil dikirim!');</script>";
+    } else {
+        echo "<script>alert('Semua field wajib diisi!');</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -97,32 +123,36 @@
 
     <div class="contact-card">
 
-      <!-- LEFT FORM -->
-      <div class="contact-form-simple">
+    <!-- LEFT FORM -->
+    <div class="contact-form-simple">
+
+      <form method="POST" action="">
 
         <div class="form-group">
           <label>Full Name</label>
-          <input type="text" placeholder="Enter your full name">
+          <input type="text" name="nama" placeholder="Enter your full name" required>
         </div>
 
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="text" placeholder="Enter your phone number">
+          <input type="text" name="telepon" placeholder="Enter your phone number" required>
         </div>
 
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="Enter your email address">
+          <input type="email" name="email" placeholder="Enter your email address" required>
         </div>
 
         <div class="form-group">
           <label>Your Message</label>
-          <textarea placeholder="Write your message here..."></textarea>
+          <textarea name="pesan" placeholder="Write your message here..." required></textarea>
         </div>
 
-        <button class="btn-contact">Send Message</button>
+        <button type="submit" name="kirim" class="btn-contact">Send Message</button>
 
-      </div>
+      </form>
+
+    </div>
 
       <!-- RIGHT MAP -->
       <div class="contact-map-simple">
