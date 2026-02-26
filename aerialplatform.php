@@ -70,8 +70,8 @@ $products = $stmt->fetchAll();
       <a href="/index.php">Beranda</a>
       <a href="/about.php">Tentang Kami</a>
       <a href="/produk.php" class="active">Produk</a>
-      <a href="/layanan.php">Layanan Purna Jual</a>
-      <a href="/kontak.php">Hubungi Kami</a>
+      <a href="/aftersales.php">Layanan Purna Jual</a>
+      <a href="/contact.php">Hubungi Kami</a>
       <a href="/blog.php">Blog & Artikel</a>
     </nav>
 
@@ -96,7 +96,7 @@ $products = $stmt->fetchAll();
     <div class="hero-breadcrumb">
       <a href="/index.php">Home</a>
       <span>></span>
-      <a href="/product.php">Product</a>
+      <a href="/produk.php">Product</a>
       <span>></span>
       <span class="current">Aerial Work Platform</span>
     </div>

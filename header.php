@@ -1,3 +1,12 @@
+<?php
+$maintenance = true;
+
+if ($maintenance && basename($_SERVER['PHP_SELF']) != 'maintenance.php') {
+    header("Location: /maintenance.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
