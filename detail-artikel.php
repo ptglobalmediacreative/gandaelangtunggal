@@ -16,19 +16,12 @@ $stmt = $pdo->prepare("
     LIMIT 1
 ");
 $stmt->execute([$slug]);
-$artikel = $stmt->fetch(PDO::FETCH_ASSOC);
+$artikel = $stmt->fetch();
 
 if (!$artikel) {
     header("Location: /blog.php");
     exit;
 }
-
-/* ================= META ================= */
-$meta_desc = mb_strimwidth(strip_tags($artikel['deskripsi']), 0, 155, '...');
-$articleUrl = "https://gandaelang.co.id/artikel/" . urlencode($artikel['slug']);
-$articleImage = !empty($artikel['gambar'])
-    ? "https://gandaelang.co.id/images/uploads/artikel/" . $artikel['gambar']
-    : "https://gandaelang.co.id/images/favicon.webp";
 
 /* ================= RECENT POSTS ================= */
 $recentStmt = $pdo->prepare("
@@ -39,7 +32,7 @@ $recentStmt = $pdo->prepare("
     LIMIT 5
 ");
 $recentStmt->execute([$slug]);
-$recentPosts = $recentStmt->fetchAll(PDO::FETCH_ASSOC);
+$recentPosts = $recentStmt->fetchAll();
 
 /* ================= RELATED POSTS ================= */
 $relatedStmt = $pdo->prepare("
@@ -50,7 +43,7 @@ $relatedStmt = $pdo->prepare("
     LIMIT 3
 ");
 $relatedStmt->execute([$slug]);
-$relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
+$relatedPosts = $relatedStmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -59,17 +52,7 @@ $relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title><?= htmlspecialchars($artikel['judul']) ?> - PT Ganda Elang Tangguh</title>
-<meta name="description" content="<?= htmlspecialchars($meta_desc) ?>">
-<link rel="canonical" href="<?= $articleUrl ?>">
 
-<!-- Open Graph -->
-<meta property="og:title" content="<?= htmlspecialchars($artikel['judul']) ?>">
-<meta property="og:description" content="<?= htmlspecialchars($meta_desc) ?>">
-<meta property="og:image" content="<?= $articleImage ?>">
-<meta property="og:url" content="<?= $articleUrl ?>">
-<meta property="og:type" content="article">
-
-<!-- CSS -->
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog/artikel.css">
 <link rel="stylesheet" href="/css/footer.css">
@@ -78,33 +61,6 @@ $relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<!-- SCHEMA -->
-<script type="application/ld+json">
-<?= json_encode([
-    "@context" => "https://schema.org",
-    "@type" => "BlogPosting",
-    "headline" => $artikel['judul'],
-    "description" => $meta_desc,
-    "image" => $articleImage,
-    "datePublished" => $artikel['created_at'],
-    "dateModified" => $artikel['created_at'],
-    "author" => [
-        "@type" => "Organization",
-        "name" => "PT Ganda Elang Tangguh"
-    ],
-    "publisher" => [
-        "@type" => "Organization",
-        "name" => "PT Ganda Elang Tangguh",
-        "logo" => [
-            "@type" => "ImageObject",
-            "url" => "https://gandaelang.co.id/images/favicon.webp"
-        ]
-    ],
-    "mainEntityOfPage" => $articleUrl
-], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-</script>
-
 </head>
 <body>
 
@@ -133,7 +89,7 @@ class="featured-image"
 <?php endif; ?>
 
 <div class="isi-artikel">
-<?= nl2br(htmlspecialchars($artikel['deskripsi'])) ?>
+<?= nl2br($artikel['deskripsi']) ?>
 </div>
 
 <a href="/blog.php" class="btn-kembali">
@@ -146,7 +102,7 @@ class="featured-image"
 <aside class="artikel-sidebar">
 
 <div class="sidebar-section">
-<h2>Artikel Terbaru</h2>
+<h3>Artikel Terbaru</h3>
 
 <?php foreach ($recentPosts as $recent): ?>
 <div class="recent-post-item">
