@@ -63,7 +63,9 @@ $products = $stmt->fetchAll();
   <div class="container">
 
     <div class="logo">
-      <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+        <a href="/index.php">
+            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+        </a>
     </div>
 
     <nav class="navbar" id="navbar">

@@ -57,12 +57,12 @@ if (isset($_POST['kirim'])) {
 <header class="header">
   <div class="container">
 
-    <!-- Logo -->
     <div class="logo">
-      <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+        <a href="/index.php">
+            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+        </a>
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
       <a href="/index.php">Beranda</a>
       <a href="/about.php">Tentang Kami</a>
@@ -72,7 +72,6 @@ if (isset($_POST['kirim'])) {
       <a href="/blog.php">Blog & Artikel</a>
     </nav>
 
-    <!-- Hamburger -->
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>

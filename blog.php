@@ -49,30 +49,32 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 <header class="header">
-<div class="container">
+  <div class="container">
 
-<div class="logo">
-<img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
-</div>
+    <div class="logo">
+        <a href="/index.php">
+            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+        </a>
+    </div>
 
-<nav class="navbar" id="navbar">
-<a href="/index.php">Beranda</a>
-<a href="/about.php">Tentang Kami</a>
-<a href="/produk.php">Produk</a>
-<a href="/layanan.php">Layanan Purna Jual</a>
-<a href="/kontak.php">Hubungi Kami</a>
-<a href="/blog.php" class="active">Blog & Artikel</a>
-</nav>
+    <nav class="navbar" id="navbar">
+      <a href="/index.php">Beranda</a>
+      <a href="/about.php">Tentang Kami</a>
+      <a href="/produk.php">Produk</a>
+      <a href="/aftersales.php">Layanan Purna Jual</a>
+      <a href="/contact.php">Hubungi Kami</a>
+      <a href="/blog.php" class="active">Blog & Artikel</a>
+    </nav>
 
-<div class="hamburger" id="hamburger">
-<span></span>
-<span></span>
-<span></span>
-</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-</div>
+  </div>
 </header>
 
 <!-- HERO -->
