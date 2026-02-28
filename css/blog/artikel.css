@@ -1,177 +1,212 @@
-/* ================================
-   Filter & Pagination
-   ================================ */
+/* =================================
+   THEME COLOR (Corporate Blue)
+================================= */
+
+:root {
+  --primary: #1e293b; /* navy gelap */
+  --accent: #2563eb; /* biru brand */
+  --accent-hover: #1d4ed8;
+
+  --bg-light: #f8fafc;
+  --bg-soft: #eef2f7;
+
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+
+  --border: #e2e8f0;
+}
+
+/* =================================
+   FILTER & PAGINATION
+================================= */
+
 .blog-filter {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
 }
+
 .blog-filter input,
 .blog-filter select {
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 14px;
 }
+
 .blog-filter button {
-  padding: 10px 20px;
-  background-color: #007e33;
+  padding: 10px 18px;
+  background-color: var(--accent);
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s ease;
 }
+
+.blog-filter button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Pagination */
 
 .pagination {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 30px;
+  margin-top: 40px;
 }
+
 .pagination a {
-  padding: 8px 16px;
-  background: #eee;
+  padding: 8px 14px;
+  background: var(--bg-soft);
   text-decoration: none;
   border-radius: 6px;
-  color: #333;
+  color: var(--text-main);
+  font-size: 14px;
+  transition: 0.3s ease;
 }
-.pagination a.active {
-  background-color: #007e33;
+
+.pagination a:hover {
+  background: var(--accent);
   color: #fff;
 }
 
-/* ================================
-   Artikel List (Grid & Card)
-   ================================ */
+.pagination a.active {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* =================================
+   BLOG SECTION
+================================= */
+
 .content-section {
-  padding: 60px 20px;
-  background: linear-gradient(180deg, #f7f7f7 0%, #e8f5e9 100%);
+  padding: 70px 20px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
 }
 
 .blog-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 30px;
-  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* =================================
+   BLOG CARD
+================================= */
+
 .blog-post {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 14px;
   overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
   display: flex;
   flex-direction: column;
-  width: 300px;
-  min-height: 480px;
-  position: relative;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-.blog-post:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-}
-.blog-post img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-.blog-post h2 {
-  font-size: 18px;
-  color: #333;
-  margin: 20px 20px 10px 20px;
-  font-weight: 700;
-  line-height: 1.4;
-  min-height: 56px;
-}
-.blog-post h2 a {
-  text-decoration: none;
-  color: #333;
-  position: relative;
-  z-index: 2;
-}
-.blog-post h2 a:hover {
-  color: #007bff;
-}
-.blog-post p {
-  font-size: 14px;
-  color: #555;
-  margin: 0 20px 20px 20px;
-  line-height: 1.6;
-  flex-grow: 1;
-  min-height: 72px;
+  transition: all 0.3s ease;
 }
 
-/* ================================
-   READ MORE BUTTON
-================================ */
+.blog-post:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.blog-post img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+/* =================================
+   BLOG CONTENT
+================================= */
 
 .blog-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-
-.blog-content p {
+  padding: 22px;
   flex-grow: 1;
 }
 
-.read-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  margin: 0 20px 20px 20px;
-
-  padding: 8px 16px;
-
+.blog-date {
   font-size: 13px;
-  font-weight: 600;
-
-  background: linear-gradient(135deg, #007b45, #009e5c);
-  color: #fff;
-
-  border-radius: 30px;
-  text-decoration: none;
-
-  transition: all 0.3s ease;
+  color: var(--text-muted);
+  margin-bottom: 8px;
 }
 
+.blog-post h2 {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.blog-post h2 a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: 0.3s ease;
+}
+
+.blog-post h2 a:hover {
+  color: var(--accent);
+}
+
+.blog-post p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+/* =================================
+   READ MORE (Simple & Elegant)
+================================= */
+
+.read-more {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  width: fit-content;
+  transition: 0.3s ease;
+}
+
+/* underline animation */
 .read-more::after {
-  content: "→";
-  transition: transform 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
 }
 
 .read-more:hover {
-  background: linear-gradient(135deg, #005e35, #007b45);
-  box-shadow: 0 6px 18px rgba(0, 123, 69, 0.35);
+  color: var(--accent-hover);
 }
 
 .read-more:hover::after {
-  transform: translateX(4px);
+  width: 100%;
 }
 
-.blog-post a.full-link {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  text-indent: -9999px;
-  overflow: hidden;
-}
+/* =================================
+   ARTICLE DETAIL
+================================= */
 
-/* ================================
-   Artikel Detail
-   ================================ */
 .detail-artikel {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-  font-family: "Segoe UI", sans-serif;
+  padding: 60px 20px;
+  background-color: var(--bg-light);
 }
+
 .detail-artikel .container {
   max-width: 1200px;
   margin: auto;
@@ -186,157 +221,106 @@
 .artikel-main {
   flex: 1 1 65%;
   background-color: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
 }
+
 .artikel-main h1 {
-  font-size: 28px;
+  font-size: 30px;
   margin-bottom: 15px;
-  color: #333;
+  color: var(--primary);
 }
+
 .artikel-main .featured-image {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
 }
+
 .isi-artikel p {
   font-size: 16px;
-  color: #444;
-  margin-bottom: 1.5em;
-  line-height: 1.8;
+  color: var(--text-main);
+  margin-bottom: 1.6em;
+  line-height: 1.9;
 }
 
 .btn-kembali {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 25px;
   text-decoration: none;
-  background-color: #007b45;
+  background-color: var(--accent);
   color: #fff;
-  padding: 10px 18px;
-  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
   font-size: 14px;
-  transition: background 0.3s;
-}
-.btn-kembali:hover {
-  background-color: #005e35;
+  transition: 0.3s ease;
 }
 
-/* Sidebar */
+.btn-kembali:hover {
+  background-color: var(--accent-hover);
+}
+
+/* =================================
+   SIDEBAR
+================================= */
+
 .artikel-sidebar {
   flex: 1 1 30%;
 }
+
 .sidebar-section {
   background-color: #fff;
-  padding: 20px;
+  padding: 22px;
   margin-bottom: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
 }
+
 .sidebar-section h3 {
   margin-bottom: 15px;
   font-size: 18px;
-  color: #007b45;
-  border-bottom: 2px solid #007b45;
-  padding-bottom: 5px;
+  color: var(--primary);
 }
+
 .sidebar-section ul {
   list-style: none;
   padding-left: 0;
 }
+
 .sidebar-section ul li {
   margin-bottom: 10px;
 }
+
 .sidebar-section ul li a {
   text-decoration: none;
-  color: #333;
-  transition: color 0.3s;
+  color: var(--text-muted);
+  transition: 0.3s ease;
 }
+
 .sidebar-section ul li a:hover {
-  color: #007b45;
+  color: var(--accent);
 }
 
-/* Related Posts */
-.related-posts {
-  margin-top: 60px;
-}
-.related-posts h2 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: #007b45;
-  border-bottom: 2px solid #007b45;
-  padding-bottom: 6px;
-}
-.related-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.related-item {
-  flex: 1 1 calc(33.333% - 20px);
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s;
-}
-.related-item:hover {
-  transform: translateY(-5px);
-}
-.related-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-.related-item strong {
-  display: block;
-  font-size: 15px;
-  color: #333;
-}
+/* =================================
+   RESPONSIVE
+================================= */
 
-/* ================================
-   Responsive
-   ================================ */
 @media (max-width: 992px) {
   .artikel-main,
   .artikel-sidebar {
     flex: 1 1 100%;
   }
-  .related-item {
-    flex: 1 1 45%;
-  }
-  .artikel-main h1 {
-    font-size: 24px;
-  }
 }
+
 @media (max-width: 600px) {
-  .detail-artikel {
-    padding: 30px 15px;
-  }
-  .artikel-main {
-    padding: 20px;
-  }
   .artikel-main h1 {
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-size: 22px;
   }
-  .isi-artikel p {
-    font-size: 15px;
-  }
-  .btn-kembali {
-    font-size: 13px;
-    padding: 8px 14px;
-  }
-  .sidebar-section h3 {
-    font-size: 16px;
-  }
-  .related-item {
-    flex: 1 1 100%;
-    padding: 12px;
-  }
-  .related-posts h2 {
-    font-size: 20px;
+
+  .blog-post img {
+    height: 160px;
   }
 }
