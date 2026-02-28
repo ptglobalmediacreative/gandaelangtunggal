@@ -22,7 +22,13 @@ if (!$artikel) {
     exit;
 }
 
-/* ================= HANDLE COMMENT SUBMIT ================= */
+/* ================= CURRENT URL FOR SHARE ================= */
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+$currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$encodedUrl = urlencode($currentUrl);
+$encodedTitle = urlencode($artikel['judul']);
+
+/* ================= HANDLE COMMENT ================= */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_komentar'])) {
 
     $nama  = trim($_POST['nama']);
@@ -48,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_komentar'])) {
     }
 }
 
-/* ================= AMBIL KOMENTAR ================= */
+/* ================= GET COMMENTS ================= */
 $commentStmt = $pdo->prepare("
     SELECT * FROM komentar
     WHERE artikel_id = ?
@@ -104,6 +110,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <a href="/contact.php">Hubungi Kami</a>
 <a href="/blog.php" class="active">Blog & Artikel</a>
 </nav>
+
+<!-- Hamburger -->
+<div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 </div>
 </header>
 
@@ -132,20 +145,37 @@ class="artikel-featured-image">
 <?= nl2br(htmlspecialchars($artikel['deskripsi'])) ?>
 </div>
 
+<!-- PREMIUM SHARE SYSTEM -->
 <div class="artikel-share">
 <span>Bagikan:</span>
-<a href="#" class="share-btn fb"><i class="fab fa-facebook-f"></i></a>
-<a href="#" class="share-btn tw"><i class="fab fa-twitter"></i></a>
-<a href="#" class="share-btn wa"><i class="fab fa-whatsapp"></i></a>
+
+<a onclick="sharePopup('https://www.facebook.com/sharer/sharer.php?u=<?= $encodedUrl ?>')" class="share-btn fb">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a onclick="sharePopup('https://twitter.com/intent/tweet?text=<?= $encodedTitle ?>&url=<?= $encodedUrl ?>')" class="share-btn tw">
+<i class="fab fa-twitter"></i>
+</a>
+
+<a href="https://api.whatsapp.com/send?text=<?= $encodedTitle ?>%20<?= $encodedUrl ?>" target="_blank" class="share-btn wa">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<a onclick="copyLink()" class="share-btn copy">
+<i class="fa fa-link"></i>
+</a>
+
+<a onclick="nativeShare()" class="share-btn native">
+<i class="fa fa-share-alt"></i>
+</a>
+
 </div>
 
 </article>
 
-<!-- ================= SIDEBAR ================= -->
+<!-- SIDEBAR -->
 <aside class="artikel-sidebar">
-
 <h3>Artikel Terbaru</h3>
-
 <?php foreach ($recentPosts as $recent): ?>
 <div class="sidebar-item">
 <a href="/artikel/<?= htmlspecialchars($recent['slug']) ?>">
@@ -156,20 +186,17 @@ class="artikel-featured-image">
 </a>
 </div>
 <?php endforeach; ?>
-
 </aside>
 
 </div>
 </div>
 </section>
 
-
-<!-- ================= COMMENT SECTION ================= -->
+<!-- ================= COMMENT ================= -->
 <section class="comment-section">
-
 <div class="comment-container">
 
-<h2>Leave a Comment</h2>
+<h2>Diskusi Artikel</h2>
 
 <form method="POST" class="comment-form">
 
@@ -188,19 +215,15 @@ Kirim Komentar
 
 <?php if (!empty($comments)): ?>
 <div class="comment-list">
-
 <h3><?= count($comments) ?> Komentar</h3>
 
 <?php foreach ($comments as $comment): ?>
 <div class="comment-item">
-
 <div class="comment-header">
 <strong><?= htmlspecialchars($comment['nama']) ?></strong>
 <span><?= date('d M Y', strtotime($comment['created_at'])) ?></span>
 </div>
-
 <p><?= nl2br(htmlspecialchars($comment['pesan'])) ?></p>
-
 </div>
 <?php endforeach; ?>
 
@@ -212,7 +235,28 @@ Kirim Komentar
 
 <?php include "footer.php"; ?>
 
-<script src="/js/detail-artikel.js"></script>
+<script>
+function sharePopup(url) {
+    window.open(url, 'shareWindow',
+        'height=500,width=600,left=300,top=200,resizable=yes');
+}
+
+function copyLink() {
+    navigator.clipboard.writeText("<?= $currentUrl ?>");
+    alert("Link berhasil disalin!");
+}
+
+function nativeShare() {
+    if (navigator.share) {
+        navigator.share({
+            title: "<?= htmlspecialchars($artikel['judul']) ?>",
+            url: "<?= $currentUrl ?>"
+        });
+    } else {
+        alert("Browser tidak mendukung fitur share ini.");
+    }
+}
+</script>
 
 </body>
 </html>

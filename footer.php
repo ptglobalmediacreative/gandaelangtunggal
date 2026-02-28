@@ -96,6 +96,7 @@
 </footer>
 
 <script src="/js/headbar.js"></script>
+<script src="/js/detail-artikel.js"></script>
 <script src="/js/product-detail.js"></script>
 </body>
 </html>
