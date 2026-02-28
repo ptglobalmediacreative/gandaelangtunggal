@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__ . "/admin/config.php";
 
-if (!isset($_GET['slug']) || empty($_GET['slug'])) {
+$slug = isset($_GET['slug']) ? trim($_GET['slug']) : '';
+
+if ($slug === '') {
     header("Location: /blog.php");
     exit;
 }
-
-$slug = $_GET['slug'];
 
 /* ================= AMBIL ARTIKEL ================= */
 $stmt = $pdo->prepare("
@@ -23,7 +23,14 @@ if (!$artikel) {
     exit;
 }
 
-/* ================= SIDEBAR ================= */
+/* ================= META ================= */
+$meta_desc = mb_strimwidth(strip_tags($artikel['deskripsi']), 0, 155, '...');
+$articleUrl = "https://gandaelang.co.id/artikel/" . urlencode($artikel['slug']);
+$articleImage = !empty($artikel['gambar'])
+    ? "https://gandaelang.co.id/images/uploads/artikel/" . $artikel['gambar']
+    : "https://gandaelang.co.id/images/favicon.webp";
+
+/* ================= RECENT POSTS ================= */
 $recentStmt = $pdo->prepare("
     SELECT judul, slug, gambar
     FROM artikel
@@ -34,7 +41,7 @@ $recentStmt = $pdo->prepare("
 $recentStmt->execute([$slug]);
 $recentPosts = $recentStmt->fetchAll(PDO::FETCH_ASSOC);
 
-/* ================= RELATED (3 TERBARU SELAIN INI) ================= */
+/* ================= RELATED POSTS ================= */
 $relatedStmt = $pdo->prepare("
     SELECT judul, slug, gambar, deskripsi
     FROM artikel
@@ -45,7 +52,6 @@ $relatedStmt = $pdo->prepare("
 $relatedStmt->execute([$slug]);
 $relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -53,35 +59,70 @@ $relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title><?= htmlspecialchars($artikel['judul']) ?> - PT Ganda Elang Tangguh</title>
+<meta name="description" content="<?= htmlspecialchars($meta_desc) ?>">
+<link rel="canonical" href="<?= $articleUrl ?>">
 
+<!-- Open Graph -->
+<meta property="og:title" content="<?= htmlspecialchars($artikel['judul']) ?>">
+<meta property="og:description" content="<?= htmlspecialchars($meta_desc) ?>">
+<meta property="og:image" content="<?= $articleImage ?>">
+<meta property="og:url" content="<?= $articleUrl ?>">
+<meta property="og:type" content="article">
+
+<!-- CSS -->
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog/artikel.css">
 <link rel="stylesheet" href="/css/footer.css">
-<link rel="icon" type="image/webp" href="/images/favicon.webp">
+<link rel="icon" href="/images/favicon.webp">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
 
+<!-- SCHEMA -->
+<script type="application/ld+json">
+<?= json_encode([
+    "@context" => "https://schema.org",
+    "@type" => "BlogPosting",
+    "headline" => $artikel['judul'],
+    "description" => $meta_desc,
+    "image" => $articleImage,
+    "datePublished" => $artikel['created_at'],
+    "dateModified" => $artikel['created_at'],
+    "author" => [
+        "@type" => "Organization",
+        "name" => "PT Ganda Elang Tangguh"
+    ],
+    "publisher" => [
+        "@type" => "Organization",
+        "name" => "PT Ganda Elang Tangguh",
+        "logo" => [
+            "@type" => "ImageObject",
+            "url" => "https://gandaelang.co.id/images/favicon.webp"
+        ]
+    ],
+    "mainEntityOfPage" => $articleUrl
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+</script>
+
+</head>
 <body>
 
 <?php include "header.php"; ?>
 
 <section class="detail-artikel">
 <div class="container">
-
 <div class="artikel-wrapper">
 
 <!-- ================= MAIN ================= -->
-<article class="artikel-main">
+<div class="artikel-main">
 
 <h1><?= htmlspecialchars($artikel['judul']) ?></h1>
 
-<div class="blog-date">
+<p class="blog-date">
 <i class="fa fa-calendar"></i>
 <?= date('d F Y', strtotime($artikel['created_at'])) ?>
-</div>
+</p>
 
 <?php if (!empty($artikel['gambar'])): ?>
 <img
@@ -99,13 +140,13 @@ class="featured-image"
 ← Kembali ke Blog
 </a>
 
-</article>
+</div>
 
 <!-- ================= SIDEBAR ================= -->
 <aside class="artikel-sidebar">
 
 <div class="sidebar-section">
-<h3>Artikel Terbaru</h3>
+<h2>Artikel Terbaru</h2>
 
 <?php foreach ($recentPosts as $recent): ?>
 <div class="recent-post-item">
@@ -119,7 +160,7 @@ alt="<?= htmlspecialchars($recent['judul']) ?>"
 </a>
 <?php endif; ?>
 
-<a href="/artikel/<?= htmlspecialchars($recent['slug']) ?>" class="recent-title">
+<a href="/artikel/<?= htmlspecialchars($recent['slug']) ?>">
 <?= htmlspecialchars($recent['judul']) ?>
 </a>
 
@@ -133,14 +174,13 @@ alt="<?= htmlspecialchars($recent['judul']) ?>"
 </div>
 
 <!-- ================= RELATED ================= -->
-<?php if (!empty($relatedPosts)): ?>
 <section class="related-posts">
 <h2>Artikel Lainnya</h2>
 
 <div class="related-list">
 
 <?php foreach ($relatedPosts as $rel): ?>
-<article class="related-item">
+<div class="related-item">
 <a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
 
 <?php if (!empty($rel['gambar'])): ?>
@@ -151,15 +191,14 @@ alt="<?= htmlspecialchars($rel['judul']) ?>"
 <?php endif; ?>
 
 <h3><?= htmlspecialchars($rel['judul']) ?></h3>
-<p><?= mb_substr(strip_tags($rel['deskripsi']), 0, 80) ?>...</p>
+<p><?= mb_strimwidth(strip_tags($rel['deskripsi']), 0, 100, '...') ?></p>
 
 </a>
-</article>
+</div>
 <?php endforeach; ?>
 
 </div>
 </section>
-<?php endif; ?>
 
 </div>
 </section>
