@@ -41,7 +41,8 @@ $recentPosts = $recentStmt->fetchAll();
 <title><?= htmlspecialchars($artikel['judul']) ?> - PT Ganda Elang Tangguh</title>
 
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/blog/artikel.css">
+<link rel="stylesheet" href="/css/blog/detail-navbar.css">
+<link rel="stylesheet" href="/css/blog/detail-artikel.css">
 <link rel="stylesheet" href="/css/footer.css">
 
 <link rel="icon" href="/images/favicon.webp">
@@ -49,16 +50,38 @@ $recentPosts = $recentStmt->fetchAll();
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
 
-<?php include "header.php"; ?>
+<body class="navbar-sticky">
+
+<header class="header">
+    <div class="container">
+
+        <div class="logo">
+            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+        </div>
+
+        <nav class="navbar" id="navbar">
+            <a href="/index.php">Beranda</a>
+            <a href="/about.php">Tentang Kami</a>
+            <a href="/produk.php">Produk</a>
+            <a href="/aftersales.php">Layanan Purna Jual</a>
+            <a href="/contact.php">Hubungi Kami</a>
+            <a href="/blog.php" class="active">Blog & Artikel</a>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+</header>
 
 <section class="artikel-detail-section">
 <div class="artikel-container">
-
 <div class="artikel-layout">
 
-<!-- MAIN -->
 <article class="artikel-main">
 
 <h1><?= htmlspecialchars($artikel['judul']) ?></h1>
@@ -81,12 +104,11 @@ class="artikel-image"
 </div>
 
 <a href="/blog.php" class="btn-back">
-Kembali ke Blog
+← Kembali ke Blog
 </a>
 
 </article>
 
-<!-- SIDEBAR -->
 <aside class="artikel-sidebar">
 
 <h3>Artikel Terbaru</h3>
@@ -110,13 +132,12 @@ Kembali ke Blog
 </aside>
 
 </div>
-
 </div>
 </section>
 
 <?php include "footer.php"; ?>
 
-<script src="/js/detail-artikel.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>

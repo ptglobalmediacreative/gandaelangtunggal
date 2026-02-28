@@ -1,0 +1,40 @@
+/* ================= NAVBAR KHUSUS DETAIL ARTIKEL ================= */
+
+body.navbar-sticky {
+  padding-top: 110px;
+}
+
+body.navbar-sticky .header {
+  background: #ffffff !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  padding: 14px 0 !important;
+}
+
+body.navbar-sticky .header::after {
+  opacity: 1 !important;
+}
+
+body.navbar-sticky .logo img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+body.navbar-sticky .navbar a {
+  color: #111111 !important;
+}
+
+body.navbar-sticky .navbar a:hover {
+  color: #000;
+}
+
+body.navbar-sticky .hamburger span {
+  background: #1f2933 !important;
+}
+
+body.navbar-sticky .header:hover {
+  background: #ffffff !important;
+}
+
+body.navbar-sticky .header.scrolled {
+  background: #ffffff !important;
+  padding: 14px 0 !important;
+}
