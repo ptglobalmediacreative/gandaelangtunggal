@@ -41,7 +41,7 @@ $recentPosts = $recentStmt->fetchAll();
 <title><?= htmlspecialchars($artikel['judul']) ?> - PT Ganda Elang Tangguh</title>
 
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/blog/detail-artikel.css">
+<link rel="stylesheet" href="/css/blog/artikel.css">
 <link rel="stylesheet" href="/css/footer.css">
 
 <link rel="icon" href="/images/favicon.webp">
