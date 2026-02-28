@@ -22,6 +22,42 @@ if (!$artikel) {
     exit;
 }
 
+/* ================= HANDLE COMMENT SUBMIT ================= */
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_komentar'])) {
+
+    $nama  = trim($_POST['nama']);
+    $email = trim($_POST['email']);
+    $pesan = trim($_POST['pesan']);
+
+    if ($nama && $email && $pesan) {
+
+        $insert = $pdo->prepare("
+            INSERT INTO komentar (artikel_id, nama, email, pesan)
+            VALUES (?, ?, ?, ?)
+        ");
+
+        $insert->execute([
+            $artikel['id'],
+            $nama,
+            $email,
+            $pesan
+        ]);
+
+        header("Location: " . $_SERVER['REQUEST_URI']);
+        exit;
+    }
+}
+
+/* ================= AMBIL KOMENTAR ================= */
+$commentStmt = $pdo->prepare("
+    SELECT * FROM komentar
+    WHERE artikel_id = ?
+    ORDER BY created_at DESC
+");
+$commentStmt->execute([$artikel['id']]);
+$comments = $commentStmt->fetchAll(PDO::FETCH_ASSOC);
+
+/* ================= RECENT ================= */
 $recentStmt = $pdo->prepare("
     SELECT judul, slug, gambar
     FROM artikel
@@ -31,16 +67,6 @@ $recentStmt = $pdo->prepare("
 ");
 $recentStmt->execute([$slug]);
 $recentPosts = $recentStmt->fetchAll(PDO::FETCH_ASSOC);
-
-$relatedStmt = $pdo->prepare("
-    SELECT judul, slug, gambar, deskripsi
-    FROM artikel
-    WHERE slug != ?
-    ORDER BY created_at DESC
-    LIMIT 3
-");
-$relatedStmt->execute([$slug]);
-$relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +80,6 @@ $relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog/detail-navbar.css">
 <link rel="stylesheet" href="/css/blog/detail-artikel.css">
-<link rel="stylesheet" href="/css/blog/artikel.css">
 <link rel="stylesheet" href="/css/footer.css">
 
 <link rel="icon" href="/images/favicon.webp">
@@ -82,13 +107,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 </header>
 
-<!-- ARTICLE SECTION -->
+<!-- ================= ARTICLE ================= -->
 <section class="artikel-wrapper-section">
 <div class="artikel-container">
-
 <div class="artikel-layout">
 
-<!-- MAIN -->
 <article class="artikel-main">
 
 <h1><?= htmlspecialchars($artikel['judul']) ?></h1>
@@ -106,7 +129,7 @@ class="artikel-featured-image">
 <?php endif; ?>
 
 <div class="artikel-content">
-<?= nl2br($artikel['deskripsi']) ?>
+<?= nl2br(htmlspecialchars($artikel['deskripsi'])) ?>
 </div>
 
 <div class="artikel-share">
@@ -118,22 +141,19 @@ class="artikel-featured-image">
 
 </article>
 
-<!-- SIDEBAR -->
+<!-- ================= SIDEBAR ================= -->
 <aside class="artikel-sidebar">
 
 <h3>Artikel Terbaru</h3>
 
 <?php foreach ($recentPosts as $recent): ?>
 <div class="sidebar-item">
-
 <a href="/artikel/<?= htmlspecialchars($recent['slug']) ?>">
 <img src="/images/uploads/artikel/<?= htmlspecialchars($recent['gambar']) ?>">
 </a>
-
 <a href="/artikel/<?= htmlspecialchars($recent['slug']) ?>" class="sidebar-title">
 <?= htmlspecialchars($recent['judul']) ?>
 </a>
-
 </div>
 <?php endforeach; ?>
 
@@ -143,51 +163,52 @@ class="artikel-featured-image">
 </div>
 </section>
 
-<!-- RELATED -->
-<?php if (!empty($relatedPosts)): ?>
-<section class="content-section">
-  <div class="blog-grid">
 
-    <?php foreach ($relatedPosts as $rel): ?>
-      <div class="blog-post">
+<!-- ================= COMMENT SECTION ================= -->
+<section class="comment-section">
 
-        <a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
-          <img 
-            src="/images/uploads/artikel/<?= htmlspecialchars($rel['gambar']) ?>" 
-            alt="<?= htmlspecialchars($rel['judul']) ?>"
-            loading="lazy"
-          >
-        </a>
+<div class="comment-container">
 
-        <div class="blog-content">
+<h2>Leave a Comment</h2>
 
-          <span class="blog-date">
-            <i class="fa fa-calendar"></i>
-            <?= date('d M Y', strtotime($rel['created_at'] ?? $artikel['created_at'])) ?>
-          </span>
+<form method="POST" class="comment-form">
 
-          <h2>
-            <a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
-              <?= htmlspecialchars($rel['judul']) ?>
-            </a>
-          </h2>
+<div class="form-row">
+<input type="text" name="nama" placeholder="Nama Anda" required>
+<input type="email" name="email" placeholder="Email Anda" required>
+</div>
 
-          <p>
-            <?= mb_strimwidth(strip_tags($rel['deskripsi']), 0, 110, '...') ?>
-          </p>
+<textarea name="pesan" rows="5" placeholder="Tulis komentar Anda..." required></textarea>
 
-          <a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>" class="read-more">
-            Baca Selengkapnya
-          </a>
+<button type="submit" name="kirim_komentar">
+Kirim Komentar
+</button>
 
-        </div>
+</form>
 
-      </div>
-    <?php endforeach; ?>
+<?php if (!empty($comments)): ?>
+<div class="comment-list">
 
-  </div>
-</section>
+<h3><?= count($comments) ?> Komentar</h3>
+
+<?php foreach ($comments as $comment): ?>
+<div class="comment-item">
+
+<div class="comment-header">
+<strong><?= htmlspecialchars($comment['nama']) ?></strong>
+<span><?= date('d M Y', strtotime($comment['created_at'])) ?></span>
+</div>
+
+<p><?= nl2br(htmlspecialchars($comment['pesan'])) ?></p>
+
+</div>
+<?php endforeach; ?>
+
+</div>
 <?php endif; ?>
+
+</div>
+</section>
 
 <?php include "footer.php"; ?>
 
