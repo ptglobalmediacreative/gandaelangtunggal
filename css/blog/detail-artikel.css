@@ -10,7 +10,7 @@ body {
 /* ================= MAIN WRAPPER ================= */
 
 .artikel-wrapper-section {
-  padding: 120px 20px 80px;
+  padding: 15px 15px 15px;
 }
 
 .artikel-container {
@@ -142,7 +142,7 @@ body {
 /* ================= SIDEBAR ================= */
 
 .artikel-sidebar {
-  padding-top: 10px;
+  padding-top: 80px;
 }
 
 .artikel-sidebar h3 {
