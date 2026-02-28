@@ -252,7 +252,6 @@ $latestArtikel = $stmt->fetchAll();
       <p>Informasi, tips, dan berita terbaru seputar alat berat & industri</p>
     </div>
 
-    <!-- Blog Cards -->
     <div class="blog-grid">
 
       <?php if (!empty($latestArtikel)): ?>
@@ -260,14 +259,17 @@ $latestArtikel = $stmt->fetchAll();
 
         <div class="blog-card fade-blog">
 
-          <div class="blog-image">
-            <?php if (!empty($row['gambar'])): ?>
-              <img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']); ?>"
-                   alt="<?= htmlspecialchars($row['judul']); ?>">
-            <?php else: ?>
-              <img src="/images/hero.jpg" alt="Default Image">
-            <?php endif; ?>
-          </div>
+          <!-- Image clickable -->
+          <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>">
+            <div class="blog-image">
+              <?php if (!empty($row['gambar'])): ?>
+                <img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']); ?>"
+                     alt="<?= htmlspecialchars($row['judul']); ?>">
+              <?php else: ?>
+                <img src="/images/hero.jpg" alt="Default Image">
+              <?php endif; ?>
+            </div>
+          </a>
 
           <div class="blog-content">
 
@@ -276,12 +278,18 @@ $latestArtikel = $stmt->fetchAll();
               <?= date('d F Y', strtotime($row['created_at'])); ?>
             </span>
 
-            <h3><?= htmlspecialchars($row['judul']); ?></h3>
+            <!-- Judul clickable -->
+            <h3>
+              <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>" class="blog-title-link">
+                <?= htmlspecialchars($row['judul']); ?>
+              </a>
+            </h3>
 
             <p>
               <?= mb_substr(strip_tags($row['deskripsi']), 0, 100); ?>...
             </p>
 
+            <!-- Read More -->
             <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>" class="read-more">
               Baca Selengkapnya
             </a>
@@ -305,6 +313,5 @@ $latestArtikel = $stmt->fetchAll();
   </div>
 
 </section>
-
 
 <?php include "footer.php"; ?>
