@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . "/admin/config.php";
 
-/* Ambil 3 artikel terbaru */
 $stmt = $pdo->prepare("
     SELECT judul, slug, deskripsi, gambar, created_at
     FROM artikel
@@ -9,7 +8,7 @@ $stmt = $pdo->prepare("
     LIMIT 3
 ");
 $stmt->execute();
-$latestArtikel = $stmt->fetchAll();
+$artikel = $stmt->fetchAll();
 ?>
 
 <?php include "header.php"; ?>
@@ -244,53 +243,49 @@ $latestArtikel = $stmt->fetchAll();
 <!-- ================= BLOG SECTION ================= -->
 <section class="home-blog">
 
-  <div class="blog-container">
+  <div class="container">
 
     <!-- Title -->
-    <div class="blog-header fade-blog">
+    <div class="blog-header" style="text-align:center; margin-bottom:50px;">
       <h2>Blog & Artikel Terbaru</h2>
       <p>Informasi, tips, dan berita terbaru seputar alat berat & industri</p>
     </div>
 
     <div class="blog-grid">
 
-      <?php if (!empty($latestArtikel)): ?>
-        <?php foreach ($latestArtikel as $row): ?>
+      <?php if (!empty($artikel)): ?>
+        <?php foreach ($artikel as $row): ?>
 
-        <div class="blog-card fade-blog">
+        <div class="blog-post">
 
-          <!-- Image clickable -->
-          <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>">
-            <div class="blog-image">
-              <?php if (!empty($row['gambar'])): ?>
-                <img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']); ?>"
-                     alt="<?= htmlspecialchars($row['judul']); ?>">
-              <?php else: ?>
-                <img src="/images/hero.jpg" alt="Default Image">
-              <?php endif; ?>
-            </div>
+          <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>">
+            <?php if (!empty($row['gambar'])): ?>
+              <img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']) ?>"
+                   alt="<?= htmlspecialchars($row['judul']) ?>"
+                   loading="lazy">
+            <?php else: ?>
+              <img src="/images/hero.jpg" alt="Default Image">
+            <?php endif; ?>
           </a>
 
           <div class="blog-content">
 
             <span class="blog-date">
-              <i class="fa-regular fa-calendar"></i>
-              <?= date('d F Y', strtotime($row['created_at'])); ?>
+              <i class="fa fa-calendar"></i>
+              <?= date('d M Y', strtotime($row['created_at'])) ?>
             </span>
 
-            <!-- Judul clickable -->
-            <h3>
-              <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>" class="blog-title-link">
-                <?= htmlspecialchars($row['judul']); ?>
+            <h2>
+              <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>">
+                <?= htmlspecialchars($row['judul']) ?>
               </a>
-            </h3>
+            </h2>
 
             <p>
-              <?= mb_substr(strip_tags($row['deskripsi']), 0, 100); ?>...
+              <?= mb_substr(strip_tags($row['deskripsi']), 0, 120) ?>...
             </p>
 
-            <!-- Read More -->
-            <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>" class="read-more">
+            <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>" class="read-more">
               Baca Selengkapnya
             </a>
 
@@ -306,8 +301,10 @@ $latestArtikel = $stmt->fetchAll();
     </div>
 
     <!-- Button -->
-    <div class="blog-more fade-blog">
-      <a href="/blog.php" class="btn-blog">Lihat Semua Artikel</a>
+    <div style="text-align:center; margin-top:50px;">
+      <a href="/blog.php" class="btn-primary">
+        Lihat Semua Artikel
+      </a>
     </div>
 
   </div>
