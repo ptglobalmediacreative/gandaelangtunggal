@@ -15,12 +15,12 @@ if (!isset($_SESSION['admin_id'])) {
 }
 
 /* AMBIL DATA ARTIKEL */
-$stmt = $pdo->query("
-    SELECT *
+$stmt = $pdo->prepare("
+    SELECT id, judul, slug, deskripsi, gambar, created_at, updated_at
     FROM artikel
     ORDER BY created_at DESC
 ");
-
+$stmt->execute();
 $artikel = $stmt->fetchAll();
 ?>
 
@@ -38,7 +38,7 @@ $artikel = $stmt->fetchAll();
 
         <span class="admin-name">
             <i class="fa-solid fa-user"></i>
-            <?= $_SESSION['admin_nama']; ?>
+            <?= htmlspecialchars($_SESSION['admin_nama']); ?>
         </span>
 
         <a href="logout.php" class="logout-btn">
@@ -50,7 +50,6 @@ $artikel = $stmt->fetchAll();
 
 </div>
 
-
 <!-- CONTENT -->
 <div class="card">
 
@@ -60,11 +59,10 @@ $artikel = $stmt->fetchAll();
     <h3>Daftar Artikel</h3>
 
     <a href="artikel-tambah.php" class="btn-primary">
-     Tambah Artikel
+        Tambah Artikel
     </a>
 
 </div>
-
 
 <!-- TABLE -->
 <div class="table-wrapper">
@@ -76,29 +74,29 @@ $artikel = $stmt->fetchAll();
     <th width="50">No</th>
     <th width="90">Gambar</th>
     <th>Judul</th>
+    <th>Slug</th>
     <th>Deskripsi</th>
-    <th width="160">Tanggal</th>
+    <th width="160">Tanggal Dibuat</th>
+    <th width="160">Terakhir Update</th>
     <th width="160">Aksi</th>
 </tr>
 </thead>
 
-
 <tbody>
 
-<?php if($artikel): ?>
+<?php if ($artikel): ?>
 
-<?php $no=1; foreach($artikel as $a): ?>
+<?php $no = 1; foreach ($artikel as $a): ?>
 
 <tr>
 
 <td><?= $no++; ?></td>
 
-
 <td>
-<?php if($a['gambar']): ?>
-<img src="../images/uploads/artikel/<?= $a['gambar']; ?>">
+<?php if (!empty($a['gambar'])): ?>
+    <img src="../images/uploads/artikel/<?= htmlspecialchars($a['gambar']); ?>" width="70">
 <?php else: ?>
--
+    -
 <?php endif; ?>
 </td>
 
@@ -106,13 +104,20 @@ $artikel = $stmt->fetchAll();
 <?= htmlspecialchars($a['judul']); ?>
 </td>
 
+<td>
+<small><?= htmlspecialchars($a['slug']); ?></small>
+</td>
 
 <td class="article-desc">
-<?= substr(strip_tags($a['deskripsi']),0,100); ?>...
+<?= mb_substr(strip_tags($a['deskripsi']), 0, 100); ?>...
 </td>
 
 <td class="article-date">
 <?= date('d M Y H:i', strtotime($a['created_at'])); ?>
+</td>
+
+<td class="article-date">
+<?= date('d M Y H:i', strtotime($a['updated_at'])); ?>
 </td>
 
 <td>
@@ -120,7 +125,7 @@ $artikel = $stmt->fetchAll();
 <div class="action-group">
 
 <!-- DETAIL -->
-<a href="artikel-detail.php?id=<?= $a['id']; ?>"
+<a href="artikel-detail.php?slug=<?= urlencode($a['slug']); ?>"
 class="btn-sm btn-info"
 title="Detail">
 <i class="fa fa-eye"></i>
@@ -152,7 +157,7 @@ onclick="return confirmDelete('<?= htmlspecialchars($a['judul']); ?>')">
 <?php else: ?>
 
 <tr>
-<td colspan="6" class="table-empty">
+<td colspan="8" class="table-empty">
 Belum ada artikel
 </td>
 </tr>
@@ -169,18 +174,14 @@ Belum ada artikel
 
 </div>
 
-
 <script>
 function confirmDelete(judul){
-
     return confirm(
         "Yakin ingin menghapus artikel ini?\n\n" +
         "Judul: " + judul
     );
-
 }
 </script>
-
 
 </body>
 </html>

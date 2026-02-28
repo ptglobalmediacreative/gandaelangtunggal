@@ -9,79 +9,97 @@ require_once __DIR__ . "/config.php";
 require_once "auth.php";
 
 /* ================= LOGIN ================= */
-
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit;
 }
 
 /* ================= CONFIG ================= */
-
 $upload_path = "../images/uploads/artikel/";
 $allowed_ext = ['jpg','jpeg','png','webp'];
 
-if(!is_dir($upload_path)){
+if (!is_dir($upload_path)) {
     mkdir($upload_path, 0777, true);
 }
 
+/* ================= SLUG GENERATOR ================= */
+function generateSlug($text) {
+    $text = strtolower($text);
+    $text = preg_replace('/[^a-z0-9\s-]/', '', $text);
+    $text = preg_replace('/[\s-]+/', '-', $text);
+    $text = trim($text, '-');
+    return $text;
+}
+
+/* ================= CEK SLUG DUPLIKAT ================= */
+function makeUniqueSlug($pdo, $slug) {
+    $original = $slug;
+    $i = 1;
+
+    while (true) {
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM artikel WHERE slug=?");
+        $stmt->execute([$slug]);
+        if ($stmt->fetchColumn() == 0) {
+            return $slug;
+        }
+        $slug = $original . '-' . $i;
+        $i++;
+    }
+}
 
 /* ================= IMAGE RESIZE + COMPRESS ================= */
-
-function resizeCompressImage($tmp, $name, $path){
+function resizeCompressImage($tmp, $name, $path) {
 
     $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
 
-    // Load image
-    if($ext == 'jpg' || $ext == 'jpeg'){
-        $src = imagecreatefromjpeg($tmp);
-    }elseif($ext == 'png'){
-        $src = imagecreatefrompng($tmp);
-    }elseif($ext == 'webp'){
-        $src = imagecreatefromwebp($tmp);
-    }else{
+    if (!in_array($ext, ['jpg','jpeg','png','webp'])) {
         return null;
     }
 
-    if(!$src) return null;
+    if ($ext == 'jpg' || $ext == 'jpeg') {
+        $src = imagecreatefromjpeg($tmp);
+    } elseif ($ext == 'png') {
+        $src = imagecreatefrompng($tmp);
+    } elseif ($ext == 'webp') {
+        $src = imagecreatefromwebp($tmp);
+    } else {
+        return null;
+    }
 
-    // Original size
+    if (!$src) return null;
+
     $w = imagesx($src);
     $h = imagesy($src);
 
-    // Max width
     $max = 1200;
 
-    if($w > $max){
+    if ($w > $max) {
         $nw = $max;
         $nh = ($h / $w) * $nw;
-    }else{
+    } else {
         $nw = $w;
         $nh = $h;
     }
 
-    // Create new image
     $new = imagecreatetruecolor($nw, $nh);
 
-    // For PNG transparent
-    if($ext == 'png'){
-        imagealphablending($new,false);
-        imagesavealpha($new,true);
+    if ($ext == 'png') {
+        imagealphablending($new, false);
+        imagesavealpha($new, true);
     }
 
     imagecopyresampled($new, $src, 0,0,0,0, $nw,$nh, $w,$h);
 
-    // File name
-    $file = time().rand(100,999).".jpg";
-    $target = $path.$file;
+    $file = time() . rand(100,999) . ".jpg";
+    $target = $path . $file;
 
-    // Compress (loop until <100KB)
     $quality = 85;
 
-    do{
+    do {
         imagejpeg($new, $target, $quality);
         $size = filesize($target);
         $quality -= 5;
-    }while($size > 100000 && $quality > 30);
+    } while ($size > 100000 && $quality > 30);
 
     imagedestroy($src);
     imagedestroy($new);
@@ -89,21 +107,30 @@ function resizeCompressImage($tmp, $name, $path){
     return $file;
 }
 
-
-
 /* ================= SAVE ================= */
+if (isset($_POST['simpan'])) {
 
-if(isset($_POST['simpan'])){
+    $judul = trim($_POST['judul']);
+    $deskripsi = trim($_POST['deskripsi']);
 
-    $judul = $_POST['judul'];
-    $deskripsi = $_POST['deskripsi'];
+    if (empty($judul) || empty($deskripsi)) {
+        die("Judul dan Deskripsi wajib diisi.");
+    }
+
+    /* Generate Slug */
+    $slug = generateSlug($judul);
+    $slug = makeUniqueSlug($pdo, $slug);
 
     $gambar = null;
 
+    /* Upload Image */
+    if (!empty($_FILES['gambar']['name'])) {
 
-    /* UPLOAD IMAGE */
+        $ext = strtolower(pathinfo($_FILES['gambar']['name'], PATHINFO_EXTENSION));
 
-    if(!empty($_FILES['gambar']['name'])){
+        if (!in_array($ext, $allowed_ext)) {
+            die("Format gambar tidak diizinkan.");
+        }
 
         $gambar = resizeCompressImage(
             $_FILES['gambar']['tmp_name'],
@@ -112,64 +139,47 @@ if(isset($_POST['simpan'])){
         );
     }
 
-
-    /* INSERT */
-
+    /* Insert Database */
     $stmt = $pdo->prepare("
         INSERT INTO artikel
-        (judul, deskripsi, gambar, created_at)
-        VALUES (?,?,?,NOW())
+        (judul, slug, deskripsi, gambar, created_at, updated_at)
+        VALUES (?, ?, ?, ?, NOW(), NOW())
     ");
 
     $stmt->execute([
         $judul,
+        $slug,
         $deskripsi,
         $gambar
     ]);
 
-
     header("Location: artikel.php?status=sukses");
     exit;
 }
-
 ?>
-
 
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>
 
-
 <div class="main-content">
-
 
 <div class="topbar">
     <h2>Tambah Artikel</h2>
 </div>
 
-
 <div class="card">
 
-
 <form method="POST" enctype="multipart/form-data">
-
-
-<!-- JUDUL -->
 
 <div class="form-group">
     <label>Judul Artikel</label>
     <input type="text" name="judul" required>
 </div>
 
-
-<!-- DESKRIPSI -->
-
 <div class="form-group">
     <label>Deskripsi</label>
     <textarea name="deskripsi" required></textarea>
 </div>
-
-
-<!-- GAMBAR -->
 
 <div class="form-group">
     <label>Gambar</label>
@@ -181,9 +191,6 @@ if(isset($_POST['simpan'])){
         Otomatis dikompres & resize &lt; 100KB
     </small>
 </div>
-
-
-<!-- ACTION -->
 
 <div style="margin-top:30px">
 
@@ -197,13 +204,10 @@ if(isset($_POST['simpan'])){
 
 </div>
 
-
 </form>
 
-
 </div>
 </div>
-
 
 </body>
 </html>

@@ -9,202 +9,198 @@ require_once __DIR__ . "/config.php";
 require_once "auth.php";
 
 /* ================= LOGIN ================= */
-
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit;
 }
 
-/* ================= ID ================= */
-
-if (!isset($_GET['id'])) {
+/* ================= VALIDASI ID ================= */
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: artikel.php");
     exit;
 }
 
 $id = (int) $_GET['id'];
 
-
 /* ================= CONFIG ================= */
+$upload_path = realpath(__DIR__ . "/../images/uploads/artikel/") . DIRECTORY_SEPARATOR;
 
-$upload_path = "../images/uploads/artikel/";
-
-if (!is_dir($upload_path)) {
-    mkdir($upload_path, 0777, true);
+if (!$upload_path) {
+    mkdir(__DIR__ . "/../images/uploads/artikel/", 0777, true);
+    $upload_path = realpath(__DIR__ . "/../images/uploads/artikel/") . DIRECTORY_SEPARATOR;
 }
 
 $allowed_ext = ['jpg','jpeg','png','webp'];
 
-
-/* ================= FUNCTION ================= */
-
-/* Resize < 100KB */
-function compressImage($source, $dest, $quality = 75){
-
-    $info = getimagesize($source);
-
-    if($info['mime'] == 'image/jpeg'){
-        $image = imagecreatefromjpeg($source);
-        imagejpeg($image, $dest, $quality);
-    }
-    elseif($info['mime'] == 'image/png'){
-        $image = imagecreatefrompng($source);
-        imagepng($image, $dest, 8);
-    }
-    elseif($info['mime'] == 'image/webp'){
-        $image = imagecreatefromwebp($source);
-        imagewebp($image, $dest, $quality);
-    }
-
-    return $dest;
+/* ================= SLUG GENERATOR ================= */
+function generateSlug($text) {
+    $text = strtolower($text);
+    $text = preg_replace('/[^a-z0-9\s-]/', '', $text);
+    $text = preg_replace('/[\s-]+/', '-', $text);
+    $text = trim($text, '-');
+    return $text;
 }
 
+function makeUniqueSlug($pdo, $slug, $id) {
+    $original = $slug;
+    $i = 1;
 
-/* Upload + Resize */
-function uploadImage($tmp, $name, $path){
+    while (true) {
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM artikel WHERE slug=? AND id!=?");
+        $stmt->execute([$slug, $id]);
 
-    global $allowed_ext;
+        if ($stmt->fetchColumn() == 0) {
+            return $slug;
+        }
 
-    if(empty($tmp)) return null;
+        $slug = $original . '-' . $i;
+        $i++;
+    }
+}
+
+/* ================= UPLOAD IMAGE ================= */
+function uploadImage($tmp, $name, $path, $allowed_ext) {
+
+    if (empty($tmp)) return null;
 
     $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
 
-    if(!in_array($ext, $allowed_ext)){
+    if (!in_array($ext, $allowed_ext)) {
         return null;
     }
 
-    $new = time().rand(100,999).".".$ext;
-    $dest = $path.$new;
+    $newName = time() . rand(100,999) . ".jpg";
+    $dest = $path . $newName;
 
-    compressImage($tmp, $dest, 70);
+    $info = getimagesize($tmp);
+    if (!$info) return null;
 
-    return $new;
+    if ($info['mime'] == 'image/jpeg') {
+        $image = imagecreatefromjpeg($tmp);
+    } elseif ($info['mime'] == 'image/png') {
+        $image = imagecreatefrompng($tmp);
+    } elseif ($info['mime'] == 'image/webp') {
+        $image = imagecreatefromwebp($tmp);
+    } else {
+        return null;
+    }
+
+    imagejpeg($image, $dest, 80);
+    imagedestroy($image);
+
+    return $newName;
 }
 
-
-
 /* ================= LOAD DATA ================= */
+$stmt = $pdo->prepare("SELECT * FROM artikel WHERE id=? LIMIT 1");
+$stmt->execute([$id]);
+$artikel = $stmt->fetch();
 
-$q = $pdo->prepare("SELECT * FROM artikel WHERE id=?");
-$q->execute([$id]);
-$artikel = $q->fetch();
-
-if(!$artikel){
+if (!$artikel) {
     header("Location: artikel.php");
     exit;
 }
 
-
-
 /* ================= UPDATE ================= */
+if (isset($_POST['update'])) {
 
-if(isset($_POST['update'])){
+    $judul = trim($_POST['judul']);
+    $deskripsi = trim($_POST['deskripsi']);
 
-    $judul = $_POST['judul'];
-    $deskripsi = $_POST['deskripsi'];
+    if (empty($judul) || empty($deskripsi)) {
+        die("Judul dan Deskripsi wajib diisi.");
+    }
+
+    /* Generate slug baru */
+    $slug = generateSlug($judul);
+    $slug = makeUniqueSlug($pdo, $slug, $id);
 
     $old_img = $artikel['gambar'];
     $gambar = $old_img;
 
+    /* Upload gambar baru */
+    if (!empty($_FILES['gambar']['name'])) {
 
-    /* Upload baru */
-    if(!empty($_FILES['gambar']['name'])){
-
-        $new = uploadImage(
+        $newImage = uploadImage(
             $_FILES['gambar']['tmp_name'],
             $_FILES['gambar']['name'],
-            $upload_path
+            $upload_path,
+            $allowed_ext
         );
 
-        if($new){
+        if ($newImage) {
 
-            // Hapus gambar lama
-            if($old_img && file_exists($upload_path.$old_img)){
-                unlink($upload_path.$old_img);
+            // hapus gambar lama
+            if (!empty($old_img)) {
+                $safeOld = basename($old_img);
+                $oldPath = $upload_path . $safeOld;
+                if (file_exists($oldPath) && is_file($oldPath)) {
+                    unlink($oldPath);
+                }
             }
 
-            $gambar = $new;
+            $gambar = $newImage;
         }
     }
 
-
-    /* Update DB */
-    $stmt = $pdo->prepare("
+    /* Update Database */
+    $update = $pdo->prepare("
         UPDATE artikel SET
         judul=?,
+        slug=?,
         deskripsi=?,
-        gambar=?
+        gambar=?,
+        updated_at=NOW()
         WHERE id=?
     ");
 
-    $stmt->execute([
+    $update->execute([
         $judul,
+        $slug,
         $deskripsi,
         $gambar,
         $id
     ]);
 
-
     header("Location: artikel.php?status=updated");
     exit;
 }
-
 ?>
 
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>
 
-
 <div class="main-content">
 
-<!-- TOPBAR -->
 <div class="topbar">
     <h2>Edit Artikel</h2>
-
-    <a href="artikel.php" class="btn-secondary">
-        Kembali
-    </a>
+    <a href="artikel.php" class="btn-secondary">Kembali</a>
 </div>
-
 
 <div class="card">
 
 <form method="POST" enctype="multipart/form-data">
 
-
-<!-- JUDUL -->
-
 <div class="form-group">
     <label>Judul Artikel</label>
-
     <input type="text"
            name="judul"
            value="<?= htmlspecialchars($artikel['judul']); ?>"
            required>
 </div>
 
-
-<!-- DESKRIPSI -->
-
 <div class="form-group">
     <label>Deskripsi</label>
-
     <textarea name="deskripsi"
               required><?= htmlspecialchars($artikel['deskripsi']); ?></textarea>
 </div>
 
-
-<!-- GAMBAR -->
-
 <div class="form-group">
     <label>Gambar Artikel</label><br>
 
-    <?php if($artikel['gambar']): ?>
-
-        <img src="<?= $upload_path.$artikel['gambar']; ?>"
-             class="preview-image"
-             style="margin-bottom:12px;"><br>
-
+    <?php if (!empty($artikel['gambar'])): ?>
+        <img src="../images/uploads/artikel/<?= htmlspecialchars($artikel['gambar']); ?>"
+             style="max-width:200px; margin-bottom:12px;"><br>
     <?php endif; ?>
 
     <input type="file"
@@ -215,10 +211,6 @@ if(isset($_POST['update'])){
         Kosongkan jika tidak ingin mengganti gambar
     </small>
 </div>
-
-
-
-<!-- ACTION -->
 
 <div style="margin-top:30px; display:flex; gap:12px;">
 
@@ -231,7 +223,6 @@ if(isset($_POST['update'])){
     </a>
 
 </div>
-
 
 </form>
 

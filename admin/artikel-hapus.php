@@ -7,61 +7,63 @@ require_once __DIR__ . "/config.php";
 require_once "auth.php";
 
 /* ================= LOGIN ================= */
-
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit;
 }
 
-
-/* ================= ID ================= */
-
-if (!isset($_GET['id'])) {
+/* ================= VALIDASI ID ================= */
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: artikel.php");
     exit;
 }
 
 $id = (int) $_GET['id'];
 
-
 /* ================= CONFIG ================= */
+$upload_path = realpath(__DIR__ . "/../images/uploads/artikel/") . DIRECTORY_SEPARATOR;
 
-$upload_path = "../images/uploads/artikel/";
+try {
 
+    $pdo->beginTransaction();
 
-/* ================= AMBIL DATA ================= */
+    /* ================= AMBIL DATA ================= */
+    $stmt = $pdo->prepare("SELECT gambar FROM artikel WHERE id=? LIMIT 1");
+    $stmt->execute([$id]);
+    $data = $stmt->fetch();
 
-$q = $pdo->prepare("SELECT gambar FROM artikel WHERE id=?");
-$q->execute([$id]);
-$data = $q->fetch();
-
-if(!$data){
-    header("Location: artikel.php");
-    exit;
-}
-
-$gambar = $data['gambar'];
-
-
-/* ================= HAPUS DATABASE ================= */
-
-$del = $pdo->prepare("DELETE FROM artikel WHERE id=?");
-$del->execute([$id]);
-
-
-/* ================= HAPUS FILE GAMBAR ================= */
-
-if($gambar){
-
-    $file = $upload_path . $gambar;
-
-    if(file_exists($file)){
-        unlink($file);
+    if (!$data) {
+        $pdo->rollBack();
+        header("Location: artikel.php");
+        exit;
     }
-}
 
+    $gambar = $data['gambar'];
+
+    /* ================= HAPUS DATABASE ================= */
+    $del = $pdo->prepare("DELETE FROM artikel WHERE id=?");
+    $del->execute([$id]);
+
+    /* ================= HAPUS FILE GAMBAR ================= */
+    if (!empty($gambar)) {
+
+        // Hindari manipulasi path
+        $safeFile = basename($gambar);
+        $filePath = $upload_path . $safeFile;
+
+        if (file_exists($filePath) && is_file($filePath)) {
+            unlink($filePath);
+        }
+    }
+
+    $pdo->commit();
+
+} catch (Exception $e) {
+
+    $pdo->rollBack();
+    die("Terjadi kesalahan saat menghapus data.");
+}
 
 /* ================= REDIRECT ================= */
-
 header("Location: artikel.php?status=deleted");
 exit;
