@@ -1,3 +1,51 @@
+<?php
+require_once __DIR__ . "/admin/config.php";
+
+if (!isset($_GET['slug']) || empty($_GET['slug'])) {
+    header("Location: /blog.php");
+    exit;
+}
+
+$slug = $_GET['slug'];
+
+/* ================= AMBIL ARTIKEL ================= */
+$stmt = $pdo->prepare("
+    SELECT id, judul, slug, deskripsi, gambar, created_at
+    FROM artikel
+    WHERE slug = ?
+    LIMIT 1
+");
+$stmt->execute([$slug]);
+$artikel = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$artikel) {
+    header("Location: /blog.php");
+    exit;
+}
+
+/* ================= SIDEBAR ================= */
+$recentStmt = $pdo->prepare("
+    SELECT judul, slug, gambar
+    FROM artikel
+    WHERE slug != ?
+    ORDER BY created_at DESC
+    LIMIT 5
+");
+$recentStmt->execute([$slug]);
+$recentPosts = $recentStmt->fetchAll(PDO::FETCH_ASSOC);
+
+/* ================= RELATED ================= */
+$relatedStmt = $pdo->prepare("
+    SELECT judul, slug, gambar, deskripsi
+    FROM artikel
+    WHERE slug != ?
+    ORDER BY created_at DESC
+    LIMIT 3
+");
+$relatedStmt->execute([$slug]);
+$relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
