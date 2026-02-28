@@ -1,15 +1,15 @@
-/* ================= HOME BLOG (SAMA DENGAN BLOG.PHP STYLE) ================= */
+/* ================= HOME BLOG (ELEGANT VERSION) ================= */
 
 .home-blog {
   width: 100%;
-  padding: 90px 20px;
-  background: #f8fafc;
+  padding: 120px 24px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
   display: flex;
   justify-content: center;
 }
 
 .blog-container {
-  max-width: 1200px;
+  max-width: 1240px;
   width: 100%;
   margin: auto;
 }
@@ -18,20 +18,23 @@
 
 .blog-header {
   text-align: center;
-  margin-bottom: 55px;
+  margin-bottom: 70px;
 }
 
 .blog-header h2 {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
 }
 
 .blog-header p {
-  font-size: 16px;
+  font-size: 17px;
   color: #64748b;
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 /* ================= GRID ================= */
@@ -39,42 +42,42 @@
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 40px;
 }
 
-/* ================= CARD (SAMA SEPERTI BLOG.PHP) ================= */
+/* ================= CARD ================= */
 
 .blog-post {
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 18px;
   border: 1px solid #e2e8f0;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  transition: all 0.35s ease;
 }
 
 .blog-post:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
 }
 
 /* ================= IMAGE ================= */
 
 .blog-post img {
   width: 100%;
-  height: 190px;
+  height: 210px;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .blog-post:hover img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 /* ================= CONTENT ================= */
 
 .blog-content {
-  padding: 24px;
+  padding: 30px 28px 32px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -84,16 +87,17 @@
 .blog-date {
   font-size: 13px;
   color: #64748b;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
 }
 
 /* Title */
 .blog-content h2 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 12px;
-  line-height: 1.4;
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
 
 .blog-content h2 a {
@@ -108,10 +112,10 @@
 
 /* Text */
 .blog-content p {
-  font-size: 14px;
+  font-size: 15px;
   color: #64748b;
-  line-height: 1.7;
-  margin-bottom: 18px;
+  line-height: 1.8;
+  margin-bottom: 22px;
   flex-grow: 1;
 }
 
@@ -131,7 +135,7 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -5px;
   width: 0%;
   height: 2px;
   background: #2563eb;
@@ -150,13 +154,13 @@
 
 .blog-more {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .btn-blog {
   display: inline-block;
-  padding: 12px 32px;
-  border-radius: 8px;
+  padding: 14px 38px;
+  border-radius: 10px;
   background: #2563eb;
   color: #ffffff;
   font-size: 14px;
@@ -167,6 +171,7 @@
 
 .btn-blog:hover {
   background: #1d4ed8;
+  transform: translateY(-3px);
 }
 
 /* ================= RESPONSIVE ================= */
@@ -174,19 +179,28 @@
 @media (max-width: 1100px) {
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
   }
 }
 
 @media (max-width: 700px) {
+  .home-blog {
+    padding: 90px 20px;
+  }
+
   .blog-grid {
     grid-template-columns: 1fr;
   }
 
   .blog-header h2 {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .blog-header p {
-    font-size: 14px;
+    font-size: 15px;
+  }
+
+  .blog-post img {
+    height: 190px;
   }
 }
