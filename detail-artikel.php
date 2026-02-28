@@ -54,6 +54,7 @@ $relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog/detail-navbar.css">
 <link rel="stylesheet" href="/css/blog/detail-artikel.css">
+<link rel="stylesheet" href="/css/blog/artikel.css">
 <link rel="stylesheet" href="/css/footer.css">
 
 <link rel="icon" href="/images/favicon.webp">
@@ -144,49 +145,47 @@ class="artikel-featured-image">
 
 <!-- RELATED -->
 <?php if (!empty($relatedPosts)): ?>
-<section class="related-section">
-<div class="related-container">
+<section class="content-section">
+  <div class="blog-grid">
 
-<h2>Artikel Lainnya</h2>
+    <?php foreach ($relatedPosts as $rel): ?>
+      <div class="blog-post">
 
-<div class="related-grid">
+        <a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
+          <img 
+            src="/images/uploads/artikel/<?= htmlspecialchars($rel['gambar']) ?>" 
+            alt="<?= htmlspecialchars($rel['judul']) ?>"
+            loading="lazy"
+          >
+        </a>
 
-<?php foreach ($relatedPosts as $rel): ?>
-<div class="related-card">
+        <div class="blog-content">
 
-<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>" class="related-image">
-<img src="/images/uploads/artikel/<?= htmlspecialchars($rel['gambar']) ?>"
-     alt="<?= htmlspecialchars($rel['judul']) ?>">
-</a>
+          <span class="blog-date">
+            <i class="fa fa-calendar"></i>
+            <?= date('d M Y', strtotime($rel['created_at'] ?? $artikel['created_at'])) ?>
+          </span>
 
-<div class="related-content">
+          <h2>
+            <a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
+              <?= htmlspecialchars($rel['judul']) ?>
+            </a>
+          </h2>
 
-<span class="related-date">
-<i class="fa fa-calendar"></i>
-<?= date('d M Y', strtotime($rel['created_at'] ?? $artikel['created_at'])) ?>
-</span>
+          <p>
+            <?= mb_strimwidth(strip_tags($rel['deskripsi']), 0, 110, '...') ?>
+          </p>
 
-<h3>
-<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
-<?= htmlspecialchars($rel['judul']) ?>
-</a>
-</h3>
+          <a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>" class="read-more">
+            Baca Selengkapnya
+          </a>
 
-<p>
-<?= mb_strimwidth(strip_tags($rel['deskripsi']), 0, 100, '...') ?>
-</p>
+        </div>
 
-<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>" class="read-more">
-Baca Selengkapnya
-</a>
+      </div>
+    <?php endforeach; ?>
 
-</div>
-
-</div>
-<?php endforeach; ?>
-
-</div>
-</div>
+  </div>
 </section>
 <?php endif; ?>
 
