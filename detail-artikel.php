@@ -81,7 +81,7 @@ class="artikel-image"
 </div>
 
 <a href="/blog.php" class="btn-back">
-← Kembali ke Blog
+Kembali ke Blog
 </a>
 
 </article>
