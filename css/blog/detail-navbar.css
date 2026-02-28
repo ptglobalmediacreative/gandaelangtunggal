@@ -1,40 +1,59 @@
 /* ================= NAVBAR KHUSUS DETAIL ARTIKEL ================= */
 
+/* Override background hitam global */
 body.navbar-sticky {
+  background: #f8fafc !important;
   padding-top: 110px;
 }
 
+/* Header selalu putih */
 body.navbar-sticky .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
   background: #ffffff !important;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+
   padding: 14px 0 !important;
+
+  transition: none !important;
 }
 
+/* HAPUS garis bawah bawaan global */
 body.navbar-sticky .header::after {
-  opacity: 1 !important;
+  display: none !important;
+  content: none !important;
 }
 
-body.navbar-sticky .logo img {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-}
-
-body.navbar-sticky .navbar a {
-  color: #111111 !important;
-}
-
-body.navbar-sticky .navbar a:hover {
-  color: #000;
-}
-
-body.navbar-sticky .hamburger span {
-  background: #1f2933 !important;
-}
-
+/* Hapus efek hover transparan */
 body.navbar-sticky .header:hover {
   background: #ffffff !important;
 }
 
+/* Hapus efek scroll */
 body.navbar-sticky .header.scrolled {
   background: #ffffff !important;
   padding: 14px 0 !important;
+}
+
+/* Logo tetap jelas */
+body.navbar-sticky .logo img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+/* Navbar link selalu hitam */
+body.navbar-sticky .navbar a {
+  color: #111111 !important;
+}
+
+/* Hover tetap elegan */
+body.navbar-sticky .navbar a:hover {
+  color: #000 !important;
+}
+
+/* Hamburger selalu gelap */
+body.navbar-sticky .hamburger span {
+  background: #1f2933 !important;
 }
