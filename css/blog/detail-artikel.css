@@ -14,7 +14,7 @@ body {
 ========================================= */
 
 .artikel-wrapper-section {
-  padding: 25px 20px 50px;
+  padding: 30px 20px 60px;
 }
 
 .artikel-container {
@@ -25,7 +25,7 @@ body {
 .artikel-layout {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 65px;
+  gap: 70px;
   align-items: start;
 }
 
@@ -35,17 +35,15 @@ body {
 
 .artikel-main {
   background: #ffffff;
-  padding: 55px;
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.05);
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.06);
   transition: 0.3s ease;
 }
 
 .artikel-main:hover {
-  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 35px 90px rgba(15, 23, 42, 0.09);
 }
-
-/* TITLE */
 
 .artikel-main h1 {
   font-size: 34px;
@@ -54,8 +52,6 @@ body {
   margin-bottom: 16px;
   color: #0f172a;
 }
-
-/* META */
 
 .artikel-meta {
   font-size: 14px;
@@ -66,16 +62,12 @@ body {
   gap: 6px;
 }
 
-/* FEATURED IMAGE */
-
 .artikel-featured-image {
   width: 100%;
-  border-radius: 16px;
-  margin-bottom: 35px;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  margin-bottom: 40px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
 }
-
-/* CONTENT */
 
 .artikel-content {
   font-size: 16.5px;
@@ -94,17 +86,12 @@ body {
   color: #0f172a;
 }
 
-.artikel-content ul {
-  margin-left: 20px;
-  margin-bottom: 25px;
-}
-
 /* =========================================
-   SHARE SECTION
+   SHARE
 ========================================= */
 
 .artikel-share {
-  margin-top: 55px;
+  margin-top: 60px;
   padding-top: 30px;
   border-top: 1px solid #e5e7eb;
   display: flex;
@@ -119,14 +106,13 @@ body {
 }
 
 .share-btn {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 14px;
   transition: 0.3s ease;
 }
 
@@ -142,7 +128,7 @@ body {
 
 .share-btn:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* =========================================
@@ -158,10 +144,7 @@ body {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 22px;
-  color: #0f172a;
 }
-
-/* SIDEBAR ITEM */
 
 .sidebar-item {
   display: flex;
@@ -169,13 +152,13 @@ body {
   margin-bottom: 20px;
   align-items: center;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 14px;
   transition: 0.3s ease;
 }
 
 .sidebar-item:hover {
   background: #ffffff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar-item img {
@@ -190,8 +173,6 @@ body {
   font-weight: 600;
   color: #1e293b;
   text-decoration: none;
-  line-height: 1.4;
-  transition: 0.3s ease;
 }
 
 .sidebar-title:hover {
@@ -199,14 +180,120 @@ body {
 }
 
 /* =========================================
-   RESPONSIVE BREAKPOINTS
+   COMMENT SECTION
 ========================================= */
 
-/* ===== Tablet (≤992px) ===== */
+.comment-section {
+  padding: 90px 20px;
+  background: #ffffff;
+}
+
+.comment-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.comment-section h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* FORM */
+
+.comment-form {
+  background: #f8fafc;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.05);
+  margin-bottom: 60px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  transition: 0.3s ease;
+  font-family: inherit;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.comment-form button {
+  margin-top: 10px;
+  padding: 12px 30px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.comment-form button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* COMMENT LIST */
+
+.comment-list h3 {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.comment-item {
+  background: #f8fafc;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comment-header strong {
+  font-weight: 700;
+}
+
+.comment-header span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.comment-item p {
+  font-size: 15px;
+  color: #334155;
+}
+
+/* =========================================
+   RESPONSIVE PREMIUM
+========================================= */
+
 @media (max-width: 992px) {
   .artikel-layout {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 60px;
   }
 
   .artikel-sidebar {
@@ -217,21 +304,24 @@ body {
   .artikel-main {
     padding: 45px;
   }
+
+  .comment-form {
+    padding: 30px;
+  }
 }
 
-/* ===== Mobile (≤768px) ===== */
 @media (max-width: 768px) {
   body {
     background: #f8fafc;
   }
 
   .artikel-wrapper-section {
-    padding: 20px 18px 40px;
+    padding: 25px 18px 50px;
   }
 
   .artikel-main {
-    padding: 32px;
-    border-radius: 16px;
+    padding: 30px;
+    border-radius: 18px;
   }
 
   .artikel-main h1 {
@@ -240,50 +330,46 @@ body {
 
   .artikel-content {
     font-size: 15px;
-    line-height: 1.85;
-  }
-
-  .artikel-share {
-    flex-wrap: wrap;
   }
 
   .artikel-sidebar {
     background: #ffffff;
     padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.05);
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
   }
 
-  .sidebar-item img {
-    width: 75px;
-    height: 60px;
+  .form-row {
+    flex-direction: column;
+  }
+
+  .comment-form {
+    padding: 25px;
   }
 }
 
-/* ===== Small Mobile (≤480px) ===== */
 @media (max-width: 480px) {
-  .artikel-wrapper-section {
-    padding: 15px 14px 30px;
-  }
-
   .artikel-main {
-    padding: 24px;
+    padding: 22px;
   }
 
   .artikel-main h1 {
     font-size: 19px;
   }
 
-  .artikel-meta {
-    font-size: 12px;
-  }
-
   .artikel-content {
     font-size: 14.5px;
   }
 
-  .sidebar-item img {
-    width: 65px;
-    height: 50px;
+  .comment-section {
+    padding: 70px 15px;
+  }
+
+  .comment-form {
+    padding: 20px;
+  }
+
+  .comment-item {
+    padding: 18px;
   }
 }
