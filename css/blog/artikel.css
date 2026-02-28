@@ -109,15 +109,47 @@
 .blog-post .card-footer {
   margin: auto 20px 20px 20px;
 }
+/* ================================
+   Read More Button
+================================ */
+
+.blog-post .card-footer {
+  margin: auto 20px 20px 20px;
+}
+
 .blog-post .card-footer a {
-  font-size: 14px;
-  color: #007bff;
-  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #007b45, #009e5c);
+  color: #ffffff;
+
+  border-radius: 30px;
   text-decoration: none;
+
+  transition: all 0.3s ease;
 }
+
+.blog-post .card-footer a::after {
+  content: "→";
+  transition: transform 0.3s ease;
+}
+
 .blog-post .card-footer a:hover {
-  text-decoration: underline;
+  background: linear-gradient(135deg, #005e35, #007b45);
+  box-shadow: 0 6px 18px rgba(0, 123, 69, 0.35);
 }
+
+.blog-post .card-footer a:hover::after {
+  transform: translateX(4px);
+}
+
 .blog-post a.full-link {
   position: absolute;
   inset: 0;
