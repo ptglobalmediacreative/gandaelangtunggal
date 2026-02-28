@@ -180,110 +180,193 @@ body {
 }
 
 /* =========================================
-   COMMENT SECTION
+   COMMENT SECTION – CORPORATE STYLE
 ========================================= */
 
 .comment-section {
-  padding: 90px 20px;
-  background: #ffffff;
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
 }
 
 .comment-container {
-  max-width: 900px;
+  max-width: 880px;
   margin: auto;
 }
 
+/* ===== Title ===== */
+
 .comment-section h2 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 800;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   text-align: center;
+  color: #0f172a;
+  letter-spacing: -0.3px;
 }
 
-/* FORM */
+/* =========================================
+   FORM (Corporate Clean)
+========================================= */
 
 .comment-form {
-  background: #f8fafc;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.05);
-  margin-bottom: 60px;
+  background: #ffffff;
+  padding: 45px;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.04);
+  margin-bottom: 70px;
 }
 
 .form-row {
   display: flex;
-  gap: 15px;
+  gap: 18px;
   margin-bottom: 20px;
 }
 
 .comment-form input,
 .comment-form textarea {
   width: 100%;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #dbe2ea;
   font-size: 14px;
-  transition: 0.3s ease;
   font-family: inherit;
+  background: #f9fbfd;
+  transition: 0.25s ease;
+}
+
+.comment-form input::placeholder,
+.comment-form textarea::placeholder {
+  color: #94a3b8;
 }
 
 .comment-form input:focus,
 .comment-form textarea:focus {
-  border-color: #2563eb;
+  border-color: #1e40af;
+  background: #ffffff;
   outline: none;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.08);
 }
 
+/* Button */
+
 .comment-form button {
-  margin-top: 10px;
-  padding: 12px 30px;
-  border-radius: 10px;
+  margin-top: 15px;
+  padding: 13px 28px;
+  border-radius: 8px;
   border: none;
-  background: #2563eb;
+  background: #1e293b;
   color: #ffffff;
   font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.25s ease;
 }
 
 .comment-form button:hover {
-  background: #1d4ed8;
+  background: #0f172a;
   transform: translateY(-2px);
 }
 
-/* COMMENT LIST */
+/* =========================================
+   COMMENT LIST (Professional Layout)
+========================================= */
 
 .comment-list h3 {
-  font-size: 20px;
-  margin-bottom: 25px;
+  font-size: 18px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #0f172a;
 }
 
+/* Single Comment */
+
 .comment-item {
-  background: #f8fafc;
-  padding: 25px;
+  padding: 28px 30px;
   border-radius: 16px;
+  background: #ffffff;
   border: 1px solid #e5e7eb;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  transition: 0.3s ease;
 }
+
+.comment-item:hover {
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+}
+
+/* Header */
 
 .comment-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .comment-header strong {
+  font-size: 15px;
   font-weight: 700;
+  color: #0f172a;
 }
 
 .comment-header span {
-  font-size: 13px;
-  color: #64748b;
+  font-size: 12px;
+  color: #94a3b8;
 }
+
+/* Comment Text */
 
 .comment-item p {
   font-size: 15px;
+  line-height: 1.8;
   color: #334155;
+}
+
+/* =========================================
+   RESPONSIVE – CORPORATE MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .comment-section {
+    padding: 70px 18px;
+  }
+
+  .comment-form {
+    padding: 30px;
+    border-radius: 16px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .comment-section h2 {
+    font-size: 22px;
+    margin-bottom: 35px;
+  }
+
+  .comment-item {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .comment-form {
+    padding: 22px;
+  }
+
+  .comment-item {
+    padding: 18px;
+  }
+
+  .comment-header strong {
+    font-size: 14px;
+  }
+
+  .comment-item p {
+    font-size: 14px;
+  }
 }
 
 /* =========================================
