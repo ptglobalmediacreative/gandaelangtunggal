@@ -278,7 +278,7 @@ body {
   }
 
   .artikel-wrapper-section {
-    padding: 95px 20px 50px;
+    padding: 18px 20px 30px;
   }
 
   .artikel-layout {
@@ -381,7 +381,7 @@ body {
 /* ===== Small Mobile (≤480px) ===== */
 @media (max-width: 480px) {
   .artikel-wrapper-section {
-    padding: 85px 16px 40px;
+    padding: 15px 16px 20px;
   }
 
   .artikel-main {
