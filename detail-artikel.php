@@ -258,5 +258,21 @@ function nativeShare() {
 }
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const hamburger = document.getElementById("hamburger");
+  const navbar = document.querySelector(".navbar");
+  const header = document.querySelector(".header");
+
+  hamburger.addEventListener("click", function () {
+    hamburger.classList.toggle("active");
+    navbar.classList.toggle("active");
+    header.classList.toggle("menu-open");
+  });
+
+});
+</script>
+
 </body>
 </html>

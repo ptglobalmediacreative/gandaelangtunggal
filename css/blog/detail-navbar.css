@@ -57,3 +57,29 @@ body.navbar-sticky .navbar a:hover {
 body.navbar-sticky .hamburger span {
   background: #1f2933 !important;
 }
+
+/* ================= HAMBURGER ACTIVE FIX ================= */
+
+/* Navbar mobile aktif */
+body.navbar-sticky .navbar.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hamburger animasi */
+body.navbar-sticky .hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+body.navbar-sticky .hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+body.navbar-sticky .hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Saat menu terbuka */
+body.navbar-sticky .header.menu-open {
+  background: #ffffff !important;
+}
