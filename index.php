@@ -1,3 +1,17 @@
+<?php
+require_once __DIR__ . "/admin/config.php";
+
+/* Ambil 3 artikel terbaru */
+$stmt = $pdo->prepare("
+    SELECT judul, slug, deskripsi, gambar, created_at
+    FROM artikel
+    ORDER BY created_at DESC
+    LIMIT 3
+");
+$stmt->execute();
+$latestArtikel = $stmt->fetchAll();
+?>
+
 <?php include "header.php"; ?>
 
 <!-- ================= HERO ================= -->
@@ -241,96 +255,56 @@
     <!-- Blog Cards -->
     <div class="blog-grid">
 
-      <!-- Card 1 -->
-      <div class="blog-card fade-blog">
+      <?php if (!empty($latestArtikel)): ?>
+        <?php foreach ($latestArtikel as $row): ?>
 
-        <div class="blog-image">
-          <img src="/images/hero.jpg" alt="Blog 1">
-        </div>
+        <div class="blog-card fade-blog">
 
-        <div class="blog-content">
+          <div class="blog-image">
+            <?php if (!empty($row['gambar'])): ?>
+              <img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']); ?>"
+                   alt="<?= htmlspecialchars($row['judul']); ?>">
+            <?php else: ?>
+              <img src="/images/hero.jpg" alt="Default Image">
+            <?php endif; ?>
+          </div>
 
-          <span class="blog-date">
-            <i class="fa-regular fa-calendar"></i> 12 Januari 2026
-          </span>
+          <div class="blog-content">
 
-          <h3>Tips Merawat Alat Berat Agar Lebih Awet</h3>
+            <span class="blog-date">
+              <i class="fa-regular fa-calendar"></i>
+              <?= date('d F Y', strtotime($row['created_at'])); ?>
+            </span>
 
-          <p>
-            Pelajari cara perawatan alat berat yang tepat
-            agar performa tetap maksimal dan tahan lama.
-          </p>
+            <h3><?= htmlspecialchars($row['judul']); ?></h3>
 
-          <a href="#">Baca Selengkapnya →</a>
+            <p>
+              <?= mb_substr(strip_tags($row['deskripsi']), 0, 100); ?>...
+            </p>
 
-        </div>
+            <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>" class="read-more">
+              Baca Selengkapnya
+            </a>
 
-      </div>
-
-      <!-- Card 2 -->
-      <div class="blog-card fade-blog">
-
-        <div class="blog-image">
-          <img src="/images/hero.jpg" alt="Blog 2">
-        </div>
-
-        <div class="blog-content">
-
-          <span class="blog-date">
-            <i class="fa-regular fa-calendar"></i> 5 Januari 2026
-          </span>
-
-          <h3>Manfaat Service Berkala pada Excavator</h3>
-
-          <p>
-            Service rutin membantu mencegah kerusakan
-            besar dan meningkatkan produktivitas kerja.
-          </p>
-
-          <a href="#">Baca Selengkapnya →</a>
+          </div>
 
         </div>
 
-      </div>
-
-      <!-- Card 3 -->
-      <div class="blog-card fade-blog">
-
-        <div class="blog-image">
-          <img src="/images/hero.jpg" alt="Blog 3">
-        </div>
-
-        <div class="blog-content">
-
-          <span class="blog-date">
-            <i class="fa-regular fa-calendar"></i> 28 Desember 2025
-          </span>
-
-          <h3>Cara Memilih Alat Berat Sesuai Proyek</h3>
-
-          <p>
-            Panduan memilih alat berat yang sesuai
-            dengan kebutuhan proyek Anda.
-          </p>
-
-          <a href="#">Baca Selengkapnya →</a>
-
-        </div>
-
-      </div>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <p style="text-align:center;">Belum ada artikel tersedia.</p>
+      <?php endif; ?>
 
     </div>
 
     <!-- Button -->
     <div class="blog-more fade-blog">
-      <a href="#" class="btn-blog">Lihat Semua Artikel</a>
+      <a href="/blog.php" class="btn-blog">Lihat Semua Artikel</a>
     </div>
 
   </div>
 
 </section>
-
-
 
 
 <?php include "footer.php"; ?>
