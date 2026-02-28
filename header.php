@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="/css/home/why.css">
     <link rel="stylesheet" href="/css/home/aftersales.css">
     <link rel="stylesheet" href="/css/home/bloghome.css">
-    <link rel="stylesheet" href="/css/blog/artikel.css">
     <link rel="stylesheet" href="/css/footer.css">
 
     <!-- Favicon -->
