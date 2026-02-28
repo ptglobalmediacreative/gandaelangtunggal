@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule ^artikel/([^/]+)/?$ detail-artikel.php?slug=$1 [L,QSA]
