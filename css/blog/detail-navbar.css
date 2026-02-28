@@ -83,3 +83,125 @@ body.navbar-sticky .hamburger.active span:nth-child(3) {
 body.navbar-sticky .header.menu-open {
   background: #ffffff !important;
 }
+
+/* =========================================
+   MOBILE NAVBAR – DETAIL ARTIKEL PREMIUM
+========================================= */
+
+@media (max-width: 900px) {
+  /* Body spacing */
+  body.navbar-sticky {
+    padding-top: 80px;
+  }
+
+  /* Header tinggi menyesuaikan */
+  body.navbar-sticky .header {
+    padding: 12px 0 !important;
+  }
+
+  /* Show hamburger */
+  body.navbar-sticky .hamburger {
+    display: flex;
+    width: 30px;
+    height: 22px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  body.navbar-sticky .hamburger span {
+    height: 3px;
+    border-radius: 3px;
+    transition: all 0.35s ease;
+  }
+
+  /* ================= NAVBAR MOBILE PANEL ================= */
+
+  body.navbar-sticky .navbar {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 72px);
+
+    background: #ffffff;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-top: 30px;
+
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 0.35s ease;
+
+    z-index: 99999;
+  }
+
+  /* Active state */
+  body.navbar-sticky .navbar.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Mobile Links */
+  body.navbar-sticky .navbar a {
+    width: 100%;
+    text-align: center;
+
+    padding: 18px 0;
+    font-size: 18px;
+    font-weight: 600;
+
+    border-bottom: 1px solid #f1f5f9;
+    color: #111 !important;
+  }
+
+  body.navbar-sticky .navbar a:hover {
+    background: #f8fafc;
+    color: #1d4ed8 !important;
+  }
+
+  /* ================= HAMBURGER ANIMATION ================= */
+
+  body.navbar-sticky .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  body.navbar-sticky .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.navbar-sticky .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Prevent body scroll when menu open */
+  body.navbar-sticky.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE (≤600px)
+========================================= */
+
+@media (max-width: 600px) {
+  body.navbar-sticky {
+    padding-top: 70px;
+  }
+
+  body.navbar-sticky .navbar {
+    top: 65px;
+    height: calc(100vh - 65px);
+  }
+
+  body.navbar-sticky .navbar a {
+    font-size: 17px;
+    padding: 16px 0;
+  }
+}

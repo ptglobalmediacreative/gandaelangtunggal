@@ -269,6 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
     hamburger.classList.toggle("active");
     navbar.classList.toggle("active");
     header.classList.toggle("menu-open");
+    document.body.classList.toggle("menu-open");
   });
 
 });
