@@ -127,7 +127,7 @@ style="background: url('/images/hero.jpg') center / cover no-repeat;">
 </p>
 
 <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>" class="read-more">
-Baca Selengkapnya →
+Baca Selengkapnya
 </a>
 
 </div>
