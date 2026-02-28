@@ -357,7 +357,7 @@ body {
   }
 
   .artikel-wrapper-section {
-    padding: 15px 18px 20px;
+    padding: 35px 18px 60px;
   }
 
   .artikel-main {
@@ -427,7 +427,7 @@ body {
 /* ===== Premium Small Mobile (≤600px) ===== */
 @media (max-width: 600px) {
   .artikel-wrapper-section {
-    padding: 8px 16px 10px;
+    padding: 28px 16px 50px;
   }
 
   .artikel-main {
