@@ -8,7 +8,7 @@ $stmt = $pdo->prepare("
     LIMIT 3
 ");
 $stmt->execute();
-$artikel = $stmt->fetchAll();
+$latestArtikel = $stmt->fetchAll();
 ?>
 
 <?php include "header.php"; ?>
