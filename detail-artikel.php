@@ -8,7 +8,6 @@ if ($slug === '') {
     exit;
 }
 
-/* ================= AMBIL ARTIKEL ================= */
 $stmt = $pdo->prepare("
     SELECT id, judul, slug, deskripsi, gambar, created_at
     FROM artikel
@@ -23,7 +22,6 @@ if (!$artikel) {
     exit;
 }
 
-/* ================= RECENT POSTS ================= */
 $recentStmt = $pdo->prepare("
     SELECT judul, slug, gambar
     FROM artikel
@@ -33,17 +31,6 @@ $recentStmt = $pdo->prepare("
 ");
 $recentStmt->execute([$slug]);
 $recentPosts = $recentStmt->fetchAll();
-
-/* ================= RELATED POSTS ================= */
-$relatedStmt = $pdo->prepare("
-    SELECT judul, slug, gambar, deskripsi
-    FROM artikel
-    WHERE slug != ?
-    ORDER BY created_at DESC
-    LIMIT 3
-");
-$relatedStmt->execute([$slug]);
-$relatedPosts = $relatedStmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -54,10 +41,10 @@ $relatedPosts = $relatedStmt->fetchAll();
 <title><?= htmlspecialchars($artikel['judul']) ?> - PT Ganda Elang Tangguh</title>
 
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/blog/artikel.css">
+<link rel="stylesheet" href="/css/blog/detail-artikel.css">
 <link rel="stylesheet" href="/css/footer.css">
-<link rel="icon" href="/images/favicon.webp">
 
+<link rel="icon" href="/images/favicon.webp">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -66,53 +53,50 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <?php include "header.php"; ?>
 
-<section class="detail-artikel">
-<div class="container">
-<div class="artikel-wrapper">
+<section class="artikel-detail-section">
+<div class="artikel-container">
 
-<!-- ================= MAIN ================= -->
-<div class="artikel-main">
+<div class="artikel-layout">
+
+<!-- MAIN -->
+<article class="artikel-main">
 
 <h1><?= htmlspecialchars($artikel['judul']) ?></h1>
 
-<p class="blog-date">
+<div class="artikel-meta">
 <i class="fa fa-calendar"></i>
 <?= date('d F Y', strtotime($artikel['created_at'])) ?>
-</p>
+</div>
 
 <?php if (!empty($artikel['gambar'])): ?>
 <img
 src="/images/uploads/artikel/<?= htmlspecialchars($artikel['gambar']) ?>"
 alt="<?= htmlspecialchars($artikel['judul']) ?>"
-class="featured-image"
+class="artikel-image"
 >
 <?php endif; ?>
 
-<div class="isi-artikel">
+<div class="artikel-content">
 <?= nl2br($artikel['deskripsi']) ?>
 </div>
 
-<a href="/blog.php" class="btn-kembali">
+<a href="/blog.php" class="btn-back">
 ← Kembali ke Blog
 </a>
 
-</div>
+</article>
 
-<!-- ================= SIDEBAR ================= -->
+<!-- SIDEBAR -->
 <aside class="artikel-sidebar">
 
-<div class="sidebar-section">
 <h3>Artikel Terbaru</h3>
 
 <?php foreach ($recentPosts as $recent): ?>
-<div class="recent-post-item">
+<div class="sidebar-item">
 
 <?php if (!empty($recent['gambar'])): ?>
 <a href="/artikel/<?= htmlspecialchars($recent['slug']) ?>">
-<img
-src="/images/uploads/artikel/<?= htmlspecialchars($recent['gambar']) ?>"
-alt="<?= htmlspecialchars($recent['judul']) ?>"
->
+<img src="/images/uploads/artikel/<?= htmlspecialchars($recent['gambar']) ?>">
 </a>
 <?php endif; ?>
 
@@ -123,43 +107,16 @@ alt="<?= htmlspecialchars($recent['judul']) ?>"
 </div>
 <?php endforeach; ?>
 
-</div>
-
 </aside>
 
 </div>
-
-<!-- ================= RELATED ================= -->
-<section class="related-posts">
-<h2>Artikel Lainnya</h2>
-
-<div class="related-list">
-
-<?php foreach ($relatedPosts as $rel): ?>
-<div class="related-item">
-<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
-
-<?php if (!empty($rel['gambar'])): ?>
-<img
-src="/images/uploads/artikel/<?= htmlspecialchars($rel['gambar']) ?>"
-alt="<?= htmlspecialchars($rel['judul']) ?>"
->
-<?php endif; ?>
-
-<h3><?= htmlspecialchars($rel['judul']) ?></h3>
-<p><?= mb_strimwidth(strip_tags($rel['deskripsi']), 0, 100, '...') ?></p>
-
-</a>
-</div>
-<?php endforeach; ?>
-
-</div>
-</section>
 
 </div>
 </section>
 
 <?php include "footer.php"; ?>
+
+<script src="/js/detail-artikel.js"></script>
 
 </body>
 </html>
