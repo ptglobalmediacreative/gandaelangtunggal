@@ -154,13 +154,32 @@ class="artikel-featured-image">
 <?php foreach ($relatedPosts as $rel): ?>
 <div class="related-card">
 
-<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
-<img src="/images/uploads/artikel/<?= htmlspecialchars($rel['gambar']) ?>">
+<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>" class="related-image">
+<img src="/images/uploads/artikel/<?= htmlspecialchars($rel['gambar']) ?>"
+     alt="<?= htmlspecialchars($rel['judul']) ?>">
 </a>
 
 <div class="related-content">
-<h3><?= htmlspecialchars($rel['judul']) ?></h3>
-<p><?= mb_strimwidth(strip_tags($rel['deskripsi']), 0, 110, '...') ?></p>
+
+<span class="related-date">
+<i class="fa fa-calendar"></i>
+<?= date('d M Y', strtotime($rel['created_at'] ?? $artikel['created_at'])) ?>
+</span>
+
+<h3>
+<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
+<?= htmlspecialchars($rel['judul']) ?>
+</a>
+</h3>
+
+<p>
+<?= mb_strimwidth(strip_tags($rel['deskripsi']), 0, 100, '...') ?>
+</p>
+
+<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>" class="read-more">
+Baca Selengkapnya
+</a>
+
 </div>
 
 </div>
