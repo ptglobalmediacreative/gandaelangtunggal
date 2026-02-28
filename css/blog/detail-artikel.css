@@ -180,12 +180,12 @@ body {
 }
 
 /* =========================================
-   COMMENT SECTION – CORPORATE STYLE
+   COMMENT SECTION – ELEGANT CORPORATE
 ========================================= */
 
 .comment-section {
-  padding: 100px 20px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  padding: 110px 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
 }
 
 .comment-container {
@@ -193,46 +193,63 @@ body {
   margin: auto;
 }
 
-/* ===== Title ===== */
+/* ===== Section Title ===== */
 
 .comment-section h2 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 800;
-  margin-bottom: 50px;
   text-align: center;
+  margin-bottom: 60px;
   color: #0f172a;
   letter-spacing: -0.3px;
+  position: relative;
+}
+
+.comment-section h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  display: block;
+  margin: 18px auto 0;
+  border-radius: 3px;
 }
 
 /* =========================================
-   FORM (Corporate Clean)
+   FORM – Soft Elegant Card
 ========================================= */
 
 .comment-form {
   background: #ffffff;
-  padding: 45px;
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.04);
-  margin-bottom: 70px;
+  padding: 50px;
+  border-radius: 22px;
+  box-shadow: 0 20px 70px rgba(15, 23, 42, 0.06);
+  margin-bottom: 80px;
+  transition: 0.3s ease;
+}
+
+.comment-form:hover {
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.09);
 }
 
 .form-row {
   display: flex;
-  gap: 18px;
-  margin-bottom: 20px;
+  gap: 20px;
+  margin-bottom: 22px;
 }
+
+/* Inputs */
 
 .comment-form input,
 .comment-form textarea {
   width: 100%;
-  padding: 14px 16px;
-  border-radius: 10px;
-  border: 1px solid #dbe2ea;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
   font-size: 14px;
   font-family: inherit;
-  background: #f9fbfd;
-  transition: 0.25s ease;
+  background: #f8fafc;
+  transition: all 0.25s ease;
 }
 
 .comment-form input::placeholder,
@@ -242,56 +259,68 @@ body {
 
 .comment-form input:focus,
 .comment-form textarea:focus {
-  border-color: #1e40af;
+  border-color: #2563eb;
   background: #ffffff;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.08);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
 }
 
 /* Button */
 
 .comment-form button {
-  margin-top: 15px;
-  padding: 13px 28px;
-  border-radius: 8px;
+  margin-top: 20px;
+  padding: 14px 32px;
+  border-radius: 12px;
   border: none;
-  background: #1e293b;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
   color: #ffffff;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  transition: 0.25s ease;
+  transition: all 0.3s ease;
 }
 
 .comment-form button:hover {
-  background: #0f172a;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.25);
 }
 
 /* =========================================
-   COMMENT LIST (Professional Layout)
+   COMMENT LIST – Premium Feel
 ========================================= */
 
 .comment-list h3 {
-  font-size: 18px;
-  margin-bottom: 30px;
+  font-size: 20px;
   font-weight: 700;
+  margin-bottom: 35px;
   color: #0f172a;
+  text-align: center;
 }
 
 /* Single Comment */
 
 .comment-item {
-  padding: 28px 30px;
-  border-radius: 16px;
+  padding: 32px 35px;
+  border-radius: 20px;
   background: #ffffff;
   border: 1px solid #e5e7eb;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   transition: 0.3s ease;
+  position: relative;
+}
+
+.comment-item::before {
+  content: "“";
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 50px;
+  color: #e2e8f0;
+  font-weight: bold;
 }
 
 .comment-item:hover {
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.07);
 }
 
 /* Header */
@@ -300,7 +329,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .comment-header strong {
@@ -312,42 +341,44 @@ body {
 .comment-header span {
   font-size: 12px;
   color: #94a3b8;
+  font-weight: 500;
 }
 
 /* Comment Text */
 
 .comment-item p {
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 1.9;
   color: #334155;
+  margin-top: 10px;
 }
 
 /* =========================================
-   RESPONSIVE – CORPORATE MOBILE
+   RESPONSIVE – ELEGANT MOBILE
 ========================================= */
 
 @media (max-width: 768px) {
   .comment-section {
-    padding: 70px 18px;
+    padding: 80px 18px;
   }
 
   .comment-form {
-    padding: 30px;
-    border-radius: 16px;
+    padding: 32px;
+    border-radius: 18px;
   }
 
   .form-row {
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
 
   .comment-section h2 {
     font-size: 22px;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
   }
 
   .comment-item {
-    padding: 22px;
+    padding: 24px;
   }
 }
 
@@ -357,11 +388,7 @@ body {
   }
 
   .comment-item {
-    padding: 18px;
-  }
-
-  .comment-header strong {
-    font-size: 14px;
+    padding: 20px;
   }
 
   .comment-item p {
