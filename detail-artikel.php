@@ -196,7 +196,7 @@ class="artikel-featured-image">
 <section class="comment-section">
 <div class="comment-container">
 
-<h2>Diskusi Artikel</h2>
+<h2>Leave Comment</h2>
 
 <form method="POST" class="comment-form">
 

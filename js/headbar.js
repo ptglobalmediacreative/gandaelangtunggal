@@ -10,18 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= HEADER SCROLL ================= */
 
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
+  if (header) {
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
 
-    // Background on scroll
-    if (currentScroll > 80) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
+      if (currentScroll > 80) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
 
-    lastScroll = currentScroll;
-  });
+      lastScroll = currentScroll;
+    });
+  }
 
   /* ================= HERO VIDEO AUTO PLAY (MOBILE SAFE) ================= */
 
@@ -36,21 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Paksa play saat load
     forcePlayVideo();
 
-    // Kalau kepause → play lagi
-    heroVideo.addEventListener("pause", () => {
-      forcePlayVideo();
-    });
+    heroVideo.addEventListener("pause", forcePlayVideo);
 
-    // Kalau selesai → ulang
     heroVideo.addEventListener("ended", () => {
       heroVideo.currentTime = 0;
       forcePlayVideo();
     });
 
-    // Kalau balik dari tab lain
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) {
         forcePlayVideo();
@@ -77,71 +72,71 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= SERVICE ANIMATION ================= */
+  /* ================= INTERSECTION ANIMATION ================= */
 
-  const serviceItems = document.querySelectorAll(".fade-up");
+  function createObserver(selector) {
+    const items = document.querySelectorAll(selector);
 
-  if (serviceItems.length) {
-    const serviceObserver = new IntersectionObserver(
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
+            observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.2 },
     );
 
-    serviceItems.forEach((item) => {
-      serviceObserver.observe(item);
-    });
+    items.forEach((item) => observer.observe(item));
   }
 
-  /* ================= BLOG ANIMATION ================= */
-
-  const blogItems = document.querySelectorAll(".fade-blog");
-
-  if (blogItems.length) {
-    const blogObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-
-    blogItems.forEach((item) => {
-      blogObserver.observe(item);
-    });
-  }
+  createObserver(".fade-up");
+  createObserver(".fade-blog");
 
   /* ================= HAMBURGER MENU ================= */
 
-  if (!hamburger || !navbar || !header) {
-    console.error("Header / Hamburger / Navbar not found!");
-    return;
+  if (!hamburger || !navbar || !header) return;
+
+  function openMenu() {
+    hamburger.classList.add("active");
+    navbar.classList.add("active");
+    header.classList.add("menu-open");
+    document.body.classList.add("menu-open"); // LOCK SCROLL
   }
 
-  // Toggle menu
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navbar.classList.toggle("active");
-    header.classList.toggle("menu-open");
-    document.body.classList.toggle("no-scroll");
+  function closeMenu() {
+    hamburger.classList.remove("active");
+    navbar.classList.remove("active");
+    header.classList.remove("menu-open");
+    document.body.classList.remove("menu-open");
+  }
+
+  function toggleMenu() {
+    if (navbar.classList.contains("active")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  /* Toggle click */
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
 
-  // Close when click link
+  /* Close when click link */
   document.querySelectorAll(".navbar a").forEach((link) => {
     link.addEventListener("click", () => {
       closeMenu();
     });
   });
 
-  // Close when click outside
+  /* Close when click outside */
   document.addEventListener("click", (e) => {
     if (
       navbar.classList.contains("active") &&
@@ -152,10 +147,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function closeMenu() {
-    hamburger.classList.remove("active");
-    navbar.classList.remove("active");
-    header.classList.remove("menu-open");
-    document.body.classList.remove("no-scroll");
-  }
+  /* Close on resize to desktop */
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
+  });
 });
