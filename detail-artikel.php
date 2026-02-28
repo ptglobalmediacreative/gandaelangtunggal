@@ -31,6 +31,16 @@ $recentStmt = $pdo->prepare("
 ");
 $recentStmt->execute([$slug]);
 $recentPosts = $recentStmt->fetchAll(PDO::FETCH_ASSOC);
+
+$relatedStmt = $pdo->prepare("
+    SELECT judul, slug, gambar, deskripsi
+    FROM artikel
+    WHERE slug != ?
+    ORDER BY created_at DESC
+    LIMIT 3
+");
+$relatedStmt->execute([$slug]);
+$relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -50,13 +60,12 @@ $recentPosts = $recentStmt->fetchAll(PDO::FETCH_ASSOC);
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
+
 <body class="navbar-sticky">
 
 <header class="header">
 <div class="container">
-
 <div class="logo">
 <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh">
 </div>
@@ -69,39 +78,38 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <a href="/contact.php">Hubungi Kami</a>
 <a href="/blog.php" class="active">Blog & Artikel</a>
 </nav>
-
 </div>
 </header>
 
-<!-- HERO PREMIUM -->
-<section class="artikel-hero"
-style="background-image:url('/images/uploads/artikel/<?= htmlspecialchars($artikel['gambar']) ?>')">
-<div class="hero-overlay"></div>
-
-<div class="hero-content">
-<h1><?= htmlspecialchars($artikel['judul']) ?></h1>
-
-<div class="hero-meta">
-<i class="fa fa-calendar"></i>
-<?= date('d F Y', strtotime($artikel['created_at'])) ?>
-</div>
-</div>
-</section>
-
-<!-- CONTENT -->
-<section class="artikel-premium">
+<!-- ARTICLE SECTION -->
+<section class="artikel-wrapper-section">
 <div class="artikel-container">
 
 <div class="artikel-layout">
 
+<!-- MAIN -->
 <article class="artikel-main">
+
+<h1><?= htmlspecialchars($artikel['judul']) ?></h1>
+
+<div class="artikel-meta">
+<i class="fa fa-calendar"></i>
+<?= date('d F Y', strtotime($artikel['created_at'])) ?>
+</div>
+
+<?php if (!empty($artikel['gambar'])): ?>
+<img
+src="/images/uploads/artikel/<?= htmlspecialchars($artikel['gambar']) ?>"
+alt="<?= htmlspecialchars($artikel['judul']) ?>"
+class="artikel-featured-image">
+<?php endif; ?>
 
 <div class="artikel-content">
 <?= nl2br($artikel['deskripsi']) ?>
 </div>
 
 <div class="artikel-share">
-<h4>Bagikan Artikel:</h4>
+<span>Bagikan:</span>
 <a href="#" class="share-btn fb"><i class="fab fa-facebook-f"></i></a>
 <a href="#" class="share-btn tw"><i class="fab fa-twitter"></i></a>
 <a href="#" class="share-btn wa"><i class="fab fa-whatsapp"></i></a>
@@ -109,12 +117,13 @@ style="background-image:url('/images/uploads/artikel/<?= htmlspecialchars($artik
 
 </article>
 
+<!-- SIDEBAR -->
 <aside class="artikel-sidebar">
 
 <h3>Artikel Terbaru</h3>
 
 <?php foreach ($recentPosts as $recent): ?>
-<div class="sidebar-card">
+<div class="sidebar-item">
 
 <a href="/artikel/<?= htmlspecialchars($recent['slug']) ?>">
 <img src="/images/uploads/artikel/<?= htmlspecialchars($recent['gambar']) ?>">
@@ -133,31 +142,20 @@ style="background-image:url('/images/uploads/artikel/<?= htmlspecialchars($artik
 </div>
 </section>
 
-<?php
-$relatedStmt = $pdo->prepare("
-SELECT judul, slug, gambar, deskripsi
-FROM artikel
-WHERE slug != ?
-ORDER BY created_at DESC
-LIMIT 3
-");
-$relatedStmt->execute([$slug]);
-$relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-
+<!-- RELATED -->
 <?php if (!empty($relatedPosts)): ?>
-<section class="related-premium">
+<section class="related-section">
 <div class="related-container">
 
 <h2>Artikel Lainnya</h2>
 
 <div class="related-grid">
+
 <?php foreach ($relatedPosts as $rel): ?>
 <div class="related-card">
 
-<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>" class="related-image">
+<a href="/artikel/<?= htmlspecialchars($rel['slug']) ?>">
 <img src="/images/uploads/artikel/<?= htmlspecialchars($rel['gambar']) ?>">
-<div class="overlay-gradient"></div>
 </a>
 
 <div class="related-content">
@@ -167,8 +165,8 @@ $relatedPosts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
 
 </div>
 <?php endforeach; ?>
-</div>
 
+</div>
 </div>
 </section>
 <?php endif; ?>
