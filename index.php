@@ -243,49 +243,53 @@ $artikel = $stmt->fetchAll();
 <!-- ================= BLOG SECTION ================= -->
 <section class="home-blog">
 
-  <div class="container">
+  <div class="blog-container">
 
     <!-- Title -->
-    <div class="blog-header" style="text-align:center; margin-bottom:50px;">
+    <div class="blog-header fade-blog">
       <h2>Blog & Artikel Terbaru</h2>
       <p>Informasi, tips, dan berita terbaru seputar alat berat & industri</p>
     </div>
 
     <div class="blog-grid">
 
-      <?php if (!empty($artikel)): ?>
-        <?php foreach ($artikel as $row): ?>
+      <?php if (!empty($latestArtikel)): ?>
+        <?php foreach ($latestArtikel as $row): ?>
 
-        <div class="blog-post">
+        <div class="blog-card fade-blog">
 
-          <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>">
-            <?php if (!empty($row['gambar'])): ?>
-              <img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']) ?>"
-                   alt="<?= htmlspecialchars($row['judul']) ?>"
-                   loading="lazy">
-            <?php else: ?>
-              <img src="/images/hero.jpg" alt="Default Image">
-            <?php endif; ?>
+          <!-- Image clickable -->
+          <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>">
+            <div class="blog-image">
+              <?php if (!empty($row['gambar'])): ?>
+                <img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']); ?>"
+                     alt="<?= htmlspecialchars($row['judul']); ?>">
+              <?php else: ?>
+                <img src="/images/hero.jpg" alt="Default Image">
+              <?php endif; ?>
+            </div>
           </a>
 
           <div class="blog-content">
 
             <span class="blog-date">
-              <i class="fa fa-calendar"></i>
-              <?= date('d M Y', strtotime($row['created_at'])) ?>
+              <i class="fa-regular fa-calendar"></i>
+              <?= date('d F Y', strtotime($row['created_at'])); ?>
             </span>
 
-            <h2>
-              <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>">
-                <?= htmlspecialchars($row['judul']) ?>
+            <!-- Judul clickable -->
+            <h3>
+              <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>" class="blog-title-link">
+                <?= htmlspecialchars($row['judul']); ?>
               </a>
-            </h2>
+            </h3>
 
             <p>
-              <?= mb_substr(strip_tags($row['deskripsi']), 0, 120) ?>...
+              <?= mb_substr(strip_tags($row['deskripsi']), 0, 100); ?>...
             </p>
 
-            <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>" class="read-more">
+            <!-- Read More -->
+            <a href="/artikel/<?= htmlspecialchars($row['slug']); ?>" class="read-more">
               Baca Selengkapnya
             </a>
 
@@ -301,10 +305,8 @@ $artikel = $stmt->fetchAll();
     </div>
 
     <!-- Button -->
-    <div style="text-align:center; margin-top:50px;">
-      <a href="/blog.php" class="btn-primary">
-        Lihat Semua Artikel
-      </a>
+    <div class="blog-more fade-blog">
+      <a href="/blog.php" class="btn-blog">Lihat Semua Artikel</a>
     </div>
 
   </div>
