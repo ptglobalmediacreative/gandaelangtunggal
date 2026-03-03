@@ -195,8 +195,6 @@ $latestArtikel = $stmt->fetchAll();
           alat berat pelanggan.
         </p>
 
-        <a href="#">Lebih Lanjut →</a>
-
       </div>
 
       <!-- Card 2 -->
@@ -211,8 +209,6 @@ $latestArtikel = $stmt->fetchAll();
         <p>
           Kami menyediakan pelatihan khusus seputar alat berat Liu Gong.
         </p>
-
-        <a href="#">Lebih Lanjut →</a>
 
       </div>
 
@@ -229,8 +225,6 @@ $latestArtikel = $stmt->fetchAll();
           Berbagai layanan perawatan untuk memastikan
           alat berat selalu optimal dan minim downtime.
         </p>
-
-        <a href="#">Lebih Lanjut →</a>
 
       </div>
 
