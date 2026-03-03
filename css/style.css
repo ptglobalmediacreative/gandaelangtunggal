@@ -306,3 +306,53 @@ body {
     height: 60px;
   }
 }
+
+/* ================= GLOBAL SCROLL ANIMATION ================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s cubic-bezier(0.16, 0.84, 0.44, 1);
+  will-change: transform, opacity;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade From Left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 0.9s cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade From Right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 0.9s cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale Fade (untuk card) */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease;
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}

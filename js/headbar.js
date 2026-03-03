@@ -72,18 +72,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= INTERSECTION ANIMATION ================= */
+  /* ================= SCROLL REVEAL ANIMATION ================= */
 
-  function createObserver(selector) {
+  function createObserver(selector, stagger = false) {
     const items = document.querySelectorAll(selector);
-
     if (!items.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+            if (stagger) {
+              const siblings = entry.target.parentElement.children;
+              Array.from(siblings).forEach((el, index) => {
+                setTimeout(() => {
+                  el.classList.add("show", "active");
+                }, index * 150);
+              });
+            } else {
+              entry.target.classList.add("show", "active");
+            }
+
             observer.unobserve(entry.target);
           }
         });
@@ -94,8 +103,19 @@ document.addEventListener("DOMContentLoaded", () => {
     items.forEach((item) => observer.observe(item));
   }
 
+  /* Default fade lama */
   createObserver(".fade-up");
   createObserver(".fade-blog");
+
+  /* Reveal baru */
+  createObserver(".reveal");
+  createObserver(".reveal-left");
+  createObserver(".reveal-right");
+
+  /* Stagger untuk card */
+  createObserver(".why-card", true);
+  createObserver(".service-card", true);
+  createObserver(".blog-post", true);
 
   /* ================= HAMBURGER MENU ================= */
 
@@ -105,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.classList.add("active");
     navbar.classList.add("active");
     header.classList.add("menu-open");
-    document.body.classList.add("menu-open"); // LOCK SCROLL
+    document.body.classList.add("menu-open");
   }
 
   function closeMenu() {
@@ -123,20 +143,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* Toggle click */
   hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleMenu();
   });
 
-  /* Close when click link */
   document.querySelectorAll(".navbar a").forEach((link) => {
     link.addEventListener("click", () => {
       closeMenu();
     });
   });
 
-  /* Close when click outside */
   document.addEventListener("click", (e) => {
     if (
       navbar.classList.contains("active") &&
@@ -147,7 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* Close on resize to desktop */
   window.addEventListener("resize", () => {
     if (window.innerWidth > 900) {
       closeMenu();

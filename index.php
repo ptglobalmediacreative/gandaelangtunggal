@@ -49,7 +49,7 @@ $latestArtikel = $stmt->fetchAll();
 </section>
 
 <!-- ================= ABOUT SUMMARY ================= -->
-<section class="about-summary">
+<section class="about-summary reveal">
 
   <div class="about-container">
 
@@ -89,7 +89,7 @@ $latestArtikel = $stmt->fetchAll();
 </section>
 
 <!-- ================= WHY US SECTION ================= -->
-<section class="why-us">
+<section class="why-us reveal">
 
   <div class="why-bg"></div>
 
@@ -102,7 +102,7 @@ $latestArtikel = $stmt->fetchAll();
 
     <div class="why-cards">
 
-      <div class="why-card">
+      <div class="why-card reveal-scale">
         <div class="why-icon">
           <i class="fa-solid fa-clock"></i>
         </div>
@@ -113,7 +113,7 @@ $latestArtikel = $stmt->fetchAll();
         </p>
       </div>
 
-      <div class="why-card">
+      <div class="why-card reveal-scale">
         <div class="why-icon">
           <i class="fa-solid fa-tags"></i>
         </div>
@@ -124,7 +124,7 @@ $latestArtikel = $stmt->fetchAll();
         </p>
       </div>
 
-      <div class="why-card">
+      <div class="why-card reveal-scale">
         <div class="why-icon">
           <i class="fa-solid fa-award"></i>
         </div>
@@ -135,7 +135,7 @@ $latestArtikel = $stmt->fetchAll();
         </p>
       </div>
 
-      <div class="why-card">
+      <div class="why-card reveal-scale">
         <div class="why-icon">
           <i class="fa-solid fa-headset"></i>
         </div>
@@ -158,7 +158,7 @@ $latestArtikel = $stmt->fetchAll();
   <div class="service-container">
 
     <!-- LEFT -->
-    <div class="service-left fade-up">
+    <div class="service-left reveal-left">
 
       <h2>
         OPTIMALKAN KINERJA ALAT BERAT
@@ -178,7 +178,7 @@ $latestArtikel = $stmt->fetchAll();
     <div class="service-line"></div>
 
     <!-- RIGHT -->
-    <div class="service-right">
+    <div class="service-card reveal-scale">
 
       <!-- Card 1 -->
       <div class="service-card fade-up">
@@ -241,7 +241,7 @@ $latestArtikel = $stmt->fetchAll();
 </section>
 
 <!-- ================= BLOG SECTION ================= -->
-<section class="home-blog">
+<section class="home-blog reveal">
 
   <div class="blog-container">
 
@@ -258,7 +258,7 @@ $latestArtikel = $stmt->fetchAll();
 
         <?php foreach ($latestArtikel as $row): ?>
 
-          <div class="blog-post fade-blog">
+          <div class="blog-post reveal-scale">
 
             <!-- Image -->
             <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>">
