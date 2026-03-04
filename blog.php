@@ -161,7 +161,5 @@ Baca Selengkapnya
 <!-- FOOTER -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
-<script src="/js/headbar.js"></script>
-
 </body>
 </html>

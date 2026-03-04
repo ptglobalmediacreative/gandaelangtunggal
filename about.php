@@ -189,9 +189,5 @@
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
-
-<!-- ================= SCRIPT ================= -->
-<script src="/js/headbar.js"></script>
-
 </body>
 </html>
