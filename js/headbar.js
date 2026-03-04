@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createObserver(".reveal");
   createObserver(".reveal-left");
   createObserver(".reveal-right");
+  createObserver(".reveal-scale");
 
   /* Stagger untuk card */
   createObserver(".why-card", true);

@@ -182,7 +182,5 @@ $products = $stmt->fetchAll();
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
-<script src="/js/main.js"></script>
-
 </body>
 </html>
