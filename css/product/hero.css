@@ -329,7 +329,7 @@
   gap: 22px;
 }
 
-/* CARD */
+/* ================= CARD BASE ================= */
 
 .category-card {
   position: relative;
@@ -343,10 +343,25 @@
 
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.45s ease;
+    box-shadow 0.45s ease,
+    opacity 0.7s ease,
+    filter 0.7s ease;
+
+  /* REVEAL INITIAL STATE */
+  opacity: 0;
+  transform: translateY(35px) scale(0.96);
+  filter: blur(4px);
 }
 
-/* IMAGE */
+/* ================= REVEAL ACTIVE ================= */
+
+.category-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* ================= IMAGE ================= */
 
 .category-card img {
   width: 100%;
@@ -356,7 +371,7 @@
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* TITLE */
+/* ================= TITLE ================= */
 
 .category-card h4 {
   padding: 14px 10px;
@@ -365,10 +380,10 @@
   color: #0f172a;
 }
 
-/* HOVER EFFECT */
+/* ================= HOVER EFFECT ================= */
 
 .category-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
 }
 
@@ -376,7 +391,17 @@
   transform: scale(1.08);
 }
 
-/* stagger animation */
+/* ================= SUBTLE BORDER ================= */
+
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+}
+
+/* ================= STAGGER ANIMATION ================= */
 
 .category-card:nth-child(1) {
   transition-delay: 0.05s;
@@ -431,12 +456,4 @@
 }
 .category-card:nth-child(18) {
   transition-delay: 0.56s;
-}
-
-.category-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 12px;
 }
