@@ -90,112 +90,112 @@
 
 
     <!-- GRID -->
-    <div class="category-grid">
+    <div class="category-grid reveal">
 
       <!-- Wheel Loader -->
-      <a href="/wheelloader.php" class="category-card">
+      <a href="/wheelloader.php" class="category-card reveal-scale">
         <img src="/images/products/wheel-loader.jpg" alt="Wheel Loader">
         <h4>Wheel Loader</h4>
       </a>
 
       <!-- Excavator -->
-      <a href="/excavator.php" class="category-card">
+      <a href="/excavator.php" class="category-card reveal-scale">
         <img src="/images/products/excavator.jpg" alt="Excavator">
         <h4>Excavator</h4>
       </a>
 
       <!-- Bulldozer -->
-      <a href="/bulldozer.php" class="category-card">
+      <a href="/bulldozer.php" class="category-card reveal-scale">
         <img src="/images/products/bulldozer.jpg" alt="Bulldozer">
         <h4>Bulldozer</h4>
       </a>
 
       <!-- Motor Grader -->
-      <a href="/motorgrader.php" class="category-card">
+      <a href="/motorgrader.php" class="category-card reveal-scale">
         <img src="/images/products/motor-grader.jpg" alt="Motor Grader">
         <h4>Motor Grader</h4>
       </a>
 
       <!-- Mining Truck -->
-      <a href="/minningtruck.php" class="category-card">
+      <a href="/minningtruck.php" class="category-card reveal-scale">
         <img src="/images/products/mining-truck.jpg" alt="Mining Truck">
         <h4>Mining Truck</h4>
       </a>
 
       <!-- Roller -->
-      <a href="/roller.php" class="category-card">
+      <a href="/roller.php" class="category-card reveal-scale">
         <img src="/images/products/roller.jpg" alt="Roller">
         <h4>Roller</h4>
       </a>
 
       <!-- Paver -->
-      <a href="/paver.php" class="category-card">
+      <a href="/paver.php" class="category-card reveal-scale">
         <img src="/images/products/paver.jpg" alt="Paver">
         <h4>Paver</h4>
       </a>
 
       <!-- Cold Planer -->
-      <a href="/coldplaner.php" class="category-card">
+      <a href="/coldplaner.php" class="category-card reveal-scale">
         <img src="/images/products/cold-planer.jpg" alt="Cold Planer">
         <h4>Cold Planer</h4>
       </a>
 
       <!-- Skid Steer -->
-      <a href="/skidsteer.php" class="category-card">
+      <a href="/skidsteer.php" class="category-card reveal-scale">
         <img src="/images/products/skid-steer.jpg" alt="Skid Steer Loader">
         <h4>Skid Steer</h4>
       </a>
 
       <!-- Backhoe -->
-      <a href="/backhoeloader.php" class="category-card">
+      <a href="/backhoeloader.php" class="category-card reveal-scale">
         <img src="/images/products/backhoe.jpg" alt="Backhoe Loader">
         <h4>Backhoe Loader</h4>
       </a>
 
       <!-- Forklift -->
-      <a href="/forklift.php" class="category-card">
+      <a href="/forklift.php" class="category-card reveal-scale">
         <img src="/images/products/forklift.png" alt="Forklift">
         <h4>Forklift</h4>
       </a>
 
       <!-- Aerial -->
-      <a href="/aerialplatform.php" class="category-card">
+      <a href="/aerialplatform.php" class="category-card reveal-scale">
         <img src="/images/products/aerial.png" alt="Aerial Platform">
         <h4>Aerial Platform</h4>
       </a>
 
       <!-- Crane -->
-      <a href="/crane.php" class="category-card">
+      <a href="/crane.php" class="category-card reveal-scale">
         <img src="/images/products/crane.jpg" alt="Crane">
         <h4>Crane</h4>
       </a>
 
       <!-- Tractor -->
-      <a href="/tractor.php" class="category-card">
+      <a href="/tractor.php" class="category-card reveal-scale">
         <img src="/images/products/tractor.png" alt="Tractor">
         <h4>Tractor</h4>
       </a>
 
       <!-- Harvester -->
-      <a href="/halvester.php" class="category-card">
+      <a href="/halvester.php" class="category-card reveal-scale">
         <img src="/images/products/harvester.png" alt="Harvester">
         <h4>Harvester</h4>
       </a>
 
       <!-- Compressor -->
-      <a href="/aircompressor.php" class="category-card">
+      <a href="/aircompressor.php" class="category-card reveal-scale">
         <img src="/images/products/compressor.png" alt="Air Compressor">
         <h4>Air Compressor</h4>
       </a>
 
       <!-- Foundation -->
-      <a href="/foundation.php" class="category-card">
+      <a href="/foundation.php" class="category-card reveal-scale">
         <img src="/images/products/foundation.jpg" alt="Foundation">
         <h4>Foundation</h4>
       </a>
 
       <!-- Warehouse -->
-      <a href="/warehousetruck.php" class="category-card">
+      <a href="/warehousetruck.php" class="category-card reveal-scale">
         <img src="/images/products/warehouse.png" alt="Warehouse Truck">
         <h4>Warehouse Truck</h4>
       </a>
