@@ -85,7 +85,7 @@ if (isset($_POST['kirim'])) {
 <!-- ================= HERO ================= -->
 <section
   class="hero hero-image"
-  style="background: url('/images/about.png') center / cover no-repeat;"
+  style="background: url('/images/herocontact.jpg') center / cover no-repeat;"
 >
 
   <!-- Overlay -->
