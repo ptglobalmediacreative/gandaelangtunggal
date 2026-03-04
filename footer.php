@@ -22,12 +22,12 @@
       <h4>Menu</h4>
 
       <ul>
-        <li><a href="#">Beranda</a></li>
-        <li><a href="#">Tentang Kami</a></li>
-        <li><a href="#">Produk</a></li>
-        <li><a href="#">Layanan Purna Jual</a></li>
-        <li><a href="#">Hubungi Kami</a></li>
-        <li><a href="#">Blog & Artikel</a></li>
+        <li><a href="/index.php">Beranda</a></li>
+        <li><a href="/about.php">Tentang Kami</a></li>
+        <li><a href="/product.php">Produk</a></li>
+        <li><a href="/aftersales.php">Layanan Purna Jual</a></li>
+        <li><a href="/contact.php">Hubungi Kami</a></li>
+        <li><a href="/blog.php">Blog & Artikel</a></li>
       </ul>
 
     </div>
@@ -38,7 +38,7 @@
       <h4>Layanan</h4>
 
       <ul>
-        <li><a href="#">Sewa Alat Berat</a></li>
+        <li><a href="#">Jual Beli Alat Berat</a></li>
         <li><a href="#">Service & Maintenance</a></li>
         <li><a href="#">Suku Cadang</a></li>
         <li><a href="#">Konsultasi Proyek</a></li>
@@ -60,12 +60,12 @@
 
         <li>
           <i class="fa-solid fa-phone"></i>
-          +62 812-xxxx-xxxx
+          +62 812-1383-8567
         </li>
 
         <li>
           <i class="fa-solid fa-envelope"></i>
-          info@gandaelang.co.id
+          sales@gandaelang.co.id
         </li>
 
       </ul>

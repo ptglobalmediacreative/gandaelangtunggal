@@ -80,7 +80,7 @@ $latestArtikel = $stmt->fetchAll();
       operasional pelanggan tetap optimal dan produktif.
     </p>
 
-    <a href="#" class="about-link">
+    <a href="/about.php" class="about-link">
       → Selengkapnya Tentang Kami
     </a>
 
