@@ -87,31 +87,31 @@
 
 
 <!-- ================= ABOUT SUMMARY ================= -->
-<section class="about-summary">
+<section class="about-summary reveal">
 
   <div class="about-container">
 
-    <h2 class="about-title">
+    <h2 class="about-title reveal">
       PT Ganda Elang Tangguh
     </h2>
 
-    <p class="about-text">
+    <p class="about-text reveal delay-1">
       PT. Ganda Elang Tangguh adalah dealer alat berat yang profesional dan terpercaya, yang menyediakan solusi lengkap untuk kebutuhan alat berat pelanggan. Dengan komitmen kuat terhadap kualitas dan kepuasan pelanggan, kami telah membangun reputasi sebagai mitra yang andal di industri alat berat.
     </p>
 
-    <p class="about-text">
+    <p class="about-text reveal delay-2">
       Kami menawarkan berbagai pilihan alat berat berkualitas tinggi dari produsen terkemuka. Produk kami meliputi excavator, bulldozer, wheel loader, motor grader, dan lainnya. Setiap unit kami pilih dengan cermat untuk memastikan memenuhi standar tertinggi dalam hal performa, daya tahan, dan efisiensi.
     </p>
 
-    <p class="about-text">
+    <p class="about-text reveal delay-3">
       Salah satu keunggulan utama kami adalah pelayanan pelanggan yang luar biasa. Kami mengutamakan pemahaman terhadap kebutuhan pelanggan dan memberikan solusi yang disesuaikan dengan kebutuhan mereka. Tim ahli kami selalu siap membantu pelanggan dalam memilih alat yang tepat serta memberikan dukungan teknis selama proses pembelian.
     </p>
 
-    <p class="about-text">
+    <p class="about-text reveal delay-4">
       Kami percaya bahwa layanan purna jual yang andal sangat penting bagi kesuksesan pelanggan. Komitmen kami terhadap kepuasan pelanggan tidak berhenti setelah penjualan. Kami menyediakan berbagai suku cadang asli untuk memastikan kinerja optimal dan umur pakai alat yang lebih panjang. Selain itu, teknisi berpengalaman kami siap memberikan layanan perawatan dan perbaikan agar alat berat pelanggan selalu dalam kondisi terbaik.
     </p>
 
-    <p class="about-text">
+    <p class="about-text reveal delay-5">
       Kami terus berupaya melakukan peningkatan dan inovasi secara berkelanjutan. Kami selalu mengikuti perkembangan terbaru di industri alat berat untuk memberikan solusi yang paling modern dan efisien. Fokus kami pada inovasi memungkinkan kami menghadirkan teknologi dan fitur terkini yang dapat meningkatkan produktivitas serta efisiensi biaya.
     </p>
 
@@ -122,15 +122,15 @@
 </section>
 
 <!-- ================= ABOUT SUMMARY ================= -->
-<section class="about-summary">
+<section class="about-summary reveal">
 
   <div class="about-container">
 
-    <h2 class="about-title">
+    <h2 class="about-title reveal">
       Visi Kami
     </h2>
 
-    <p class="about-text">
+    <p class="about-text reveal delay-1">
       Sebagai dealer alat berat, tujuan kami adalah menjadi pilihan utama bagi pelanggan yang mencari peralatan berkualitas tinggi, layanan terbaik, serta dukungan purna jual yang andal. Kami berkomitmen untuk membangun kerja sama jangka panjang dengan pelanggan serta mendukung pertumbuhan dan kesuksesan mereka di industri alat berat.
     </p>
 
@@ -147,7 +147,7 @@
       Misi Kami
     </h2>
 
-    <div class="mission-item">
+    <div class="mission-item reveal-left">
       <h3 class="mission-subtitle">
         Memberikan Keunggulan dalam Alat Berat
       </h3>
@@ -158,7 +158,7 @@
       </p>
     </div>
 
-    <div class="mission-item">
+    <div class="mission-item reveal-right">
       <h3 class="mission-subtitle">
         Membangun Hubungan Pelanggan yang Kuat
       </h3>
@@ -169,7 +169,7 @@
       </p>
     </div>
 
-    <div class="mission-item">
+    <div class="mission-item reveal-left">
       <h3 class="mission-subtitle">
         Memberikan Dukungan Purna Jual yang Andal
       </h3>

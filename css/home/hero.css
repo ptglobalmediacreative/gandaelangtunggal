@@ -213,3 +213,66 @@
     font-size: 15px;
   }
 }
+
+/* ================= PREMIUM SCROLL ANIMATION ================= */
+
+/* Base animation setup */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s ease-out,
+    filter 0.8s ease-out;
+  will-change: transform, opacity;
+}
+
+/* Fade Up (lebih halus & pendek jaraknya) */
+.reveal {
+  transform: translateY(40px);
+  filter: blur(6px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Fade From Left (lebih smooth) */
+.reveal-left {
+  transform: translateX(-50px);
+  filter: blur(6px);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* Fade From Right */
+.reveal-right {
+  transform: translateX(50px);
+  filter: blur(6px);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* Scale Premium (card effect lebih natural) */
+.reveal-scale {
+  transform: scale(0.94);
+  filter: blur(4px);
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
