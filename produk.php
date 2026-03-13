@@ -101,7 +101,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <!-- ================= HERO ================= -->
 <section
   class="hero hero-image"
-  style="background: url('/images/hero.jpg') center / cover no-repeat;"
+  style="background: url('/images/produk.webp') center / cover no-repeat;"
 >
   <div class="hero-overlay"></div>
 
