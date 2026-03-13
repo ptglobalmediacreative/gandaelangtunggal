@@ -49,15 +49,18 @@
 .hero-breadcrumb {
   font-size: 14px;
   font-weight: 500;
+
   color: rgba(255, 255, 255, 0.85);
 
   margin-bottom: 40px;
+
   letter-spacing: 0.3px;
 }
 
 .hero-breadcrumb a {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
+
   transition: 0.3s ease;
 }
 
@@ -79,6 +82,7 @@
 .hero-content h1 {
   font-size: 58px;
   font-weight: 700;
+
   line-height: 1.2;
 
   margin-bottom: 18px;
@@ -94,21 +98,10 @@
   line-height: 1.7;
 
   max-width: 650px;
+
   margin-bottom: 36px;
 
   opacity: 0.95;
-}
-
-/* ================= SUBTEXT ================= */
-
-.hero-subtext {
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 650px;
-
-  margin-top: 10px;
-
-  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ================= BUTTON ================= */
@@ -116,8 +109,11 @@
 .hero-buttons {
   display: flex;
   gap: 22px;
+
   flex-wrap: wrap;
 }
+
+/* Primary */
 
 .btn-primary {
   background: linear-gradient(135deg, #facc15, #fde047);
@@ -131,14 +127,18 @@
   font-size: 15px;
 
   box-shadow: 0 6px 18px rgba(250, 204, 21, 0.35);
+
   transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #fde047, #facc15);
   transform: translateY(-4px);
+
   box-shadow: 0 10px 25px rgba(250, 204, 21, 0.45);
 }
+
+/* Secondary */
 
 .btn-secondary {
   border: 2px solid #facc15;
@@ -159,6 +159,7 @@
   color: #0f172a;
 
   transform: translateY(-4px);
+
   box-shadow: 0 6px 18px rgba(250, 204, 21, 0.35);
 }
 
@@ -171,11 +172,9 @@
   }
 }
 
-/* ================= TABLET ================= */
-
+/* Tablet */
 @media (max-width: 900px) {
   .hero {
-    min-height: 80vh;
     padding-top: 100px;
     padding-left: 30px;
   }
@@ -192,11 +191,6 @@
     font-size: 18px;
   }
 
-  .hero-subtext {
-    font-size: 16px;
-    max-width: 550px;
-  }
-
   .hero-buttons {
     gap: 18px;
   }
@@ -206,42 +200,48 @@
 
 @media (max-width: 600px) {
   .hero {
-    min-height: 65vh;
+    min-height: 60vh; /* sebelumnya 100vh */
     padding-top: 95px;
     padding-left: 0;
 
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+
+    background-position: center;
   }
 
+  /* Content center */
   .hero-content {
     align-items: center;
     text-align: center;
+
     padding: 0 20px;
+    max-width: 100%;
   }
 
+  /* Breadcrumb */
   .hero-breadcrumb {
     margin-bottom: 14px;
     font-size: 12px;
   }
 
+  /* Title */
   .hero-content h1 {
     font-size: 26px;
+    line-height: 1.3;
     margin-bottom: 12px;
   }
 
+  /* Text */
   .hero-content p {
     font-size: 14px;
-    max-width: 95%;
-    margin-bottom: 20px;
+    line-height: 1.6;
+
+    max-width: 90%;
+    margin-bottom: 22px;
   }
 
-  .hero-subtext {
-    font-size: 14px;
-    max-width: 100%;
-    text-align: center;
-  }
-
+  /* Buttons */
   .hero-buttons {
     flex-direction: column;
     align-items: center;
@@ -252,6 +252,7 @@
   .btn-secondary {
     width: 100%;
     max-width: 220px;
+
     font-size: 14px;
     padding: 11px 24px;
   }
@@ -261,34 +262,60 @@
 
 @media (max-width: 420px) {
   .hero {
-    min-height: 60vh;
-    padding-top: 90px;
+    padding-top: 75px;
   }
 
   .hero-breadcrumb {
-    font-size: 11px;
+    font-size: 11.5px;
   }
 
   .hero-content h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .hero-content p {
-    font-size: 13.5px;
-  }
-
-  .hero-subtext {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .btn-primary,
   .btn-secondary {
-    max-width: 200px;
-    font-size: 13px;
+    max-width: 220px;
+    font-size: 13.5px;
   }
 }
 
-/* ================= PRODUCT CATEGORY ================= */
+/* Subtext Hero */
+
+.hero-subtext {
+  font-size: 18px;
+  line-height: 1.7;
+
+  max-width: 650px;
+
+  margin-top: 10px;
+  margin-bottom: 0;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .hero-subtext {
+    font-size: 16px;
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-subtext {
+    font-size: 15px;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+/* ================= PRODUCT CATEGORY ANIMATION ================= */
 
 .category-grid {
   display: grid;
@@ -296,16 +323,7 @@
   gap: 22px;
 }
 
-/* MOBILE GRID */
-
-@media (max-width: 600px) {
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-}
-
-/* ================= CARD ================= */
+/* ================= CARD BASE ================= */
 
 .category-card {
   position: relative;
@@ -323,10 +341,13 @@
     opacity 0.7s ease,
     filter 0.7s ease;
 
+  /* REVEAL INITIAL STATE */
   opacity: 0;
   transform: translateY(35px) scale(0.96);
   filter: blur(4px);
 }
+
+/* ================= REVEAL ACTIVE ================= */
 
 .category-card.show {
   opacity: 1;
@@ -353,7 +374,7 @@
   color: #0f172a;
 }
 
-/* ================= HOVER ================= */
+/* ================= HOVER EFFECT ================= */
 
 .category-card:hover {
   transform: translateY(-6px) scale(1.02);
@@ -364,7 +385,7 @@
   transform: scale(1.08);
 }
 
-/* ================= BORDER ================= */
+/* ================= SUBTLE BORDER ================= */
 
 .category-card::after {
   content: "";
@@ -372,4 +393,61 @@
   inset: 0;
   border: 1px solid rgba(0, 0, 0, 0.04);
   border-radius: 12px;
+}
+
+/* ================= STAGGER ANIMATION ================= */
+
+.category-card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+.category-card:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.category-card:nth-child(3) {
+  transition-delay: 0.11s;
+}
+.category-card:nth-child(4) {
+  transition-delay: 0.14s;
+}
+.category-card:nth-child(5) {
+  transition-delay: 0.17s;
+}
+.category-card:nth-child(6) {
+  transition-delay: 0.2s;
+}
+.category-card:nth-child(7) {
+  transition-delay: 0.23s;
+}
+.category-card:nth-child(8) {
+  transition-delay: 0.26s;
+}
+.category-card:nth-child(9) {
+  transition-delay: 0.29s;
+}
+.category-card:nth-child(10) {
+  transition-delay: 0.32s;
+}
+.category-card:nth-child(11) {
+  transition-delay: 0.35s;
+}
+.category-card:nth-child(12) {
+  transition-delay: 0.38s;
+}
+.category-card:nth-child(13) {
+  transition-delay: 0.41s;
+}
+.category-card:nth-child(14) {
+  transition-delay: 0.44s;
+}
+.category-card:nth-child(15) {
+  transition-delay: 0.47s;
+}
+.category-card:nth-child(16) {
+  transition-delay: 0.5s;
+}
+.category-card:nth-child(17) {
+  transition-delay: 0.53s;
+}
+.category-card:nth-child(18) {
+  transition-delay: 0.56s;
 }
