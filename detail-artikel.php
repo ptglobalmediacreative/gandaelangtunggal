@@ -81,7 +81,29 @@ $recentPosts = $recentStmt->fetchAll(PDO::FETCH_ASSOC);
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><?= htmlspecialchars($artikel['judul']) ?> - PT Ganda Elang Tangguh</title>
+<title><?= htmlspecialchars($artikel['judul']) ?> | PT Ganda Elang Tangguh</title>
+
+<!-- SEO -->
+<meta name="description" content="<?= mb_substr(strip_tags($artikel['deskripsi']),0,160) ?>">
+
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="canonical" href="<?= $currentUrl ?>">
+
+<!-- Open Graph -->
+<meta property="og:title" content="<?= htmlspecialchars($artikel['judul']) ?>">
+<meta property="og:description" content="<?= mb_substr(strip_tags($artikel['deskripsi']),0,160) ?>">
+<meta property="og:image" content="https://gandaelang.co.id/images/uploads/artikel/<?= htmlspecialchars($artikel['gambar']) ?>">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= htmlspecialchars($artikel['judul']) ?>">
+<meta name="twitter:description" content="<?= mb_substr(strip_tags($artikel['deskripsi']),0,160) ?>">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/uploads/artikel/<?= htmlspecialchars($artikel['gambar']) ?>">
 
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog/detail-navbar.css">
@@ -89,11 +111,72 @@ $recentPosts = $recentStmt->fetchAll(PDO::FETCH_ASSOC);
 <link rel="stylesheet" href="/css/footer.css">
 
 <link rel="icon" href="/images/favicon.webp">
+
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BreadcrumbList",
+ "itemListElement":[
+  {
+   "@type":"ListItem",
+   "position":1,
+   "name":"Beranda",
+   "item":"https://gandaelang.co.id/"
+  },
+  {
+   "@type":"ListItem",
+   "position":2,
+   "name":"Blog",
+   "item":"https://gandaelang.co.id/blog.php"
+  },
+  {
+   "@type":"ListItem",
+   "position":3,
+   "name":"<?= htmlspecialchars($artikel['judul']) ?>",
+   "item":"<?= $currentUrl ?>"
+  }
+ ]
+}
+</script>
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Article",
+ "headline":"<?= htmlspecialchars($artikel['judul']) ?>",
+ "image":"https://gandaelang.co.id/images/uploads/artikel/<?= htmlspecialchars($artikel['gambar']) ?>",
+ "datePublished":"<?= date('c', strtotime($artikel['created_at'])) ?>",
+ "dateModified":"<?= date('c', strtotime($artikel['created_at'])) ?>",
+ "author":{
+   "@type":"Organization",
+   "name":"PT Ganda Elang Tangguh"
+ },
+ "publisher":{
+   "@type":"Organization",
+   "name":"PT Ganda Elang Tangguh",
+   "logo":{
+     "@type":"ImageObject",
+     "url":"https://gandaelang.co.id/images/logo.webp"
+   }
+ },
+ "mainEntityOfPage":{
+   "@type":"WebPage",
+   "@id":"<?= $currentUrl ?>"
+ }
+}
+</script>
+
 </head>
 
+
+<!-- Navbar -->
 <body class="navbar-sticky">
 
 <header class="header">

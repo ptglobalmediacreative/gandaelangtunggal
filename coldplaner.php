@@ -35,25 +35,95 @@ $products = $stmt->fetchAll();
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - Produk</title>
+<title>Cold Planer LiuGong | PT Ganda Elang Tangguh</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/product/hero.css">
-  <link rel="stylesheet" href="/css/product/product.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<!-- SEO -->
+<meta name="description" content="Temukan cold planer LiuGong berkualitas tinggi di PT Ganda Elang Tangguh. Mesin milling jalan yang dirancang untuk pekerjaan pengupasan aspal dan persiapan permukaan dengan presisi dan efisiensi tinggi.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<meta name="keywords" content="cold planer liugong, mesin cold planer, alat milling aspal, cold planer indonesia, alat berat jalan">
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="canonical" href="https://gandaelang.co.id/coldplaner.php">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Cold Planer LiuGong | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Cold planer LiuGong dengan performa tinggi untuk pekerjaan milling aspal dan persiapan permukaan jalan.">
+<meta property="og:image" content="https://gandaelang.co.id/images/coldplaner.jpg">
+<meta property="og:url" content="https://gandaelang.co.id/coldplaner.php">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cold Planer LiuGong">
+<meta name="twitter:description" content="Cold planer berkualitas untuk pekerjaan milling dan persiapan permukaan jalan.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/coldplaner.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/product/hero.css">
+<link rel="stylesheet" href="/css/product/product.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Produk",
+   "item": "https://gandaelang.co.id/produk.php"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Cold Planer",
+   "item": "https://gandaelang.co.id/coldplaner.php"
+  }
+ ]
+}
+</script>
+
+<!-- CollectionPage Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Cold Planer LiuGong",
+ "url": "https://gandaelang.co.id/coldplaner.php",
+ "description": "Daftar produk cold planer LiuGong yang tersedia di PT Ganda Elang Tangguh.",
+ "publisher": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://gandaelang.co.id/images/logo.webp"
+   }
+ }
+}
+</script>
+
 </head>
 
 <body>

@@ -27,28 +27,100 @@ if (isset($_POST['kirim'])) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - About Us</title>
+<title>Hubungi Kami | PT Ganda Elang Tangguh</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/contact/hero.css">
-  <link rel="stylesheet" href="/css/contact/contact.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<!-- SEO -->
+<meta name="description" content="Hubungi PT Ganda Elang Tangguh untuk informasi produk alat berat, layanan purna jual, serta konsultasi kebutuhan proyek Anda. Tim kami siap membantu dengan layanan profesional.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<meta name="keywords" content="kontak PT Ganda Elang Tangguh, dealer alat berat indonesia, layanan alat berat, hubungi perusahaan alat berat">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  >
+<link rel="canonical" href="https://gandaelang.co.id/contact.php">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Hubungi Kami | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Hubungi tim PT Ganda Elang Tangguh untuk konsultasi alat berat dan layanan profesional.">
+<meta property="og:image" content="https://gandaelang.co.id/images/herocontact.jpg">
+<meta property="og:url" content="https://gandaelang.co.id/contact.php">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hubungi Kami | PT Ganda Elang Tangguh">
+<meta name="twitter:description" content="Hubungi PT Ganda Elang Tangguh untuk informasi alat berat dan layanan purna jual.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/herocontact.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/contact/hero.css">
+<link rel="stylesheet" href="/css/contact/contact.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Kontak",
+   "item": "https://gandaelang.co.id/contact.php"
+  }
+ ]
+}
+</script>
+
+<!-- Local Business Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "PT Ganda Elang Tangguh",
+ "url": "https://gandaelang.co.id",
+ "logo": "https://gandaelang.co.id/images/logo.webp",
+ "image": "https://gandaelang.co.id/images/logo.webp",
+ "description": "PT Ganda Elang Tangguh adalah dealer alat berat yang menyediakan berbagai produk alat berat serta layanan purna jual profesional di Indonesia.",
+ "address": {
+   "@type": "PostalAddress",
+   "streetAddress": "Jl. Pluit Karang Manis VI No.1E, RT.6/RW.8, Penjaringan Utara",
+   "addressLocality": "Jakarta Utara",
+   "addressRegion": "DKI Jakarta",
+   "postalCode": "14450",
+   "addressCountry": "ID"
+ },
+ "geo": {
+   "@type": "GeoCoordinates",
+   "latitude": -6.121503,
+   "longitude": 106.772684
+ },
+ "areaServed": {
+   "@type": "Country",
+   "name": "Indonesia"
+ }
+}
+</script>
+
 </head>
 
 <body>

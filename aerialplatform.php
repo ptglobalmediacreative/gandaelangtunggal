@@ -32,28 +32,100 @@ $stmt = $pdo->prepare("
 $stmt->execute();
 $products = $stmt->fetchAll();
 ?>
-<!DOCTYPE html>
-<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - Produk</title>
+<title>Aerial Work Platform LiuGong | PT Ganda Elang Tangguh</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/product/hero.css">
-  <link rel="stylesheet" href="/css/product/product.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<!-- SEO -->
+<meta name="description" content="Temukan berbagai Aerial Work Platform LiuGong berkualitas tinggi di PT Ganda Elang Tangguh. Dirancang untuk keamanan, stabilitas, dan efisiensi kerja di berbagai medan proyek konstruksi dan industri.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<meta name="keywords" content="aerial work platform liugong, aerial platform indonesia, boom lift liugong, alat kerja ketinggian, dealer liugong indonesia">
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Canonical -->
+<link rel="canonical" href="https://gandaelang.co.id/aerialplatform.php">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Aerial Work Platform LiuGong | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Aerial Work Platform LiuGong dengan desain stabil, aman, dan efisien untuk berbagai kebutuhan pekerjaan di ketinggian.">
+<meta property="og:image" content="https://gandaelang.co.id/images/aerialplatform.jpg">
+<meta property="og:url" content="https://gandaelang.co.id/aerialplatform.php">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aerial Work Platform LiuGong">
+<meta name="twitter:description" content="Dealer alat berat LiuGong di Indonesia menyediakan aerial work platform berkualitas tinggi.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/aerialplatform.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/product/hero.css">
+<link rel="stylesheet" href="/css/product/product.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Produk",
+   "item": "https://gandaelang.co.id/produk.php"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Aerial Work Platform",
+   "item": "https://gandaelang.co.id/aerialplatform.php"
+  }
+ ]
+}
+</script>
+
+<!-- CollectionPage Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Aerial Work Platform LiuGong",
+ "url": "https://gandaelang.co.id/aerialplatform.php",
+ "description": "Daftar produk aerial work platform LiuGong yang tersedia di PT Ganda Elang Tangguh untuk kebutuhan pekerjaan di ketinggian.",
+ "publisher": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://gandaelang.co.id/images/logo.webp"
+   }
+ }
+}
+</script>
+
 </head>
 
 <body>

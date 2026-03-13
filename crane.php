@@ -35,25 +35,95 @@ $products = $stmt->fetchAll();
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - Produk</title>
+<title>Crane LiuGong | PT Ganda Elang Tangguh</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/product/hero.css">
-  <link rel="stylesheet" href="/css/product/product.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<!-- SEO -->
+<meta name="description" content="Temukan crane LiuGong berkualitas di PT Ganda Elang Tangguh. Dirancang dengan sistem hidrolik canggih untuk kapasitas angkat tinggi, stabilitas maksimal, dan efisiensi di berbagai proyek konstruksi dan industri.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<meta name="keywords" content="crane liugong, crane konstruksi, alat berat crane indonesia, mesin crane proyek, dealer liugong indonesia">
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="canonical" href="https://gandaelang.co.id/crane.php">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Crane LiuGong | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Crane LiuGong dengan kapasitas angkat tinggi dan sistem hidrolik canggih untuk berbagai proyek konstruksi dan industri.">
+<meta property="og:image" content="https://gandaelang.co.id/images/crane.jpg">
+<meta property="og:url" content="https://gandaelang.co.id/crane.php">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crane LiuGong">
+<meta name="twitter:description" content="Crane berkinerja tinggi untuk kebutuhan konstruksi dan industri.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/crane.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/product/hero.css">
+<link rel="stylesheet" href="/css/product/product.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Produk",
+   "item": "https://gandaelang.co.id/produk.php"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Crane",
+   "item": "https://gandaelang.co.id/crane.php"
+  }
+ ]
+}
+</script>
+
+<!-- CollectionPage Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Crane LiuGong",
+ "url": "https://gandaelang.co.id/crane.php",
+ "description": "Daftar produk crane LiuGong yang tersedia di PT Ganda Elang Tangguh.",
+ "publisher": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://gandaelang.co.id/images/logo.webp"
+   }
+ }
+}
+</script>
+
 </head>
 
 <body>

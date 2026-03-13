@@ -1,28 +1,93 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - About Us</title>
+<title>Layanan Purna Jual Alat Berat | PT Ganda Elang Tangguh</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/aftersales/hero.css">
-  <link rel="stylesheet" href="/css/aftersales/aftersales.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<!-- SEO -->
+<meta name="description" content="PT Ganda Elang Tangguh menyediakan layanan purna jual alat berat profesional seperti servis berkala, dukungan teknisi di lokasi proyek, penyediaan sparepart original, dan bantuan teknis untuk menjaga performa alat berat tetap optimal.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<meta name="keywords" content="aftersales alat berat, layanan alat berat, servis alat berat, sparepart alat berat, teknisi alat berat indonesia">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  >
+<link rel="canonical" href="https://gandaelang.co.id/aftersales.php">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Layanan Purna Jual Alat Berat | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Layanan purna jual profesional untuk menjaga performa alat berat Anda tetap optimal dengan dukungan teknisi berpengalaman.">
+<meta property="og:image" content="https://gandaelang.co.id/images/about.png">
+<meta property="og:url" content="https://gandaelang.co.id/aftersales.php">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Layanan Purna Jual Alat Berat">
+<meta name="twitter:description" content="Servis berkala, sparepart original, dan dukungan teknisi untuk alat berat Anda.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/about.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/aftersales/hero.css">
+<link rel="stylesheet" href="/css/aftersales/aftersales.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Layanan Purna Jual",
+   "item": "https://gandaelang.co.id/aftersales.php"
+  }
+ ]
+}
+</script>
+
+<!-- Service Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "serviceType": "Layanan Purna Jual Alat Berat",
+ "provider": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "url": "https://gandaelang.co.id",
+   "logo": "https://gandaelang.co.id/images/logo.webp"
+ },
+ "areaServed": {
+   "@type": "Country",
+   "name": "Indonesia"
+ },
+ "description": "PT Ganda Elang Tangguh menyediakan layanan purna jual alat berat termasuk servis berkala, dukungan teknisi di lokasi proyek, serta penyediaan sparepart original."
+}
+</script>
+
 </head>
 
 <body>

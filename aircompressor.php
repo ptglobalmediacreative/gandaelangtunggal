@@ -35,25 +35,98 @@ $products = $stmt->fetchAll();
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - Produk</title>
+<title>Air Compressor Industrial | PT Ganda Elang Tangguh</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/product/hero.css">
-  <link rel="stylesheet" href="/css/product/product.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<!-- SEO -->
+<meta name="description" content="Temukan berbagai air compressor industrial berkualitas di PT Ganda Elang Tangguh. Solusi udara bertekanan yang andal untuk kebutuhan proyek konstruksi, industri, dan operasional lapangan.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<meta name="keywords" content="air compressor industri, kompresor udara industri, air compressor proyek, kompresor udara portable, alat industri indonesia">
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="canonical" href="https://gandaelang.co.id/aircompressor.php">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Air Compressor Industrial | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Solusi air compressor berkualitas untuk kebutuhan industri dan proyek konstruksi.">
+<meta property="og:image" content="https://gandaelang.co.id/images/aircompressor.png">
+<meta property="og:url" content="https://gandaelang.co.id/aircompressor.php">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Air Compressor Industrial">
+<meta name="twitter:description" content="Air compressor berkualitas tinggi untuk kebutuhan industri dan proyek konstruksi.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/aircompressor.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/product/hero.css">
+<link rel="stylesheet" href="/css/product/product.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Produk",
+   "item": "https://gandaelang.co.id/produk.php"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Air Compressor",
+   "item": "https://gandaelang.co.id/aircompressor.php"
+  }
+ ]
+}
+</script>
+
+<!-- Collection Page Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Air Compressor Industrial",
+ "url": "https://gandaelang.co.id/aircompressor.php",
+ "description": "Daftar produk air compressor yang tersedia di PT Ganda Elang Tangguh untuk kebutuhan industri dan proyek.",
+ "publisher": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://gandaelang.co.id/images/logo.webp"
+   }
+ }
+}
+</script>
+
 </head>
 
 <body>

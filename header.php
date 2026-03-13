@@ -100,3 +100,34 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </script>
 
 </head>
+<body>
+
+<header class="header">
+    <div class="container">
+
+        <div class="logo">
+            <a href="/index.php">
+                <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+            </a>
+        </div>
+
+        <nav class="navbar" id="navbar">
+
+            <a href="/index.php">Beranda</a>
+            <a href="/about.php">Tentang Kami</a>
+            <a href="/produk.php">Produk</a>
+            <a href="/aftersales.php">Layanan Purna Jual</a>
+            <a href="/contact.php">Hubungi Kami</a>
+            <a href="/blog.php">Blog & Artikel</a>
+
+        </nav>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+</header>

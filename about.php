@@ -1,28 +1,92 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - About Us</title>
+<title>Tentang PT Ganda Elang Tangguh | Dealer Alat Berat LiuGong Indonesia</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/about/hero.css">
-  <link rel="stylesheet" href="/css/about/about.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<!-- SEO -->
+<meta name="description" content="Kenali PT Ganda Elang Tangguh, dealer alat berat LiuGong di Indonesia yang menyediakan excavator, wheel loader, motor grader, serta layanan purna jual profesional.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<meta name="keywords" content="PT Ganda Elang Tangguh, dealer liugong indonesia, alat berat liugong indonesia, perusahaan alat berat indonesia">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow">
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  >
+<link rel="canonical" href="https://gandaelang.co.id/about.php">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Tentang PT Ganda Elang Tangguh">
+<meta property="og:description" content="Dealer alat berat LiuGong di Indonesia dengan layanan profesional dan produk berkualitas.">
+<meta property="og:image" content="https://gandaelang.co.id/images/about.png">
+<meta property="og:url" content="https://gandaelang.co.id/about.php">
+<meta property="og:type" content="website">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tentang PT Ganda Elang Tangguh">
+<meta name="twitter:description" content="Dealer alat berat LiuGong di Indonesia dengan layanan profesional dan produk berkualitas.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/about.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/about/hero.css">
+<link rel="stylesheet" href="/css/about/about.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "PT Ganda Elang Tangguh",
+ "url": "https://gandaelang.co.id",
+ "logo": "https://gandaelang.co.id/images/logo.webp",
+ "description": "PT Ganda Elang Tangguh adalah dealer alat berat LiuGong di Indonesia.",
+ "address": {
+   "@type": "PostalAddress",
+   "streetAddress": "Jl. Pluit Karang Manis VI No.1E, RT.6/RW.8, Penjaringan Utara",
+   "addressLocality": "Jakarta Utara",
+   "addressRegion": "DKI Jakarta",
+   "postalCode": "14450",
+   "addressCountry": "ID"
+ }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Tentang Kami",
+   "item": "https://gandaelang.co.id/about.php"
+  }
+ ]
+}
+</script>
+
 </head>
 
 <body>

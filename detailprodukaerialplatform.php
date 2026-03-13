@@ -118,7 +118,84 @@ $rec = $q->fetchAll();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title><?=htmlspecialchars($product['nama_produk'])?></title>
+<?php
+$currentUrl = "https://gandaelang.co.id/detailprodukaerialplatform.php?slug=" . urlencode($product['slug']);
+$productImage = "https://gandaelang.co.id/images/uploads/produk/" . htmlspecialchars($product['gambar']);
+?>
+
+<title><?= htmlspecialchars($product['nama_produk']) ?> | Aerial Work Platform LiuGong | PT Ganda Elang Tangguh</title>
+
+<!-- META SEO -->
+<meta name="description" content="Spesifikasi lengkap <?= htmlspecialchars($product['nama_produk']) ?> dari LiuGong. Tersedia di PT Ganda Elang Tangguh sebagai dealer alat berat terpercaya di Indonesia.">
+
+<meta name="keywords" content="<?= htmlspecialchars($product['nama_produk']) ?>, aerial work platform liugong, alat berat aerial platform, dealer liugong indonesia">
+
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="canonical" href="<?= $currentUrl ?>">
+
+<!-- OPEN GRAPH (WHATSAPP / FACEBOOK) -->
+<meta property="og:title" content="<?= htmlspecialchars($product['nama_produk']) ?> | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Spesifikasi lengkap <?= htmlspecialchars($product['nama_produk']) ?> aerial work platform LiuGong dengan performa tinggi untuk pekerjaan konstruksi dan industri.">
+<meta property="og:image" content="<?= $productImage ?>">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= htmlspecialchars($product['nama_produk']) ?>">
+<meta name="twitter:description" content="Spesifikasi lengkap aerial work platform LiuGong dari PT Ganda Elang Tangguh.">
+<meta name="twitter:image" content="<?= $productImage ?>">
+
+<!-- PRODUCT SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Product",
+ "name": "<?= htmlspecialchars($product['nama_produk']) ?>",
+ "image": "<?= $productImage ?>",
+ "description": "Aerial Work Platform LiuGong dengan performa tinggi untuk pekerjaan konstruksi dan industri.",
+ "brand": {
+   "@type": "Brand",
+   "name": "LiuGong"
+ },
+ "manufacturer": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "url": "https://gandaelang.co.id"
+ },
+ "url": "<?= $currentUrl ?>"
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [{
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id"
+ },{
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Produk",
+   "item": "https://gandaelang.co.id/produk.php"
+ },{
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Aerial Work Platform",
+   "item": "https://gandaelang.co.id/aerialplatform.php"
+ },{
+   "@type": "ListItem",
+   "position": 4,
+   "name": "<?= htmlspecialchars($product['nama_produk']) ?>"
+ }]
+}
+</script>
 
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/product/detail-product.css">

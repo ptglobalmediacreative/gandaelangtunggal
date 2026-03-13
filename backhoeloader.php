@@ -35,25 +35,98 @@ $products = $stmt->fetchAll();
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - Produk</title>
+<title>Backhoe Loader LiuGong | PT Ganda Elang Tangguh</title>
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/product/hero.css">
-  <link rel="stylesheet" href="/css/product/product.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<!-- SEO -->
+<meta name="description" content="Temukan berbagai Backhoe Loader LiuGong berkualitas di PT Ganda Elang Tangguh. Mesin serbaguna untuk pekerjaan konstruksi, penggalian, pemuatan, dan berbagai aplikasi proyek.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<meta name="keywords" content="backhoe loader liugong, backhoe loader indonesia, alat berat backhoe loader, mesin konstruksi liugong, dealer liugong indonesia">
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="author" content="PT Ganda Elang Tangguh">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="canonical" href="https://gandaelang.co.id/backhoeloader.php">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Backhoe Loader LiuGong | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Backhoe loader LiuGong yang tangguh dan serbaguna untuk berbagai aplikasi proyek konstruksi.">
+<meta property="og:image" content="https://gandaelang.co.id/images/backhoeloader.jpg">
+<meta property="og:url" content="https://gandaelang.co.id/backhoeloader.php">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Backhoe Loader LiuGong">
+<meta name="twitter:description" content="Mesin backhoe loader LiuGong yang kuat, fleksibel, dan efisien untuk berbagai proyek.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/backhoeloader.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/product/hero.css">
+<link rel="stylesheet" href="/css/product/product.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Beranda",
+   "item": "https://gandaelang.co.id/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Produk",
+   "item": "https://gandaelang.co.id/produk.php"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Backhoe Loader",
+   "item": "https://gandaelang.co.id/backhoeloader.php"
+  }
+ ]
+}
+</script>
+
+<!-- CollectionPage Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Backhoe Loader LiuGong",
+ "url": "https://gandaelang.co.id/backhoeloader.php",
+ "description": "Daftar produk Backhoe Loader LiuGong yang tersedia di PT Ganda Elang Tangguh.",
+ "publisher": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://gandaelang.co.id/images/logo.webp"
+   }
+ }
+}
+</script>
+
 </head>
 
 <body>

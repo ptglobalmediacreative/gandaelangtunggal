@@ -118,19 +118,63 @@ $rec = $q->fetchAll();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title><?=htmlspecialchars($product['nama_produk'])?></title>
+<?php
+$currentUrl = "https://gandaelang.co.id/detailprodukaircompressor.php?slug=" . urlencode($product['slug']);
+$productImage = "https://gandaelang.co.id/images/uploads/produk/" . htmlspecialchars($product['gambar']);
+?>
+
+<title><?= htmlspecialchars($product['nama_produk']) ?> | Air Compressor Industrial | PT Ganda Elang Tangguh</title>
+
+<!-- META SEO -->
+<meta name="description" content="Spesifikasi lengkap <?= htmlspecialchars($product['nama_produk']) ?> air compressor industrial berkualitas tinggi untuk kebutuhan proyek dan industri.">
+
+<meta name="keywords" content="<?= htmlspecialchars($product['nama_produk']) ?>, air compressor industrial, kompresor udara industri, mesin kompresor proyek">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="PT Ganda Elang Tangguh">
+
+<link rel="canonical" href="<?= $currentUrl ?>">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="<?= htmlspecialchars($product['nama_produk']) ?> | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Air compressor industrial berkinerja tinggi untuk kebutuhan proyek dan industri.">
+<meta property="og:image" content="<?= $productImage ?>">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:type" content="product">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= htmlspecialchars($product['nama_produk']) ?>">
+<meta name="twitter:image" content="<?= $productImage ?>">
+
+<!-- PRODUCT SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Product",
+ "name": "<?= htmlspecialchars($product['nama_produk']) ?>",
+ "image": "<?= $productImage ?>",
+ "brand": {
+   "@type": "Brand",
+   "name": "LiuGong"
+ },
+ "manufacturer": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh"
+ },
+ "url": "<?= $currentUrl ?>"
+}
+</script>
 
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/product/detail-product.css">
 <link rel="stylesheet" href="/css/product/hero.css">
 <link rel="stylesheet" href="/css/footer.css">
 
-<!-- Favicon -->
 <link rel="icon" type="image/webp" href="/images/favicon.webp">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
