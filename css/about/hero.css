@@ -51,15 +51,18 @@
 .hero-breadcrumb {
   font-size: 14px;
   font-weight: 500;
+
   color: rgba(255, 255, 255, 0.85);
 
   margin-bottom: 40px;
+
   letter-spacing: 0.3px;
 }
 
 .hero-breadcrumb a {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
+
   transition: 0.3s ease;
 }
 
@@ -81,9 +84,11 @@
 .hero-content h1 {
   font-size: 58px;
   font-weight: 700;
+
   line-height: 1.2;
 
   margin-bottom: 18px;
+
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -95,6 +100,7 @@
   line-height: 1.7;
 
   max-width: 650px;
+
   margin-bottom: 36px;
 
   opacity: 0.95;
@@ -105,10 +111,11 @@
 .hero-buttons {
   display: flex;
   gap: 22px;
+
   flex-wrap: wrap;
 }
 
-/* Primary Button */
+/* Primary */
 
 .btn-primary {
   background: linear-gradient(135deg, #facc15, #fde047);
@@ -122,16 +129,18 @@
   font-size: 15px;
 
   box-shadow: 0 6px 18px rgba(250, 204, 21, 0.35);
+
   transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #fde047, #facc15);
   transform: translateY(-4px);
+
   box-shadow: 0 10px 25px rgba(250, 204, 21, 0.45);
 }
 
-/* Secondary Button */
+/* Secondary */
 
 .btn-secondary {
   border: 2px solid #facc15;
@@ -152,23 +161,22 @@
   color: #0f172a;
 
   transform: translateY(-4px);
+
   box-shadow: 0 6px 18px rgba(250, 204, 21, 0.35);
 }
 
 /* ================= RESPONSIVE ================= */
 
-/* Laptop */
+/* Laptop kecil */
 @media (max-width: 1200px) {
   .hero-content h1 {
     font-size: 48px;
   }
 }
 
-/* ================= TABLET ================= */
-
+/* Tablet */
 @media (max-width: 900px) {
   .hero {
-    min-height: 80vh;
     padding-top: 100px;
     padding-left: 30px;
   }
@@ -194,43 +202,48 @@
 
 @media (max-width: 600px) {
   .hero {
-    min-height: 65vh;
+    min-height: 60vh; /* sebelumnya 100vh */
     padding-top: 95px;
     padding-left: 0;
 
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+
+    background-position: center;
   }
 
+  /* Content center */
   .hero-content {
     align-items: center;
     text-align: center;
+
     padding: 0 20px;
+    max-width: 100%;
   }
 
+  /* Breadcrumb */
   .hero-breadcrumb {
     margin-bottom: 14px;
     font-size: 12px;
-    letter-spacing: 0.3px;
   }
 
-  .hero-breadcrumb span {
-    margin: 0 4px;
-  }
-
+  /* Title */
   .hero-content h1 {
     font-size: 26px;
     line-height: 1.3;
     margin-bottom: 12px;
   }
 
+  /* Text */
   .hero-content p {
     font-size: 14px;
     line-height: 1.6;
+
     max-width: 90%;
     margin-bottom: 22px;
   }
 
+  /* Buttons */
   .hero-buttons {
     flex-direction: column;
     align-items: center;
@@ -241,6 +254,7 @@
   .btn-secondary {
     width: 100%;
     max-width: 220px;
+
     font-size: 14px;
     padding: 11px 24px;
   }
@@ -250,94 +264,24 @@
 
 @media (max-width: 420px) {
   .hero {
-    min-height: 60vh;
-    padding-top: 90px;
+    padding-top: 75px;
   }
 
   .hero-breadcrumb {
-    font-size: 11px;
+    font-size: 11.5px;
   }
 
   .hero-content h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .hero-content p {
-    font-size: 13.5px;
+    font-size: 14px;
   }
 
   .btn-primary,
   .btn-secondary {
-    max-width: 200px;
-    font-size: 13px;
+    max-width: 220px;
+    font-size: 13.5px;
   }
-}
-
-/* ================= ABOUT PAGE ANIMATION ================= */
-
-.reveal,
-.reveal-left,
-.reveal-right {
-  opacity: 0;
-  transition:
-    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.9s ease,
-    filter 0.8s ease;
-}
-
-/* Fade up */
-
-.reveal {
-  transform: translateY(40px);
-  filter: blur(6px);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
-/* Slide left */
-
-.reveal-left {
-  transform: translateX(-60px);
-  filter: blur(6px);
-}
-
-.reveal-left.active {
-  opacity: 1;
-  transform: translateX(0);
-  filter: blur(0);
-}
-
-/* Slide right */
-
-.reveal-right {
-  transform: translateX(60px);
-  filter: blur(6px);
-}
-
-.reveal-right.active {
-  opacity: 1;
-  transform: translateX(0);
-  filter: blur(0);
-}
-
-/* Delay */
-
-.delay-1 {
-  transition-delay: 0.1s;
-}
-.delay-2 {
-  transition-delay: 0.2s;
-}
-.delay-3 {
-  transition-delay: 0.3s;
-}
-.delay-4 {
-  transition-delay: 0.4s;
-}
-.delay-5 {
-  transition-delay: 0.5s;
 }
