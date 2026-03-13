@@ -118,19 +118,67 @@ $rec = $q->fetchAll();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title><?=htmlspecialchars($product['nama_produk'])?></title>
+<?php
+$currentUrl = "https://gandaelang.co.id/detailprodukminningtruck.php?slug=" . urlencode($product['slug']);
+$productImage = "https://gandaelang.co.id/images/uploads/produk/" . htmlspecialchars($product['gambar']);
+$productName = htmlspecialchars($product['nama_produk']);
+?>
+
+<title><?= $productName ?> | Mining Truck LiuGong | PT Ganda Elang Tangguh</title>
+
+<meta name="description" content="Spesifikasi lengkap <?= $productName ?> mining truck LiuGong untuk pekerjaan pertambangan, hauling material, dan operasional heavy duty di Indonesia.">
+
+<meta name="keywords" content="<?= $productName ?>, mining truck liugong, dump truck tambang, alat berat pertambangan, dealer liugong indonesia">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta name="author" content="PT Ganda Elang Tangguh">
+
+<link rel="canonical" href="<?= $currentUrl ?>">
+
+<!-- Open Graph (Facebook / WhatsApp) -->
+<meta property="og:title" content="<?= $productName ?> | Mining Truck LiuGong">
+<meta property="og:description" content="Mining truck LiuGong berkinerja tinggi untuk operasional pertambangan dan hauling material berat.">
+<meta property="og:image" content="<?= $productImage ?>">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= $productName ?>">
+<meta name="twitter:description" content="Mining truck LiuGong berkinerja tinggi untuk operasional pertambangan modern.">
+<meta name="twitter:image" content="<?= $productImage ?>">
+
+<!-- Product Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Product",
+ "name": "<?= $productName ?>",
+ "image": "<?= $productImage ?>",
+ "description": "Mining truck LiuGong berkinerja tinggi untuk pekerjaan pertambangan dan hauling material.",
+ "brand": {
+   "@type": "Brand",
+   "name": "LiuGong"
+ },
+ "manufacturer": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh"
+ },
+ "url": "<?= $currentUrl ?>"
+}
+</script>
 
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/product/detail-product.css">
 <link rel="stylesheet" href="/css/product/hero.css">
 <link rel="stylesheet" href="/css/footer.css">
 
-<!-- Favicon -->
 <link rel="icon" type="image/webp" href="/images/favicon.webp">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 

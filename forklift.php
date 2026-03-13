@@ -35,25 +35,71 @@ $products = $stmt->fetchAll();
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - Produk</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/product/hero.css">
-  <link rel="stylesheet" href="/css/product/product.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<?php
+$currentUrl = "https://gandaelang.co.id/forklift.php";
+?>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<title>Forklift LiuGong Indonesia | PT Ganda Elang Tangguh</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Daftar forklift LiuGong untuk kebutuhan logistik, gudang, dan material handling. Solusi forklift efisien untuk meningkatkan produktivitas operasional.">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta name="keywords" content="forklift liugong, forklift indonesia, forklift warehouse equipment, dealer forklift liugong indonesia, material handling equipment">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta name="author" content="PT Ganda Elang Tangguh">
+
+<link rel="canonical" href="<?= $currentUrl ?>">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Forklift LiuGong Indonesia | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Temukan berbagai forklift LiuGong untuk kebutuhan gudang, logistik, dan material handling di Indonesia.">
+<meta property="og:image" content="https://gandaelang.co.id/images/forklift.webp">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Forklift LiuGong Indonesia">
+<meta name="twitter:description" content="Forklift LiuGong untuk operasional gudang dan material handling.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/forklift.webp">
+
+<!-- Schema Category Page -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Forklift LiuGong Indonesia",
+ "description": "Daftar forklift LiuGong untuk operasional gudang dan material handling.",
+ "url": "https://gandaelang.co.id/forklift.php",
+ "publisher": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://gandaelang.co.id/images/logo.webp"
+   }
+ }
+}
+</script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/product/hero.css">
+<link rel="stylesheet" href="/css/product/product.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -127,7 +173,7 @@ $products = $stmt->fetchAll();
           <div class="product-card">
 
             <!-- LINK -->
-            <a href="/detailprodukforklift.webp?slug=<?= htmlspecialchars($row['slug']); ?>" 
+            <a href="/detailprodukforklift?slug=<?= htmlspecialchars($row['slug']); ?>" 
                class="product-link">
 
               <!-- IMAGE -->

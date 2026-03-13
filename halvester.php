@@ -35,25 +35,71 @@ $products = $stmt->fetchAll();
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - Produk</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/product/hero.css">
-  <link rel="stylesheet" href="/css/product/product.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<?php
+$currentUrl = "https://gandaelang.co.id/halvester.php";
+?>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<title>Sugarcane Harvester Indonesia | PT Ganda Elang Tangguh</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Sugarcane harvester berperforma tinggi untuk industri perkebunan tebu. Mesin panen modern yang meningkatkan efisiensi, presisi, dan produktivitas.">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta name="keywords" content="sugarcane harvester indonesia, mesin panen tebu, alat panen tebu modern, agricultural harvesting equipment">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta name="author" content="PT Ganda Elang Tangguh">
+
+<link rel="canonical" href="<?= $currentUrl ?>">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Sugarcane Harvester Indonesia | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Mesin sugarcane harvester untuk industri perkebunan tebu dengan performa tinggi dan presisi.">
+<meta property="og:image" content="https://gandaelang.co.id/images/halvester.png">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sugarcane Harvester Indonesia">
+<meta name="twitter:description" content="Mesin panen tebu modern untuk meningkatkan produktivitas perkebunan.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/halvester.png">
+
+<!-- Schema Category Page -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Sugarcane Harvester",
+ "description": "Daftar mesin sugarcane harvester untuk industri perkebunan tebu.",
+ "url": "https://gandaelang.co.id/halvester.php",
+ "publisher": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://gandaelang.co.id/images/logo.webp"
+   }
+ }
+}
+</script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/product/hero.css">
+<link rel="stylesheet" href="/css/product/product.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -127,7 +173,7 @@ $products = $stmt->fetchAll();
           <div class="product-card">
 
             <!-- LINK -->
-            <a href="/detailprodukhalvester.webp?slug=<?= htmlspecialchars($row['slug']); ?>" 
+            <a href="/detailprodukhalvester?slug=<?= htmlspecialchars($row['slug']); ?>" 
                class="product-link">
 
               <!-- IMAGE -->

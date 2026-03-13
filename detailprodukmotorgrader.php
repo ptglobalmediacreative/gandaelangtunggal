@@ -118,19 +118,67 @@ $rec = $q->fetchAll();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title><?=htmlspecialchars($product['nama_produk'])?></title>
+<?php
+$currentUrl = "https://gandaelang.co.id/detailprodukmotorgrader.php?slug=" . urlencode($product['slug']);
+$productImage = "https://gandaelang.co.id/images/uploads/produk/" . htmlspecialchars($product['gambar']);
+$productName = htmlspecialchars($product['nama_produk']);
+?>
+
+<title><?= $productName ?> | Motor Grader LiuGong | PT Ganda Elang Tangguh</title>
+
+<meta name="description" content="Spesifikasi lengkap <?= $productName ?> motor grader LiuGong untuk pekerjaan konstruksi jalan, perataan tanah, dan proyek infrastruktur di Indonesia.">
+
+<meta name="keywords" content="<?= $productName ?>, motor grader liugong, grader alat berat, alat berat perataan jalan, dealer liugong indonesia">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta name="author" content="PT Ganda Elang Tangguh">
+
+<link rel="canonical" href="<?= $currentUrl ?>">
+
+<!-- Open Graph (Facebook / WhatsApp Preview) -->
+<meta property="og:title" content="<?= $productName ?> | Motor Grader LiuGong">
+<meta property="og:description" content="Motor grader LiuGong berkinerja tinggi untuk perataan jalan, proyek konstruksi, dan pekerjaan infrastruktur.">
+<meta property="og:image" content="<?= $productImage ?>">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= $productName ?>">
+<meta name="twitter:description" content="Motor grader LiuGong berkinerja tinggi untuk proyek konstruksi dan perataan jalan.">
+<meta name="twitter:image" content="<?= $productImage ?>">
+
+<!-- Product Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Product",
+ "name": "<?= $productName ?>",
+ "image": "<?= $productImage ?>",
+ "description": "Motor grader LiuGong untuk pekerjaan perataan jalan dan proyek infrastruktur.",
+ "brand": {
+   "@type": "Brand",
+   "name": "LiuGong"
+ },
+ "manufacturer": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh"
+ },
+ "url": "<?= $currentUrl ?>"
+}
+</script>
 
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/product/detail-product.css">
 <link rel="stylesheet" href="/css/product/hero.css">
 <link rel="stylesheet" href="/css/footer.css">
 
-<!-- Favicon -->
 <link rel="icon" type="image/webp" href="/images/favicon.webp">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 

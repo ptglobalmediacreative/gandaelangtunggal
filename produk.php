@@ -1,28 +1,71 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PT Ganda Elang Tangguh - Product</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/product/hero.css">
-  <link rel="stylesheet" href="/css/product/product.css">
-  <link rel="stylesheet" href="/css/footer.css">
+<?php
+$currentUrl = "https://gandaelang.co.id/produk.php";
+?>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+<title>Produk Alat Berat LiuGong Indonesia | PT Ganda Elang Tangguh</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Berbagai produk alat berat LiuGong untuk konstruksi, pertambangan, logistik, dan infrastruktur di Indonesia. Temukan excavator, wheel loader, bulldozer, motor grader, forklift, dan berbagai heavy equipment lainnya.">
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  >
+<meta name="keywords" content="alat berat liugong indonesia, produk liugong, heavy equipment indonesia, excavator liugong, wheel loader liugong, dealer alat berat indonesia">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta name="author" content="PT Ganda Elang Tangguh">
+
+<link rel="canonical" href="<?= $currentUrl ?>">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Produk Alat Berat LiuGong Indonesia | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Lihat berbagai produk alat berat LiuGong untuk konstruksi, pertambangan, dan logistik di Indonesia.">
+<meta property="og:image" content="https://gandaelang.co.id/images/hero.jpg">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Produk Alat Berat LiuGong Indonesia">
+<meta name="twitter:description" content="Berbagai alat berat LiuGong untuk proyek konstruksi, pertambangan, dan industri.">
+<meta name="twitter:image" content="https://gandaelang.co.id/images/hero.jpg">
+
+<!-- Schema Product Category -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Produk Alat Berat LiuGong",
+ "description": "Kategori produk alat berat LiuGong untuk berbagai kebutuhan industri dan konstruksi.",
+ "url": "https://gandaelang.co.id/produk.php",
+ "publisher": {
+   "@type": "Organization",
+   "name": "PT Ganda Elang Tangguh",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://gandaelang.co.id/images/logo.webp"
+   }
+ }
+}
+</script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/product/hero.css">
+<link rel="stylesheet" href="/css/product/product.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+<link rel="icon" type="image/webp" href="/images/favicon.webp">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
