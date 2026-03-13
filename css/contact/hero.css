@@ -174,9 +174,11 @@
   }
 }
 
-/* Tablet */
+/* ================= TABLET ================= */
+
 @media (max-width: 900px) {
   .hero {
+    min-height: 80vh;
     padding-top: 100px;
     padding-left: 30px;
   }
@@ -202,17 +204,15 @@
 
 @media (max-width: 600px) {
   .hero {
-    min-height: 60vh; /* sebelumnya 100vh */
+    min-height: 65vh;
     padding-top: 95px;
     padding-left: 0;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-
-    background-position: center;
   }
 
-  /* Content center */
+  /* Content */
   .hero-content {
     align-items: center;
     text-align: center;
@@ -225,6 +225,11 @@
   .hero-breadcrumb {
     margin-bottom: 14px;
     font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-breadcrumb span {
+    margin: 0 4px;
   }
 
   /* Title */
@@ -239,8 +244,8 @@
     font-size: 14px;
     line-height: 1.6;
 
-    max-width: 90%;
-    margin-bottom: 22px;
+    max-width: 95%;
+    margin-bottom: 20px;
   }
 
   /* Buttons */
@@ -264,24 +269,25 @@
 
 @media (max-width: 420px) {
   .hero {
-    padding-top: 75px;
+    min-height: 60vh;
+    padding-top: 90px;
   }
 
   .hero-breadcrumb {
-    font-size: 11.5px;
+    font-size: 11px;
   }
 
   .hero-content h1 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .hero-content p {
-    font-size: 14px;
+    font-size: 13.5px;
   }
 
   .btn-primary,
   .btn-secondary {
-    max-width: 220px;
-    font-size: 13.5px;
+    max-width: 200px;
+    font-size: 13px;
   }
 }
