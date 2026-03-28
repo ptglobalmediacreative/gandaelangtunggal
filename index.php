@@ -81,7 +81,7 @@ $latestArtikel = $stmt->fetchAll();
     </p>
 
     <a href="/about.php" class="about-link">
-      → Selengkapnya Tentang Kami
+      Selengkapnya Tentang Kami
     </a>
 
   </div>
