@@ -124,10 +124,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 
 <!-- ================= HERO ================= -->
-<section
-  class="hero hero-image"
-  style="background: url('/images/about.webp') center / cover no-repeat;"
->
+<section class="hero hero-image">
+
+  <!-- Background Image -->
+  <div class="hero-bg"></div>
 
   <!-- Overlay -->
   <div class="hero-overlay"></div>
@@ -136,14 +136,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   <div class="hero-content">
 
     <!-- Breadcrumb -->
-    <div class="hero-breadcrumb">
+    <nav class="hero-breadcrumb" aria-label="Breadcrumb">
       <a href="/index.php">Home</a>
-      <span>></span>
+      <span>/</span>
       <span class="current">About Us</span>
-    </div>
+    </nav>
 
+    <!-- Title -->
     <h1>About Us</h1>
+
+    <!-- Sub Title -->
     <h2>Your Trusted Heavy Equipment Partner in Indonesia</h2>
+
+    <!-- Description -->
+    <p>
+      PT Ganda Elang Tangguh adalah mitra terpercaya dalam penyediaan alat berat
+      berkualitas dengan layanan profesional untuk mendukung berbagai kebutuhan industri di Indonesia.
+    </p>
 
   </div>
 
