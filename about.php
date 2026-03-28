@@ -143,6 +143,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </div>
 
     <h1>About Us</h1>
+    <h2>Your Trusted Heavy Equipment Partner in Indonesia</h2>
 
   </div>
 
