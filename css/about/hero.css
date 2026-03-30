@@ -120,7 +120,7 @@
   height: 3px;
 
   background: #facc15;
-  margin: 14px auto 0; /* INI YANG BIKIN KE TENGAH */
+  margin-top: 14px;
 }
 
 .hero-content span.highlight {
