@@ -18,7 +18,7 @@ $stmt = $pdo->prepare("
     FROM produk p
     LEFT JOIN categories c ON p.category_id = c.id
     WHERE p.slug = ?
-      AND p.category_id = 4
+      AND p.category_id = 3
       AND p.status = 'aktif'
     LIMIT 1
 ");
@@ -101,7 +101,7 @@ $q = $pdo->prepare("
     SELECT *
     FROM produk
     WHERE status = 'aktif'
-      AND category_id = 4
+      AND category_id = 3
       AND id != ?
     ORDER BY RAND()
     LIMIT 4
@@ -124,11 +124,11 @@ $productImage = "https://gandaelang.co.id/images/uploads/produk/" . htmlspecialc
 $productName = htmlspecialchars($product['nama_produk']);
 ?>
 
-<title><?= $productName ?> | Motor Grader LiuGong | PT Ganda Elang Tangguh</title>
+<title><?= $productName ?> | motorgrader LiuGong | PT Ganda Elang Tangguh</title>
 
-<meta name="description" content="Spesifikasi lengkap <?= $productName ?> motor grader LiuGong untuk pekerjaan konstruksi jalan, perataan tanah, dan proyek infrastruktur di Indonesia.">
+<meta name="description" content="Spesifikasi lengkap <?= $productName ?> motorgrader LiuGong untuk pekerjaan konstruksi, pertambangan, dan proyek infrastruktur berat di Indonesia.">
 
-<meta name="keywords" content="<?= $productName ?>, motor grader liugong, grader alat berat, alat berat perataan jalan, dealer liugong indonesia">
+<meta name="keywords" content="<?= $productName ?>, motorgrader liugong, alat berat motorgrader, motorgrader konstruksi, dealer liugong indonesia">
 
 <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -136,18 +136,18 @@ $productName = htmlspecialchars($product['nama_produk']);
 
 <link rel="canonical" href="<?= $currentUrl ?>">
 
-<!-- Open Graph (Facebook / WhatsApp Preview) -->
-<meta property="og:title" content="<?= $productName ?> | Motor Grader LiuGong">
-<meta property="og:description" content="Motor grader LiuGong berkinerja tinggi untuk perataan jalan, proyek konstruksi, dan pekerjaan infrastruktur.">
+<!-- Open Graph -->
+<meta property="og:title" content="<?= $productName ?> | motorgrader LiuGong">
+<meta property="og:description" content="motorgrader LiuGong berkinerja tinggi untuk pekerjaan konstruksi dan pertambangan.">
 <meta property="og:image" content="<?= $productImage ?>">
 <meta property="og:url" content="<?= $currentUrl ?>">
 <meta property="og:type" content="product">
 <meta property="og:site_name" content="PT Ganda Elang Tangguh">
 
-<!-- Twitter Card -->
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="<?= $productName ?>">
-<meta name="twitter:description" content="Motor grader LiuGong berkinerja tinggi untuk proyek konstruksi dan perataan jalan.">
+<meta name="twitter:description" content="motorgrader LiuGong berkinerja tinggi untuk proyek konstruksi dan pertambangan.">
 <meta name="twitter:image" content="<?= $productImage ?>">
 
 <!-- Product Schema -->
@@ -157,7 +157,7 @@ $productName = htmlspecialchars($product['nama_produk']);
  "@type": "Product",
  "name": "<?= $productName ?>",
  "image": "<?= $productImage ?>",
- "description": "Motor grader LiuGong untuk pekerjaan perataan jalan dan proyek infrastruktur.",
+ "description": "motorgrader LiuGong berkinerja tinggi untuk pekerjaan konstruksi dan pertambangan.",
  "brand": {
    "@type": "Brand",
    "name": "LiuGong"
@@ -234,7 +234,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       <a href="/produk.php">Product</a>
       <span>></span>
 
-      <a href="/motorgrader.php">Motor Grader</a>
+      <a href="/motorgrader.php">Motorgrader</a>
       <span>></span>
 
       <span class="current">
