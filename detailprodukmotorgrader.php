@@ -11,14 +11,14 @@ if (!isset($_GET['slug'])) {
 $slug = $_GET['slug'];
 
 
-/* ================= PRODUCT (KHUSUS CATEGORY 3 = motorgrader) ================= */
+/* ================= PRODUCT (KHUSUS CATEGORY 4 = motorgrader) ================= */
 
 $stmt = $pdo->prepare("
     SELECT p.*, c.name AS kategori
     FROM produk p
     LEFT JOIN categories c ON p.category_id = c.id
     WHERE p.slug = ?
-      AND p.category_id = 3
+      AND p.category_id = 4
       AND p.status = 'aktif'
     LIMIT 1
 ");
@@ -101,7 +101,7 @@ $q = $pdo->prepare("
     SELECT *
     FROM produk
     WHERE status = 'aktif'
-      AND category_id = 3
+      AND category_id = 4
       AND id != ?
     ORDER BY RAND()
     LIMIT 4
