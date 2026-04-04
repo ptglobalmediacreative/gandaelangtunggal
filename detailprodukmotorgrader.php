@@ -390,7 +390,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <?php foreach($rec as $r): ?>
 
-<a href="/detailprodukexcavator.php?slug=<?=$r['slug']?>" class="pd-card">
+<a href="/detailprodukmotorgrader.php?slug=<?=$r['slug']?>" class="pd-card">
 
 <img src="/images/uploads/produk/<?=$r['gambar']?>">
 
