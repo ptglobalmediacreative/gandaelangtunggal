@@ -279,6 +279,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 
 <!-- FEATURES -->
+<?php if (!empty($features)): ?>
 <section id="pd-features" class="pd-section">
 
 <h2>FEATURES</h2>
@@ -305,9 +306,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 </section>
+<?php endif; ?>
 
 
 <!-- SPEC -->
+<?php if (!empty($group)): ?>
 <section id="pd-specifications" class="pd-section pd-gray">
 
 <h2>SPECIFICATIONS</h2>
@@ -334,9 +337,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <?php endforeach; ?>
 
 </section>
+<?php endif; ?>
 
 
 <!-- GALLERY -->
+<?php if (!empty($gallery)): ?>
 <section id="pd-gallery" class="pd-section">
 
 <h2>GALLERY</h2>
@@ -362,6 +367,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 </section>
+<?php endif; ?>
 
 
 <!-- RECOMMENDED -->
@@ -373,7 +379,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <?php foreach($rec as $r): ?>
 
-<a href="/detailprodukroller.php?slug=<?=$r['slug']?>" class="pd-card">
+<a href="/detailprodukbulldozer.php?slug=<?=$r['slug']?>" class="pd-card">
 
 <img src="/images/uploads/produk/<?=$r['gambar']?>">
 
