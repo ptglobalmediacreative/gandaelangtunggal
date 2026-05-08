@@ -197,7 +197,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <div class="product-card">
 
             <!-- LINK -->
-            <a href="/detailprodukcrane.webp?slug=<?= htmlspecialchars($row['slug']); ?>" 
+            <a href="/detailprodukcrane.php?slug=<?= htmlspecialchars($row['slug']); ?>" 
                class="product-link">
 
               <!-- IMAGE -->
