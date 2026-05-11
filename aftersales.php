@@ -178,7 +178,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <li><i class="fa-solid fa-check"></i> Respon Cepat</li>
         </ul>
 
-        <a href="/kontak.php" class="btn-main">
+        <a href="/contact.php" class="btn-main">
           Konsultasi Sekarang
         </a>
 

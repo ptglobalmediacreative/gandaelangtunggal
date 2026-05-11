@@ -24,7 +24,7 @@
       <ul>
         <li><a href="/index.php">Beranda</a></li>
         <li><a href="/about.php">Tentang Kami</a></li>
-        <li><a href="/product.php">Produk</a></li>
+        <li><a href="/produk.php">Produk</a></li>
         <li><a href="/aftersales.php">Layanan Purna Jual</a></li>
         <li><a href="/contact.php">Hubungi Kami</a></li>
         <li><a href="/blog.php">Blog & Artikel</a></li>
