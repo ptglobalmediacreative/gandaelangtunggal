@@ -100,20 +100,21 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* Tambahan style untuk spesifikasi list */
+/* Style untuk spesifikasi list - clean & profesional */
 .product-spec-list {
     list-style: none;
     padding: 0;
-    margin: 15px 0;
+    margin: 16px 0 20px 0;
 }
 
 .product-spec-list li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-size: 13px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .product-spec-list li:last-child {
@@ -122,17 +123,63 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 .product-spec-list li span:first-child {
     font-weight: 500;
-    color: #333;
+    color: #555;
 }
 
 .product-spec-list li span:last-child {
-    font-weight: 600;
-    color: #c9a03d;
+    font-weight: 500;
+    color: #222;
 }
 
-.product-spec-list li span:last-child {
+/* Perbaikan product-info spacing */
+.product-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.product-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Perbaikan button */
+.product-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
     font-weight: 600;
-    color: #c9a03d;
+    color: #1a1a1a;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.product-btn i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.product-link:hover .product-btn {
+    color: #1a1a1a;
+}
+
+.product-link:hover .product-btn i {
+    transform: translateX(5px);
+}
+
+/* Card hover effect */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -15px rgba(0,0,0,0.1);
 }
 </style>
 
