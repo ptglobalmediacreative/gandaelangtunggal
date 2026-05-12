@@ -1,6 +1,6 @@
 /* ==================================================
    PRODUCT CATEGORY & LIST - CLEAN BLUE STYLE
-   VERSION: FINAL CLEANED
+   VERSION: FIXED & CLEANED
 ================================================== */
 
 /* ================= RESET & BASE ================= */
@@ -23,7 +23,7 @@ body {
 }
 
 /* ==================================================
-   HEADER & NAVBAR (FIXED HAMBURGER)
+   HEADER & NAVBAR
 ================================================== */
 .header {
   position: sticky;
@@ -97,7 +97,7 @@ body {
 }
 
 /* ==================================================
-   PRODUCT CATEGORY SECTION
+   PRODUCT CATEGORY
 ================================================== */
 .product-category {
   width: 100%;
@@ -172,7 +172,7 @@ body {
 }
 
 /* ==================================================
-   PRODUCT LIST SECTION
+   PRODUCT LIST
 ================================================== */
 .product-list {
   padding: 80px 20px;
@@ -198,7 +198,6 @@ body {
   gap: 26px;
 }
 
-/* ================= PRODUCT CARD ================= */
 .product-link {
   display: block;
   height: 100%;
@@ -222,15 +221,12 @@ body {
   box-shadow: 0 18px 40px rgba(11, 58, 130, 0.25);
 }
 
-/* ================= PRODUCT IMAGE ================= */
 .product-image {
   height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  overflow: hidden;
-  background: #f5f5f5;
 }
 
 .product-image img {
@@ -244,7 +240,6 @@ body {
   transform: scale(1.08);
 }
 
-/* ================= PRODUCT INFO ================= */
 .product-info h3 {
   margin: 10px 0 12px;
   font-size: 18px;
@@ -257,7 +252,9 @@ body {
   color: #ff6a00;
 }
 
-/* ================= PRODUCT SPEC ================= */
+/* ==================================================
+   PRODUCT SPEC
+================================================== */
 .product-spec {
   list-style: none;
   padding: 0;
@@ -293,7 +290,7 @@ body {
   border-bottom: none;
 }
 
-/* Alternative spec list style (for wheelloader) */
+/* Alternative spec list style (untuk wheelloader dengan 3 specs) */
 .product-spec-list {
   list-style: none;
   padding: 0;
@@ -315,15 +312,17 @@ body {
 
 .product-spec-list li span:first-child {
   font-weight: 500;
-  color: #555;
+  color: #6b7280;
 }
 
 .product-spec-list li span:last-child {
-  font-weight: 500;
-  color: #222;
+  font-weight: 600;
+  color: #0b3a82;
 }
 
-/* ================= PRODUCT BUTTON ================= */
+/* ==================================================
+   PRODUCT BUTTON
+================================================== */
 .product-btn {
   margin-top: 8px;
   display: inline-flex;
@@ -340,36 +339,28 @@ body {
   transform: translateX(3px);
 }
 
-/* Button with absolute position (for wheelloader) */
-.product-card.with-absolute-btn {
+/* Special style untuk wheelloader dengan absolute button */
+.product-card.absolute-btn-mode {
   position: relative;
 }
 
-.product-card.with-absolute-btn .product-info {
+.product-card.absolute-btn-mode .product-info {
   padding-bottom: 60px;
   position: relative;
   flex: 1;
 }
 
-.product-card.with-absolute-btn .product-btn {
+.product-card.absolute-btn-mode .product-btn {
   position: absolute;
   bottom: 20px;
   left: 20px;
   margin-top: 0;
 }
 
-.product-card.with-absolute-btn .product-link {
+.product-card.absolute-btn-mode .product-link {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-/* ================= NO PRODUCT ================= */
-.no-product {
-  text-align: center;
-  padding: 60px;
-  color: #6b7280;
-  font-size: 18px;
 }
 
 /* ==================================================
@@ -389,7 +380,7 @@ body {
 .faq-header h2 {
   font-size: 36px;
   font-weight: 700;
-  color: #1a3a6b;
+  color: #0b3a82;
   margin-bottom: 16px;
   position: relative;
   display: inline-block;
@@ -403,12 +394,12 @@ body {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #1a3a6b, #c9a03d);
+  background: linear-gradient(90deg, #0b3a82, #ff6a00);
   border-radius: 2px;
 }
 
 .faq-header p {
-  color: #666;
+  color: #6b7280;
   font-size: 18px;
   max-width: 600px;
   margin: 24px auto 0;
@@ -423,7 +414,7 @@ body {
 
 .faq-item {
   background: #fff;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -433,7 +424,7 @@ body {
 
 .faq-item:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  border-color: #c9a03d;
+  border-color: #ff6a00;
   transform: translateY(-2px);
 }
 
@@ -444,7 +435,7 @@ body {
   padding: 20px 24px;
   font-weight: 600;
   font-size: 17px;
-  color: #1a3a6b;
+  color: #0b3a82;
   background: #fff;
   transition: background 0.3s ease;
 }
@@ -454,7 +445,7 @@ body {
 }
 
 .faq-question i {
-  color: #c9a03d;
+  color: #ff6a00;
   transition: transform 0.3s ease;
   font-size: 14px;
   background: #f0f0f0;
@@ -468,7 +459,7 @@ body {
 
 .faq-item.active .faq-question i {
   transform: rotate(180deg);
-  background: #c9a03d;
+  background: #ff6a00;
   color: #fff;
 }
 
@@ -476,7 +467,7 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #555;
+  color: #6b7280;
   line-height: 1.7;
   background: #fafafa;
   border-top: 1px solid transparent;
@@ -484,7 +475,7 @@ body {
 
 .faq-item.active .faq-answer {
   max-height: 250px;
-  border-top-color: #e8e8e8;
+  border-top-color: #e5e7eb;
 }
 
 .faq-answer p {
@@ -510,7 +501,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #1a3a6b;
+  background: #0b3a82;
   color: #fff;
   padding: 12px 28px;
   border-radius: 40px;
@@ -521,9 +512,9 @@ body {
 }
 
 .faq-cta .contact-btn:hover {
-  background: #c9a03d;
+  background: #ff6a00;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(201, 160, 61, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 106, 0, 0.3);
 }
 
 .faq-cta .contact-btn i {
@@ -532,6 +523,16 @@ body {
 
 .faq-cta .contact-btn:hover i {
   transform: translateX(5px);
+}
+
+/* ==================================================
+   EMPTY & NO PRODUCT
+================================================== */
+.no-product {
+  text-align: center;
+  padding: 60px;
+  color: #6b7280;
+  font-size: 18px;
 }
 
 /* ==================================================
