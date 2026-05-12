@@ -27,34 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ================= HAMBURGER MENU =================
-  const hamburger = document.getElementById("hamburger");
-  const navbar = document.getElementById("navbar");
-
-  if (hamburger && navbar) {
-    hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("active");
-      navbar.classList.toggle("active");
-
-      // Prevent body scroll when menu is open
-      if (navbar.classList.contains("active")) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "";
-      }
-    });
-
-    // Close menu when clicking a link on mobile
-    const navLinks = navbar.querySelectorAll("a");
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navbar.classList.remove("active");
-        document.body.style.overflow = "";
-      });
-    });
-  }
-
   // ================= SMOOTH SCROLL =================
   const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
 
