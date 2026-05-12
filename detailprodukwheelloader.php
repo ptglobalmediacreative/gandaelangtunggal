@@ -45,22 +45,9 @@ $q = $pdo->prepare("
 $q->execute([$product['id']]);
 $hero = $q->fetch();
 
-// Jika tidak ada di gallery, cari dari tabel features
-if (!$hero) {
-    $q2 = $pdo->prepare("
-        SELECT image
-        FROM produk_features
-        WHERE produk_id = ?
-        ORDER BY sort_order ASC
-        LIMIT 1
-    ");
-    $q2->execute([$product['id']]);
-    $hero = $q2->fetch();
-}
-
 $heroImage = $hero
     ? "/images/uploads/produk/" . $hero['image']
-    : "/images/hero.jpg";
+    : "/images/wheel.webp";
 
 
 /* ================= FEATURES ================= */
