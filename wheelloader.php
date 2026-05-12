@@ -30,14 +30,14 @@ foreach ($products as &$product) {
     $product['specifications'] = $spec_stmt->fetchAll();
 }
 unset($product);
+
+$currentUrl = "https://gandaelang.co.id/wheelloader.php";
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <?php $currentUrl = "https://gandaelang.co.id/wheelloader.php"; ?>
     
     <title>Wheel Loader LiuGong | Alat Berat Konstruksi & Pertambangan | PT Ganda Elang Tangguh</title>
     
@@ -75,7 +75,7 @@ unset($product);
     <meta name="twitter:image" content="https://gandaelang.co.id/images/wheelloader.jpg">
     <meta name="twitter:image:alt" content="Wheel Loader LiuGong">
     
-    <!-- Schema.org untuk Product -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -98,7 +98,6 @@ unset($product);
     }
     </script>
     
-    <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -126,7 +125,6 @@ unset($product);
     }
     </script>
     
-    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -152,7 +150,6 @@ unset($product);
     }
     </script>
     
-    <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -212,394 +209,6 @@ unset($product);
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Reset & Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        /* Product Specifications - Clean & Professional */
-        .product-spec-list {
-            list-style: none;
-            padding: 0;
-            margin: 16px 0 0 0;
-        }
-        
-        .product-spec-list li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            padding: 10px 0;
-            border-bottom: 1px solid #eaeaea;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        
-        .product-spec-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .product-spec-list li span:first-child {
-            font-weight: 500;
-            color: #555;
-        }
-        
-        .product-spec-list li span:last-child {
-            font-weight: 500;
-            color: #222;
-        }
-        
-        /* Product Title - Dark Blue */
-        .product-info h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #1a3a6b;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: color 0.3s ease;
-        }
-        
-        /* Hover Product Title - Gold/Yellow */
-        .product-link:hover .product-info h3 {
-            color: #c9a03d;
-        }
-        
-        /* Button - Dark Blue */
-        .product-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #1a3a6b;
-            text-decoration: none;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-        }
-        
-        .product-btn i {
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
-        
-        /* Hover Button - Gold/Yellow */
-        .product-link:hover .product-btn {
-            color: #c9a03d;
-        }
-        
-        .product-link:hover .product-btn i {
-            transform: translateX(5px);
-        }
-        
-        /* Card Container */
-        .product-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .product-link {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            text-decoration: none;
-        }
-        
-        /* Product Info Container */
-        .product-info {
-            padding: 20px;
-            text-align: left;
-            flex: 1;
-            position: relative;
-            padding-bottom: 60px;
-        }
-        
-        /* Product Image */
-        .product-image {
-            height: 240px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f5f5f5;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        /* Product Container */
-        .product-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .product-title {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 700;
-            color: #1a3a6b;
-            margin-bottom: 40px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        
-        /* FAQ Section Styles - Enhanced Professional */
-        .faq-section {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-        
-        .faq-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .faq-header h2 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #1a3a6b;
-            margin-bottom: 16px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .faq-header h2:after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #1a3a6b, #c9a03d);
-            border-radius: 2px;
-        }
-        
-        .faq-header p {
-            color: #666;
-            font-size: 18px;
-            max-width: 600px;
-            margin: 24px auto 0;
-            line-height: 1.6;
-        }
-        
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-        
-        .faq-item {
-            background: #fff;
-            border: 1px solid #e8e8e8;
-            border-radius: 16px;
-            padding: 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-        
-        .faq-item:hover {
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-            border-color: #c9a03d;
-            transform: translateY(-2px);
-        }
-        
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 24px;
-            font-weight: 600;
-            font-size: 17px;
-            color: #1a3a6b;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #fff;
-            transition: background 0.3s ease;
-        }
-        
-        .faq-item:hover .faq-question {
-            background: #faf9f7;
-        }
-        
-        .faq-question i {
-            color: #c9a03d;
-            transition: transform 0.3s ease;
-            font-size: 14px;
-            background: #f0f0f0;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-            background: #c9a03d;
-            color: #fff;
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            color: #555;
-            line-height: 1.7;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #fafafa;
-            border-top: 1px solid transparent;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 250px;
-            border-top-color: #e8e8e8;
-        }
-        
-        .faq-answer p {
-            padding: 20px 24px;
-            font-size: 15px;
-        }
-        
-        .faq-cta {
-            text-align: center;
-            margin-top: 48px;
-            padding: 32px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #eef2f7 100%);
-            border-radius: 20px;
-        }
-        
-        .faq-cta p {
-            color: #333;
-            font-size: 16px;
-            margin-bottom: 16px;
-        }
-        
-        .faq-cta .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #1a3a6b;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-        
-        .faq-cta .contact-btn:hover {
-            background: #c9a03d;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(201,160,61,0.3);
-        }
-        
-        .faq-cta .contact-btn i {
-            transition: transform 0.3s ease;
-        }
-        
-        .faq-cta .contact-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        /* No Product Message */
-        .no-product {
-            text-align: center;
-            padding: 60px;
-            color: #666;
-            font-size: 18px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .faq-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            
-            .faq-question {
-                font-size: 15px;
-                padding: 16px 20px;
-            }
-            
-            .faq-answer p {
-                padding: 16px 20px;
-                font-size: 14px;
-            }
-            
-            .product-title,
-            .faq-header h2 {
-                font-size: 28px;
-            }
-            
-            .faq-header p {
-                font-size: 16px;
-            }
-            
-            .product-grid {
-                gap: 20px;
-            }
-            
-            .faq-cta {
-                padding: 24px 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .faq-question {
-                font-size: 14px;
-                padding: 14px 16px;
-            }
-            
-            .faq-question i {
-                width: 24px;
-                height: 24px;
-                font-size: 12px;
-            }
-            
-            .faq-header h2 {
-                font-size: 24px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -698,7 +307,7 @@ unset($product);
     </div>
 </section>
 
-<!-- ================= FAQ SECTION - ENHANCED ================= -->
+<!-- ================= FAQ SECTION ================= -->
 <section class="faq-section">
     <div class="faq-header">
         <h2>Pertanyaan Umum</h2>
@@ -778,47 +387,8 @@ unset($product);
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
-<!-- ================= JAVASCRIPT ================= -->
-<script>
-// FAQ Accordion Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        if (question) {
-            question.addEventListener('click', () => {
-                // Close all other faq items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current item
-                item.classList.toggle('active');
-            });
-        }
-    });
-    
-    // Open first FAQ item by default (optional)
-    if (faqItems.length > 0) {
-        // faqItems[0].classList.add('active'); // Uncomment if you want first item open by default
-    }
-    
-    // Hamburger menu functionality
-    const hamburger = document.getElementById('hamburger');
-    const navbar = document.getElementById('navbar');
-    
-    if (hamburger && navbar) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navbar.classList.toggle('active');
-        });
-    }
-});
-</script>
+<!-- JavaScript -->
+<script src="/js/product.js"></script>
 
 </body>
 </html>
