@@ -1,10 +1,10 @@
 /**
  * Main JavaScript - PT Ganda Elang Tangguh
  * Untuk semua halaman produk
+ * ONLY FAQ, SMOOTH SCROLL, LAZY LOADING - NO HAMBURGER
  */
 
 document.addEventListener("DOMContentLoaded", function () {
-
   // ================= FAQ ACCORDION =================
   const faqItems = document.querySelectorAll(".faq-item");
 
@@ -57,7 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const img = entry.target;
-          img.src = img.src;
+          // Trigger load by setting src
+          if (img.getAttribute("data-src")) {
+            img.src = img.getAttribute("data-src");
+          }
           observer.unobserve(img);
         }
       });
