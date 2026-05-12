@@ -104,7 +104,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 .product-spec-list {
     list-style: none;
     padding: 0;
-    margin: 16px 0 20px 0;
+    margin: 16px 0 0 0;
 }
 
 .product-spec-list li {
@@ -140,7 +140,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Tombol Detail Selengkapnya seperti semula (dengan warna biru/emas) */
+/* Tombol Detail Selengkapnya - dipaksa di bagian bawah */
 .product-btn {
     display: inline-flex;
     align-items: center;
@@ -149,9 +149,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     font-weight: 600;
     color: #c9a03d;
     text-decoration: none;
-    margin-top: 8px;
+    margin-top: 20px;
     transition: all 0.3s ease;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 
 .product-btn i {
@@ -167,14 +170,62 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     transform: translateX(5px);
 }
 
-/* Card hover effect */
+/* Card - pastikan memiliki posisi relative untuk absolute button */
 .product-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -15px rgba(0,0,0,0.1);
+.product-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+}
+
+/* Product info harus fleksibel dan memberikan ruang untuk button di bawah */
+.product-info {
+    padding: 20px;
+    text-align: left;
+    flex: 1;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+/* Image container - pastikan tinggi konsisten */
+.product-image {
+    height: 240px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+/* Grid - pastikan semua card memiliki tinggi yang sama */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Menjamin semua card di baris yang sama memiliki tinggi yang konsisten */
+.product-card {
+    height: 100%;
 }
 </style>
 
@@ -287,7 +338,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                   </ul>
                 <?php endif; ?>
 
-                <!-- BUTTON (WARNA EMAS/BIRU SEPERTI SEMULA) -->
+                <!-- BUTTON (WARNA EMAS/BIRU SEPERTI SEMULA) - SEKARANG RATA SEMUA -->
                 <div class="product-btn">
                   Detail Selengkapnya <i class="fa-solid fa-arrow-right"></i>
                 </div>
