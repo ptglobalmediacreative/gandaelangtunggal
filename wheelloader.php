@@ -100,7 +100,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* Style untuk spesifikasi list - clean & profesional */
+/* Style untuk spesifikasi list - clean & profesional (HITAM PUTIH) */
 .product-spec-list {
     list-style: none;
     padding: 0;
@@ -131,12 +131,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     color: #222;
 }
 
-/* Perbaikan product-info spacing */
-.product-info {
-    padding: 20px;
-    text-align: left;
-}
-
+/* Judul produk tetap seperti semula */
 .product-info h3 {
     font-size: 18px;
     font-weight: 700;
@@ -145,14 +140,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Perbaikan button */
+/* Tombol Detail Selengkapnya seperti semula (dengan warna biru/emas) */
 .product-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-size: 13px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #c9a03d;
     text-decoration: none;
     margin-top: 8px;
     transition: all 0.3s ease;
@@ -165,7 +160,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 }
 
 .product-link:hover .product-btn {
-    color: #1a1a1a;
+    color: #a07d2e;
 }
 
 .product-link:hover .product-btn i {
@@ -273,7 +268,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
                 <h3><?= htmlspecialchars($row['nama_produk']); ?></h3>
 
-                <!-- 3 SPESIFIKASI PERTAMA -->
+                <!-- 3 SPESIFIKASI PERTAMA (HITAM PUTIH) -->
                 <?php if (!empty($row['specifications'])) : ?>
                   <ul class="product-spec-list">
                     <?php foreach ($row['specifications'] as $spec) : ?>
@@ -292,7 +287,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                   </ul>
                 <?php endif; ?>
 
-                <!-- BUTTON -->
+                <!-- BUTTON (WARNA EMAS/BIRU SEPERTI SEMULA) -->
                 <div class="product-btn">
                   Detail Selengkapnya <i class="fa-solid fa-arrow-right"></i>
                 </div>
