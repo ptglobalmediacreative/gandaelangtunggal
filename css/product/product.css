@@ -435,6 +435,45 @@
   transform: translateX(5px);
 }
 
+/* Buat semua card memiliki tinggi yang sama dan button rata */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-info h3 {
+  margin: 10px 0 12px;
+}
+
+.product-spec-list {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.product-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b3a82;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.product-card:hover .product-btn {
+  color: #ff6a00;
+  transform: translateX(3px);
+}
+
 /* ==================================================
    RESPONSIVE - FAQ ONLY
 ================================================== */
