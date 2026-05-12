@@ -202,7 +202,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/product/hero.css">
-    <link rel="stylesheet" href="/css/product/product.css">
+    <link rel="stylesheet" href="/css/product.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="icon" type="image/webp" href="/images/favicon.webp">
     
