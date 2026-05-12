@@ -39,7 +39,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Wheel Loader LiuGong | Alat Berat Konstruksi & Pertambangan | PT Ganda Elang Tangguh</title>
+    <title>Wheel Loader LiuGong | Heavy Equipment | PT Ganda Elang Tangguh</title>
     
     <meta name="description" content="PT Ganda Elang Tangguh jual Wheel Loader LiuGong berkualitas tinggi untuk konstruksi, pertambangan, dan material handling. Tersedia berbagai tipe wheel loader dengan performa unggul dan efisiensi bahan bakar terbaik.">
     
@@ -72,7 +72,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Wheel Loader LiuGong | Alat Berat Indonesia">
     <meta name="twitter:description" content="Wheel loader tangguh untuk proyek konstruksi dan pertambangan. Tersedia berbagai tipe dengan performa terbaik.">
-    <meta name="twitter:image" content="https://gandaelang.co.id/images/wheelloader.jpg">
+    <meta name="twitter:image" content="https://gandaelang.co.id/images/wheel.webp">
     <meta name="twitter:image:alt" content="Wheel Loader LiuGong">
     
     <!-- Schema.org -->
@@ -140,7 +140,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+62-21-XXXXXXX",
+            "telephone": "+62-823-5516-3745",
             "contactType": "customer service"
         },
         "sameAs": [
