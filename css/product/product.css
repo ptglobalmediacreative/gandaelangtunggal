@@ -1,6 +1,6 @@
 /* ==================================================
    PRODUCT CATEGORY & LIST - CLEAN BLUE STYLE
-   FIXED: BUTTON RATA BAWAH
+   FINAL FIXED: BUTTON RATA BAWAH SEMUA CARD
 ================================================== */
 
 /* ================= RESET LINK ================= */
@@ -119,7 +119,7 @@
   text-decoration: none;
 }
 
-/* ================= PRODUCT CARD ================= */
+/* ================= PRODUCT CARD - TINGGI MINIMUM SAMA ================= */
 .product-card {
   background: #ffffff;
   border-radius: 14px;
@@ -129,6 +129,7 @@
   transition: all 0.3s ease;
   overflow: hidden;
   height: 100%;
+  min-height: 520px;
   display: flex;
   flex-direction: column;
 }
@@ -171,6 +172,7 @@
   font-weight: 700;
   color: #0b3a82;
   transition: 0.3s ease;
+  min-height: 50px;
 }
 
 .product-card:hover .product-info h3 {
@@ -217,7 +219,7 @@
 .product-spec-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
   flex: 1;
 }
 
@@ -237,12 +239,14 @@
 .product-spec-list li span:first-child {
   font-weight: 500;
   color: #6b7280;
+  flex: 1;
 }
 
 .product-spec-list li span:last-child {
   font-weight: 600;
   color: #0b3a82;
   text-align: right;
+  margin-left: 10px;
 }
 
 /* ================= PRODUCT BUTTON - RATA BAWAH ================= */
@@ -250,27 +254,29 @@
   margin-top: auto;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 13px;
   font-weight: 600;
   color: #0b3a82;
   transition: all 0.3s ease;
   width: fit-content;
-  padding-top: 12px;
+  padding-top: 14px;
   border-top: 1px solid #eaeaea;
+  background: transparent;
 }
 
 .product-card:hover .product-btn {
   color: #ff6a00;
-  transform: translateX(3px);
+  gap: 10px;
 }
 
 .product-btn i {
   transition: transform 0.3s ease;
+  font-size: 12px;
 }
 
 .product-card:hover .product-btn i {
-  transform: translateX(3px);
+  transform: translateX(5px);
 }
 
 /* ================= NO PRODUCT ================= */
@@ -454,6 +460,9 @@
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .product-card {
+    min-height: 480px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -463,6 +472,9 @@
   }
   .category-title {
     font-size: 28px;
+  }
+  .product-card {
+    min-height: 460px;
   }
 }
 
@@ -507,6 +519,9 @@
   }
   .product-spec li {
     font-size: 12px;
+  }
+  .product-card {
+    min-height: auto;
   }
 }
 
