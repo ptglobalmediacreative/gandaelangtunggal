@@ -1,5 +1,6 @@
 /* ==================================================
    PRODUCT CATEGORY & LIST - CLEAN BLUE STYLE
+   WITH FIXED BUTTON ALIGNMENT
 ================================================== */
 
 /* ================= RESET LINK ================= */
@@ -26,8 +27,6 @@
   text-align: center;
 }
 
-/* ---------- TITLE ---------- */
-
 .category-title {
   font-size: 36px;
   font-weight: 700;
@@ -41,15 +40,11 @@
   margin-bottom: 50px;
 }
 
-/* ---------- GRID ---------- */
-
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
 }
-
-/* ---------- CARD ---------- */
 
 .category-card {
   background: #ffffff;
@@ -126,6 +121,7 @@
   text-decoration: none;
 }
 
+/* ================= PRODUCT CARD - FLEX COLUMN ================= */
 .product-card {
   background: #ffffff;
   border-radius: 14px;
@@ -136,6 +132,8 @@
   position: relative;
   overflow: hidden;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card:hover {
@@ -143,6 +141,7 @@
   box-shadow: 0 18px 40px rgba(11, 58, 130, 0.25);
 }
 
+/* ================= PRODUCT IMAGE ================= */
 .product-image {
   height: 170px;
   display: flex;
@@ -162,6 +161,13 @@
   transform: scale(1.08);
 }
 
+/* ================= PRODUCT INFO - FLEX COLUMN ================= */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .product-info h3 {
   margin: 10px 0 12px;
   font-size: 18px;
@@ -174,10 +180,7 @@
   color: #ff6a00;
 }
 
-/* ==================================================
-   PRODUCT SPEC
-================================================== */
-
+/* ================= PRODUCT SPEC ================= */
 .product-spec {
   list-style: none;
   padding: 0;
@@ -217,7 +220,8 @@
 .product-spec-list {
   list-style: none;
   padding: 0;
-  margin: 16px 0 0 0;
+  margin: 0 0 20px 0;
+  flex: 1;
 }
 
 .product-spec-list li {
@@ -243,12 +247,9 @@
   color: #0b3a82;
 }
 
-/* ==================================================
-   PRODUCT BUTTON
-================================================== */
-
+/* ================= PRODUCT BUTTON - RATA BAWAH ================= */
 .product-btn {
-  margin-top: 8px;
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -256,6 +257,9 @@
   font-weight: 600;
   color: #0b3a82;
   transition: all 0.3s ease;
+  width: fit-content;
+  padding-top: 12px;
+  border-top: 1px solid #eaeaea;
 }
 
 .product-card:hover .product-btn {
@@ -263,6 +267,15 @@
   transform: translateX(3px);
 }
 
+.product-btn i {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-btn i {
+  transform: translateX(3px);
+}
+
+/* ================= NO PRODUCT ================= */
 .no-product {
   text-align: center;
   font-size: 15px;
@@ -270,7 +283,7 @@
 }
 
 /* ==================================================
-   FAQ SECTION - ONLY FAQ
+   FAQ SECTION
 ================================================== */
 
 .faq-section {
@@ -435,47 +448,8 @@
   transform: translateX(5px);
 }
 
-/* Buat semua card memiliki tinggi yang sama dan button rata */
-.product-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.product-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.product-info h3 {
-  margin: 10px 0 12px;
-}
-
-.product-spec-list {
-  flex: 1;
-  margin-bottom: 16px;
-}
-
-.product-btn {
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #0b3a82;
-  transition: all 0.3s ease;
-  width: fit-content;
-}
-
-.product-card:hover .product-btn {
-  color: #ff6a00;
-  transform: translateX(3px);
-}
-
 /* ==================================================
-   RESPONSIVE - FAQ ONLY
+   RESPONSIVE
 ================================================== */
 
 @media (max-width: 1100px) {
