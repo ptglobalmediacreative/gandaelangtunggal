@@ -1,5 +1,6 @@
 /* ==================================================
    PRODUCT CATEGORY & LIST - CLEAN BLUE STYLE
+   FINAL - BUTTON RATA SEMPURNA
 ================================================== */
 
 /* ================= RESET LINK ================= */
@@ -160,6 +161,7 @@
 .product-info {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .product-info h3 {
@@ -215,6 +217,7 @@
   list-style: none;
   padding: 0;
   margin: 0 0 20px 0;
+  flex: 1;
 }
 
 .product-spec-list li {
@@ -238,11 +241,12 @@
 .product-spec-list li span:last-child {
   font-weight: 600;
   color: #0b3a82;
+  text-align: right;
 }
 
-/* ================= PRODUCT BUTTON ================= */
+/* ================= PRODUCT BUTTON - RATA SEMPURNA ================= */
 .product-btn {
-  margin-top: 20px;
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -251,6 +255,8 @@
   color: #0b3a82;
   transition: all 0.3s ease;
   width: fit-content;
+  padding-top: 12px;
+  border-top: 1px solid #eaeaea;
 }
 
 .product-card:hover .product-btn {
@@ -260,6 +266,7 @@
 
 .product-btn i {
   transition: transform 0.3s ease;
+  font-size: 11px;
 }
 
 .product-card:hover .product-btn i {
