@@ -39,44 +39,175 @@ unset($product); // Hapus referensi setelah loop
     
     <?php $currentUrl = "https://gandaelang.co.id/wheelloader.php"; ?>
     
-    <title>Wheel Loader LiuGong Indonesia | PT Ganda Elang Tangguh</title>
+    <title>Wheel Loader LiuGong | Alat Berat Konstruksi & Pertambangan | PT Ganda Elang Tangguh</title>
     
-    <meta name="description" content="Wheel Loader LiuGong berkualitas tinggi untuk konstruksi, pertambangan, dan material handling. Dirancang untuk kekuatan, efisiensi bahan bakar, dan produktivitas maksimal.">
-    <meta name="keywords" content="wheel loader liugong, wheel loader indonesia, loader alat berat, heavy equipment wheel loader">
-    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="description" content="PT Ganda Elang Tangguh jual Wheel Loader LiuGong berkualitas tinggi untuk konstruksi, pertambangan, dan material handling. Tersedia berbagai tipe wheel loader dengan performa unggul dan efisiensi bahan bakar terbaik.">
+    
+    <meta name="keywords" content="wheel loader, wheel loader liugong, alat berat wheel loader, harga wheel loader, wheel loader indonesia, loader alat berat, heavy equipment wheel loader, wheel loader untuk konstruksi, wheel loader pertambangan, alat berat indonesia, dealer liugong indonesia">
+    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
     <meta name="author" content="PT Ganda Elang Tangguh">
-    <link rel="canonical" href="<?= $currentUrl ?>">
+    <meta name="geo.region" content="ID">
+    <meta name="geo.placename" content="Indonesia">
+    <meta name="language" content="id-ID">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Wheel Loader LiuGong Indonesia | PT Ganda Elang Tangguh">
-    <meta property="og:description" content="Temukan berbagai wheel loader LiuGong untuk konstruksi, pertambangan, dan material handling.">
+    <link rel="canonical" href="<?= $currentUrl ?>">
+    <link rel="alternate" hreflang="id" href="<?= $currentUrl ?>">
+    <link rel="alternate" href="<?= $currentUrl ?>" hreflang="x-default">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Wheel Loader LiuGong | Alat Berat untuk Konstruksi & Pertambangan | PT Ganda Elang Tangguh">
+    <meta property="og:description" content="PT Ganda Elang Tangguh menyediakan Wheel Loader LiuGong terbaik untuk proyek konstruksi, pertambangan, dan material handling di Indonesia. Performa tangguh, efisien, dan tahan lama.">
     <meta property="og:image" content="https://gandaelang.co.id/images/wheelloader.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Wheel Loader LiuGong untuk konstruksi dan pertambangan">
     <meta property="og:url" content="<?= $currentUrl ?>">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PT Ganda Elang Tangguh">
+    <meta property="og:locale" content="id_ID">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Wheel Loader LiuGong Indonesia">
-    <meta name="twitter:description" content="Wheel loader tangguh untuk proyek konstruksi dan pertambangan.">
+    <meta name="twitter:title" content="Wheel Loader LiuGong | Alat Berat Indonesia">
+    <meta name="twitter:description" content="Wheel loader tangguh untuk proyek konstruksi dan pertambangan. Tersedia berbagai tipe dengan performa terbaik.">
     <meta name="twitter:image" content="https://gandaelang.co.id/images/wheelloader.jpg">
+    <meta name="twitter:image:alt" content="Wheel Loader LiuGong">
     
-    <!-- Schema.org -->
+    <!-- Schema.org untuk Product -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "CollectionPage",
+        "@type": "Product",
         "name": "Wheel Loader LiuGong",
-        "description": "Daftar produk wheel loader LiuGong untuk kebutuhan konstruksi, pertambangan dan material handling.",
-        "url": "https://gandaelang.co.id/wheelloader.php",
-        "publisher": {
+        "description": "Wheel loader berkualitas tinggi dari LiuGong untuk konstruksi, pertambangan, dan material handling. Tersedia berbagai tipe dengan kapasitas angkut besar dan efisiensi bahan bakar optimal.",
+        "brand": {
+            "@type": "Brand",
+            "name": "LiuGong"
+        },
+        "manufacturer": {
             "@type": "Organization",
-            "name": "PT Ganda Elang Tangguh",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://gandaelang.co.id/images/logo.webp"
+            "name": "PT Ganda Elang Tangguh"
+        },
+        "category": "Alat Berat",
+        "audience": {
+            "@type": "Audience",
+            "name": "Kontraktor, Perusahaan Tambang, Logistik"
+        },
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "IDR",
+            "seller": {
+                "@type": "Organization",
+                "name": "PT Ganda Elang Tangguh"
             }
         }
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://gandaelang.co.id/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Produk",
+                "item": "https://gandaelang.co.id/produk.php"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Wheel Loader LiuGong",
+                "item": "https://gandaelang.co.id/wheelloader.php"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PT Ganda Elang Tangguh",
+        "url": "https://gandaelang.co.id",
+        "logo": "https://gandaelang.co.id/images/logo.webp",
+        "description": "Dealer resmi alat berat LiuGong di Indonesia, menyediakan wheel loader, excavator, dan alat berat lainnya untuk konstruksi dan pertambangan.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ID",
+            "addressRegion": "Jakarta"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+62-21-XXXXXXX",
+            "contactType": "customer service"
+        },
+        "sameAs": [
+            "https://www.facebook.com/gandaelangtangguh",
+            "https://www.instagram.com/gandaelangtangguh"
+        ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Apa keunggulan Wheel Loader LiuGong?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Wheel Loader LiuGong memiliki keunggulan seperti efisiensi bahan bakar tinggi, performa tangguh untuk berbagai medan, perawatan mudah, ketersediaan sparepart terjamin, dan teknologi canggih untuk produktivitas maksimal."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Berapa kapasitas angkut Wheel Loader LiuGong?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari 1.9m³ hingga 7.0m³ untuk bucket capacity, dengan operating weight dari 13.378kg hingga 52.100kg, sesuai dengan kebutuhan proyek Anda."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Apakah PT Ganda Elang Tangguh dealer resmi LiuGong?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia yang melayani penjualan unit baru, perawatan rutin, servis, dan penyediaan sparepart original."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Wheel loader cocok untuk industri apa saja?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Wheel loader LiuGong sangat cocok untuk berbagai industri seperti konstruksi bangunan, pertambangan, perkebunan, logistik dan pergudangan, serta proyek infrastruktur jalan dan jembatan."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Bagaimana cara mendapatkan informasi harga wheel loader?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Anda bisa menghubungi tim sales PT Ganda Elang Tangguh melalui halaman Kontak Kami, telepon, atau email untuk mendapatkan informasi harga terbaru dan penawaran spesial sesuai kebutuhan proyek Anda."
+                }
+            }
+        ]
     }
     </script>
     
@@ -225,6 +356,85 @@ unset($product); // Hapus referensi setelah loop
         .product-card {
             height: 100%;
         }
+        
+        /* FAQ Section Styles */
+        .faq-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 40px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 24px;
+        }
+        
+        .faq-item {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 20px 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: #c9a03d;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: #1a3a6b;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .faq-question i {
+            color: #c9a03d;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #555;
+            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            margin-top: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-question {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -275,7 +485,7 @@ unset($product); // Hapus referensi setelah loop
 <!-- ================= PRODUCT LIST SECTION ================= -->
 <section class="product-list">
     <div class="product-container">
-        <h2 class="product-title">Daftar Produk</h2>
+        <h2 class="product-title">Daftar Produk Wheel Loader LiuGong</h2>
         
         <div class="product-grid">
             <?php if (!empty($products)) : ?>
@@ -285,7 +495,7 @@ unset($product); // Hapus referensi setelah loop
                             <div class="product-image">
                                 <img 
                                     src="/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>" 
-                                    alt="<?= htmlspecialchars($row['nama_produk']); ?>"
+                                    alt="<?= htmlspecialchars($row['nama_produk']); ?> - Wheel Loader LiuGong"
                                     loading="lazy"
                                 >
                             </div>
@@ -324,8 +534,105 @@ unset($product); // Hapus referensi setelah loop
     </div>
 </section>
 
+<!-- ================= FAQ SECTION ================= -->
+<section class="faq-section">
+    <h2>Pertanyaan Umum Tentang Wheel Loader</h2>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <div class="faq-question">
+                Apa keunggulan Wheel Loader LiuGong?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Wheel Loader LiuGong memiliki keunggulan seperti efisiensi bahan bakar tinggi, performa tangguh untuk berbagai medan, perawatan mudah, ketersediaan sparepart terjamin, dan teknologi canggih untuk produktivitas maksimal.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Berapa kapasitas angkut Wheel Loader LiuGong?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari 1.9m³ hingga 7.0m³ untuk bucket capacity, dengan operating weight dari 13.378kg hingga 52.100kg, sesuai dengan kebutuhan proyek Anda.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Apakah PT Ganda Elang Tangguh dealer resmi LiuGong?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia yang melayani penjualan unit baru, perawatan rutin, servis, dan penyediaan sparepart original.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Wheel loader cocok untuk industri apa saja?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Wheel loader LiuGong sangat cocok untuk berbagai industri seperti konstruksi bangunan, pertambangan, perkebunan, logistik dan pergudangan, serta proyek infrastruktur jalan dan jembatan.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Bagaimana cara mendapatkan informasi harga wheel loader?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Anda bisa menghubungi tim sales PT Ganda Elang Tangguh melalui halaman Kontak Kami, telepon, atau email untuk mendapatkan informasi harga terbaru dan penawaran spesial sesuai kebutuhan proyek Anda.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Apakah ada layanan after-sales untuk wheel loader?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Tersedia layanan purna jual lengkap termasuk garansi, perawatan rutin, servis berkala, pelatihan operator, dan ketersediaan sparepart original untuk memastikan alat berat Anda selalu dalam kondisi prima.
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
+
+<!-- ================= FAQ JAVASCRIPT ================= -->
+<script>
+// FAQ Accordion Functionality
+document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+        // Close all other faq items
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+            }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+    });
+});
+
+// Hamburger menu functionality
+const hamburger = document.getElementById('hamburger');
+const navbar = document.getElementById('navbar');
+
+if (hamburger && navbar) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navbar.classList.toggle('active');
+    });
+}
+</script>
 
 </body>
 </html>
