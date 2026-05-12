@@ -226,6 +226,79 @@ unset($product);
             overflow-x: hidden;
         }
         
+        /* Header Styles */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .navbar {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .navbar a {
+            text-decoration: none;
+            color: #1a3a6b;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+        
+        .navbar a:hover,
+        .navbar a.active {
+            color: #c9a03d;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #1a3a6b;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        /* Hamburger Animation */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
         /* Product Specifications - Clean & Professional */
         .product-spec-list {
             list-style: none;
@@ -548,7 +621,40 @@ unset($product);
             font-size: 18px;
         }
         
-        /* Responsive */
+        /* ================= RESPONSIVE STYLES ================= */
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .navbar {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: #fff;
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
+                box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding: 80px 30px;
+            }
+            
+            .navbar.active {
+                right: 0;
+            }
+            
+            .navbar a {
+                font-size: 16px;
+                padding: 10px 0;
+                display: block;
+            }
+        }
+        
         @media (max-width: 768px) {
             .faq-grid {
                 grid-template-columns: 1fr;
@@ -597,6 +703,10 @@ unset($product);
             
             .faq-header h2 {
                 font-size: 24px;
+            }
+            
+            .logo img {
+                height: 40px;
             }
         }
     </style>
@@ -802,11 +912,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Open first FAQ item by default (optional)
-    if (faqItems.length > 0) {
-        // faqItems[0].classList.add('active'); // Uncomment if you want first item open by default
-    }
-    
     // Hamburger menu functionality
     const hamburger = document.getElementById('hamburger');
     const navbar = document.getElementById('navbar');
@@ -815,6 +920,15 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navbar.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link on mobile
+        const navLinks = navbar.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navbar.classList.remove('active');
+            });
         });
     }
 });
