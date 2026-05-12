@@ -94,15 +94,6 @@ unset($product); // Hapus referensi setelah loop
         "audience": {
             "@type": "Audience",
             "name": "Kontraktor, Perusahaan Tambang, Logistik"
-        },
-        "offers": {
-            "@type": "Offer",
-            "availability": "https://schema.org/InStock",
-            "priceCurrency": "IDR",
-            "seller": {
-                "@type": "Organization",
-                "name": "PT Ganda Elang Tangguh"
-            }
         }
     }
     </script>
@@ -223,6 +214,18 @@ unset($product); // Hapus referensi setelah loop
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
         /* Product Specifications - Clean & Professional */
         .product-spec-list {
             list-style: none;
@@ -307,6 +310,10 @@ unset($product); // Hapus referensi setelah loop
             display: flex;
             flex-direction: column;
             height: 100%;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .product-link {
@@ -353,8 +360,20 @@ unset($product); // Hapus referensi setelah loop
             gap: 30px;
         }
         
-        .product-card {
-            height: 100%;
+        /* Product Container */
+        .product-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .product-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 40px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         
         /* FAQ Section Styles */
@@ -426,6 +445,15 @@ unset($product); // Hapus referensi setelah loop
             margin-top: 16px;
         }
         
+        /* No Product Message */
+        .no-product {
+            text-align: center;
+            padding: 60px;
+            color: #666;
+            font-size: 18px;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
             .faq-grid {
                 grid-template-columns: 1fr;
@@ -433,6 +461,15 @@ unset($product); // Hapus referensi setelah loop
             
             .faq-question {
                 font-size: 16px;
+            }
+            
+            .product-title,
+            .faq-section h2 {
+                font-size: 24px;
+            }
+            
+            .product-grid {
+                gap: 20px;
             }
         }
     </style>
@@ -603,35 +640,41 @@ unset($product); // Hapus referensi setelah loop
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
-<!-- ================= FAQ JAVASCRIPT ================= -->
+<!-- ================= JAVASCRIPT ================= -->
 <script>
 // FAQ Accordion Functionality
-document.querySelectorAll('.faq-item').forEach(item => {
-    const question = item.querySelector('.faq-question');
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
     
-    question.addEventListener('click', () => {
-        // Close all other faq items
-        document.querySelectorAll('.faq-item').forEach(otherItem => {
-            if (otherItem !== item && otherItem.classList.contains('active')) {
-                otherItem.classList.remove('active');
-            }
-        });
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
         
-        // Toggle current item
-        item.classList.toggle('active');
+        if (question) {
+            question.addEventListener('click', () => {
+                // Close all other faq items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        }
     });
+    
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const navbar = document.getElementById('navbar');
+    
+    if (hamburger && navbar) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navbar.classList.toggle('active');
+        });
+    }
 });
-
-// Hamburger menu functionality
-const hamburger = document.getElementById('hamburger');
-const navbar = document.getElementById('navbar');
-
-if (hamburger && navbar) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navbar.classList.toggle('active');
-    });
-}
 </script>
 
 </body>
