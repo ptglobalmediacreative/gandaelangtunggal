@@ -1,6 +1,5 @@
 /* ==================================================
    PRODUCT CATEGORY & LIST - CLEAN BLUE STYLE
-   FINAL FIXED: BUTTON RATA BAWAH SEMUA CARD
 ================================================== */
 
 /* ================= RESET LINK ================= */
@@ -110,7 +109,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 26px;
-  align-items: stretch;
 }
 
 .product-link {
@@ -119,7 +117,7 @@
   text-decoration: none;
 }
 
-/* ================= PRODUCT CARD - TINGGI MINIMUM SAMA ================= */
+/* ================= PRODUCT CARD ================= */
 .product-card {
   background: #ffffff;
   border-radius: 14px;
@@ -129,7 +127,6 @@
   transition: all 0.3s ease;
   overflow: hidden;
   height: 100%;
-  min-height: 520px;
   display: flex;
   flex-direction: column;
 }
@@ -163,7 +160,6 @@
 .product-info {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .product-info h3 {
@@ -172,14 +168,13 @@
   font-weight: 700;
   color: #0b3a82;
   transition: 0.3s ease;
-  min-height: 50px;
 }
 
 .product-card:hover .product-info h3 {
   color: #ff6a00;
 }
 
-/* ================= PRODUCT SPEC (Single) ================= */
+/* ================= PRODUCT SPEC ================= */
 .product-spec {
   list-style: none;
   padding: 0;
@@ -215,12 +210,11 @@
   border-bottom: none;
 }
 
-/* ================= PRODUCT SPEC LIST (3 Spesifikasi) ================= */
+/* ================= PRODUCT SPEC LIST ================= */
 .product-spec-list {
   list-style: none;
   padding: 0;
   margin: 0 0 20px 0;
-  flex: 1;
 }
 
 .product-spec-list li {
@@ -239,44 +233,37 @@
 .product-spec-list li span:first-child {
   font-weight: 500;
   color: #6b7280;
-  flex: 1;
 }
 
 .product-spec-list li span:last-child {
   font-weight: 600;
   color: #0b3a82;
-  text-align: right;
-  margin-left: 10px;
 }
 
-/* ================= PRODUCT BUTTON - RATA BAWAH ================= */
+/* ================= PRODUCT BUTTON ================= */
 .product-btn {
-  margin-top: auto;
+  margin-top: 20px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-size: 13px;
   font-weight: 600;
   color: #0b3a82;
   transition: all 0.3s ease;
   width: fit-content;
-  padding-top: 14px;
-  border-top: 1px solid #eaeaea;
-  background: transparent;
 }
 
 .product-card:hover .product-btn {
   color: #ff6a00;
-  gap: 10px;
+  transform: translateX(3px);
 }
 
 .product-btn i {
   transition: transform 0.3s ease;
-  font-size: 12px;
 }
 
 .product-card:hover .product-btn i {
-  transform: translateX(5px);
+  transform: translateX(3px);
 }
 
 /* ================= NO PRODUCT ================= */
@@ -460,9 +447,6 @@
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  .product-card {
-    min-height: 480px;
-  }
 }
 
 @media (max-width: 800px) {
@@ -472,9 +456,6 @@
   }
   .category-title {
     font-size: 28px;
-  }
-  .product-card {
-    min-height: 460px;
   }
 }
 
@@ -519,9 +500,6 @@
   }
   .product-spec li {
     font-size: 12px;
-  }
-  .product-card {
-    min-height: auto;
   }
 }
 
