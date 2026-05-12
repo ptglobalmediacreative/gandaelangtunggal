@@ -376,12 +376,15 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         </div>
     </div>
     
-    <div class="faq-cta">
-        <p>Masih ada pertanyaan? Tim kami siap membantu Anda</p>
-        <a href="/contact.php" class="contact-btn">
-            Hubungi Kami <i class="fas fa-arrow-right"></i>
-        </a>
-    </div>
+<div class="faq-cta">
+    <p>Masih ada pertanyaan? Tim kami siap membantu Anda</p>
+    <a href="https://wa.me/6282355163745?text=Halo%20saya%20dapat%20nomor%20anda%20dari%20Google%20www.gandaelang.co.id" 
+       class="contact-btn" 
+       target="_blank" 
+       rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp <i class="fas fa-arrow-right"></i>
+    </a>
+</div>
 </section>
 
 <!-- ================= FOOTER ================= -->
