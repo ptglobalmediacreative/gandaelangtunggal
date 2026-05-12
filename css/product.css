@@ -1,6 +1,6 @@
 /* ==================================================
    PRODUCT CATEGORY & LIST - CLEAN BLUE STYLE
-   VERSION: FINAL - CLEANED & FIXED
+   VERSION: FINAL - FIXED
 ================================================== */
 
 /* ================= RESET & BASE ================= */
@@ -222,7 +222,6 @@ body {
   box-shadow: 0 18px 40px rgba(11, 58, 130, 0.25);
 }
 
-/* ================= PRODUCT IMAGE ================= */
 .product-image {
   height: 170px;
   display: flex;
@@ -242,7 +241,6 @@ body {
   transform: scale(1.08);
 }
 
-/* ================= PRODUCT INFO ================= */
 .product-info h3 {
   margin: 10px 0 12px;
   font-size: 18px;
@@ -255,7 +253,7 @@ body {
   color: #ff6a00;
 }
 
-/* ================= PRODUCT SPEC (Single Spec - untuk excavator dll) ================= */
+/* ================= PRODUCT SPEC ================= */
 .product-spec {
   list-style: none;
   padding: 0;
@@ -291,7 +289,7 @@ body {
   border-bottom: none;
 }
 
-/* ================= PRODUCT SPEC LIST (3 Specs - untuk wheelloader) ================= */
+/* Product Spec List (untuk wheelloader dengan 3 specs) */
 .product-spec-list {
   list-style: none;
   padding: 0;
@@ -611,10 +609,6 @@ body {
 
   .product-info h3 {
     font-size: 16px;
-  }
-
-  .product-spec li {
-    font-size: 12px;
   }
 }
 

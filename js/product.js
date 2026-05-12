@@ -1,9 +1,37 @@
 /**
- * Wheel Loader Page - Custom JavaScript
- * PT Ganda Elang Tangguh
+ * Main JavaScript - PT Ganda Elang Tangguh
+ * Untuk semua halaman produk
  */
 
 document.addEventListener("DOMContentLoaded", function () {
+  // ================= HAMBURGER MENU =================
+  const hamburger = document.getElementById("hamburger");
+  const navbar = document.getElementById("navbar");
+
+  if (hamburger && navbar) {
+    hamburger.addEventListener("click", function () {
+      this.classList.toggle("active");
+      navbar.classList.toggle("active");
+
+      // Prevent body scroll when menu is open
+      if (navbar.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = navbar.querySelectorAll("a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navbar.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+
   // ================= FAQ ACCORDION =================
   const faqItems = document.querySelectorAll(".faq-item");
 
