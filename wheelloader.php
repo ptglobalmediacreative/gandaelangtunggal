@@ -131,23 +131,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     color: #222;
 }
 
-/* Judul produk tetap seperti semula */
+/* Judul produk - BIRU TUA */
 .product-info h3 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 12px;
-    color: #1a1a1a;
+    color: #1a3a6b;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: color 0.3s ease;
 }
 
-/* Tombol Detail Selengkapnya - dipaksa di bagian bawah */
+/* Hover judul menjadi KUNING */
+.product-link:hover .product-info h3 {
+    color: #c9a03d;
+}
+
+/* Tombol Detail Selengkapnya - BIRU TUA */
 .product-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-size: 13px;
     font-weight: 600;
-    color: #c9a03d;
+    color: #1a3a6b;
     text-decoration: none;
     margin-top: 20px;
     transition: all 0.3s ease;
@@ -162,8 +168,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     transition: transform 0.3s ease;
 }
 
+/* Hover tombol menjadi KUNING */
 .product-link:hover .product-btn {
-    color: #a07d2e;
+    color: #c9a03d;
 }
 
 .product-link:hover .product-btn i {
@@ -338,7 +345,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                   </ul>
                 <?php endif; ?>
 
-                <!-- BUTTON (WARNA EMAS/BIRU SEPERTI SEMULA) - SEKARANG RATA SEMUA -->
+                <!-- BUTTON - SEKARANG BIRU TUA, HOVER JADI KUNING -->
                 <div class="product-btn">
                   Detail Selengkapnya <i class="fa-solid fa-arrow-right"></i>
                 </div>
