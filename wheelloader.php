@@ -29,7 +29,7 @@ foreach ($products as &$product) {
     $spec_stmt->execute([$product['id']]);
     $product['specifications'] = $spec_stmt->fetchAll();
 }
-unset($product); // Hapus referensi setelah loop
+unset($product);
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -376,73 +376,168 @@ unset($product); // Hapus referensi setelah loop
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
         
-        /* FAQ Section Styles */
+        /* FAQ Section Styles - Enhanced Professional */
         .faq-section {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 80px auto;
             padding: 0 20px;
         }
         
-        .faq-section h2 {
+        .faq-header {
             text-align: center;
-            font-size: 32px;
+            margin-bottom: 50px;
+        }
+        
+        .faq-header h2 {
+            font-size: 36px;
             font-weight: 700;
             color: #1a3a6b;
-            margin-bottom: 40px;
+            margin-bottom: 16px;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .faq-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #1a3a6b, #c9a03d);
+            border-radius: 2px;
+        }
+        
+        .faq-header p {
+            color: #666;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 24px auto 0;
+            line-height: 1.6;
         }
         
         .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
         }
         
         .faq-item {
             background: #fff;
-            border: 1px solid #eaeaea;
-            border-radius: 12px;
-            padding: 20px 24px;
+            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            padding: 0;
             transition: all 0.3s ease;
             cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         
         .faq-item:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
             border-color: #c9a03d;
+            transform: translateY(-2px);
         }
         
         .faq-question {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 24px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 17px;
             color: #1a3a6b;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #fff;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-item:hover .faq-question {
+            background: #faf9f7;
         }
         
         .faq-question i {
             color: #c9a03d;
             transition: transform 0.3s ease;
+            font-size: 14px;
+            background: #f0f0f0;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
         
         .faq-item.active .faq-question i {
             transform: rotate(180deg);
+            background: #c9a03d;
+            color: #fff;
         }
         
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: #555;
-            line-height: 1.6;
+            line-height: 1.7;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #fafafa;
+            border-top: 1px solid transparent;
         }
         
         .faq-item.active .faq-answer {
-            max-height: 200px;
-            margin-top: 16px;
+            max-height: 250px;
+            border-top-color: #e8e8e8;
+        }
+        
+        .faq-answer p {
+            padding: 20px 24px;
+            font-size: 15px;
+        }
+        
+        .faq-cta {
+            text-align: center;
+            margin-top: 48px;
+            padding: 32px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #eef2f7 100%);
+            border-radius: 20px;
+        }
+        
+        .faq-cta p {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .faq-cta .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a3a6b;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .faq-cta .contact-btn:hover {
+            background: #c9a03d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201,160,61,0.3);
+        }
+        
+        .faq-cta .contact-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-cta .contact-btn:hover i {
+            transform: translateX(5px);
         }
         
         /* No Product Message */
@@ -457,19 +552,51 @@ unset($product); // Hapus referensi setelah loop
         @media (max-width: 768px) {
             .faq-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
             }
             
             .faq-question {
-                font-size: 16px;
+                font-size: 15px;
+                padding: 16px 20px;
+            }
+            
+            .faq-answer p {
+                padding: 16px 20px;
+                font-size: 14px;
             }
             
             .product-title,
-            .faq-section h2 {
-                font-size: 24px;
+            .faq-header h2 {
+                font-size: 28px;
+            }
+            
+            .faq-header p {
+                font-size: 16px;
             }
             
             .product-grid {
                 gap: 20px;
+            }
+            
+            .faq-cta {
+                padding: 24px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .faq-question {
+                font-size: 14px;
+                padding: 14px 16px;
+            }
+            
+            .faq-question i {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+            
+            .faq-header h2 {
+                font-size: 24px;
             }
         }
     </style>
@@ -571,9 +698,13 @@ unset($product); // Hapus referensi setelah loop
     </div>
 </section>
 
-<!-- ================= FAQ SECTION ================= -->
+<!-- ================= FAQ SECTION - ENHANCED ================= -->
 <section class="faq-section">
-    <h2>Pertanyaan Umum Tentang Wheel Loader</h2>
+    <div class="faq-header">
+        <h2>Pertanyaan Umum</h2>
+        <p>Temukan jawaban atas pertanyaan yang sering diajukan tentang Wheel Loader LiuGong</p>
+    </div>
+    
     <div class="faq-grid">
         <div class="faq-item">
             <div class="faq-question">
@@ -581,7 +712,7 @@ unset($product); // Hapus referensi setelah loop
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                Wheel Loader LiuGong memiliki keunggulan seperti efisiensi bahan bakar tinggi, performa tangguh untuk berbagai medan, perawatan mudah, ketersediaan sparepart terjamin, dan teknologi canggih untuk produktivitas maksimal.
+                <p>Wheel Loader LiuGong memiliki keunggulan seperti efisiensi bahan bakar tinggi, performa tangguh untuk berbagai medan, perawatan mudah, ketersediaan sparepart terjamin, dan teknologi canggih untuk produktivitas maksimal.</p>
             </div>
         </div>
         
@@ -591,7 +722,7 @@ unset($product); // Hapus referensi setelah loop
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari 1.9m³ hingga 7.0m³ untuk bucket capacity, dengan operating weight dari 13.378kg hingga 52.100kg, sesuai dengan kebutuhan proyek Anda.
+                <p>Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari 1.9m³ hingga 7.0m³ untuk bucket capacity, dengan operating weight dari 13.378kg hingga 52.100kg, sesuai dengan kebutuhan proyek Anda.</p>
             </div>
         </div>
         
@@ -601,7 +732,7 @@ unset($product); // Hapus referensi setelah loop
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia yang melayani penjualan unit baru, perawatan rutin, servis, dan penyediaan sparepart original.
+                <p>Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia yang melayani penjualan unit baru, perawatan rutin, servis, dan penyediaan sparepart original.</p>
             </div>
         </div>
         
@@ -611,7 +742,7 @@ unset($product); // Hapus referensi setelah loop
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                Wheel loader LiuGong sangat cocok untuk berbagai industri seperti konstruksi bangunan, pertambangan, perkebunan, logistik dan pergudangan, serta proyek infrastruktur jalan dan jembatan.
+                <p>Wheel loader LiuGong sangat cocok untuk berbagai industri seperti konstruksi bangunan, pertambangan, perkebunan, logistik dan pergudangan, serta proyek infrastruktur jalan dan jembatan.</p>
             </div>
         </div>
         
@@ -621,7 +752,7 @@ unset($product); // Hapus referensi setelah loop
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                Anda bisa menghubungi tim sales PT Ganda Elang Tangguh melalui halaman Kontak Kami, telepon, atau email untuk mendapatkan informasi harga terbaru dan penawaran spesial sesuai kebutuhan proyek Anda.
+                <p>Anda bisa menghubungi tim sales PT Ganda Elang Tangguh melalui halaman Kontak Kami, telepon, atau email untuk mendapatkan informasi harga terbaru dan penawaran spesial sesuai kebutuhan proyek Anda.</p>
             </div>
         </div>
         
@@ -631,9 +762,16 @@ unset($product); // Hapus referensi setelah loop
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                Tersedia layanan purna jual lengkap termasuk garansi, perawatan rutin, servis berkala, pelatihan operator, dan ketersediaan sparepart original untuk memastikan alat berat Anda selalu dalam kondisi prima.
+                <p>Tersedia layanan purna jual lengkap termasuk garansi, perawatan rutin, servis berkala, pelatihan operator, dan ketersediaan sparepart original untuk memastikan alat berat Anda selalu dalam kondisi prima.</p>
             </div>
         </div>
+    </div>
+    
+    <div class="faq-cta">
+        <p>Masih ada pertanyaan? Tim kami siap membantu Anda</p>
+        <a href="/contact.php" class="contact-btn">
+            Hubungi Kami <i class="fas fa-arrow-right"></i>
+        </a>
     </div>
 </section>
 
@@ -663,6 +801,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+    
+    // Open first FAQ item by default (optional)
+    if (faqItems.length > 0) {
+        // faqItems[0].classList.add('active'); // Uncomment if you want first item open by default
+    }
     
     // Hamburger menu functionality
     const hamburger = document.getElementById('hamburger');
