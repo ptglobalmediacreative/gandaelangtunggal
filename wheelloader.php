@@ -2,35 +2,34 @@
 // ================= DATABASE =================
 require_once __DIR__ . '/admin/config.php';
 
-// ================= GET PRODUCT + OPERATING WEIGHT =================
+// ================= GET PRODUCT + FIRST 3 SPECIFICATIONS =================
 $stmt = $pdo->prepare("
     SELECT 
         p.id,
         p.nama_produk,
         p.slug,
-        p.gambar,
-
-        MAX(CASE WHEN ps.label = 'Operating Weight' THEN ps.nilai END) AS operating_weight
-
+        p.gambar
     FROM produk p
-
-    LEFT JOIN produk_spesifikasi ps 
-        ON p.id = ps.produk_id
-
     WHERE p.status = 'aktif'
     AND p.category_id = 1
-
-    GROUP BY 
-        p.id,
-        p.nama_produk,
-        p.slug,
-        p.gambar
-
     ORDER BY p.id DESC
 ");
 
 $stmt->execute();
 $products = $stmt->fetchAll();
+
+// ================= AMBIL 3 SPESIFIKASI PERTAMA UNTUK SETIAP PRODUK =================
+foreach ($products as &$product) {
+    $spec_stmt = $pdo->prepare("
+        SELECT label, nilai
+        FROM produk_spesifikasi
+        WHERE produk_id = ?
+        ORDER BY grup, sort_order
+        LIMIT 3
+    ");
+    $spec_stmt->execute([$product['id']]);
+    $product['specifications'] = $spec_stmt->fetchAll();
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -99,6 +98,43 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* Tambahan style untuk spesifikasi list */
+.product-spec-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.product-spec-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.product-spec-list li:last-child {
+    border-bottom: none;
+}
+
+.product-spec-list li span:first-child {
+    font-weight: 500;
+    color: #333;
+}
+
+.product-spec-list li span:last-child {
+    font-weight: 600;
+    color: #c9a03d;
+}
+
+.product-spec-list li span:last-child {
+    font-weight: 600;
+    color: #c9a03d;
+}
+</style>
 
 </head>
 
@@ -190,21 +226,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
                 <h3><?= htmlspecialchars($row['nama_produk']); ?></h3>
 
-                <!-- SPEC -->
-                <?php if (!empty($row['operating_weight'])) : ?>
-                  <ul class="product-spec">
+                <!-- 3 SPESIFIKASI PERTAMA -->
+                <?php if (!empty($row['specifications'])) : ?>
+                  <ul class="product-spec-list">
+                    <?php foreach ($row['specifications'] as $spec) : ?>
+                      <li>
+                        <span><?= htmlspecialchars($spec['label']); ?></span>
+                        <span><?= htmlspecialchars($spec['nilai']); ?></span>
+                      </li>
+                    <?php endforeach; ?>
+                  </ul>
+                <?php else : ?>
+                  <ul class="product-spec-list">
                     <li>
-                      <span>Operating Weight</span>
-                      <span><?= htmlspecialchars($row['operating_weight']); ?></span>
+                      <span>Spesifikasi</span>
+                      <span>-</span>
                     </li>
                   </ul>
                 <?php endif; ?>
 
                 <!-- BUTTON -->
                 <div class="product-btn">
-                Detail Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+                  Detail Selengkapnya <i class="fa-solid fa-arrow-right"></i>
                 </div>
-
 
               </div>
 
