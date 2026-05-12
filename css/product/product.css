@@ -216,8 +216,8 @@
 .product-spec-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px 0;
-  flex: 1;
+  margin: 0 0 16px 0;
+  min-height: 130px;
 }
 
 .product-spec-list li {
@@ -225,7 +225,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
-  padding: 10px 0;
+  padding: 8px 0;
   border-bottom: 1px solid #eaeaea;
 }
 
@@ -246,7 +246,7 @@
 
 /* ================= PRODUCT BUTTON - RATA SEMPURNA ================= */
 .product-btn {
-  margin-top: auto;
+  margin-top: 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -505,7 +505,7 @@
   .product-info h3 {
     font-size: 16px;
   }
-  .product-spec li {
+  .product-spec-list li {
     font-size: 12px;
   }
 }
