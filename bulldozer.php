@@ -307,7 +307,7 @@ $currentUrl = "https://gandaelang.co.id/Bulldozer.php";
 </header>
 
 <!-- ================= HERO SECTION ================= -->
-<section class="hero hero-image" style="background: url('/images/Bulldozer.jpg') center / cover no-repeat;">
+<section class="hero hero-image" style="background: url('/images/bulldozer.jpg') center / cover no-repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-breadcrumb">
