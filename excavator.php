@@ -75,26 +75,74 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     <meta name="twitter:image" content="https://gandaelang.co.id/images/wheel.webp">
     <meta name="twitter:image:alt" content="Excavator LiuGong">
     
-    <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Excavator LiuGong",
-        "description": "Excavator berkualitas tinggi dari LiuGong untuk konstruksi, pertambangan, dan material handling. Tersedia berbagai tipe dengan kapasitas angkut besar dan efisiensi bahan bakar optimal.",
+        "image": "https://www.gandaelang.co.id/images/liugong-excavator.jpg",
+        "description": "Excavator LiuGong adalah alat berat berkualitas tinggi untuk konstruksi, pertambangan, perkebunan, dan infrastruktur. Tersedia berbagai tipe dari kelas 1,7 ton hingga 95 ton dengan fitur sistem hidraulik canggih, kabin ergonomis 360°, efisiensi bahan bakar optimal, dan biaya perawatan rendah.",
         "brand": {
             "@type": "Brand",
             "name": "LiuGong"
         },
         "manufacturer": {
             "@type": "Organization",
+            "name": "LiuGong Machinery Corporation"
+        },
+        "seller": {
+            "@type": "Organization",
             "name": "PT Ganda Elang Tangguh"
         },
-        "category": "Alat Berat",
+        "category": "Alat Berat Excavator",
+        "productID": "LG-EXC-2025",
+        "sku": "LG-EXC-SERIES",
+        "mpn": "915FG4/920F/925F/933F/990F",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "IDR",
+            "price": "0",
+            "priceValidUntil": "2026-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.gandaelang.co.id/liugong-excavator",
+            "seller": {
+                "@type": "Organization",
+                "name": "PT Ganda Elang Tangguh"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "author": {
+                    "@type": "Organization",
+                    "name": "PT Maju Bersama Kontraktor"
+                },
+                "reviewBody": "Excavator LiuGong 920F sangat tangguh di medan tambang, irit solar, dan sparepart mudah didapat dari PT Ganda Elang Tangguh."
+            }
+        ],
         "audience": {
             "@type": "Audience",
-            "name": "Kontraktor, Perusahaan Tambang, Logistik"
-        }
+            "name": "Kontraktor, Perusahaan Tambang, Perkebunan Skala Besar, Proyek Infrastruktur Pemerintah"
+        },
+        "keywords": "excavator LiuGong, alat berat excavator, harga excavator LiuGong, sparepart excavator LiuGong, dealer resmi LiuGong Indonesia",
+        "url": "https://www.gandaelang.co.id/liugong-excavator",
+        "sameAs": [
+            "https://www.liugong.com/",
+            "https://www.instagram.com/liugongid/",
+            "https://www.facebook.com/LiuGongID"
+        ]
     }
     </script>
     
@@ -255,10 +303,10 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
             <span>></span>
             <span class="current">Excavators</span>
         </div>
-        <h1>Power That Moves Productivity</h1>
+        <h1>Built to Dig Deeper</h1>
+
         <p class="hero-subtext">
-            High-performance Excavators designed for efficient material handling,
-            superior durability, and maximum productivity.
+          Powerful and versatile excavators engineered for heavy-duty digging, lifting, and earthmoving applications in diverse terrains.
         </p>
     </div>
 </section>
