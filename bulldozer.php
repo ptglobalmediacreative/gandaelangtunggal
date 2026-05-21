@@ -334,7 +334,7 @@ $currentUrl = "https://gandaelang.co.id/Bulldozer.php";
             <?php if (!empty($products)) : ?>
                 <?php foreach ($products as $row) : ?>
                     <div class="product-card">
-                        <a href="/detailprodukBulldozer.php?slug=<?= htmlspecialchars($row['slug']); ?>" class="product-link">
+                        <a href="/detailprodukbulldozer.php?slug=<?= htmlspecialchars($row['slug']); ?>" class="product-link">
                             <div class="product-image">
                                 <img 
                                     src="/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>" 
