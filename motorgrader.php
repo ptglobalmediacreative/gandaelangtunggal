@@ -11,7 +11,7 @@ $stmt = $pdo->prepare("
         p.gambar
     FROM produk p
     WHERE p.status = 'aktif'
-      AND p.category_id = 3
+      AND p.category_id = 4
     ORDER BY p.id DESC
 ");
 $stmt->execute();
@@ -169,7 +169,7 @@ $currentUrl = "https://gandaelang.co.id/Motor Grader.php";
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Motor Grader LiuGong",
-                "item": "https://gandaelang.co.id/Motor Grader.php"
+                "item": "https://gandaelang.co.id/motorgrader.php"
             }
         ]
     }
