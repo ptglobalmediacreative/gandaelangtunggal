@@ -47,7 +47,7 @@ $hero = $q->fetch();
 
 $heroImage = $hero
     ? "/images/uploads/produk/" . $hero['image']
-    : "/images/hero.jpg";
+    : "/images/paver.jpg";
 
 
 /* ================= FEATURES ================= */
