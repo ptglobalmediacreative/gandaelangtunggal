@@ -320,7 +320,7 @@ $currentUrl = "https://gandaelang.co.id/skidsteer.php";
             <?php if (!empty($products)) : ?>
                 <?php foreach ($products as $row) : ?>
                     <div class="product-card">
-                        <a href="/detailprodukroller.php?slug=<?= htmlspecialchars($row['slug']); ?>" class="product-link">
+                        <a href="/detailprodukskidsteer.php?slug=<?= htmlspecialchars($row['slug']); ?>" class="product-link">
                             <div class="product-image">
                                 <img 
                                     src="/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>" 
@@ -434,7 +434,7 @@ $currentUrl = "https://gandaelang.co.id/skidsteer.php";
     
     <div class="faq-cta">
         <p>Masih ada pertanyaan? Tim kami siap membantu Anda</p>
-        <a href="https://wa.me/6282355163745?text=Halo%20saya%20dapat%20nomor%20anda%20dari%20website%20roller%20LiuGong%20dan%20ingin%20konsultasi" 
+        <a href="https://wa.me/6282355163745?text=Halo%20saya%20dapat%20nomor%20anda%20dari%20website%20skidsteer%20LiuGong%20dan%20ingin%20konsultasi" 
            class="contact-btn" 
            target="_blank" 
            rel="noopener noreferrer">
