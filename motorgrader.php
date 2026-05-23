@@ -31,7 +31,7 @@ foreach ($products as &$product) {
 }
 unset($product);
 
-$currentUrl = "https://gandaelang.co.id/Motor Grader.php";
+$currentUrl = "https://gandaelang.co.id/motorgrader.php";
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -81,7 +81,7 @@ $currentUrl = "https://gandaelang.co.id/Motor Grader.php";
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Motor Grader LiuGong",
-        "image": "https://www.gandaelang.co.id/images/liugong-Motor Grader.jpg",
+        "image": "https://www.gandaelang.co.id/images/motorgrader.jpg",
         "description": "Motor Grader LiuGong adalah alat berat dengan tenaga dorong besar untuk pekerjaan land clearing, penggusuran tanah, overburden tambang, dan konstruksi infrastruktur. Tersedia berbagai seri dari 10 ton hingga 70+ ton dengan tenaga mesin 120-550+ HP, kapasitas blade 1,8-10+ m³, serta undercarriage tahan aus untuk medan ekstrem.",
         "brand": {
             "@type": "Brand",
