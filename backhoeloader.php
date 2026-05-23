@@ -2,257 +2,452 @@
 // ================= DATABASE =================
 require_once __DIR__ . '/admin/config.php';
 
-// ================= GET PRODUCT + OPERATING WEIGHT =================
+// ================= GET PRODUCTS =================
 $stmt = $pdo->prepare("
     SELECT 
         p.id,
         p.nama_produk,
         p.slug,
-        p.gambar,
-
-        MAX(CASE WHEN ps.label = 'Operating Weight' THEN ps.nilai END) AS operating_weight
-
-    FROM produk p
-
-    LEFT JOIN produk_spesifikasi ps 
-        ON p.id = ps.produk_id
-
-    WHERE p.status = 'aktif'
-    AND p.category_id = 10
-
-    GROUP BY 
-        p.id,
-        p.nama_produk,
-        p.slug,
         p.gambar
-
+    FROM produk p
+    WHERE p.status = 'aktif'
+      AND p.category_id = 10
     ORDER BY p.id DESC
 ");
-
 $stmt->execute();
 $products = $stmt->fetchAll();
+
+// ================= FETCH SPECIFICATIONS FOR EACH PRODUCT =================
+foreach ($products as &$product) {
+    $spec_stmt = $pdo->prepare("
+        SELECT label, nilai
+        FROM produk_spesifikasi
+        WHERE produk_id = ?
+        ORDER BY grup, sort_order
+        LIMIT 3
+    ");
+    $spec_stmt->execute([$product['id']]);
+    $product['specifications'] = $spec_stmt->fetchAll();
+}
+unset($product);
+
+$currentUrl = "https://gandaelang.co.id/backhoeloader.php";
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Backhoe Loader LiuGong | PT Ganda Elang Tangguh</title>
-
-<!-- SEO -->
-<meta name="description" content="Temukan berbagai Backhoe Loader LiuGong berkualitas di PT Ganda Elang Tangguh. Mesin serbaguna untuk pekerjaan konstruksi, penggalian, pemuatan, dan berbagai aplikasi proyek.">
-
-<meta name="keywords" content="backhoe loader liugong, backhoe loader indonesia, alat berat backhoe loader, mesin konstruksi liugong, dealer liugong indonesia">
-
-<meta name="author" content="PT Ganda Elang Tangguh">
-<meta name="robots" content="index, follow, max-image-preview:large">
-
-<link rel="canonical" href="https://gandaelang.co.id/backhoeloader.php">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Backhoe Loader LiuGong | PT Ganda Elang Tangguh">
-<meta property="og:description" content="Backhoe loader LiuGong yang tangguh dan serbaguna untuk berbagai aplikasi proyek konstruksi.">
-<meta property="og:image" content="https://gandaelang.co.id/images/backhoeloader.jpg">
-<meta property="og:url" content="https://gandaelang.co.id/backhoeloader.php">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="PT Ganda Elang Tangguh">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Backhoe Loader LiuGong">
-<meta name="twitter:description" content="Mesin backhoe loader LiuGong yang kuat, fleksibel, dan efisien untuk berbagai proyek.">
-<meta name="twitter:image" content="https://gandaelang.co.id/images/backhoeloader.jpg">
-
-<!-- Favicon -->
-<link rel="icon" type="image/webp" href="/images/favicon.webp">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<!-- CSS -->
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/product/hero.css">
-<link rel="stylesheet" href="/css/product/product.css">
-<link rel="stylesheet" href="/css/footer.css">
-
-<!-- Breadcrumb Schema -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Beranda",
-   "item": "https://gandaelang.co.id/"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Produk",
-   "item": "https://gandaelang.co.id/produk.php"
-  },
-  {
-   "@type": "ListItem",
-   "position": 3,
-   "name": "Backhoe Loader",
-   "item": "https://gandaelang.co.id/backhoeloader.php"
-  }
- ]
-}
-</script>
-
-<!-- CollectionPage Schema -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "CollectionPage",
- "name": "Backhoe Loader LiuGong",
- "url": "https://gandaelang.co.id/backhoeloader.php",
- "description": "Daftar produk Backhoe Loader LiuGong yang tersedia di PT Ganda Elang Tangguh.",
- "publisher": {
-   "@type": "Organization",
-   "name": "PT Ganda Elang Tangguh",
-   "logo": {
-     "@type": "ImageObject",
-     "url": "https://gandaelang.co.id/images/logo.webp"
-   }
- }
-}
-</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>backhoeloader LiuGong | Heavy Equipment | PT Ganda Elang Tangguh</title>
+    
+    <meta name="description" content="PT Ganda Elang Tangguh jual backhoeloader LiuGong berkualitas tinggi untuk konstruksi, pertambangan, dan material handling. Tersedia berbagai tipe backhoeloader dengan performa unggul dan efisiensi bahan bakar terbaik.">
+    
+    <meta name="keywords" content="backhoeloader, backhoeloader liugong, alat berat backhoeloader, harga backhoeloader, backhoeloader indonesia, loader alat berat, heavy equipment backhoeloader, backhoeloader untuk konstruksi, backhoeloader pertambangan, alat berat indonesia, dealer liugong indonesia">
+    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <meta name="author" content="PT Ganda Elang Tangguh">
+    <meta name="geo.region" content="ID">
+    <meta name="geo.placename" content="Indonesia">
+    <meta name="language" content="id-ID">
+    
+    <link rel="canonical" href="<?= $currentUrl ?>">
+    <link rel="alternate" hreflang="id" href="<?= $currentUrl ?>">
+    <link rel="alternate" href="<?= $currentUrl ?>" hreflang="x-default">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="backhoeloader LiuGong | Alat Berat untuk Konstruksi & Pertambangan | PT Ganda Elang Tangguh">
+    <meta property="og:description" content="PT Ganda Elang Tangguh menyediakan backhoeloader LiuGong terbaik untuk proyek konstruksi, pertambangan, dan material handling di Indonesia. Performa tangguh, efisien, dan tahan lama.">
+    <meta property="og:image" content="https://gandaelang.co.id/images/backhoeloader.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="backhoeloader LiuGong untuk konstruksi dan pertambangan">
+    <meta property="og:url" content="<?= $currentUrl ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PT Ganda Elang Tangguh">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="backhoeloader LiuGong | Alat Berat Indonesia">
+    <meta name="twitter:description" content="backhoeloader tangguh untuk proyek konstruksi dan pertambangan. Tersedia berbagai tipe dengan performa terbaik.">
+    <meta name="twitter:image" content="https://gandaelang.co.id/images/wheel.webp">
+    <meta name="twitter:image:alt" content="backhoeloader LiuGong">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "backhoeloader LiuGong",
+        "image": "https://www.gandaelang.co.id/images/liugong-backhoeloader.jpg",
+        "description": "backhoeloader LiuGong adalah alat berat berkualitas tinggi untuk konstruksi, pertambangan, perkebunan, dan infrastruktur. Tersedia berbagai tipe dari kelas 1,7 ton hingga 95 ton dengan fitur sistem hidraulik canggih, kabin ergonomis 360°, efisiensi bahan bakar optimal, dan biaya perawatan rendah.",
+        "brand": {
+            "@type": "Brand",
+            "name": "LiuGong"
+        },
+        "manufacturer": {
+            "@type": "Organization",
+            "name": "LiuGong Machinery Corporation"
+        },
+        "seller": {
+            "@type": "Organization",
+            "name": "PT Ganda Elang Tangguh"
+        },
+        "category": "Alat Berat backhoeloader",
+        "productID": "LG-EXC-2025",
+        "sku": "LG-EXC-SERIES",
+        "mpn": "915FG4/920F/925F/933F/990F",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "IDR",
+            "price": "0",
+            "priceValidUntil": "2026-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.gandaelang.co.id/liugong-backhoeloader",
+            "seller": {
+                "@type": "Organization",
+                "name": "PT Ganda Elang Tangguh"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "author": {
+                    "@type": "Organization",
+                    "name": "PT Maju Bersama Kontraktor"
+                },
+                "reviewBody": "backhoeloader LiuGong 920F sangat tangguh di medan tambang, irit solar, dan sparepart mudah didapat dari PT Ganda Elang Tangguh."
+            }
+        ],
+        "audience": {
+            "@type": "Audience",
+            "name": "Kontraktor, Perusahaan Tambang, Perkebunan Skala Besar, Proyek Infrastruktur Pemerintah"
+        },
+        "keywords": "backhoeloader LiuGong, alat berat backhoeloader, harga backhoeloader LiuGong, sparepart backhoeloader LiuGong, dealer resmi LiuGong Indonesia",
+        "url": "https://www.gandaelang.co.id/liugong-backhoeloader",
+        "sameAs": [
+            "https://www.liugong.com/",
+            "https://www.instagram.com/liugongid/",
+            "https://www.facebook.com/LiuGongID"
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://gandaelang.co.id/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Produk",
+                "item": "https://gandaelang.co.id/produk.php"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "backhoeloader LiuGong",
+                "item": "https://gandaelang.co.id/backhoeloader.php"
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PT Ganda Elang Tangguh",
+        "url": "https://gandaelang.co.id",
+        "logo": "https://gandaelang.co.id/images/logo.webp",
+        "description": "Dealer resmi alat berat LiuGong di Indonesia, menyediakan backhoeloader, backhoeloader, dan alat berat lainnya untuk konstruksi dan pertambangan.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ID",
+            "addressRegion": "Jakarta"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+62-823-5516-3745",
+            "contactType": "customer service"
+        },
+        "sameAs": [
+            "https://www.facebook.com/gandaelangtangguh",
+            "https://www.instagram.com/gandaelangtangguh"
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Apa keunggulan backhoeloader LiuGong?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "backhoeloader LiuGong memiliki keunggulan seperti sistem hidraulik canggih untuk efisiensi bahan bakar, kabin ergonomis dengan visibilitas 360°, biaya perawatan rendah, daya gali dan angkat yang stabil di berbagai medan berat, serta ketersediaan sparepart original terjamin."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Berapa kapasitas bucket dan kedalaman gali backhoeloader LiuGong?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "backhoeloader LiuGong tersedia dalam berbagai kelas mulai dari 1,7 ton hingga 95 ton. Kapasitas bucket mulai dari 0,06m³ hingga 6,5m³, dengan kedalaman galian maksimum mencapai 7,5 meter (untuk kelas 20-25 ton) dan hingga lebih dari 10 meter untuk kelas besar."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Apakah PT Ganda Elang Tangguh dealer resmi backhoeloader LiuGong?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia yang melayani penjualan unit backhoeloader baru, perawatan rutin, servis berkala, pelatihan operator, dan penyediaan sparepart original dengan garansi pabrik."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "backhoeloader LiuGong cocok untuk industri apa saja?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "backhoeloader LiuGong sangat cocok untuk berbagai industri seperti pertambangan (batu bara, mineral), konstruksi bangunan bertingkat, pembangunan infrastruktur (jalan, jembatan, terowongan), irigasi dan drainase, serta perkebunan skala besar untuk pembukaan lahan dan pembuatan kolam."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Bagaimana cara mendapatkan informasi harga dan simulasi kredit backhoeloader LiuGong?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Anda bisa menghubungi tim sales PT Ganda Elang Tangguh melalui WhatsApp, telepon, email, atau halaman Kontak Kami untuk mendapatkan informasi harga terbaru, spesifikasi lengkap, serta simulasi kredit dengan tenor fleksibel sesuai kebutuhan proyek Anda."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Apakah ada layanan after-sales untuk backhoeloader LiuGong?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tersedia layanan purna jual lengkap termasuk garansi standar pabrik, perawatan rutin (penggantian oli dan filter), servis mobile ke lokasi proyek, pelatihan operator, dan ketersediaan sparepart original di gudang pusat dan cabang untuk memastikan backhoeloader Anda selalu dalam kondisi prima."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/product/hero.css">
+    <link rel="stylesheet" href="/css/product/product.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="icon" type="image/webp" href="/images/favicon.webp">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
 <!-- ================= HEADER ================= -->
 <header class="header">
-  <div class="container">
-
-    <div class="logo">
-        <a href="/index.php">
-            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
-        </a>
+    <div class="container">
+        <div class="logo">
+            <a href="/index.php">
+                <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+            </a>
+        </div>
+        <nav class="navbar" id="navbar">
+            <a href="/index.php">Beranda</a>
+            <a href="/about.php">Tentang Kami</a>
+            <a href="/produk.php" class="active">Produk</a>
+            <a href="/aftersales.php">Layanan Purna Jual</a>
+            <a href="/contact.php">Hubungi Kami</a>
+            <a href="/blog.php">Blog & Artikel</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
-
-    <nav class="navbar" id="navbar">
-      <a href="/index.php">Beranda</a>
-      <a href="/about.php">Tentang Kami</a>
-      <a href="/produk.php" class="active">Produk</a>
-      <a href="/aftersales.php">Layanan Purna Jual</a>
-      <a href="/contact.php">Hubungi Kami</a>
-      <a href="/blog.php">Blog & Artikel</a>
-    </nav>
-
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-  </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section
-  class="hero hero-image"
-  style="background: url('/images/backhoeloader.jpg') center / cover no-repeat;"
->
-  <div class="hero-overlay"></div>
+<!-- ================= HERO SECTION ================= -->
+<section class="hero hero-image" style="background: url('/images/backhoeloader.jpg') center / cover no-repeat;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-breadcrumb">
+            <a href="/index.php">Home</a>
+            <span>></span>
+            <a href="/produk.php">Product</a>
+            <span>></span>
+            <span class="current">backhoeloader</span>
+        </div>
+        <h1>Built to Dig Deeper</h1>
 
-  <div class="hero-content">
-
-    <div class="hero-breadcrumb">
-      <a href="/index.php">Home</a>
-      <span>></span>
-      <a href="/product.php">Product</a>
-      <span>></span>
-      <span class="current">Backhoe Loaders</span>
+        <p class="hero-subtext">
+          Powerful and versatile backhoeloader engineered for heavy-duty digging, lifting, and earthmoving applications in diverse terrains.
+        </p>
     </div>
-
-    <h1>One Machine Endless Possibilities</h1>
-
-    <p class="hero-subtext">
-      With LiuGong’s advanced hydraulic system, our line of backhoe loaders is the ideal choice for multiple applications. Durable construction along with flexible operation capabilities and attachments make them a rugged and versatile piece of equipment.
-    </p>
-
-  </div>
 </section>
 
-<!-- ================= PRODUCT LIST ================= -->
+<!-- ================= PRODUCT LIST SECTION ================= -->
 <section class="product-list">
-
-  <div class="product-container">
-
-    <h2 class="product-title">Daftar Produk</h2>
-
-    <div class="product-grid">
-
-      <?php if (!empty($products)) : ?>
-        <?php foreach ($products as $row) : ?>
-
-          <div class="product-card">
-
-            <!-- LINK -->
-            <a href="/detailprodukbackhoeloader.php?slug=<?= htmlspecialchars($row['slug']); ?>" 
-               class="product-link">
-
-              <!-- IMAGE -->
-              <div class="product-image">
-                <img 
-                  src="/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>" 
-                  alt="<?= htmlspecialchars($row['nama_produk']); ?>"
-                >
-              </div>
-
-              <!-- INFO -->
-              <div class="product-info">
-
-                <h3><?= htmlspecialchars($row['nama_produk']); ?></h3>
-
-                <!-- SPEC -->
-                <?php if (!empty($row['operating_weight'])) : ?>
-                  <ul class="product-spec">
-                    <li>
-                      <span>Operating Weight</span>
-                      <span><?= htmlspecialchars($row['operating_weight']); ?></span>
-                    </li>
-                  </ul>
-                <?php endif; ?>
-
-                <!-- BUTTON -->
-                <div class="product-btn">
-                Detail Selengkapnya <i class="fa-solid fa-arrow-right"></i>
-                </div>
-
-
-              </div>
-
-            </a>
-
-          </div>
-
-        <?php endforeach; ?>
-      <?php else : ?>
-
-        <p class="no-product">Belum ada produk tersedia.</p>
-
-      <?php endif; ?>
-
+    <div class="product-container">
+        <h2 class="product-title">Daftar Produk backhoeloader LiuGong</h2>
+        
+        <div class="product-grid">
+            <?php if (!empty($products)) : ?>
+                <?php foreach ($products as $row) : ?>
+                    <div class="product-card">
+                        <a href="/detailprodukbackhoeloader.php?slug=<?= htmlspecialchars($row['slug']); ?>" class="product-link">
+                            <div class="product-image">
+                                <img 
+                                    src="/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>" 
+                                    alt="<?= htmlspecialchars($row['nama_produk']); ?> - backhoeloader LiuGong"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="product-info">
+                                <h3><?= htmlspecialchars($row['nama_produk']); ?></h3>
+                                
+                                <?php if (!empty($row['specifications'])) : ?>
+                                    <ul class="product-spec-list">
+                                        <?php foreach ($row['specifications'] as $spec) : ?>
+                                            <li>
+                                                <span><?= htmlspecialchars($spec['label']); ?></span>
+                                                <span><?= htmlspecialchars($spec['nilai']); ?></span>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php else : ?>
+                                    <ul class="product-spec-list">
+                                        <li>
+                                            <span>Spesifikasi</span>
+                                            <span>-</span>
+                                        </li>
+                                    </ul>
+                                <?php endif; ?>
+                                
+                                <div class="product-btn">
+                                    Detail Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p class="no-product">Belum ada produk tersedia.</p>
+            <?php endif; ?>
+        </div>
     </div>
+</section>
 
-  </div>
-
+<!-- ================= FAQ SECTION - backhoeloader LIUGONG ================= -->
+<section class="faq-section">
+    <div class="faq-header">
+        <h2>Pertanyaan Umum</h2>
+        <p>Temukan jawaban atas pertanyaan yang sering diajukan tentang backhoeloader LiuGong</p>
+    </div>
+    
+    <div class="faq-grid">
+        <div class="faq-item">
+            <div class="faq-question">
+                Apa keunggulan backhoeloader LiuGong dibanding merek lain?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>backhoeloader LiuGong unggul dalam efisiensi bahan bakar berteknologi hydraulic system canggih, kabin ergonomis dengan visibilitas 360°, biaya perawatan rendah, serta daya gali dan angkat yang stabil di berbagai medan berat.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Berapa kapasitas dan kedalaman gali backhoeloader LiuGong?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>backhoeloader LiuGong tersedia dari kelas 1,7 ton hingga 95 ton. Kapasitas bucket mulai 0,06m³ hingga 6,5m³, dengan kedalaman galian maksimum mencapai 7,5 meter (untuk kelas 20-25 ton) dan hingga 10+ meter untuk kelas besar.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Apakah PT Ganda Elang Tangguh dealer resmi backhoeloader LiuGong?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia, termasuk unit backhoeloader baru, perawatan rutin, servis berkala, dan penyediaan sparepart original dengan garansi pabrik.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                backhoeloader LiuGong cocok untuk proyek apa saja?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Sangat cocok untuk proyek pertambangan (batu bara, mineral), konstruksi gedung bertingkat, pembangunan infrastruktur (jalan, jembatan, terowongan), irigasi/drainase, dan perkebunan skala besar (pembukaan lahan, pembuatan kolam).</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Bagaimana cara mendapatkan harga dan simulasi kredit backhoeloader?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Hubungi tim sales PT Ganda Elang Tangguh melalui WhatsApp, telepon, atau form kontak. Kami akan memberikan harga terbaru, spesifikasi lengkap, serta simulasi kredit dengan tenor fleksibel sesuai kebutuhan proyek Anda.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Apakah ada layanan after-sales untuk backhoeloader LiuGong?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Kami menyediakan layanan purna jual lengkap: garansi standar pabrik, perawatan rutin (termasuk penggantian oli dan filter), servis mobile ke lokasi proyek, pelatihan operator, dan stok sparepart original di gudang pusat & cabang.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="faq-cta">
+        <p>Masih ada pertanyaan? Tim kami siap membantu Anda</p>
+        <a href="https://wa.me/6282355163745?text=Halo%20saya%20dapat%20nomor%20anda%20dari%20website%20backhoeloader%20LiuGong%20dan%20ingin%20konsultasi" 
+           class="contact-btn" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
+
+<!-- JavaScript -->
+<script src="/js/product.js"></script>
 
 </body>
 </html>
