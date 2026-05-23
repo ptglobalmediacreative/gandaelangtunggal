@@ -47,7 +47,7 @@ $hero = $q->fetch();
 
 $heroImage = $hero
     ? "/images/uploads/produk/" . $hero['image']
-    : "/images/hero.jpg";
+    : "/images/roller.jpg";
 
 
 /* ================= FEATURES ================= */
@@ -267,10 +267,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 <div class="pd-menu-nav">
+
+<?php if (!empty($features)): ?>
 <a href="#pd-features">Features</a>
+<?php endif; ?>
+
+<?php if (!empty($group)): ?>
 <a href="#pd-specifications">Specifications</a>
+<?php endif; ?>
+
+<?php if (!empty($gallery)): ?>
 <a href="#pd-gallery">Gallery</a>
+<?php endif; ?>
+
 <a href="#pd-recommended">Recommended Equipment</a>
+
 </div>
 
 </div>
@@ -379,7 +390,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <?php foreach($rec as $r): ?>
 
-<a href="/detailprodukbulldozer.php?slug=<?=$r['slug']?>" class="pd-card">
+<a href="/detailprodukexcavator.php?slug=<?=$r['slug']?>" class="pd-card">
 
 <img src="/images/uploads/produk/<?=$r['gambar']?>">
 
