@@ -11,7 +11,7 @@ $stmt = $pdo->prepare("
         p.gambar
     FROM produk p
     WHERE p.status = 'aktif'
-      AND p.category_id = 7
+      AND p.category_id = 11
     ORDER BY p.id DESC
 ");
 $stmt->execute();
