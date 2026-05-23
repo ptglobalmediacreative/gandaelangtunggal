@@ -18,7 +18,7 @@ $stmt = $pdo->prepare("
     FROM produk p
     LEFT JOIN categories c ON p.category_id = c.id
     WHERE p.slug = ?
-      AND p.category_id = 9
+      AND p.category_id = 11
       AND p.status = 'aktif'
     LIMIT 1
 ");
