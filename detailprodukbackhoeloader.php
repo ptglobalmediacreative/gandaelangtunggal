@@ -11,7 +11,7 @@ if (!isset($_GET['slug'])) {
 $slug = $_GET['slug'];
 
 
-/* ================= PRODUCT (KHUSUS CATEGORY 3 = backhoeloader) ================= */
+/* ================= PRODUCT (KHUSUS CATEGORY 10 = Backhoe Loader) ================= */
 
 $stmt = $pdo->prepare("
     SELECT p.*, c.name AS kategori
@@ -121,35 +121,43 @@ $rec = $q->fetchAll();
 <?php
 $currentUrl = "https://gandaelang.co.id/detailprodukbackhoeloader.php?slug=" . urlencode($product['slug']);
 $productImage = "https://gandaelang.co.id/images/uploads/produk/" . htmlspecialchars($product['gambar']);
+$productName = htmlspecialchars($product['nama_produk']);
 ?>
 
-<title><?= htmlspecialchars($product['nama_produk']) ?> | Backhoe Loader LiuGong | PT Ganda Elang Tangguh</title>
+<title><?= $productName ?> | Backhoe Loader LiuGong | PT Ganda Elang Tangguh</title>
 
-<meta name="description" content="Spesifikasi lengkap <?= htmlspecialchars($product['nama_produk']) ?> backhoe loader LiuGong untuk pekerjaan konstruksi dan penggalian.">
+<meta name="description" content="Spesifikasi lengkap <?= $productName ?> Backhoe Loader LiuGong untuk pekerjaan konstruksi, pertambangan, material handling, dan proyek infrastruktur di Indonesia.">
 
-<meta name="keywords" content="<?= htmlspecialchars($product['nama_produk']) ?>, backhoe loader liugong, alat berat backhoe loader">
+<meta name="keywords" content="<?= $productName ?>, Backhoe Loader liugong, alat berat Backhoe Loader, loader liugong indonesia, dealer liugong indonesia">
 
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
 <meta name="author" content="PT Ganda Elang Tangguh">
 
 <link rel="canonical" href="<?= $currentUrl ?>">
 
-<meta property="og:title" content="<?= htmlspecialchars($product['nama_produk']) ?> | PT Ganda Elang Tangguh">
-<meta property="og:description" content="Backhoe loader LiuGong berkinerja tinggi untuk proyek konstruksi dan penggalian.">
+<!-- Open Graph (Preview WhatsApp / Facebook) -->
+<meta property="og:title" content="<?= $productName ?> | Backhoe Loader LiuGong">
+<meta property="og:description" content="Backhoe Loader LiuGong berkinerja tinggi untuk pekerjaan konstruksi, pertambangan, dan material handling.">
 <meta property="og:image" content="<?= $productImage ?>">
 <meta property="og:url" content="<?= $currentUrl ?>">
 <meta property="og:type" content="product">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh">
 
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="<?= htmlspecialchars($product['nama_produk']) ?>">
+<meta name="twitter:title" content="<?= $productName ?>">
+<meta name="twitter:description" content="Backhoe Loader LiuGong untuk pekerjaan konstruksi dan pertambangan.">
 <meta name="twitter:image" content="<?= $productImage ?>">
 
+<!-- Product Schema -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@type": "Product",
- "name": "<?= htmlspecialchars($product['nama_produk']) ?>",
+ "name": "<?= $productName ?>",
  "image": "<?= $productImage ?>",
+ "description": "Backhoe Loader LiuGong untuk pekerjaan konstruksi, pertambangan, dan material handling.",
  "brand": {
    "@type": "Brand",
    "name": "LiuGong"
@@ -385,7 +393,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <?php foreach($rec as $r): ?>
 
-<a href="/detailprodukexcavator.php?slug=<?=$r['slug']?>" class="pd-card">
+<a href="/detailprodukbackhoeloader.php?slug=<?=$r['slug']?>" class="pd-card">
 
 <img src="/images/uploads/produk/<?=$r['gambar']?>">
 

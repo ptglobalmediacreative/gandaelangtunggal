@@ -267,10 +267,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 <div class="pd-menu-nav">
+
+<?php if (!empty($features)): ?>
 <a href="#pd-features">Features</a>
+<?php endif; ?>
+
+<?php if (!empty($group)): ?>
 <a href="#pd-specifications">Specifications</a>
+<?php endif; ?>
+
+<?php if (!empty($gallery)): ?>
 <a href="#pd-gallery">Gallery</a>
+<?php endif; ?>
+
+<?php if (!empty($rec)): ?>
 <a href="#pd-recommended">Recommended Equipment</a>
+<?php endif; ?>
+
 </div>
 
 </div>
@@ -279,6 +292,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 
 <!-- FEATURES -->
+<?php if (!empty($features)): ?>
 <section id="pd-features" class="pd-section">
 
 <h2>FEATURES</h2>
@@ -305,9 +319,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 </section>
+<?php endif; ?>
 
 
 <!-- SPEC -->
+<?php if (!empty($group)): ?>
 <section id="pd-specifications" class="pd-section pd-gray">
 
 <h2>SPECIFICATIONS</h2>
@@ -334,9 +350,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <?php endforeach; ?>
 
 </section>
+<?php endif; ?>
 
 
 <!-- GALLERY -->
+<?php if (!empty($gallery)): ?>
 <section id="pd-gallery" class="pd-section">
 
 <h2>GALLERY</h2>
@@ -362,9 +380,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 </section>
+<?php endif; ?>
 
 
 <!-- RECOMMENDED -->
+<?php if (!empty($rec)): ?>
 <section id="pd-recommended" class="pd-section pd-gray">
 
 <h2>RECOMMENDED EQUIPMENT</h2>
@@ -373,7 +393,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <?php foreach($rec as $r): ?>
 
-<a href="/detailprodukfoundation.php?slug=<?=$r['slug']?>" class="pd-card">
+<a href="/detailprodukexcavator.php?slug=<?=$r['slug']?>" class="pd-card">
 
 <img src="/images/uploads/produk/<?=$r['gambar']?>">
 
@@ -386,6 +406,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 </section>
+<?php endif; ?>
 
 
 <?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>

@@ -280,7 +280,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <a href="#pd-gallery">Gallery</a>
 <?php endif; ?>
 
+<?php if (!empty($rec)): ?>
 <a href="#pd-recommended">Recommended Equipment</a>
+<?php endif; ?>
 
 </div>
 
@@ -382,6 +384,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 
 <!-- RECOMMENDED -->
+<?php if (!empty($rec)): ?>
 <section id="pd-recommended" class="pd-section pd-gray">
 
 <h2>RECOMMENDED EQUIPMENT</h2>
@@ -390,7 +393,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <?php foreach($rec as $r): ?>
 
-<a href="/detailprodukbulldozer.php?slug=<?=$r['slug']?>" class="pd-card">
+<a href="/detailprodukexcavator.php?slug=<?=$r['slug']?>" class="pd-card">
 
 <img src="/images/uploads/produk/<?=$r['gambar']?>">
 
@@ -403,6 +406,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 </section>
+<?php endif; ?>
 
 
 <?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
