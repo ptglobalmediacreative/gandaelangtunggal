@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Layanan Purna Jual Alat Berat | PT Ganda Elang Tangguh</title>
+<title>Layanan Purna Jual Alat Berat LiuGong | Sparepart & Servis | PT Ganda Elang Tangguh</title>
 
 <!-- SEO -->
-<meta name="description" content="PT Ganda Elang Tangguh menyediakan layanan purna jual alat berat profesional seperti servis berkala, dukungan teknisi di lokasi proyek, penyediaan sparepart original, dan bantuan teknis untuk menjaga performa alat berat tetap optimal.">
+<meta name="description" content="Layanan purna jual alat berat LiuGong dari PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Menyediakan sparepart asli LiuGong, servis berkala, teknisi ke lokasi, dan dukungan teknis profesional. Dealer LiuGong Jakarta terpercaya.">
 
 <meta name="keywords" content="aftersales alat berat, layanan alat berat, servis alat berat, sparepart alat berat, teknisi alat berat indonesia">
 
@@ -17,8 +17,8 @@
 <link rel="canonical" href="https://gandaelang.co.id/aftersales.php">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Layanan Purna Jual Alat Berat | PT Ganda Elang Tangguh">
-<meta property="og:description" content="Layanan purna jual profesional untuk menjaga performa alat berat Anda tetap optimal dengan dukungan teknisi berpengalaman.">
+<meta property="og:title" content="Layanan Purna Jual Alat Berat LiuGong | Sparepart & Servis | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Layanan purna jual alat berat LiuGong dari PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Menyediakan sparepart asli LiuGong, servis berkala, teknisi ke lokasi, dan dukungan teknis profesional. Dealer LiuGong Jakarta terpercaya.">
 <meta property="og:image" content="https://gandaelang.co.id/images/about.png">
 <meta property="og:url" content="https://gandaelang.co.id/aftersales.php">
 <meta property="og:type" content="website">
@@ -26,8 +26,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Layanan Purna Jual Alat Berat">
-<meta name="twitter:description" content="Servis berkala, sparepart original, dan dukungan teknisi untuk alat berat Anda.">
+<meta name="twitter:title" content="Layanan Purna Jual Alat Berat LiuGong | Sparepart & Servis | PT Ganda Elang Tangguh">
+<meta name="twitter:description" content="Layanan purna jual alat berat LiuGong dari PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Menyediakan sparepart asli LiuGong, servis berkala, teknisi ke lokasi, dan dukungan teknis profesional. Dealer LiuGong Jakarta terpercaya.">
 <meta name="twitter:image" content="https://gandaelang.co.id/images/about.png">
 
 <!-- Favicon -->
@@ -49,42 +49,101 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <!-- Breadcrumb Schema -->
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Beranda",
-   "item": "https://gandaelang.co.id/"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Layanan Purna Jual",
-   "item": "https://gandaelang.co.id/aftersales.php"
-  }
- ]
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://gandaelang.co.id/aftersales.php/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gandaelang.co.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Layanan Purna Jual Alat Berat LiuGong",
+      "item": "https://gandaelang.co.id/aftersales.php"
+    }
+  ]
 }
 </script>
 
 <!-- Service Schema -->
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "Service",
- "serviceType": "Layanan Purna Jual Alat Berat",
- "provider": {
-   "@type": "Organization",
-   "name": "PT Ganda Elang Tangguh",
-   "url": "https://gandaelang.co.id",
-   "logo": "https://gandaelang.co.id/images/logo.webp"
- },
- "areaServed": {
-   "@type": "Country",
-   "name": "Indonesia"
- },
- "description": "PT Ganda Elang Tangguh menyediakan layanan purna jual alat berat termasuk servis berkala, dukungan teknisi di lokasi proyek, serta penyediaan sparepart original."
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://gandaelang.co.id/aftersales.php/#service",
+  "name": "Layanan Purna Jual Alat Berat LiuGong",
+  "serviceType": "Layanan Purna Jual Alat Berat LiuGong",
+  "alternateName": [
+    "Servis Alat Berat LiuGong",
+    "Sparepart Asli LiuGong",
+    "Perawatan Alat Berat LiuGong"
+  ],
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://gandaelang.co.id/#organization",
+    "name": "PT Ganda Elang Tangguh",
+    "alternateName": [
+      "Dealer Resmi LiuGong Indonesia",
+      "Dealer LiuGong Jakarta"
+    ],
+    "url": "https://gandaelang.co.id",
+    "logo": "https://gandaelang.co.id/images/logo.webp",
+    "image": "https://gandaelang.co.id/images/logo.webp",
+    "description": "PT Ganda Elang Tangguh adalah dealer resmi LiuGong di Indonesia. Menyediakan alat berat LiuGong berkualitas, sparepart asli, dan layanan purna jual profesional.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Pluit Karang Manis VI No.1E, RT.6/RW.8, Penjaringan Utara",
+      "addressLocality": "Jakarta Utara",
+      "addressRegion": "DKI Jakarta",
+      "postalCode": "14450",
+      "addressCountry": "ID"
+    },
+    "telephone": "+62-823-5516-3745",
+    "email": "sales@gandaelang.co.id"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Indonesia"
+  },
+  "description": "PT Ganda Elang Tangguh dealer resmi LiuGong di Indonesia menyediakan layanan purna jual alat berat LiuGong profesional: servis berkala, teknisi ke lokasi proyek, sparepart asli LiuGong, perawatan berkala, dan dukungan teknis 24/7.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Servis & Perawatan Berkala Alat Berat LiuGong",
+        "description": "Layanan servis dan perawatan berkala untuk alat berat LiuGong oleh teknisi berpengalaman."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Sparepart Asli LiuGong",
+        "description": "Penyediaan sparepart asli LiuGong lengkap untuk semua tipe alat berat LiuGong."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Teknisi ke Lokasi Proyek",
+        "description": "Dukungan teknisi profesional PT Ganda Elang Tangguh langsung ke lokasi proyek Anda."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Konsultasi & Dukungan Teknis Alat Berat LiuGong",
+        "description": "Konsultasi dan bantuan teknis untuk memastikan alat berat LiuGong Anda selalu optimal."
+      }
+    }
+  ]
 }
 </script>
 
@@ -166,7 +225,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         </h2>
 
         <p>
-          PT Ganda Elang Tangguh menghadirkan layanan purna jual
+          PT Ganda Elang Tangguh sebagai Dealer Resmi LiuGong Machinery Indonesia menghadirkan layanan purna jual
           profesional untuk menjaga performa alat berat Anda
           tetap optimal, aman, dan berkelanjutan.
         </p>

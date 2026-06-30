@@ -36,8 +36,8 @@ $latestArtikel = $stmt->fetchAll();
     <!-- Content -->
     <div class="hero-content">
 
-        <h1>PT Ganda Elang Tangguh</h1>
-        <p>Solusi Alat Berat Profesional di Indonesia</p>
+        <h1>PT Ganda Elang Tangguh | Dealer Resmi LiuGong Machinery Indonesia</h1>
+        <p>Dealer Resmi Alat Berat LiuGong Indonesia</p>
 
         <div class="hero-buttons">
             <a href="/produk.php" class="btn-primary">Lihat Produk</a>
@@ -54,30 +54,19 @@ $latestArtikel = $stmt->fetchAll();
   <div class="about-container">
 
     <h2 class="about-title">
-      Sekilas Tentang PT Ganda Elang Tangguh
+      Sekilas Tentang PT Ganda Elang Tangguh | Dealer Resmi LiuGong Machinery Indonesia
     </h2>
 
     <p class="about-text">
-      PT Ganda Elang Tangguh merupakan dealer alat berat yang terpercaya
-      dan berpengalaman dalam menyediakan solusi lengkap untuk kebutuhan
-      industri. Dengan komitmen tinggi terhadap kualitas dan kepuasan
-      pelanggan, kami terus membangun reputasi sebagai mitra bisnis yang
-      andal di Indonesia.
+      PT Ganda Elang Tangguh</strong> adalah <strong>dealer resmi LiuGong di Indonesia</strong> yang terpercaya dan berpengalaman dalam menyediakan <strong>alat berat LiuGong</strong> berkualitas untuk industri konstruksi, pertambangan, dan infrastruktur.
     </p>
 
     <p class="about-text">
-      Kami menyediakan berbagai produk alat berat berkualitas tinggi
-      dari produsen terkemuka, seperti excavator, bulldozer, wheel loader,
-      motor grader, serta berbagai unit pendukung lainnya. Seluruh produk
-      kami dipilih secara selektif untuk menjamin performa, daya tahan,
-      dan efisiensi kerja.
+      Sebagai <strong>dealer LiuGong Jakarta</strong> dan seluruh Indonesia, kami menyediakan berbagai <strong>alat berat LiuGong</strong> unggulan seperti wheel loader, excavator, motor grader, compactor, serta unit pendukung lainnya. Seluruh produk <strong>LiuGong</strong> dijamin performa, daya tahan, dan efisiensi kerja tinggi.
     </p>
 
     <p class="about-text">
-      Didukung oleh tim profesional dan teknisi berpengalaman,
-      PT Ganda Elang Tangguh juga menyediakan layanan purna jual,
-      suku cadang asli, serta perawatan berkala untuk memastikan
-      operasional pelanggan tetap optimal dan produktif.
+      Didukung tim profesional dan teknisi berpengalaman, <strong>PT Ganda Elang Tangguh dealer LiuGong Indonesia</strong> juga menyediakan layanan purna jual lengkap, <strong>sparepart asli LiuGong</strong>, serta perawatan berkala agar operasional pelanggan tetap optimal dan produktif.
     </p>
 
     <a href="/about.php" class="about-link">
@@ -167,7 +156,7 @@ $latestArtikel = $stmt->fetchAll();
       </h2>
 
       <p>
-        PT Ganda Elang Tangguh menghadirkan layanan purna jual terbaik
+        PT Ganda Elang Tangguh sebagai dealer resmi LiuGong Machinery Indonesia menghadirkan layanan purna jual terbaik
         untuk memastikan setiap pelanggan mendapatkan pengalaman
         bisnis maksimal.
       </p>
@@ -187,12 +176,10 @@ $latestArtikel = $stmt->fetchAll();
           <i class="fa-solid fa-gear"></i>
         </div>
 
-        <h3>Suku Cadang</h3>
+        <h3>Sparepart Asli LiuGong</h3>
 
         <p>
-          Kami menyediakan suku cadang asli
-          untuk menjaga performa dan keandalan
-          alat berat pelanggan.
+          PT Ganda Elang Tangguh dealer LiuGong Indonesia</strong> menyediakan <strong>sparepart asli LiuGong</strong> lengkap untuk menjaga performa dan keandalan <strong>alat berat LiuGong</strong> Anda.
         </p>
 
       </div>
@@ -204,10 +191,10 @@ $latestArtikel = $stmt->fetchAll();
           <i class="fa-solid fa-chalkboard-user"></i>
         </div>
 
-        <h3>Training</h3>
+        <h3>Training Operator</h3>
 
         <p>
-          Kami menyediakan pelatihan khusus seputar alat berat Liu Gong.
+          Kami menyediakan pelatihan khusus pengoperasian <strong>alat berat LiuGong</strong> agar operator Anda terampil dan produktivitas kerja maksimal.
         </p>
 
       </div>
@@ -222,8 +209,7 @@ $latestArtikel = $stmt->fetchAll();
         <h3>Service Program</h3>
 
         <p>
-          Berbagai layanan perawatan untuk memastikan
-          alat berat selalu optimal dan minim downtime.
+          Layanan servis profesional dari <strong>dealer LiuGong Jakarta</strong> untuk memastikan <strong>alat berat LiuGong</strong> selalu optimal, andal, dan minim downtime di lapangan.
         </p>
 
       </div>
