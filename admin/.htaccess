@@ -84,7 +84,7 @@ RewriteRule .* - [F,L]
 </FilesMatch>
 
 # ============================================
-# 10. CEGAH HOTLINKING GAMBAR
+# 9. CEGAH HOTLINKING GAMBAR
 # ============================================
 
 <IfModule mod_rewrite.c>
@@ -94,7 +94,7 @@ RewriteRule .* - [F,L]
 </IfModule>
 
 # ============================================
-# 11. KOMPRESI FILE
+# 10. KOMPRESI FILE
 # ============================================
 
 <IfModule mod_deflate.c>
