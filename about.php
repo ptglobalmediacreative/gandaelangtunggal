@@ -202,8 +202,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       <span class="current">About Us</span>
     </div>
 
-    <h2>About <span class="highlight">Us</span></h2>
-    <h3>Your Trusted Heavy Equipment Partner in Indonesia</h3>
+    <h1>About <span class="highlight">Us</span></h1>
+    <h2>Your Trusted Heavy Equipment Partner in Indonesia</h2>
 
   </div>
 
