@@ -3,8 +3,12 @@
 // REDIRECT KE HALAMAN LOGIN
 // ============================================
 
+// Mulai session
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Jika sudah login, redirect ke dashboard
-session_start();
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
     header('Location: dashboard.php');
     exit;
