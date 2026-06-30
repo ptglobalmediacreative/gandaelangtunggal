@@ -15,25 +15,25 @@ $total_produk = $pdo->query("SELECT COUNT(*) FROM produk")->fetchColumn();
 /* Total Pesan */
 $total_pesan = $pdo->query("SELECT COUNT(*) FROM pesan")->fetchColumn();
 
-/* Total Simulasi - menggunakan tabel simulis */
-$total_simulasi = $pdo->query("SELECT COUNT(*) FROM simulis")->fetchColumn();
+/* Total Simulasi - menggunakan tabel simulasi */
+$total_simulasi = $pdo->query("SELECT COUNT(*) FROM simulasi")->fetchColumn();
 
 /* Total Komentar */
 $total_komentar = $pdo->query("SELECT COUNT(*) FROM komentar")->fetchColumn();
 
 /* ================= GRAFIK SIMULASI PER BULAN ================= */
-// Menggunakan data dari tabel simulis untuk grafik
+// Menggunakan data dari tabel simulasi untuk grafik
 
 $chartData = array_fill(1,12,0);
 
-// Cek apakah ada kolom tanggal di tabel simulis
+// Cek apakah ada kolom tanggal di tabel simulasi
 // Asumsikan ada kolom created_at atau tanggal
 try {
     $stmt = $pdo->query("
         SELECT 
             MONTH(created_at) AS bulan,
             COUNT(*) AS total
-        FROM simulis
+        FROM simulasi
         WHERE YEAR(created_at) = YEAR(CURDATE())
         GROUP BY MONTH(created_at)
     ");
