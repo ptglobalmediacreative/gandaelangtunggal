@@ -59,11 +59,6 @@ if(isset($_POST['update'])){
   $akses_pesan     = isset($_POST['akses_pesan']) ? 1 : 0;
   $akses_simulasi  = isset($_POST['akses_simulasi']) ? 1 : 0;
   $akses_user      = isset($_POST['akses_user']) ? 1 : 0;
-  $akses_leads     = isset($_POST['akses_leads']) ? 1 : 0;
-  $akses_sales     = isset($_POST['akses_sales']) ? 1 : 0;
-  $akses_stock     = isset($_POST['akses_stock']) ? 1 : 0;
-  $akses_delivery  = isset($_POST['akses_delivery']) ? 1 : 0;
-
 
   if(!$nama || !$no_hp){
 
@@ -88,10 +83,6 @@ if(isset($_POST['update'])){
           akses_pesan=?,
           akses_simulasi=?,
           akses_user=?,
-          akses_leads=?,
-          akses_sales=?,
-          akses_stock=?,
-          akses_delivery=?
 
         WHERE id=?
       ");
@@ -108,10 +99,6 @@ if(isset($_POST['update'])){
         $akses_pesan,
         $akses_simulasi,
         $akses_user,
-        $akses_leads,
-        $akses_sales,
-        $akses_stock,
-        $akses_delivery,
 
         $id
       ]);
@@ -141,10 +128,6 @@ if(isset($_POST['update'])){
             akses_pesan=?,
             akses_simulasi=?,
             akses_user=?,
-            akses_leads=?,
-            akses_sales=?,
-            akses_stock=?,
-            akses_delivery=?
 
           WHERE id=?
         ");
@@ -162,10 +145,6 @@ if(isset($_POST['update'])){
           $akses_pesan,
           $akses_simulasi,
           $akses_user,
-          $akses_leads,
-          $akses_sales,
-          $akses_stock,
-          $akses_delivery,
 
           $id
         ]);
@@ -289,18 +268,6 @@ value="<?= htmlspecialchars($admin['keterangan']); ?>">
 
 <label><input type="checkbox" name="akses_user"
 <?= $admin['akses_user']?'checked':'' ?>> User Admin</label>
-
-<label><input type="checkbox" name="akses_leads"
-<?= $admin['akses_leads']?'checked':'' ?>> Leads Customer</label>
-
-<label><input type="checkbox" name="akses_sales"
-<?= $admin['akses_sales']?'checked':'' ?>> Sales Activity</label>
-
-<label><input type="checkbox" name="akses_stock"
-<?= $admin['akses_stock']?'checked':'' ?>> Stock Unit</label>
-
-<label><input type="checkbox" name="akses_delivery"
-<?= $admin['akses_delivery']?'checked':'' ?>> Delivery Order</label>
 
 </div>
 

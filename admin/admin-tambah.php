@@ -29,10 +29,6 @@ if(isset($_POST['simpan'])){
   $akses_pesan     = isset($_POST['akses_pesan']) ? 1 : 0;
   $akses_simulasi  = isset($_POST['akses_simulasi']) ? 1 : 0;
   $akses_user      = isset($_POST['akses_user']) ? 1 : 0;
-  $akses_leads     = isset($_POST['akses_leads']) ? 1 : 0;
-  $akses_sales     = isset($_POST['akses_sales']) ? 1 : 0;
-  $akses_stock     = isset($_POST['akses_stock']) ? 1 : 0;
-  $akses_delivery  = isset($_POST['akses_delivery']) ? 1 : 0;
 
 
   if(!$nama || !$no_hp || !$password){
@@ -49,7 +45,6 @@ if(isset($_POST['simpan'])){
         nama,no_hp,email,password,keterangan,
         akses_dashboard,akses_produk,akses_artikel,
         akses_pesan,akses_simulasi,akses_user,
-        akses_leads,akses_sales,akses_stock,akses_delivery,
         created_at
       )
       VALUES
@@ -69,10 +64,6 @@ if(isset($_POST['simpan'])){
       $akses_pesan,
       $akses_simulasi,
       $akses_user,
-      $akses_leads,
-      $akses_sales,
-      $akses_stock,
-      $akses_delivery
     ]);
 
     header("Location: admin.php?status=add");
@@ -171,10 +162,6 @@ if(isset($_POST['simpan'])){
 <label><input type="checkbox" name="akses_pesan"> Pesan</label>
 <label><input type="checkbox" name="akses_simulasi"> Simulasi Kredit</label>
 <label><input type="checkbox" name="akses_user"> User Admin</label>
-<label><input type="checkbox" name="akses_leads"> Leads Customer</label>
-<label><input type="checkbox" name="akses_sales"> Sales Activity</label>
-<label><input type="checkbox" name="akses_stock"> Stock Unit</label>
-<label><input type="checkbox" name="akses_delivery"> Delivery Order</label>
 
 </div>
 
