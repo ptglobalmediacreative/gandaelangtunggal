@@ -118,60 +118,6 @@ $admin_pages = [
 <?php endif; ?>
 
 
-<!-- ================= LEADS ================= -->
-<?php
-$leads_pages = [
-  'leads.php',
-  'leads-tambah.php',
-  'leads-edit.php',
-  'leads-detail.php',
-  'leads-hapus.php'
-];
-?>
-
-<?php if(akses('leads')): ?>
-<li>
-  <a href="leads.php"
-     class="<?= in_array($current,$leads_pages)?'active':'' ?>">
-    <i class="fa-solid fa-user-plus icon"></i>
-    <span>Leads Customer</span>
-  </a>
-</li>
-<?php endif; ?>
-
-
-<!-- ================= SALES MANAGEMENT ================= -->
-<?php
-$sales_mgmt_pages = [
-  'salesmanagement.php',
-  'sales-tambah.php',
-  'sales-edit.php',
-  'sales-detail.php',
-  'sales-hapus.php'
-];
-?>
-
-<?php if(akses('sales')): ?>
-<li>
-  <a href="salesmanagement.php"
-     class="<?= in_array($current,$sales_mgmt_pages)?'active':'' ?>">
-    <i class="fa-solid fa-user-tie icon"></i>
-    <span>Sales Management</span>
-  </a>
-</li>
-<?php endif; ?>
-
-
-<!-- ================= DELIVERY ================= -->
-<?php if(akses('delivery')): ?>
-<li>
-  <a href="delivery.php"
-     class="<?= $current=='delivery.php'?'active':'' ?>">
-    <i class="fa-solid fa-truck-ramp-box icon"></i>
-    <span>Delivery Order</span>
-  </a>
-</li>
-<?php endif; ?>
 
 
 </ul>
