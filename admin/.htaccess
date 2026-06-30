@@ -84,18 +84,6 @@ RewriteRule .* - [F,L]
 </FilesMatch>
 
 # ============================================
-# 9. REDIRECT KE LOGIN JIKA BELUM LOGIN
-# ============================================
-
-# Cek session untuk semua file PHP kecuali login dan logout
-<IfModule mod_rewrite.c>
-    RewriteCond %{REQUEST_URI} !^/admin/login\.php
-    RewriteCond %{REQUEST_URI} !^/admin/logout\.php
-    RewriteCond %{HTTP_COOKIE} !PHPSESSID [NC]
-    RewriteRule .* - [F,L]
-</IfModule>
-
-# ============================================
 # 10. CEGAH HOTLINKING GAMBAR
 # ============================================
 
