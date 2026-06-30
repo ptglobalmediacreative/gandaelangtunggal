@@ -15,32 +15,35 @@ $total_produk = $pdo->query("SELECT COUNT(*) FROM produk")->fetchColumn();
 /* Total Pesan */
 $total_pesan = $pdo->query("SELECT COUNT(*) FROM pesan")->fetchColumn();
 
-/* Total Simulasi */
-$total_simulasi = $pdo->query("SELECT COUNT(*) FROM simulasi")->fetchColumn();
+/* Total Simulasi - menggunakan tabel simulis */
+$total_simulasi = $pdo->query("SELECT COUNT(*) FROM simulis")->fetchColumn();
 
-/* Total Delivery */
-$total_delivery = $pdo->query("
-    SELECT COALESCE(SUM(total_unit),0) 
-    FROM delivery_orders
-")->fetchColumn();
+/* Total Komentar */
+$total_komentar = $pdo->query("SELECT COUNT(*) FROM komentar")->fetchColumn();
 
-
-
-/* ================= GRAFIK DELIVERY PER BULAN ================= */
+/* ================= GRAFIK SIMULASI PER BULAN ================= */
+// Menggunakan data dari tabel simulis untuk grafik
 
 $chartData = array_fill(1,12,0);
 
-$stmt = $pdo->query("
-    SELECT 
-        MONTH(tanggal_kirim) AS bulan,
-        SUM(total_unit) AS total
-    FROM delivery_orders
-    WHERE YEAR(tanggal_kirim) = YEAR(CURDATE())
-    GROUP BY MONTH(tanggal_kirim)
-");
-
-while($row = $stmt->fetch()){
-    $chartData[(int)$row['bulan']] = (int)$row['total'];
+// Cek apakah ada kolom tanggal di tabel simulis
+// Asumsikan ada kolom created_at atau tanggal
+try {
+    $stmt = $pdo->query("
+        SELECT 
+            MONTH(created_at) AS bulan,
+            COUNT(*) AS total
+        FROM simulis
+        WHERE YEAR(created_at) = YEAR(CURDATE())
+        GROUP BY MONTH(created_at)
+    ");
+    
+    while($row = $stmt->fetch()){
+        $chartData[(int)$row['bulan']] = (int)$row['total'];
+    }
+} catch (PDOException $e) {
+    // Jika kolom created_at tidak ada, coba pakai kolom lain atau kosongkan grafik
+    $chartData = array_fill(1,12,0);
 }
 
 $chartJson = json_encode(array_values($chartData));
@@ -124,12 +127,12 @@ $chartJson = json_encode(array_values($chartData));
     </div>
   </div>
 
-  <!-- Delivery -->
+  <!-- Komentar -->
   <div class="stat-box">
-    <i class="fa-solid fa-truck stat-icon"></i>
+    <i class="fa-solid fa-star stat-icon"></i>
     <div>
-      <span>Delivery Order</span>
-      <h4><?= $total_delivery ?></h4>
+      <span>Total Komentar</span>
+      <h4><?= $total_komentar ?></h4>
     </div>
   </div>
 
@@ -141,7 +144,7 @@ $chartJson = json_encode(array_values($chartData));
 
   <div class="card chart-card">
 
-    <h3>Delivery Order Bulanan (<?= date('Y') ?>)</h3>
+    <h3>Simulasi Kredit Bulanan (<?= date('Y') ?>)</h3>
 
     <canvas id="salesChart"></canvas>
 
@@ -153,6 +156,8 @@ $chartJson = json_encode(array_values($chartData));
 
 
 <!-- ================= CHART SCRIPT ================= -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
 
 const salesCtx = document.getElementById('salesChart');
@@ -172,7 +177,7 @@ new Chart(salesCtx, {
 
     datasets: [{
 
-      label: 'Total Delivery',
+      label: 'Total Simulasi',
 
       data: salesData,
 
@@ -212,7 +217,6 @@ new Chart(salesCtx, {
 });
 
 </script>
-
 
 </body>
 </html>
