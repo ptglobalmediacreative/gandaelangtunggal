@@ -1,0 +1,114 @@
+# ============================================
+# HTACCESS KEAMANAN UNTUK FOLDER ADMIN
+# ============================================
+
+# Nonaktifkan directory browsing
+Options -Indexes
+
+# Aktifkan mod_rewrite
+RewriteEngine On
+
+# ============================================
+# 1. BLOKIR AKSES LANGSUNG KE FILE PENTING
+# ============================================
+
+# Blokir akses ke file konfigurasi dan auth
+<FilesMatch "^(config\.php|auth\.php|header\.php|sidebar\.php)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Blokir file tersembunyi (.htaccess, .env, dll)
+<FilesMatch "^\.">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# ============================================
+# 2. PROTEKSI EKSTENSI BERBAHAYA
+# ============================================
+
+<FilesMatch "\.(phar|phtml|php5|php4|php3|inc|bak|sql|log|txt|old|swp|zip|tar|gz)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# ============================================
+# 3. PROTEKSI SQL INJECTION
+# ============================================
+
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} (select|insert|update|delete|drop|alter|create|union) [NC]
+RewriteRule .* - [F,L]
+
+# ============================================
+# 4. KEAMANAN HEADER
+# ============================================
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "DENY"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ============================================
+# 5. SET DEFAULT INDEX
+# ============================================
+
+DirectoryIndex dashboard.php login.php index.php
+
+# ============================================
+# 6. NONAKTIFKAN ERROR DETAIL
+# ============================================
+
+php_flag display_errors off
+php_flag display_startup_errors off
+
+# ============================================
+# 7. BLOKIR USER AGENT BERBAHAYA
+# ============================================
+
+RewriteCond %{HTTP_USER_AGENT} (havij|libwww-perl|wget|curl|python|nikto|scan|masscan|nmap|sqlmap) [NC]
+RewriteRule .* - [F,L]
+
+# ============================================
+# 8. FILE YANG BOLEH DIAKSES TANPA LOGIN
+# ============================================
+
+<FilesMatch "^(login\.php|logout\.php)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# ============================================
+# 9. REDIRECT KE LOGIN JIKA BELUM LOGIN
+# ============================================
+
+# Cek session untuk semua file PHP kecuali login dan logout
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_URI} !^/admin/login\.php
+    RewriteCond %{REQUEST_URI} !^/admin/logout\.php
+    RewriteCond %{HTTP_COOKIE} !PHPSESSID [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ============================================
+# 10. CEGAH HOTLINKING GAMBAR
+# ============================================
+
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?gandaelang.co.id [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|webp|svg|ico)$ - [F,L]
+</IfModule>
+
+# ============================================
+# 11. KOMPRESI FILE
+# ============================================
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>
