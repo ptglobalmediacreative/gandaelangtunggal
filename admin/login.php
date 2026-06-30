@@ -5,6 +5,13 @@ ini_set('display_errors', 1);
 session_start(); // DI SINI SAJA
 require_once __DIR__ . "/config.php";
 
+// ============================================
+// KONFIGURASI CLOUDFLARE TURNSTILE
+// ============================================
+define('TURNSTILE_SITE_KEY', '0x4AAAAAADtStHRfj3URE4JN'); // Ganti ini
+define('TURNSTILE_SECRET_KEY', '0x4AAAAAADtStAKGWBUGaHlyzMOCwgkaUF0'); // Ganti ini
+
+
 // Kalau sudah login → dashboard
 if (isset($_SESSION['admin_id'])) {
     header("Location: dashboard.php");
