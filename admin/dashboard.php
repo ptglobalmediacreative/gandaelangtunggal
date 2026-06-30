@@ -81,11 +81,10 @@ $chartJson = json_encode(array_values($chartData));
 <div class="dashboard-hero">
 
   <div class="hero-text">
-    <h3>Dealer Management System</h3>
+    <h3>Website Management System</h3>
 
     <p>
-      Sistem terpadu untuk mengelola penjualan,
-      stok, pembiayaan, dan komunikasi customer
+      Sistem terpadu untuk mengelola website
       PT Ganda Elang Tangguh.
     </p>
   </div>
