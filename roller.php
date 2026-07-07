@@ -39,7 +39,7 @@ $currentUrl = "https://gandaelang.co.id/roller.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Roller (Vibratory Roller) LiuGong | Alat Berat Konstruksi & Pemadatan | PT Ganda Elang Tangguh</title>
+    <title>Roller LiuGong | Alat Berat Konstruksi & Pemadatan | PT Ganda Elang Tangguh</title>
     
     <meta name="description" content="PT Ganda Elang Tangguh jual Roller/Vibratory Roller LiuGong berkualitas tinggi untuk konstruksi, pemadatan tanah, dan infrastruktur. Tersedia berbagai tipe dengan performa unggul dan efisiensi bahan bakar. Dapatkan harga roller terbaru disini!">
     
