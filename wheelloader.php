@@ -609,7 +609,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         
         <!-- FAQ 1 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+            <div class="faq-question" itemprop="name">
                 <h3>Apa keunggulan Wheel Loader LiuGong dibandingkan merek lain?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -620,7 +620,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         
         <!-- FAQ 2 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+            <div class="faq-question" itemprop="name">
                 <h3>Berapa kapasitas angkut Wheel Loader LiuGong yang tersedia?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -631,7 +631,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         
         <!-- FAQ 3 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+            <div class="faq-question" itemprop="name">
                 <h3>Apakah PT Ganda Elang Tangguh adalah dealer resmi LiuGong di Indonesia?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -642,7 +642,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         
         <!-- FAQ 4 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+            <div class="faq-question" itemprop="name">
                 <h3>Industri apa saja yang cocok menggunakan Wheel Loader LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -653,7 +653,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         
         <!-- FAQ 5 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+            <div class="faq-question" itemprop="name">
                 <h3>Bagaimana cara mendapatkan informasi harga wheel loader LiuGong terbaru?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -664,7 +664,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         
         <!-- FAQ 6 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+            <div class="faq-question" itemprop="name">
                 <h3>Apakah tersedia layanan after-sales untuk wheel loader LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -693,51 +693,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->
-<script>
-    // ===== TOGGLE MENU =====
-    function toggleMenu() {
-        const navbar = document.getElementById('navbar');
-        navbar.classList.toggle('open');
-    }
-
-    // Tutup menu saat klik di luar
-    document.addEventListener('click', function(event) {
-        const navbar = document.getElementById('navbar');
-        const hamburger = document.getElementById('hamburger');
-        if (!navbar.contains(event.target) && !hamburger.contains(event.target)) {
-            navbar.classList.remove('open');
-        }
-    });
-    
-    // ===== FAQ ACCORDION =====
-    function toggleFAQ(element) {
-        // Cari elemen answer di dalam parent yang sama
-        var item = element.closest('.faq-item');
-        var answer = item.querySelector('.faq-answer');
-        var icon = element.querySelector('.fa-chevron-down');
-        
-        // Toggle jawaban
-        if (answer.style.display === 'none' || answer.style.display === '') {
-            answer.style.display = 'block';
-            if (icon) {
-                icon.style.transform = 'rotate(180deg)';
-            }
-        } else {
-            answer.style.display = 'none';
-            if (icon) {
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-    }
-    
-    // Inisialisasi - sembunyikan semua jawaban saat halaman dimuat
-    document.addEventListener('DOMContentLoaded', function() {
-        var answers = document.querySelectorAll('.faq-answer');
-        answers.forEach(function(answer) {
-            answer.style.display = 'none';
-        });
-    });
-</script>
+<script src="/js/product.js"></script>
 
 </body>
 </html>
