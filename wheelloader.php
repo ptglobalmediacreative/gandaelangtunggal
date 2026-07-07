@@ -693,7 +693,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->
-<script src="/js/product.js"></script>
+<script src="js/product.js"></script>
 
 </body>
 </html>
