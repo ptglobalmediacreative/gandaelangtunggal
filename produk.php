@@ -9,11 +9,11 @@
 $currentUrl = "https://gandaelang.co.id/produk.php";
 ?>
 
-<title>Produk Alat Berat LiuGong Indonesia | PT Ganda Elang Tangguh</title>
+<title>Produk Alat Berat China LiuGong Indonesia | PT Ganda Elang Tangguh</title>
 
-<meta name="description" content="Berbagai produk alat berat LiuGong untuk konstruksi, pertambangan, logistik, dan infrastruktur di Indonesia. Temukan excavator, wheel loader, bulldozer, motor grader, forklift, dan berbagai heavy equipment lainnya.">
+<meta name="description" content="Berbagai produk alat berat China merk LiuGong untuk konstruksi, pertambangan, logistik, dan infrastruktur di Indonesia. Temukan excavator, wheel loader, bulldozer, motor grader, forklift, dan berbagai heavy equipment lainnya.">
 
-<meta name="keywords" content="alat berat liugong indonesia, produk liugong, heavy equipment indonesia, excavator liugong, wheel loader liugong, dealer alat berat indonesia">
+<meta name="keywords" content="alat berat china, alat berat liugong indonesia, produk liugong, heavy equipment indonesia, excavator liugong, wheel loader liugong, dealer alat berat indonesia">
 
 <meta name="robots" content="index, follow, max-image-preview:large">
 

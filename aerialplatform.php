@@ -39,7 +39,7 @@ $products = $stmt->fetchAll();
 <title>Aerial Work Platform LiuGong | PT Ganda Elang Tangguh</title>
 
 <!-- SEO -->
-<meta name="description" content="Temukan berbagai Aerial Work Platform LiuGong berkualitas tinggi di PT Ganda Elang Tangguh. Dirancang untuk keamanan, stabilitas, dan efisiensi kerja di berbagai medan proyek konstruksi dan industri.">
+<meta name="description" content="Temukan berbagai tipe Aerial Work Platform LiuGong berkualitas tinggi di PT Ganda Elang Tangguh. Dirancang untuk keamanan, stabilitas, dan efisiensi kerja di berbagai medan proyek konstruksi dan industri.">
 
 <meta name="keywords" content="aerial work platform liugong, aerial platform indonesia, boom lift liugong, alat kerja ketinggian, dealer liugong indonesia">
 
@@ -60,7 +60,7 @@ $products = $stmt->fetchAll();
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aerial Work Platform LiuGong">
-<meta name="twitter:description" content="Dealer alat berat LiuGong di Indonesia menyediakan aerial work platform berkualitas tinggi.">
+<meta name="twitter:description" content="Dealer alat berat China LiuGong di Indonesia menyediakan aerial work platform berkualitas tinggi.">
 <meta name="twitter:image" content="https://gandaelang.co.id/images/aerialplatform.jpg">
 
 <!-- Favicon -->

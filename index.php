@@ -37,7 +37,7 @@ $latestArtikel = $stmt->fetchAll();
     <div class="hero-content">
 
         <h1>PT Ganda Elang Tangguh | Dealer Resmi LiuGong Machinery Indonesia</h1>
-        <p>Dealer Resmi Alat Berat LiuGong Indonesia</p>
+        <p>Dealer Resmi Alat Berat China LiuGong Indonesia</p>
 
         <div class="hero-buttons">
             <a href="/produk.php" class="btn-primary">Lihat Produk</a>
@@ -58,11 +58,11 @@ $latestArtikel = $stmt->fetchAll();
     </h2>
 
     <p class="about-text">
-      PT Ganda Elang Tangguh</strong> adalah <strong>dealer resmi LiuGong di Indonesia</strong> yang terpercaya dan berpengalaman dalam menyediakan <strong>alat berat LiuGong</strong> berkualitas untuk industri konstruksi, pertambangan, dan infrastruktur.
+      PT Ganda Elang Tangguh</strong> adalah <strong>dealer resmi LiuGong di Indonesia</strong> yang terpercaya dan berpengalaman dalam menyediakan <strong>alat berat China LiuGong</strong> berkualitas untuk industri konstruksi, pertambangan, dan infrastruktur.
     </p>
 
     <p class="about-text">
-      Sebagai <strong>dealer LiuGong Jakarta</strong> dan seluruh Indonesia, kami menyediakan berbagai <strong>alat berat LiuGong</strong> unggulan seperti wheel loader, excavator, motor grader, compactor, serta unit pendukung lainnya. Seluruh produk <strong>LiuGong</strong> dijamin performa, daya tahan, dan efisiensi kerja tinggi.
+      Sebagai <strong>dealer LiuGong Jakarta</strong> dan seluruh Indonesia, kami menyediakan berbagai <strong>alat berat China LiuGong</strong> unggulan seperti wheel loader, excavator, motor grader, compactor, serta unit pendukung lainnya. Seluruh produk <strong>LiuGong</strong> dijamin performa, daya tahan, dan efisiensi kerja tinggi.
     </p>
 
     <p class="about-text">
@@ -119,7 +119,7 @@ $latestArtikel = $stmt->fetchAll();
         </div>
         <h3>Kualitas Terjamin</h3>
         <p>
-          Seluruh unit alat berat dipilih secara selektif
+          Seluruh unit alat berat China dipilih secara selektif
           untuk memastikan performa dan daya tahan optimal.
         </p>
       </div>
@@ -179,7 +179,7 @@ $latestArtikel = $stmt->fetchAll();
         <h3>Sparepart Asli LiuGong</h3>
 
         <p>
-          PT Ganda Elang Tangguh dealer LiuGong Indonesia</strong> menyediakan <strong>sparepart asli LiuGong</strong> lengkap untuk menjaga performa dan keandalan <strong>alat berat LiuGong</strong> Anda.
+          PT Ganda Elang Tangguh dealer LiuGong Indonesia</strong> menyediakan <strong>sparepart asli LiuGong</strong> lengkap untuk menjaga performa dan keandalan <strong>alat berat China LiuGong</strong> Anda.
         </p>
 
       </div>
@@ -194,7 +194,7 @@ $latestArtikel = $stmt->fetchAll();
         <h3>Training Operator</h3>
 
         <p>
-          Kami menyediakan pelatihan khusus pengoperasian <strong>alat berat LiuGong</strong> agar operator Anda terampil dan produktivitas kerja maksimal.
+          Kami menyediakan pelatihan khusus pengoperasian <strong>alat berat China LiuGong</strong> agar operator Anda terampil dan produktivitas kerja maksimal.
         </p>
 
       </div>
@@ -209,7 +209,7 @@ $latestArtikel = $stmt->fetchAll();
         <h3>Service Program</h3>
 
         <p>
-          Layanan servis profesional dari <strong>dealer LiuGong Jakarta</strong> untuk memastikan <strong>alat berat LiuGong</strong> selalu optimal, andal, dan minim downtime di lapangan.
+          Layanan servis profesional dari <strong>dealer LiuGong Jakarta</strong> untuk memastikan <strong>alat berat China LiuGong</strong> selalu optimal, andal, dan minim downtime di lapangan.
         </p>
 
       </div>
@@ -228,7 +228,7 @@ $latestArtikel = $stmt->fetchAll();
     <!-- Title -->
     <div class="blog-header fade-blog">
       <h2>Blog & Artikel Terbaru</h2>
-      <p>Informasi, tips, dan berita terbaru seputar alat berat & industri</p>
+      <p>Informasi, tips, dan berita terbaru seputar alat berat China & industri</p>
     </div>
 
     <!-- Blog Grid -->
