@@ -200,6 +200,141 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <style>
+        /* ===== SEO CONTENT STYLES ===== */
+        .seo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px 30px;
+        }
+        .seo-content h2 {
+            font-size: 28px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        .seo-content h3 {
+            font-size: 22px;
+            color: #1a1a2e;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .seo-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .seo-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 20px;
+        }
+        .seo-content ul li {
+            padding: 10px 0 10px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            font-size: 15px;
+            color: #333;
+        }
+        .seo-content ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #e31e24;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        .seo-content ul li strong {
+            color: #1a1a2e;
+        }
+        .seo-content .seo-cta {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            border-radius: 12px;
+            border-left: 4px solid #e31e24;
+            margin-top: 20px;
+        }
+
+        /* ===== RELATED ARTICLES STYLES ===== */
+        .related-articles {
+            max-width: 1200px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+        .related-articles h3 {
+            font-size: 20px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        .related-articles ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+        .related-articles ul li {
+            flex: 1 1 250px;
+        }
+        .related-articles ul li a {
+            display: block;
+            padding: 12px 18px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            color: #1a1a2e;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        .related-articles ul li a:hover {
+            background: #e31e24;
+            color: #fff;
+            border-color: #e31e24;
+            transform: translateY(-2px);
+        }
+        .related-articles ul li a i {
+            margin-right: 8px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 8px;
+            }
+            .navbar.open {
+                display: flex;
+            }
+            .navbar a {
+                padding: 12px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                height: 40px;
+                max-width: 140px;
+            }
+            .seo-content h2 { font-size: 22px; }
+            .seo-content h3 { font-size: 18px; }
+            .related-articles ul li { flex: 1 1 100%; }
+        }
+    </style>
 </head>
 <body>
 
@@ -227,7 +362,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     </div>
 </header>
 
-<!-- ================= HERO SECTION (DENGAN H1) ================= -->
+<!-- ================= HERO SECTION ================= -->
 <section class="hero hero-image" style="background: url('/images/wheelloader.jpg') center / cover no-repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -402,6 +537,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 </section>
 
 <!-- ================= FAQ SECTION ================= -->
+<!-- Styling FAQ akan diambil dari /css/product/product.css -->
 <section class="faq-section">
     <div class="faq-header">
         <h2>Pertanyaan Umum Seputar Wheel Loader LiuGong</h2>
@@ -411,42 +547,60 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <div class="faq-grid" itemscope="" itemtype="https://schema.org/FAQPage">
         
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">Apa keunggulan Wheel Loader LiuGong dibandingkan merek lain?</h3>
+            <div class="faq-question" itemprop="name">
+                <h3>Apa keunggulan Wheel Loader LiuGong dibandingkan merek lain?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">Wheel Loader LiuGong memiliki keunggulan seperti <strong>efisiensi bahan bakar tinggi</strong>, performa tangguh untuk berbagai medan, perawatan mudah, ketersediaan <strong>sparepart original</strong> terjamin, dan teknologi canggih yang dirancang untuk <strong>produktivitas maksimal</strong> di proyek konstruksi, pertambangan, dan perkebunan.</p>
             </div>
         </div>
         
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">Berapa kapasitas angkut Wheel Loader LiuGong yang tersedia?</h3>
+            <div class="faq-question" itemprop="name">
+                <h3>Berapa kapasitas angkut Wheel Loader LiuGong yang tersedia?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari <strong>1.9m³ hingga 7.0m³</strong> untuk bucket capacity, dengan operating weight dari <strong>13.378kg hingga 52.100kg</strong>. Ukuran ini dapat disesuaikan dengan kebutuhan proyek Anda.</p>
             </div>
         </div>
         
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">Apakah PT Ganda Elang Tangguh adalah dealer resmi LiuGong di Indonesia?</h3>
+            <div class="faq-question" itemprop="name">
+                <h3>Apakah PT Ganda Elang Tangguh adalah dealer resmi LiuGong di Indonesia?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">Ya, <strong>PT Ganda Elang Tangguh</strong> adalah <strong>dealer resmi alat berat LiuGong</strong> di Indonesia yang melayani penjualan unit baru, perawatan rutin, servis berkala, dan penyediaan <strong>sparepart original LiuGong</strong> dengan garansi resmi.</p>
             </div>
         </div>
         
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">Industri apa saja yang cocok menggunakan Wheel Loader LiuGong?</h3>
+            <div class="faq-question" itemprop="name">
+                <h3>Industri apa saja yang cocok menggunakan Wheel Loader LiuGong?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">Wheel loader LiuGong sangat cocok untuk berbagai industri seperti <strong>konstruksi bangunan</strong>, <strong>pertambangan</strong>, <strong>perkebunan kelapa sawit</strong>, <strong>logistik dan pergudangan</strong>, serta <strong>proyek infrastruktur</strong> jalan dan jembatan.</p>
             </div>
         </div>
         
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">Bagaimana cara mendapatkan informasi harga wheel loader LiuGong terbaru?</h3>
+            <div class="faq-question" itemprop="name">
+                <h3>Bagaimana cara mendapatkan informasi harga wheel loader LiuGong terbaru?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact.php">halaman Kontak Kami</a>, telepon, atau email untuk mendapatkan <strong>informasi harga wheel loader terbaru</strong> dan penawaran spesial.</p>
             </div>
         </div>
         
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <h3 itemprop="name">Apakah tersedia layanan after-sales untuk wheel loader LiuGong?</h3>
+            <div class="faq-question" itemprop="name">
+                <h3>Apakah tersedia layanan after-sales untuk wheel loader LiuGong?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">Tersedia layanan purna jual lengkap termasuk <strong>garansi resmi</strong>, <strong>perawatan rutin</strong>, <strong>servis berkala</strong>, <strong>pelatihan operator</strong>, dan ketersediaan <strong>sparepart original</strong> untuk memastikan alat berat Anda selalu dalam kondisi prima.</p>
             </div>
@@ -486,7 +640,23 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             navbar.classList.remove('open');
         }
     });
-</script>
-
-</body>
-</html>
+    
+    // ===== FAQ ACCORDION =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const icon = question.querySelector('.fa-chevron-down');
+            
+            // Sembunyikan semua jawaban awalnya
+            answer.style.display = 'none';
+            
+            question.addEventListener('click', function() {
+                // Toggle jawaban
+                if (answer.style.display === 'none') {
+                    answer.style.display = 'block';
+                    if (icon) {
+                        icon.style.transform = 'rotate(180deg)';
+                   
