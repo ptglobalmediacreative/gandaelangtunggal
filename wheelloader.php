@@ -200,6 +200,69 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <style>
+        /* ===== SEO CONTENT STYLES ===== */
+        .seo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px 30px;
+        }
+        .seo-content h2 {
+            font-size: 28px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        .seo-content h3 {
+            font-size: 22px;
+            color: #1a1a2e;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .seo-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .seo-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 20px;
+        }
+        .seo-content ul li {
+            padding: 10px 0 10px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            font-size: 15px;
+            color: #333;
+        }
+        .seo-content ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #e31e24;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        .seo-content ul li strong {
+            color: #1a1a2e;
+        }
+        .seo-content .seo-cta {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            border-radius: 12px;
+            border-left: 4px solid #e31e24;
+            margin-top: 20px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .seo-content h2 { font-size: 22px; }
+            .seo-content h3 { font-size: 18px; }
+            .related-articles ul li { flex: 1 1 100%; }
+        }
+    </style>
 </head>
 <body>
 
@@ -325,84 +388,139 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     </div>
 </section>
 
+<!-- ================= SEO CONTENT ================= -->
+<section class="seo-content">
+    <h2>Mengapa Memilih Wheel Loader LiuGong untuk Proyek Anda?</h2>
+    <p>
+        <strong>Wheel loader LiuGong</strong> adalah solusi alat berat terbaik untuk <strong>proyek konstruksi</strong>, 
+        <strong>pertambangan</strong>, dan <strong>material handling</strong> di Indonesia. Dengan teknologi canggih dari 
+        LiuGong, wheel loader ini menawarkan kombinasi sempurna antara <strong>tenaga, efisiensi, dan ketahanan</strong> 
+        yang dirancang untuk menghadapi berbagai tantangan medan di lapangan.
+    </p>
+    
+    <h3>Spesifikasi Unggulan Wheel Loader LiuGong</h3>
+    <ul>
+        <li><strong>Kapasitas Bucket:</strong> 1.9m³ - 7.0m³ untuk berbagai kebutuhan proyek</li>
+        <li><strong>Operating Weight:</strong> 13.378kg - 52.100kg menjamin stabilitas optimal</li>
+        <li><strong>Tenaga Mesin:</strong> 125HP - 350HP untuk performa maksimal</li>
+        <li><strong>Sistem Hidrolik:</strong> Load-sensing canggih untuk efisiensi bahan bakar</li>
+        <li><strong>Kabin:</strong> Ergonomis dengan visibilitas 360° untuk kenyamanan operator</li>
+        <li><strong>Garansi Resmi:</strong> Didukung oleh dealer resmi LiuGong di Indonesia</li>
+    </ul>
+    
+    <h3>Keunggulan Wheel Loader LiuGong Dibanding Merek Lain</h3>
+    <p>
+        Sebagai <strong>dealer resmi LiuGong</strong>, PT Ganda Elang Tangguh menawarkan wheel loader dengan 
+        <strong>harga kompetitif</strong> dan <strong>ketersediaan sparepart original</strong> yang terjamin. 
+        Teknologi <strong>ZF transmission</strong> dan <strong>axle technology</strong> dari LiuGong memastikan 
+        perpindahan gigi yang halus dan daya tahan komponen yang lebih lama, sehingga <strong>biaya perawatan</strong> 
+        menjadi lebih efisien dalam jangka panjang.
+    </p>
+    
+    <p>
+        <strong>Wheel loader LiuGong</strong> juga dilengkapi dengan sistem <strong>telematik</strong> yang memungkinkan 
+        monitoring kondisi alat secara real-time, membantu Anda mengoptimalkan <strong>produktivitas</strong> dan 
+        <strong>efisiensi operasional</strong> proyek. Dengan berbagai tipe yang tersedia, mulai dari skala kecil 
+        hingga besar, Anda dapat memilih <strong>wheel loader yang tepat</strong> sesuai kebutuhan spesifik proyek Anda.
+    </p>
+    
+    <div class="seo-cta">
+        <p style="font-size:18px; font-weight:600; margin-bottom:5px;">
+            <i class="fas fa-phone" style="color:#e31e24;"></i> 
+            Dapatkan Harga Wheel Loader Terbaik Sekarang!
+        </p>
+        <p style="font-size:15px; margin-bottom:0;">
+            Hubungi tim sales <strong>PT Ganda Elang Tangguh</strong> untuk konsultasi gratis dan penawaran spesial 
+            untuk proyek Anda. Kami siap membantu Anda memilih <strong>wheel loader LiuGong</strong> yang paling sesuai 
+            dengan kebutuhan dan anggaran.
+        </p>
+    </div>
+</section>
+
 <!-- ================= FAQ SECTION ================= -->
+<!-- Styling FAQ akan diambil dari /css/product/product.css -->
 <section class="faq-section">
     <div class="faq-header">
-        <h2>Pertanyaan Umum</h2>
-        <p>Temukan jawaban atas pertanyaan yang sering diajukan tentang Wheel Loader LiuGong</p>
+        <h2>Pertanyaan Umum Seputar Wheel Loader LiuGong</h2>
+        <p>Temukan jawaban atas pertanyaan yang sering diajukan tentang Wheel Loader LiuGong, mulai dari spesifikasi, harga, hingga layanan purna jual.</p>
     </div>
     
-    <div class="faq-grid">
-        <div class="faq-item">
-            <div class="faq-question">
-                Apa keunggulan Wheel Loader LiuGong?
+    <div class="faq-grid" itemscope="" itemtype="https://schema.org/FAQPage">
+        
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Apa keunggulan Wheel Loader LiuGong dibandingkan merek lain?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Wheel Loader LiuGong memiliki keunggulan seperti efisiensi bahan bakar tinggi, performa tangguh untuk berbagai medan, perawatan mudah, ketersediaan sparepart terjamin, dan teknologi canggih untuk produktivitas maksimal.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Wheel Loader LiuGong memiliki keunggulan seperti <strong>efisiensi bahan bakar tinggi</strong>, performa tangguh untuk berbagai medan, perawatan mudah, ketersediaan <strong>sparepart original</strong> terjamin, dan teknologi canggih yang dirancang untuk <strong>produktivitas maksimal</strong> di proyek konstruksi, pertambangan, dan perkebunan.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Berapa kapasitas angkut Wheel Loader LiuGong?
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Berapa kapasitas angkut Wheel Loader LiuGong yang tersedia?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari 1.9m³ hingga 7.0m³ untuk bucket capacity, dengan operating weight dari 13.378kg hingga 52.100kg, sesuai dengan kebutuhan proyek Anda.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari <strong>1.9m³ hingga 7.0m³</strong> untuk bucket capacity, dengan operating weight dari <strong>13.378kg hingga 52.100kg</strong>. Ukuran ini dapat disesuaikan dengan kebutuhan proyek Anda.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Apakah PT Ganda Elang Tangguh dealer resmi LiuGong?
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Apakah PT Ganda Elang Tangguh adalah dealer resmi LiuGong di Indonesia?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia yang melayani penjualan unit baru, perawatan rutin, servis, dan penyediaan sparepart original.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Ya, <strong>PT Ganda Elang Tangguh</strong> adalah <strong>dealer resmi alat berat LiuGong</strong> di Indonesia yang melayani penjualan unit baru, perawatan rutin, servis berkala, dan penyediaan <strong>sparepart original LiuGong</strong> dengan garansi resmi.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Wheel loader cocok untuk industri apa saja?
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Industri apa saja yang cocok menggunakan Wheel Loader LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Wheel loader LiuGong sangat cocok untuk berbagai industri seperti konstruksi bangunan, pertambangan, perkebunan, logistik dan pergudangan, serta proyek infrastruktur jalan dan jembatan.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Wheel loader LiuGong sangat cocok untuk berbagai industri seperti <strong>konstruksi bangunan</strong>, <strong>pertambangan</strong>, <strong>perkebunan kelapa sawit</strong>, <strong>logistik dan pergudangan</strong>, serta <strong>proyek infrastruktur</strong> jalan dan jembatan.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Bagaimana cara mendapatkan informasi harga wheel loader?
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Bagaimana cara mendapatkan informasi harga wheel loader LiuGong terbaru?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Anda bisa menghubungi tim sales PT Ganda Elang Tangguh melalui halaman Kontak Kami, telepon, atau email untuk mendapatkan informasi harga terbaru dan penawaran spesial sesuai kebutuhan proyek Anda.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact.php">halaman Kontak Kami</a>, telepon, atau email untuk mendapatkan <strong>informasi harga wheel loader terbaru</strong> dan penawaran spesial.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Apakah ada layanan after-sales untuk wheel loader?
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Apakah tersedia layanan after-sales untuk wheel loader LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Tersedia layanan purna jual lengkap termasuk garansi, perawatan rutin, servis berkala, pelatihan operator, dan ketersediaan sparepart original untuk memastikan alat berat Anda selalu dalam kondisi prima.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Tersedia layanan purna jual lengkap termasuk <strong>garansi resmi</strong>, <strong>perawatan rutin</strong>, <strong>servis berkala</strong>, <strong>pelatihan operator</strong>, dan ketersediaan <strong>sparepart original</strong> untuk memastikan alat berat Anda selalu dalam kondisi prima.</p>
             </div>
         </div>
     </div>
     
-<div class="faq-cta">
-    <p>Masih ada pertanyaan? Tim kami siap membantu Anda</p>
-    <a href="https://wa.me/6282355163745?text=Halo%20saya%20dapat%20nomor%20anda%20dari%20Google%20www.gandaelang.co.id" 
-       class="contact-btn" 
-       target="_blank" 
-       rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp <i class="fas fa-arrow-right"></i>
-    </a>
-</div>
+    <div class="faq-cta">
+        <p>Masih ada pertanyaan? Tim kami siap membantu Anda</p>
+        <a href="https://wa.me/6282355163745?text=Halo%20saya%20dapat%20nomor%20anda%20dari%20Google%20www.gandaelang.co.id" 
+           class="contact-btn" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp <i class="fas fa-arrow-right"></i>
+        </a>
+        <br>
+        <small style="display:block; margin-top:10px;">
+            Atau <a href="/contact.php" style="color:#e31e24; font-weight:600;">hubungi tim sales kami</a> untuk konsultasi gratis
+        </small>
+    </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
@@ -442,4 +560,17 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
                     answer.style.display = 'block';
                     if (icon) {
                         icon.style.transform = 'rotate(180deg)';
-                   
+                    }
+                } else {
+                    answer.style.display = 'none';
+                    if (icon) {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
