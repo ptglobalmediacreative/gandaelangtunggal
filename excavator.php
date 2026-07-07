@@ -527,37 +527,6 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     </div>
 </section>
 
-<!-- ================= RELATED ARTICLES ================= -->
-<section class="related-articles">
-    <h3><i class="fas fa-newspaper" style="color:#e31e24;"></i> Artikel Terkait Excavator LiuGong</h3>
-    <ul>
-        <li>
-            <a href="/blog/cara-memilih-excavator">
-                <i class="fas fa-chevron-right"></i> Cara Memilih Excavator yang Tepat
-            </a>
-        </li>
-        <li>
-            <a href="/blog/perawatan-excavator-awet">
-                <i class="fas fa-chevron-right"></i> 7 Tips Perawatan Excavator Agar Awet
-            </a>
-        </li>
-        <li>
-            <a href="/blog/keunggulan-liugong-excavator">
-                <i class="fas fa-chevron-right"></i> 5 Keunggulan Excavator LiuGong
-            </a>
-        </li>
-        <li>
-            <a href="/blog/spesifikasi-excavator-liugong">
-                <i class="fas fa-chevron-right"></i> Panduan Spesifikasi Excavator LiuGong
-            </a>
-        </li>
-        <li>
-            <a href="/blog/perbedaan-excavator-liugong">
-                <i class="fas fa-chevron-right"></i> Perbedaan Tipe Excavator LiuGong
-            </a>
-        </li>
-    </ul>
-</section>
 
 <!-- ================= FAQ SECTION ================= -->
 <section class="faq-section">

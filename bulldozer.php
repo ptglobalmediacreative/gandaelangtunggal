@@ -308,53 +308,11 @@ $currentUrl = "https://gandaelang.co.id/bulldozer.php";
             margin-top: 20px;
         }
 
-        /* ===== RELATED ARTICLES STYLES ===== */
-        .related-articles {
-            max-width: 1200px;
-            margin: 20px auto 40px;
-            padding: 0 20px;
-        }
-        .related-articles h3 {
-            font-size: 20px;
-            color: #0b3a82;
-            margin-bottom: 15px;
-        }
-        .related-articles ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            list-style: none;
-            padding: 0;
-        }
-        .related-articles ul li {
-            flex: 1 1 250px;
-        }
-        .related-articles ul li a {
-            display: block;
-            padding: 12px 18px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            color: #1a1a2e;
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-        }
-        .related-articles ul li a:hover {
-            background: #e31e24;
-            color: #fff;
-            border-color: #e31e24;
-            transform: translateY(-2px);
-        }
-        .related-articles ul li a i {
-            margin-right: 8px;
-        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .seo-content h2 { font-size: 22px; }
             .seo-content h3 { font-size: 18px; }
-            .related-articles ul li { flex: 1 1 100%; }
         }
     </style>
 </head>
@@ -533,38 +491,6 @@ $currentUrl = "https://gandaelang.co.id/bulldozer.php";
             dengan kebutuhan dan anggaran.
         </p>
     </div>
-</section>
-
-<!-- ================= RELATED ARTICLES ================= -->
-<section class="related-articles">
-    <h3><i class="fas fa-newspaper" style="color:#e31e24;"></i> Artikel Terkait Bulldozer LiuGong</h3>
-    <ul>
-        <li>
-            <a href="/blog/cara-memilih-bulldozer">
-                <i class="fas fa-chevron-right"></i> Cara Memilih Bulldozer yang Tepat
-            </a>
-        </li>
-        <li>
-            <a href="/blog/perawatan-bulldozer-awet">
-                <i class="fas fa-chevron-right"></i> 7 Tips Perawatan Bulldozer Agar Awet
-            </a>
-        </li>
-        <li>
-            <a href="/blog/keunggulan-liugong-bulldozer">
-                <i class="fas fa-chevron-right"></i> 5 Keunggulan Bulldozer LiuGong
-            </a>
-        </li>
-        <li>
-            <a href="/blog/spesifikasi-bulldozer-liugong">
-                <i class="fas fa-chevron-right"></i> Panduan Spesifikasi Bulldozer LiuGong
-            </a>
-        </li>
-        <li>
-            <a href="/blog/perbedaan-blade-bulldozer">
-                <i class="fas fa-chevron-right"></i> Perbedaan S-Blade dan U-Blade Bulldozer
-            </a>
-        </li>
-    </ul>
 </section>
 
 <!-- ================= FAQ SECTION ================= -->
