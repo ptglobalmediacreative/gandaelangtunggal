@@ -234,9 +234,9 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         <div class="hero-breadcrumb">
             <a href="/index.php">Home</a>
             <span>></span>
-            <a href="/produk.php">Product</a>
+            <a href="/produk.php">Produk</a>
             <span>></span>
-            <span class="current">Wheel Loaders</span>
+            <span class="current">Wheel Loader</span>
         </div>
         <h1>Wheel Loader LiuGong untuk Konstruksi & Pertambangan di Indonesia</h1>
         <p class="hero-subtext">
