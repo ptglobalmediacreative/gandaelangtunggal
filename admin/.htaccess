@@ -34,13 +34,17 @@ RewriteEngine On
 </FilesMatch>
 
 # ============================================
-# 3. PROTEKSI SQL INJECTION
+# 3. PROTEKSI SQL INJECTION - DIMODIFIKASI
 # ============================================
 
+# Hanya blokir jika query string mengandung pola yang jelas berbahaya
+# Tapi izinkan parameter yang diperlukan untuk update produk
 RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
 RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
 RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) [OR]
-RewriteCond %{QUERY_STRING} (select|insert|update|delete|drop|alter|create|union) [NC]
+# TAMBAHKAN PENGECUALIAN UNTUK PARAMETER UPDATE
+RewriteCond %{QUERY_STRING} !(action=edit|action=update|id=[0-9]+) [NC]
+RewriteCond %{QUERY_STRING} (select|insert|update|delete|drop|alter|create|union)\s+.*\s+from [NC]
 RewriteRule .* - [F,L]
 
 # ============================================
@@ -84,7 +88,17 @@ RewriteRule .* - [F,L]
 </FilesMatch>
 
 # ============================================
-# 9. CEGAH HOTLINKING GAMBAR
+# 9. FILE UNTUK PROSES UPDATE PRODUK - DITAMBAHKAN
+# ============================================
+
+# Izinkan akses ke file-file yang dibutuhkan untuk update produk
+<FilesMatch "^(produk\.php|edit_produk\.php|update_produk\.php|ajax_update\.php|process_update\.php|save_product\.php)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# ============================================
+# 10. CEGAH HOTLINKING GAMBAR
 # ============================================
 
 <IfModule mod_rewrite.c>
@@ -94,9 +108,27 @@ RewriteRule .* - [F,L]
 </IfModule>
 
 # ============================================
-# 10. KOMPRESI FILE
+# 11. KOMPRESI FILE
 # ============================================
 
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>
+
+# ============================================
+# 12. IZINKAN METHOD POST UNTUK UPDATE
+# ============================================
+
+<Limit POST>
+    Order Allow,Deny
+    Allow from all
+</Limit>
+
+# ============================================
+# 13. PENGECUALIAN UNTUK FOLDER UPLOAD
+# ============================================
+
+# Izinkan akses ke folder uploads untuk gambar produk
+<IfModule mod_rewrite.c>
+    RewriteRule ^uploads/ - [L]
 </IfModule>
