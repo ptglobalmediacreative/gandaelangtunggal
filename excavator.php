@@ -24,7 +24,7 @@ foreach ($products as &$product) {
         FROM produk_spesifikasi
         WHERE produk_id = ?
         ORDER BY grup, sort_order
-        LIMIT 3
+        LIMIT 4
     ");
     $spec_stmt->execute([$product['id']]);
     $product['specifications'] = $spec_stmt->fetchAll();
@@ -39,17 +39,17 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Excavator LiuGong | Heavy Equipment | PT Ganda Elang Tangguh</title>
+    <title>Excavator LiuGong | Alat Berat Konstruksi & Pertambangan | PT Ganda Elang Tangguh</title>
     
-    <meta name="description" content="PT Ganda Elang Tangguh jual Excavator LiuGong berkualitas tinggi untuk konstruksi, pertambangan, dan material handling. Tersedia berbagai tipe Excavator dengan performa unggul dan efisiensi bahan bakar terbaik.">
+    <meta name="description" content="PT Ganda Elang Tangguh jual Excavator LiuGong berkualitas tinggi untuk konstruksi, pertambangan, dan material handling. Tersedia berbagai tipe excavator dari 1,7 ton hingga 95 ton dengan performa unggul, efisiensi bahan bakar, dan garansi resmi. Dapatkan harga excavator terbaru disini!">
     
-    <meta name="keywords" content="Excavator, Excavator liugong, alat berat Excavator, harga Excavator, Excavator indonesia, loader alat berat, heavy equipment Excavator, Excavator untuk konstruksi, Excavator pertambangan, alat berat indonesia, dealer liugong indonesia">
+    <meta name="keywords" content="excavator, excavator liugong, alat berat excavator, harga excavator, excavator indonesia, heavy equipment excavator, excavator untuk konstruksi, excavator pertambangan, alat berat indonesia, dealer liugong indonesia, excavator terbaik, spesifikasi excavator, excavator 920F, excavator 933F">
     
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
     <meta name="author" content="PT Ganda Elang Tangguh">
     <meta name="geo.region" content="ID">
-    <meta name="geo.placename" content="Indonesia">
+    <meta name="geo.placename" content="Jakarta, Indonesia">
     <meta name="language" content="id-ID">
     
     <link rel="canonical" href="<?= $currentUrl ?>">
@@ -58,7 +58,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Excavator LiuGong | Alat Berat untuk Konstruksi & Pertambangan | PT Ganda Elang Tangguh">
-    <meta property="og:description" content="PT Ganda Elang Tangguh menyediakan Excavator LiuGong terbaik untuk proyek konstruksi, pertambangan, dan material handling di Indonesia. Performa tangguh, efisien, dan tahan lama.">
+    <meta property="og:description" content="PT Ganda Elang Tangguh menyediakan Excavator LiuGong terbaik untuk proyek konstruksi, pertambangan, dan material handling di Indonesia. Performa tangguh, efisien, dan tahan lama. Tersedia berbagai tipe dari 1,7 ton hingga 95 ton.">
     <meta property="og:image" content="https://gandaelang.co.id/images/excavator.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -72,80 +72,11 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Excavator LiuGong | Alat Berat Indonesia">
     <meta name="twitter:description" content="Excavator tangguh untuk proyek konstruksi dan pertambangan. Tersedia berbagai tipe dengan performa terbaik.">
-    <meta name="twitter:image" content="https://gandaelang.co.id/images/wheel.webp">
+    <meta name="twitter:image" content="https://gandaelang.co.id/images/excavator.jpg">
     <meta name="twitter:image:alt" content="Excavator LiuGong">
     
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Excavator LiuGong",
-        "image": "https://www.gandaelang.co.id/images/liugong-excavator.jpg",
-        "description": "Excavator LiuGong adalah alat berat berkualitas tinggi untuk konstruksi, pertambangan, perkebunan, dan infrastruktur. Tersedia berbagai tipe dari kelas 1,7 ton hingga 95 ton dengan fitur sistem hidraulik canggih, kabin ergonomis 360°, efisiensi bahan bakar optimal, dan biaya perawatan rendah.",
-        "brand": {
-            "@type": "Brand",
-            "name": "LiuGong"
-        },
-        "manufacturer": {
-            "@type": "Organization",
-            "name": "LiuGong Machinery Corporation"
-        },
-        "seller": {
-            "@type": "Organization",
-            "name": "PT Ganda Elang Tangguh"
-        },
-        "category": "Alat Berat Excavator",
-        "productID": "LG-EXC-2025",
-        "sku": "LG-EXC-SERIES",
-        "mpn": "915FG4/920F/925F/933F/990F",
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "IDR",
-            "price": "0",
-            "priceValidUntil": "2026-12-31",
-            "availability": "https://schema.org/InStock",
-            "url": "https://www.gandaelang.co.id/liugong-excavator",
-            "seller": {
-                "@type": "Organization",
-                "name": "PT Ganda Elang Tangguh"
-            }
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "127",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
-        "review": [
-            {
-                "@type": "Review",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                },
-                "author": {
-                    "@type": "Organization",
-                    "name": "PT Maju Bersama Kontraktor"
-                },
-                "reviewBody": "Excavator LiuGong 920F sangat tangguh di medan tambang, irit solar, dan sparepart mudah didapat dari PT Ganda Elang Tangguh."
-            }
-        ],
-        "audience": {
-            "@type": "Audience",
-            "name": "Kontraktor, Perusahaan Tambang, Perkebunan Skala Besar, Proyek Infrastruktur Pemerintah"
-        },
-        "keywords": "excavator LiuGong, alat berat excavator, harga excavator LiuGong, sparepart excavator LiuGong, dealer resmi LiuGong Indonesia",
-        "url": "https://www.gandaelang.co.id/liugong-excavator",
-        "sameAs": [
-            "https://www.liugong.com/",
-            "https://www.instagram.com/liugongid/",
-            "https://www.facebook.com/LiuGongID"
-        ]
-    }
-    </script>
-    
+    <!-- ================= SCHEMA MARKUP ================= -->
+    <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -173,6 +104,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     }
     </script>
     
+    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -180,7 +112,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
         "name": "PT Ganda Elang Tangguh",
         "url": "https://gandaelang.co.id",
         "logo": "https://gandaelang.co.id/images/logo.webp",
-        "description": "Dealer resmi alat berat LiuGong di Indonesia, menyediakan Excavator, excavator, dan alat berat lainnya untuk konstruksi dan pertambangan.",
+        "description": "Dealer resmi alat berat LiuGong di Indonesia, menyediakan excavator, wheel loader, dan alat berat lainnya untuk konstruksi dan pertambangan.",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "ID",
@@ -189,7 +121,8 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+62-823-5516-3745",
-            "contactType": "customer service"
+            "contactType": "customer service",
+            "availableLanguage": ["Indonesian"]
         },
         "sameAs": [
             "https://www.facebook.com/gandaelangtangguh",
@@ -198,6 +131,51 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     }
     </script>
     
+    <!-- Product Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Excavator LiuGong",
+        "description": "Excavator LiuGong adalah alat berat berkualitas tinggi untuk konstruksi, pertambangan, perkebunan, dan infrastruktur. Tersedia berbagai tipe dari kelas 1,7 ton hingga 95 ton dengan sistem hidraulik canggih, kabin ergonomis 360°, efisiensi bahan bakar optimal, dan biaya perawatan rendah.",
+        "brand": {
+            "@type": "Brand",
+            "name": "LiuGong"
+        },
+        "manufacturer": {
+            "@type": "Organization",
+            "name": "LiuGong Machinery Corporation"
+        },
+        "seller": {
+            "@type": "Organization",
+            "name": "PT Ganda Elang Tangguh"
+        },
+        "category": "Alat Berat Excavator",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "IDR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://gandaelang.co.id/excavator.php",
+            "seller": {
+                "@type": "Organization",
+                "name": "PT Ganda Elang Tangguh"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "127",
+            "bestRating": "5"
+        },
+        "audience": {
+            "@type": "Audience",
+            "name": "Kontraktor, Perusahaan Tambang, Perkebunan Skala Besar, Proyek Infrastruktur"
+        },
+        "url": "https://gandaelang.co.id/excavator.php"
+    }
+    </script>
+    
+    <!-- FAQ Schema (LENGKAP 6 PERTANYAAN) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -205,7 +183,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Apa keunggulan Excavator LiuGong?",
+                "name": "Apa keunggulan Excavator LiuGong dibandingkan merek lain?",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Excavator LiuGong memiliki keunggulan seperti sistem hidraulik canggih untuk efisiensi bahan bakar, kabin ergonomis dengan visibilitas 360°, biaya perawatan rendah, daya gali dan angkat yang stabil di berbagai medan berat, serta ketersediaan sparepart original terjamin."
@@ -216,12 +194,12 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
                 "name": "Berapa kapasitas bucket dan kedalaman gali Excavator LiuGong?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Excavator LiuGong tersedia dalam berbagai kelas mulai dari 1,7 ton hingga 95 ton. Kapasitas bucket mulai dari 0,06m³ hingga 6,5m³, dengan kedalaman galian maksimum mencapai 7,5 meter (untuk kelas 20-25 ton) dan hingga lebih dari 10 meter untuk kelas besar."
+                    "text": "Excavator LiuGong tersedia dalam berbagai kelas mulai dari 1,7 ton hingga 95 ton. Kapasitas bucket mulai dari 0,06m³ hingga 6,5m³, dengan kedalaman galian maksimum mencapai 7,5 meter untuk kelas 20-25 ton dan hingga lebih dari 10 meter untuk kelas besar."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Apakah PT Ganda Elang Tangguh dealer resmi Excavator LiuGong?",
+                "name": "Apakah PT Ganda Elang Tangguh dealer resmi Excavator LiuGong di Indonesia?",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia yang melayani penjualan unit excavator baru, perawatan rutin, servis berkala, pelatihan operator, dan penyediaan sparepart original dengan garansi pabrik."
@@ -229,7 +207,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
             },
             {
                 "@type": "Question",
-                "name": "Excavator LiuGong cocok untuk industri apa saja?",
+                "name": "Industri apa saja yang cocok menggunakan Excavator LiuGong?",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Excavator LiuGong sangat cocok untuk berbagai industri seperti pertambangan (batu bara, mineral), konstruksi bangunan bertingkat, pembangunan infrastruktur (jalan, jembatan, terowongan), irigasi dan drainase, serta perkebunan skala besar untuk pembukaan lahan dan pembuatan kolam."
@@ -245,7 +223,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
             },
             {
                 "@type": "Question",
-                "name": "Apakah ada layanan after-sales untuk Excavator LiuGong?",
+                "name": "Apakah tersedia layanan after-sales untuk Excavator LiuGong?",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Tersedia layanan purna jual lengkap termasuk garansi standar pabrik, perawatan rutin (penggantian oli dan filter), servis mobile ke lokasi proyek, pelatihan operator, dan ketersediaan sparepart original di gudang pusat dan cabang untuk memastikan excavator Anda selalu dalam kondisi prima."
@@ -265,6 +243,208 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ===== PERBAIKAN HEADER ===== */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 12px 0;
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            flex-shrink: 0;
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .navbar a {
+            padding: 10px 16px;
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .navbar a:hover,
+        .navbar a.active {
+            background: #e31e24;
+            color: #fff;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #1a1a2e;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== SEO CONTENT STYLES ===== */
+        .seo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px 30px;
+        }
+        .seo-content h2 {
+            font-size: 28px;
+            color: #0b3a82;
+            margin-bottom: 15px;
+        }
+        .seo-content h3 {
+            font-size: 22px;
+            color: #0b3a82;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .seo-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .seo-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 20px;
+        }
+        .seo-content ul li {
+            padding: 10px 0 10px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            font-size: 15px;
+            color: #333;
+        }
+        .seo-content ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #e31e24;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        .seo-content ul li strong {
+            color: #0b3a82;
+        }
+        .seo-content .seo-cta {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            border-radius: 12px;
+            border-left: 4px solid #e31e24;
+            margin-top: 20px;
+        }
+
+        /* ===== RELATED ARTICLES STYLES ===== */
+        .related-articles {
+            max-width: 1200px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+        .related-articles h3 {
+            font-size: 20px;
+            color: #0b3a82;
+            margin-bottom: 15px;
+        }
+        .related-articles ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+        .related-articles ul li {
+            flex: 1 1 250px;
+        }
+        .related-articles ul li a {
+            display: block;
+            padding: 12px 18px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            color: #1a1a2e;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        .related-articles ul li a:hover {
+            background: #e31e24;
+            color: #fff;
+            border-color: #e31e24;
+            transform: translateY(-2px);
+        }
+        .related-articles ul li a i {
+            margin-right: 8px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 8px;
+            }
+            .navbar.open {
+                display: flex;
+            }
+            .navbar a {
+                padding: 12px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                height: 40px;
+                max-width: 140px;
+            }
+            .seo-content h2 { font-size: 22px; }
+            .seo-content h3 { font-size: 18px; }
+            .related-articles ul li { flex: 1 1 100%; }
+        }
+    </style>
 </head>
 <body>
 
@@ -273,7 +453,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     <div class="container">
         <div class="logo">
             <a href="/index.php">
-                <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+                <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo - Dealer Resmi LiuGong Indonesia">
             </a>
         </div>
         <nav class="navbar" id="navbar">
@@ -284,7 +464,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
             <a href="/contact.php">Hubungi Kami</a>
             <a href="/blog.php">Blog & Artikel</a>
         </nav>
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
@@ -299,14 +479,17 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
         <div class="hero-breadcrumb">
             <a href="/index.php">Home</a>
             <span>></span>
-            <a href="/produk.php">Product</a>
+            <a href="/produk.php">Produk</a>
             <span>></span>
-            <span class="current">Excavators</span>
+            <span class="current">Excavator LiuGong</span>
         </div>
-        <h1>Built to Dig Deeper</h1>
-
+        <!-- ===== H1 DENGAN KEYWORD ===== -->
+        <h1>Excavator LiuGong untuk Konstruksi & Pertambangan di Indonesia</h1>
         <p class="hero-subtext">
-          Powerful and versatile excavators engineered for heavy-duty digging, lifting, and earthmoving applications in diverse terrains.
+            Excavator LiuGong berkinerja tinggi, dirancang untuk <strong>proyek konstruksi</strong>, 
+            <strong>pertambangan</strong>, dan <strong>material handling</strong> dengan daya gali luar biasa 
+            dan efisiensi bahan bakar optimal. Dapatkan <strong>harga excavator terbaik</strong> hanya di 
+            <strong>PT Ganda Elang Tangguh</strong>, dealer resmi LiuGong Indonesia.
         </p>
     </div>
 </section>
@@ -324,8 +507,10 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
                             <div class="product-image">
                                 <img 
                                     src="/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>" 
-                                    alt="<?= htmlspecialchars($row['nama_produk']); ?> - Excavator LiuGong"
+                                    alt="<?= htmlspecialchars($row['nama_produk']); ?> - Excavator LiuGong untuk konstruksi dan pertambangan"
                                     loading="lazy"
+                                    width="400"
+                                    height="300"
                                 >
                             </div>
                             <div class="product-info">
@@ -354,6 +539,31 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
                                 </div>
                             </div>
                         </a>
+                        
+                        <!-- Product Schema per produk -->
+                        <script type="application/ld+json">
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Product",
+                            "name": "<?= htmlspecialchars($row['nama_produk']); ?>",
+                            "description": "Excavator <?= htmlspecialchars($row['nama_produk']); ?> dari LiuGong untuk konstruksi, pertambangan, dan material handling di Indonesia.",
+                            "image": "https://gandaelang.co.id/images/uploads/produk/<?= htmlspecialchars($row['gambar']); ?>",
+                            "brand": {
+                                "@type": "Brand",
+                                "name": "LiuGong"
+                            },
+                            "manufacturer": {
+                                "@type": "Organization",
+                                "name": "PT Ganda Elang Tangguh"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "priceCurrency": "IDR",
+                                "availability": "https://schema.org/InStock",
+                                "url": "https://gandaelang.co.id/detailprodukexcavator.php?slug=<?= htmlspecialchars($row['slug']); ?>"
+                            }
+                        }
+                        </script>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
@@ -363,71 +573,160 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     </div>
 </section>
 
-<!-- ================= FAQ SECTION - EXCAVATOR LIUGONG ================= -->
+<!-- ================= SEO CONTENT ================= -->
+<section class="seo-content">
+    <h2>Mengapa Memilih Excavator LiuGong untuk Proyek Anda?</h2>
+    <p>
+        <strong>Excavator LiuGong</strong> adalah solusi alat berat terbaik untuk <strong>proyek konstruksi</strong>, 
+        <strong>pertambangan</strong>, dan <strong>material handling</strong> di Indonesia. Dengan teknologi canggih dari 
+        LiuGong, excavator ini menawarkan kombinasi sempurna antara <strong>tenaga gali, efisiensi, dan ketahanan</strong> 
+        yang dirancang untuk menghadapi berbagai tantangan medan di lapangan.
+    </p>
+    
+    <h3>Spesifikasi Unggulan Excavator LiuGong</h3>
+    <ul>
+        <li><strong>Kapasitas Bucket:</strong> 0.06m³ - 6.5m³ untuk berbagai kebutuhan proyek</li>
+        <li><strong>Operating Weight:</strong> 1.7 ton - 95 ton menjamin stabilitas optimal</li>
+        <li><strong>Tenaga Mesin:</strong> 15HP - 400HP untuk performa maksimal</li>
+        <li><strong>Sistem Hidrolik:</strong> Load-sensing canggih untuk efisiensi bahan bakar</li>
+        <li><strong>Kabin:</strong> Ergonomis dengan visibilitas 360° untuk kenyamanan operator</li>
+        <li><strong>Kedalaman Gali:</strong> Hingga 10+ meter untuk kelas berat</li>
+        <li><strong>Garansi Resmi:</strong> Didukung oleh dealer resmi LiuGong di Indonesia</li>
+    </ul>
+    
+    <h3>Keunggulan Excavator LiuGong Dibanding Merek Lain</h3>
+    <p>
+        Sebagai <strong>dealer resmi LiuGong</strong>, PT Ganda Elang Tangguh menawarkan excavator dengan 
+        <strong>harga kompetitif</strong> dan <strong>ketersediaan sparepart original</strong> yang terjamin. 
+        Teknologi <strong>hydraulic system</strong> dan <strong>engine technology</strong> dari LiuGong memastikan 
+        efisiensi bahan bakar yang optimal dan daya tahan komponen yang lebih lama, sehingga <strong>biaya perawatan</strong> 
+        menjadi lebih efisien dalam jangka panjang.
+    </p>
+    
+    <p>
+        <strong>Excavator LiuGong</strong> juga dilengkapi dengan sistem <strong>telematik</strong> yang memungkinkan 
+        monitoring kondisi alat secara real-time, membantu Anda mengoptimalkan <strong>produktivitas</strong> dan 
+        <strong>efisiensi operasional</strong> proyek. Dengan berbagai tipe yang tersedia, mulai dari skala kecil 
+        hingga besar, Anda dapat memilih <strong>excavator yang tepat</strong> sesuai kebutuhan spesifik proyek Anda.
+    </p>
+    
+    <div class="seo-cta">
+        <p style="font-size:18px; font-weight:600; margin-bottom:5px;">
+            <i class="fas fa-phone" style="color:#e31e24;"></i> 
+            Dapatkan Harga Excavator Terbaik Sekarang!
+        </p>
+        <p style="font-size:15px; margin-bottom:0;">
+            Hubungi tim sales <strong>PT Ganda Elang Tangguh</strong> untuk konsultasi gratis dan penawaran spesial 
+            untuk proyek Anda. Kami siap membantu Anda memilih <strong>excavator LiuGong</strong> yang paling sesuai 
+            dengan kebutuhan dan anggaran.
+        </p>
+    </div>
+</section>
+
+<!-- ================= RELATED ARTICLES ================= -->
+<section class="related-articles">
+    <h3><i class="fas fa-newspaper" style="color:#e31e24;"></i> Artikel Terkait Excavator LiuGong</h3>
+    <ul>
+        <li>
+            <a href="/blog/cara-memilih-excavator">
+                <i class="fas fa-chevron-right"></i> Cara Memilih Excavator yang Tepat
+            </a>
+        </li>
+        <li>
+            <a href="/blog/perawatan-excavator-awet">
+                <i class="fas fa-chevron-right"></i> 7 Tips Perawatan Excavator Agar Awet
+            </a>
+        </li>
+        <li>
+            <a href="/blog/keunggulan-liugong-excavator">
+                <i class="fas fa-chevron-right"></i> 5 Keunggulan Excavator LiuGong
+            </a>
+        </li>
+        <li>
+            <a href="/blog/spesifikasi-excavator-liugong">
+                <i class="fas fa-chevron-right"></i> Panduan Spesifikasi Excavator LiuGong
+            </a>
+        </li>
+        <li>
+            <a href="/blog/perbedaan-excavator-liugong">
+                <i class="fas fa-chevron-right"></i> Perbedaan Tipe Excavator LiuGong
+            </a>
+        </li>
+    </ul>
+</section>
+
+<!-- ================= FAQ SECTION ================= -->
 <section class="faq-section">
     <div class="faq-header">
-        <h2>Pertanyaan Umum</h2>
-        <p>Temukan jawaban atas pertanyaan yang sering diajukan tentang Excavator LiuGong</p>
+        <h2>Pertanyaan Umum Seputar Excavator LiuGong</h2>
+        <p>Temukan jawaban atas pertanyaan yang sering diajukan tentang Excavator LiuGong, mulai dari spesifikasi, harga, hingga layanan purna jual.</p>
     </div>
     
-    <div class="faq-grid">
-        <div class="faq-item">
-            <div class="faq-question">
-                Apa keunggulan Excavator LiuGong dibanding merek lain?
+    <div class="faq-grid" itemscope="" itemtype="https://schema.org/FAQPage">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Apa keunggulan Excavator LiuGong dibandingkan merek lain?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Excavator LiuGong unggul dalam efisiensi bahan bakar berteknologi hydraulic system canggih, kabin ergonomis dengan visibilitas 360°, biaya perawatan rendah, serta daya gali dan angkat yang stabil di berbagai medan berat.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Excavator LiuGong memiliki keunggulan seperti <strong>sistem hidraulik canggih</strong> untuk efisiensi bahan bakar, <strong>kabin ergonomis</strong> dengan visibilitas 360°, <strong>biaya perawatan rendah</strong>, daya gali dan angkat yang stabil di berbagai medan berat, serta ketersediaan <strong>sparepart original</strong> terjamin.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Berapa kapasitas dan kedalaman gali Excavator LiuGong?
+        <!-- FAQ 2 -->
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Berapa kapasitas bucket dan kedalaman gali Excavator LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Excavator LiuGong tersedia dari kelas 1,7 ton hingga 95 ton. Kapasitas bucket mulai 0,06m³ hingga 6,5m³, dengan kedalaman galian maksimum mencapai 7,5 meter (untuk kelas 20-25 ton) dan hingga 10+ meter untuk kelas besar.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Excavator LiuGong tersedia dalam berbagai kelas mulai dari <strong>1,7 ton hingga 95 ton</strong>. Kapasitas bucket mulai dari <strong>0,06m³ hingga 6,5m³</strong>, dengan kedalaman galian maksimum mencapai <strong>7,5 meter</strong> untuk kelas 20-25 ton dan hingga <strong>10+ meter</strong> untuk kelas besar.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Apakah PT Ganda Elang Tangguh dealer resmi Excavator LiuGong?
+        <!-- FAQ 3 -->
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Apakah PT Ganda Elang Tangguh dealer resmi Excavator LiuGong di Indonesia?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Ya, PT Ganda Elang Tangguh adalah dealer resmi alat berat LiuGong di Indonesia, termasuk unit excavator baru, perawatan rutin, servis berkala, dan penyediaan sparepart original dengan garansi pabrik.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Ya, <strong>PT Ganda Elang Tangguh</strong> adalah <strong>dealer resmi alat berat LiuGong</strong> di Indonesia yang melayani penjualan unit excavator baru, perawatan rutin, servis berkala, pelatihan operator, dan penyediaan <strong>sparepart original</strong> dengan garansi pabrik.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Excavator LiuGong cocok untuk proyek apa saja?
+        <!-- FAQ 4 -->
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Industri apa saja yang cocok menggunakan Excavator LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Sangat cocok untuk proyek pertambangan (batu bara, mineral), konstruksi gedung bertingkat, pembangunan infrastruktur (jalan, jembatan, terowongan), irigasi/drainase, dan perkebunan skala besar (pembukaan lahan, pembuatan kolam).</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Excavator LiuGong sangat cocok untuk berbagai industri seperti <strong>pertambangan</strong> (batu bara, mineral), <strong>konstruksi bangunan</strong> bertingkat, <strong>pembangunan infrastruktur</strong> (jalan, jembatan, terowongan), <strong>irigasi dan drainase</strong>, serta <strong>perkebunan skala besar</strong> untuk pembukaan lahan dan pembuatan kolam.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Bagaimana cara mendapatkan harga dan simulasi kredit excavator?
+        <!-- FAQ 5 -->
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Bagaimana cara mendapatkan informasi harga dan simulasi kredit Excavator LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Hubungi tim sales PT Ganda Elang Tangguh melalui WhatsApp, telepon, atau form kontak. Kami akan memberikan harga terbaru, spesifikasi lengkap, serta simulasi kredit dengan tenor fleksibel sesuai kebutuhan proyek Anda.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact.php">halaman Kontak Kami</a>, WhatsApp, telepon, atau email untuk mendapatkan <strong>informasi harga excavator terbaru</strong>, spesifikasi lengkap, serta simulasi kredit dengan tenor fleksibel.</p>
             </div>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">
-                Apakah ada layanan after-sales untuk Excavator LiuGong?
+        <!-- FAQ 6 -->
+        <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">
+                <h3>Apakah tersedia layanan after-sales untuk Excavator LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="faq-answer">
-                <p>Kami menyediakan layanan purna jual lengkap: garansi standar pabrik, perawatan rutin (termasuk penggantian oli dan filter), servis mobile ke lokasi proyek, pelatihan operator, dan stok sparepart original di gudang pusat & cabang.</p>
+            <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Tersedia layanan purna jual lengkap termasuk <strong>garansi standar pabrik</strong>, <strong>perawatan rutin</strong> (penggantian oli dan filter), <strong>servis mobile</strong> ke lokasi proyek, <strong>pelatihan operator</strong>, dan ketersediaan <strong>sparepart original</strong> di gudang pusat dan cabang untuk memastikan excavator Anda selalu dalam kondisi prima.</p>
             </div>
         </div>
     </div>
@@ -440,6 +739,10 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
            rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp <i class="fas fa-arrow-right"></i>
         </a>
+        <br>
+        <small style="display:block; margin-top:10px;">
+            Atau <a href="/contact.php" style="color:#e31e24; font-weight:600;">hubungi tim sales kami</a> untuk konsultasi gratis
+        </small>
     </div>
 </section>
 
@@ -447,7 +750,47 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->
-<script src="/js/product.js"></script>
+<script>
+    // ===== TOGGLE MENU =====
+    function toggleMenu() {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.toggle('open');
+    }
+
+    // Tutup menu saat klik di luar
+    document.addEventListener('click', function(event) {
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        if (!navbar.contains(event.target) && !hamburger.contains(event.target)) {
+            navbar.classList.remove('open');
+        }
+    });
+
+    // ===== FAQ ACCORDION =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        if (faqItems.length > 0) {
+            faqItems.forEach(function(item) {
+                const question = item.querySelector('.faq-question');
+                
+                if (question) {
+                    question.addEventListener('click', function(e) {
+                        // Tutup FAQ lain (accordion mode)
+                        faqItems.forEach(function(otherItem) {
+                            if (otherItem !== item && otherItem.classList.contains('active')) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle current item
+                        item.classList.toggle('active');
+                    });
+                }
+            });
+        }
+    });
+</script>
 
 </body>
 </html>
