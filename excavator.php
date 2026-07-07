@@ -245,72 +245,6 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* ===== PERBAIKAN HEADER ===== */
-        .header {
-            background: #fff;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            padding: 12px 0;
-        }
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .logo {
-            flex-shrink: 0;
-        }
-        .logo a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        .logo img {
-            height: 50px;
-            width: auto;
-            max-width: 180px;
-            object-fit: contain;
-            display: block;
-        }
-        .navbar {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .navbar a {
-            padding: 10px 16px;
-            color: #1a1a2e;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        .navbar a:hover,
-        .navbar a.active {
-            background: #e31e24;
-            color: #fff;
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 5px;
-        }
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: #1a1a2e;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
         /* ===== SEO CONTENT STYLES ===== */
         .seo-content {
             max-width: 1200px;
@@ -409,37 +343,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .navbar {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: #fff;
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                gap: 8px;
-            }
-            .navbar.open {
-                display: flex;
-            }
-            .navbar a {
-                padding: 12px 20px;
-                width: 100%;
-                text-align: center;
-            }
-            .hamburger {
-                display: flex;
-            }
-        }
-
         @media (max-width: 768px) {
-            .logo img {
-                height: 40px;
-                max-width: 140px;
-            }
             .seo-content h2 { font-size: 22px; }
             .seo-content h3 { font-size: 18px; }
             .related-articles ul li { flex: 1 1 100%; }
