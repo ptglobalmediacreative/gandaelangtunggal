@@ -55,7 +55,7 @@ $currentUrl = "https://gandaelang.co.id/foundation.php";
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Foundation Equipment | Alat Berat Pondasi & Konstruksi | PT Ganda Elang Tangguh">
     <meta property="og:description" content="PT Ganda Elang Tangguh menyediakan Foundation Equipment / Alat Berat Pondasi terbaik untuk konstruksi, infrastruktur, dan ground engineering di Indonesia. Performa tangguh, efisien, dan tahan lama.">
-    <meta property="og:image" content="https://gandaelang.co.id/images/foundation.jpg">
+    <meta property="og:image" content="https://gandaelang.co.id/images/foundation.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Foundation Equipment untuk konstruksi pondasi">
@@ -68,7 +68,7 @@ $currentUrl = "https://gandaelang.co.id/foundation.php";
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Foundation Equipment | Alat Berat Pondasi">
     <meta name="twitter:description" content="Alat berat foundation equipment untuk pekerjaan pondasi, drilling, dan konstruksi.">
-    <meta name="twitter:image" content="https://gandaelang.co.id/images/foundation.jpg">
+    <meta name="twitter:image" content="https://gandaelang.co.id/images/foundation.png">
     <meta name="twitter:image:alt" content="Foundation Equipment">
     
     <!-- ================= SCHEMA MARKUP ================= -->
@@ -330,7 +330,7 @@ $currentUrl = "https://gandaelang.co.id/foundation.php";
 </header>
 
 <!-- ================= HERO SECTION ================= -->
-<section class="hero hero-image" style="background: url('/images/foundation.jpg') center / cover no-repeat;">
+<section class="hero hero-image" style="background: url('/images/foundation.webp') center / cover no-repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-breadcrumb">

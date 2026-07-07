@@ -55,7 +55,7 @@ $currentUrl = "https://gandaelang.co.id/aircompressor.php";
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Air Compressor Industrial | Kompresor Udara Proyek & Konstruksi | PT Ganda Elang Tangguh">
     <meta property="og:description" content="PT Ganda Elang Tangguh menyediakan Air Compressor / Kompresor Udara terbaik untuk konstruksi, industri, dan proyek lapangan di Indonesia. Performa tangguh, efisien, dan tahan lama.">
-    <meta property="og:image" content="https://gandaelang.co.id/images/aircompressor.jpg">
+    <meta property="og:image" content="https://gandaelang.co.id/images/aircompressor.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Air Compressor untuk konstruksi dan industri">
@@ -68,7 +68,7 @@ $currentUrl = "https://gandaelang.co.id/aircompressor.php";
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Air Compressor Industrial | Kompresor Udara">
     <meta name="twitter:description" content="Air compressor berkualitas tinggi untuk kebutuhan industri dan proyek konstruksi.">
-    <meta name="twitter:image" content="https://gandaelang.co.id/images/aircompressor.jpg">
+    <meta name="twitter:image" content="https://gandaelang.co.id/images/aircompressor.png">
     <meta name="twitter:image:alt" content="Air Compressor">
     
     <!-- ================= SCHEMA MARKUP ================= -->
@@ -330,7 +330,7 @@ $currentUrl = "https://gandaelang.co.id/aircompressor.php";
 </header>
 
 <!-- ================= HERO SECTION ================= -->
-<section class="hero hero-image" style="background: url('/images/aircompressor.jpg') center / cover no-repeat;">
+<section class="hero hero-image" style="background: url('/images/aircompressor.png') center / cover no-repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-breadcrumb">

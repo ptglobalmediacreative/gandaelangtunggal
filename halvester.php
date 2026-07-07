@@ -55,7 +55,7 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Sugarcane Harvester LiuGong | Mesin Panen Tebu | PT Ganda Elang Tangguh">
     <meta property="og:description" content="PT Ganda Elang Tangguh menyediakan Sugarcane Harvester / Mesin Panen Tebu LiuGong terbaik untuk perkebunan tebu di Indonesia. Performa tangguh, efisien, dan presisi.">
-    <meta property="og:image" content="https://gandaelang.co.id/images/halvester.jpg">
+    <meta property="og:image" content="https://gandaelang.co.id/images/halvester.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Sugarcane Harvester LiuGong untuk perkebunan tebu">
@@ -68,7 +68,7 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sugarcane Harvester LiuGong | Mesin Panen Tebu">
     <meta name="twitter:description" content="Mesin panen tebu modern untuk meningkatkan produktivitas perkebunan.">
-    <meta name="twitter:image" content="https://gandaelang.co.id/images/halvester.jpg">
+    <meta name="twitter:image" content="https://gandaelang.co.id/images/halvester.png">
     <meta name="twitter:image:alt" content="Sugarcane Harvester LiuGong">
     
     <!-- ================= SCHEMA MARKUP ================= -->
@@ -330,7 +330,7 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
 </header>
 
 <!-- ================= HERO SECTION ================= -->
-<section class="hero hero-image" style="background: url('/images/halvester.jpg') center / cover no-repeat;">
+<section class="hero hero-image" style="background: url('/images/halvester.png') center / cover no-repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-breadcrumb">

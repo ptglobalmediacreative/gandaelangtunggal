@@ -55,7 +55,7 @@ $currentUrl = "https://gandaelang.co.id/tractor.php";
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Tractor LiuGong | Alat Berat Pertanian & Konstruksi | PT Ganda Elang Tangguh">
     <meta property="og:description" content="PT Ganda Elang Tangguh menyediakan Tractor LiuGong terbaik untuk pertanian, konstruksi, dan industri di Indonesia. Performa tangguh, efisien, dan tahan lama.">
-    <meta property="og:image" content="https://gandaelang.co.id/images/tractor.jpg">
+    <meta property="og:image" content="https://gandaelang.co.id/images/tractor.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Tractor LiuGong untuk pertanian dan konstruksi">
@@ -68,7 +68,7 @@ $currentUrl = "https://gandaelang.co.id/tractor.php";
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tractor LiuGong | Alat Berat Indonesia">
     <meta name="twitter:description" content="Tractor LiuGong untuk pertanian, konstruksi, dan industri dengan performa tangguh dan efisien.">
-    <meta name="twitter:image" content="https://gandaelang.co.id/images/tractor.jpg">
+    <meta name="twitter:image" content="https://gandaelang.co.id/images/tractor.png">
     <meta name="twitter:image:alt" content="Tractor LiuGong">
     
     <!-- ================= SCHEMA MARKUP ================= -->
@@ -330,7 +330,7 @@ $currentUrl = "https://gandaelang.co.id/tractor.php";
 </header>
 
 <!-- ================= HERO SECTION ================= -->
-<section class="hero hero-image" style="background: url('/images/tractor.jpg') center / cover no-repeat;">
+<section class="hero hero-image" style="background: url('/images/tractor.png') center / cover no-repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-breadcrumb">
