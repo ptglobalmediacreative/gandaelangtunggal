@@ -83,7 +83,7 @@
 
 .hero-content h1 {
   font-size: 38px;
-  font-weight: 500;
+  font-weight: 700;
 
   line-height: 1.2;
 
@@ -96,7 +96,7 @@
 /* ================= TEXT ================= */
 
 .hero-content p {
-  font-size: 21px;
+  font-size: 17px;
   line-height: 1.7;
 
   max-width: 650px;
