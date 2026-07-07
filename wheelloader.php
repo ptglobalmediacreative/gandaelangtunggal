@@ -201,6 +201,72 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        /* ===== PERBAIKAN HEADER & LOGO ===== */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 12px 0;
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            flex-shrink: 0;
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .navbar a {
+            padding: 10px 16px;
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .navbar a:hover,
+        .navbar a.active {
+            background: #e31e24;
+            color: #fff;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #1a1a2e;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
         /* ===== EXTRA SEO STYLES ===== */
         .seo-content {
             max-width: 1200px;
@@ -296,8 +362,39 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         .related-articles ul li a i {
             margin-right: 8px;
         }
-        
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 8px;
+            }
+            .navbar.open {
+                display: flex;
+            }
+            .navbar a {
+                padding: 12px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
         @media (max-width: 768px) {
+            .logo img {
+                height: 40px;
+                max-width: 140px;
+            }
             .seo-content h2 { font-size: 22px; }
             .seo-content h3 { font-size: 18px; }
             .related-articles ul li { flex: 1 1 100%; }
@@ -311,7 +408,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <div class="container">
         <div class="logo">
             <a href="/index.php">
-                <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo - Dealer Resmi LiuGong Indonesia" width="180" height="50">
+                <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo - Dealer Resmi LiuGong Indonesia">
             </a>
         </div>
         <nav class="navbar" id="navbar">
@@ -322,7 +419,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             <a href="/contact.php">Hubungi Kami</a>
             <a href="/blog.php">Blog & Artikel</a>
         </nav>
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
@@ -341,7 +438,6 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             <span>></span>
             <span class="current">Wheel Loaders</span>
         </div>
-        <!-- ===== H1 TELAH DITAMBAHKAN ===== -->
         <h1>Wheel Loader LiuGong untuk Konstruksi & Pertambangan di Indonesia</h1>
         <p class="hero-subtext">
             Wheel loader berkinerja tinggi, dirancang untuk efisiensi pemindahan material, ketahanan superior, dan hasil kerja maksimal. 
@@ -357,9 +453,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         
         <div class="product-grid">
             <?php if (!empty($products)) : ?>
-                <?php foreach ($products as $row) : 
-                    // Product Schema per produk
-                    ?>
+                <?php foreach ($products as $row) : ?>
                     <div class="product-card">
                         <a href="/detailprodukwheelloader.php?slug=<?= htmlspecialchars($row['slug']); ?>" class="product-link">
                             <div class="product-image">
@@ -431,7 +525,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     </div>
 </section>
 
-<!-- ================= SEO CONTENT (TAMBAHAN KONTEN DESKRIPTIF) ================= -->
+<!-- ================= SEO CONTENT ================= -->
 <section class="seo-content">
     <h2>Mengapa Memilih Wheel Loader LiuGong untuk Proyek Anda?</h2>
     <p>
@@ -480,7 +574,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     </div>
 </section>
 
-<!-- ================= RELATED ARTICLES (INTERNAL LINKING) ================= -->
+<!-- ================= RELATED ARTICLES ================= -->
 <section class="related-articles">
     <h3><i class="fas fa-newspaper" style="color:#e31e24;"></i> Artikel Terkait Wheel Loader LiuGong</h3>
     <ul>
@@ -516,7 +610,6 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     
     <div class="faq-grid" itemscope="" itemtype="https://schema.org/FAQPage">
         
-        <!-- FAQ 1 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Apa keunggulan Wheel Loader LiuGong dibandingkan merek lain?</h3>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -524,15 +617,13 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             </div>
         </div>
         
-        <!-- FAQ 2 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Berapa kapasitas angkut Wheel Loader LiuGong yang tersedia?</h3>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari <strong>1.9m³ hingga 7.0m³</strong> untuk bucket capacity, dengan operating weight dari <strong>13.378kg hingga 52.100kg</strong>. Ukuran ini dapat disesuaikan dengan kebutuhan proyek Anda, mulai dari skala kecil hingga besar.</p>
+                <p itemprop="text">Wheel Loader LiuGong tersedia dalam berbagai kapasitas mulai dari <strong>1.9m³ hingga 7.0m³</strong> untuk bucket capacity, dengan operating weight dari <strong>13.378kg hingga 52.100kg</strong>. Ukuran ini dapat disesuaikan dengan kebutuhan proyek Anda.</p>
             </div>
         </div>
         
-        <!-- FAQ 3 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Apakah PT Ganda Elang Tangguh adalah dealer resmi LiuGong di Indonesia?</h3>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -540,27 +631,24 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             </div>
         </div>
         
-        <!-- FAQ 4 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Industri apa saja yang cocok menggunakan Wheel Loader LiuGong?</h3>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Wheel loader LiuGong sangat cocok untuk berbagai industri seperti <strong>konstruksi bangunan</strong>, <strong>pertambangan</strong>, <strong>perkebunan kelapa sawit</strong>, <strong>logistik dan pergudangan</strong>, serta <strong>proyek infrastruktur</strong> jalan dan jembatan. Fleksibilitasnya menjadikannya pilihan utama di berbagai sektor.</p>
+                <p itemprop="text">Wheel loader LiuGong sangat cocok untuk berbagai industri seperti <strong>konstruksi bangunan</strong>, <strong>pertambangan</strong>, <strong>perkebunan kelapa sawit</strong>, <strong>logistik dan pergudangan</strong>, serta <strong>proyek infrastruktur</strong> jalan dan jembatan.</p>
             </div>
         </div>
         
-        <!-- FAQ 5 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Bagaimana cara mendapatkan informasi harga wheel loader LiuGong terbaru?</h3>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact.php">halaman Kontak Kami</a>, telepon, atau email untuk mendapatkan <strong>informasi harga wheel loader terbaru</strong> dan penawaran spesial sesuai kebutuhan proyek Anda.</p>
+                <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact.php">halaman Kontak Kami</a>, telepon, atau email untuk mendapatkan <strong>informasi harga wheel loader terbaru</strong> dan penawaran spesial.</p>
             </div>
         </div>
         
-        <!-- FAQ 6 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Apakah tersedia layanan after-sales untuk wheel loader LiuGong?</h3>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Tersedia layanan purna jual lengkap termasuk <strong>garansi resmi</strong>, <strong>perawatan rutin</strong>, <strong>servis berkala</strong>, <strong>pelatihan operator</strong>, dan ketersediaan <strong>sparepart original</strong> untuk memastikan alat berat Anda selalu dalam kondisi prima dan produktivitas tetap terjaga.</p>
+                <p itemprop="text">Tersedia layanan purna jual lengkap termasuk <strong>garansi resmi</strong>, <strong>perawatan rutin</strong>, <strong>servis berkala</strong>, <strong>pelatihan operator</strong>, dan ketersediaan <strong>sparepart original</strong> untuk memastikan alat berat Anda selalu dalam kondisi prima.</p>
             </div>
         </div>
     </div>
@@ -584,7 +672,21 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->
-<script src="/js/product.js"></script>
+<script>
+    function toggleMenu() {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.toggle('open');
+    }
+
+    // Tutup menu saat klik di luar
+    document.addEventListener('click', function(event) {
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        if (!navbar.contains(event.target) && !hamburger.contains(event.target)) {
+            navbar.classList.remove('open');
+        }
+    });
+</script>
 
 </body>
 </html>
