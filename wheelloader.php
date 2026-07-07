@@ -131,7 +131,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     }
     </script>
     
-    <!-- FAQ Schema (LENGKAP 6 PERTANYAAN) -->
+    <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -256,11 +256,172 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             margin-top: 20px;
         }
 
+        /* ===== FAQ SECTION - LENGKAP ===== */
+        .faq-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-size: 32px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .faq-header p {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 22px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1a1a2e;
+            transition: background 0.3s ease;
+            background: #fff;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a2e;
+            flex: 1;
+        }
+
+        .faq-question i {
+            color: #e31e24;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .faq-answer {
+            padding: 0 22px 20px;
+            display: none;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .faq-answer p {
+            margin: 15px 0 0;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .faq-answer p strong {
+            color: #1a1a2e;
+        }
+
+        .faq-cta {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .faq-cta p {
+            font-size: 18px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+            color: #fff;
+        }
+
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .seo-content h2 { font-size: 22px; }
             .seo-content h3 { font-size: 18px; }
-            .related-articles ul li { flex: 1 1 100%; }
+            .faq-header h2 {
+                font-size: 24px;
+            }
+            .faq-question {
+                font-size: 14px;
+                padding: 15px 18px;
+            }
+            .faq-question h3 {
+                font-size: 14px;
+            }
+            .faq-answer {
+                padding: 0 18px 16px;
+            }
+            .faq-answer p {
+                font-size: 14px;
+            }
+            .faq-cta p {
+                font-size: 16px;
+            }
+            .contact-btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -438,7 +599,6 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 </section>
 
 <!-- ================= FAQ SECTION ================= -->
-<!-- Styling FAQ akan diambil dari /css/product/product.css -->
 <section class="faq-section">
     <div class="faq-header">
         <h2>Pertanyaan Umum Seputar Wheel Loader LiuGong</h2>
@@ -447,8 +607,9 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     
     <div class="faq-grid" itemscope="" itemtype="https://schema.org/FAQPage">
         
+        <!-- FAQ 1 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" itemprop="name">
+            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
                 <h3>Apa keunggulan Wheel Loader LiuGong dibandingkan merek lain?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -457,8 +618,9 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             </div>
         </div>
         
+        <!-- FAQ 2 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" itemprop="name">
+            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
                 <h3>Berapa kapasitas angkut Wheel Loader LiuGong yang tersedia?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -467,8 +629,9 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             </div>
         </div>
         
+        <!-- FAQ 3 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" itemprop="name">
+            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
                 <h3>Apakah PT Ganda Elang Tangguh adalah dealer resmi LiuGong di Indonesia?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -477,8 +640,9 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             </div>
         </div>
         
+        <!-- FAQ 4 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" itemprop="name">
+            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
                 <h3>Industri apa saja yang cocok menggunakan Wheel Loader LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -487,8 +651,9 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             </div>
         </div>
         
+        <!-- FAQ 5 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" itemprop="name">
+            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
                 <h3>Bagaimana cara mendapatkan informasi harga wheel loader LiuGong terbaru?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -497,8 +662,9 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
             </div>
         </div>
         
+        <!-- FAQ 6 -->
         <div class="faq-item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <div class="faq-question" itemprop="name">
+            <div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
                 <h3>Apakah tersedia layanan after-sales untuk wheel loader LiuGong?</h3>
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -528,6 +694,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 
 <!-- JavaScript -->
 <script>
+    // ===== TOGGLE MENU =====
     function toggleMenu() {
         const navbar = document.getElementById('navbar');
         navbar.classList.toggle('open');
@@ -543,31 +710,31 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     });
     
     // ===== FAQ ACCORDION =====
-    document.addEventListener('DOMContentLoaded', function() {
-        const faqItems = document.querySelectorAll('.faq-item');
+    function toggleFAQ(element) {
+        // Cari elemen answer di dalam parent yang sama
+        var item = element.closest('.faq-item');
+        var answer = item.querySelector('.faq-answer');
+        var icon = element.querySelector('.fa-chevron-down');
         
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
-            const icon = question.querySelector('.fa-chevron-down');
-            
-            // Sembunyikan semua jawaban awalnya
+        // Toggle jawaban
+        if (answer.style.display === 'none' || answer.style.display === '') {
+            answer.style.display = 'block';
+            if (icon) {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        } else {
             answer.style.display = 'none';
-            
-            question.addEventListener('click', function() {
-                // Toggle jawaban
-                if (answer.style.display === 'none') {
-                    answer.style.display = 'block';
-                    if (icon) {
-                        icon.style.transform = 'rotate(180deg)';
-                    }
-                } else {
-                    answer.style.display = 'none';
-                    if (icon) {
-                        icon.style.transform = 'rotate(0deg)';
-                    }
-                }
-            });
+            if (icon) {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    }
+    
+    // Inisialisasi - sembunyikan semua jawaban saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+        var answers = document.querySelectorAll('.faq-answer');
+        answers.forEach(function(answer) {
+            answer.style.display = 'none';
         });
     });
 </script>
