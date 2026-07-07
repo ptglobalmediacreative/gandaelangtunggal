@@ -385,7 +385,7 @@ $currentUrl = "https://gandaelang.co.id/excavator.php";
             <span>></span>
             <a href="/produk.php">Produk</a>
             <span>></span>
-            <span class="current">Excavator LiuGong</span>
+            <span class="current">Excavator</span>
         </div>
         <!-- ===== H1 DENGAN KEYWORD ===== -->
         <h1>Excavator LiuGong untuk Konstruksi & Pertambangan di Indonesia</h1>
