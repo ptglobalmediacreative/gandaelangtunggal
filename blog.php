@@ -33,7 +33,7 @@ $artikel = $stmt->fetchAll();
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO Meta -->
-<title>Blog Alat Berat LiuGong & Industri | Dealer Resmi LiuGong Indonesia | PT Ganda Elang Tangguh</title>
+<title>Blog & Artikel Seputar Alat Berat China | Dealer Resmi LiuGong Indonesia | PT Ganda Elang Tangguh</title>
 
 <meta name="description" content="Blog PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Artikel seputar alat berat LiuGong, industri konstruksi, pertambangan, tips perawatan, dan teknologi alat berat terbaru.">
 
