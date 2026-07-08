@@ -36,6 +36,19 @@ RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [R=301,L]
 
 # ============================================
+# REDIRECT URL LAMA DETAIL PRODUK (PERTAMA!)
+# ============================================
+
+# Redirect /detailproduknama-produk.php?slug=xxx ke /nama-produk/xxx
+# Ini harus dilakukan SEBELUM aturan redirect .php
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/detailproduk([^/]+)\.php\?slug=([^\s&]+) [NC]
+RewriteRule ^ /%1/%2? [R=301,L]
+
+# Redirect /produk/nama-produk/slug ke /nama-produk/slug
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/produk/([^/]+)/([^/\s]+) [NC]
+RewriteRule ^ /%1/%2 [R=301,L]
+
+# ============================================
 # SEO FRIENDLY REWRITE RULES
 # ============================================
 
@@ -99,25 +112,15 @@ RewriteRule ^warehousetruck/([^/]+)/?$ detailprodukwarehousetruck.php?slug=$1 [L
 RewriteRule ^wheelloader/([^/]+)/?$ detailprodukwheelloader.php?slug=$1 [L,QSA]
 
 # ============================================
-# REDIRECT URL LAMA KE URL BARU (SEO Penting!)
-# ============================================
-
-# Redirect /produk/nama-produk/slug ke /nama-produk/slug
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/produk/([^/]+)/([^/\s]+) [NC]
-RewriteRule ^ /%1/%2 [R=301,L]
-
-# Redirect /detailproduknama-produk.php?slug=xxx ke /nama-produk/xxx
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/detailproduk([^/]+)\.php\?slug=([^\s&]+) [NC]
-RewriteRule ^ /%1/%2 [R=301,L]
-
-# ============================================
 # REDIRECT .php KE TANPA .php
 # ============================================
 
 # Redirect file .php ke tanpa .php (kecuali file yang sudah di-rewrite)
+# TAPI JANGAN redirect detailproduk*.php karena sudah ditangani di atas
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteCond %{REQUEST_URI} !^/detailproduk [NC]
 RewriteRule ^ %1 [R=301,L]
 
 # Redirect /index dan /index.php ke root
