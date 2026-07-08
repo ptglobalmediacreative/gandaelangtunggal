@@ -1,3 +1,184 @@
+# ============================================
+# HTACCESS UNTUK WEBSITE ALAT BERAT
+# SEO FRIENDLY & OPTIMIZED VERSION
+# ============================================
+
+# Mengaktifkan Rewrite Engine
 RewriteEngine On
 
-RewriteRule ^artikel/([^/]+)/?$ detail-artikel.php?slug=$1 [L,QSA]
+# ============================================
+# PENGATURAN SEO DASAR
+# ============================================
+
+# Menonaktifkan directory browsing (keamanan)
+Options -Indexes
+
+# Mengatur charset default
+AddDefaultCharset UTF-8
+
+# ============================================
+# CANONICAL URL & REDIRECT (SEO)
+# ============================================
+
+# 1. FORCE HTTPS (SEO Priority)
+# Uncomment jika sudah punya SSL
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 2. FORCE NON-WWW (Pilih salah satu)
+# Opsi A: Non-www (lebih disarankan untuk SEO)
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Opsi B: WWW (jika ingin pakai www)
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# 3. HAPUS SLASH TRAILING (Kecuali untuk root)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# 4. REDIRECT FILE .php KE TANPA .php (SEO Penting!)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# ============================================
+# SEO FRIENDLY REWRITE RULES
+# ============================================
+
+# --- HOME PAGE ---
+RewriteRule ^$ index.php [L]
+
+# --- STATIC PAGES (Tanpa Parameter) ---
+RewriteRule ^about$ about.php [L]
+RewriteRule ^aerialplatform$ aerialplatform.php [L]
+RewriteRule ^aftersales$ aftersales.php [L]
+RewriteRule ^aircompress$ aircompress.php [L]
+RewriteRule ^backhoeloader$ backhoeloader.php [L]
+RewriteRule ^blog$ blog.php [L]
+RewriteRule ^bulldozer$ bulldozer.php [L]
+RewriteRule ^coldplaner$ coldplaner.php [L]
+RewriteRule ^contact$ contact.php [L]
+RewriteRule ^crane$ crane.php [L]
+RewriteRule ^excavator$ excavator.php [L]
+RewriteRule ^forklift$ forklift.php [L]
+RewriteRule ^foundation$ foundation.php [L]
+RewriteRule ^halvester$ halvester.php [L]
+RewriteRule ^minningtruck$ minningtruck.php [L]
+RewriteRule ^motorgrader$ motorgrader.php [L]
+RewriteRule ^paver$ paver.php [L]
+RewriteRule ^produk$ produk.php [L]
+RewriteRule ^roller$ roller.php [L]
+RewriteRule ^skidsteer$ skidsteer.php [L]
+RewriteRule ^tractor$ tractor.php [L]
+RewriteRule ^warehousetruck$ warehousetruck.php [L]
+RewriteRule ^wheeloader$ wheeloader.php [L]
+
+# --- BLOG/ARTIKEL (URL SEO Friendly) ---
+# Format: /artikel/nama-artikel
+RewriteRule ^artikel/([a-zA-Z0-9_-]+)/?$ detail-artikel.php?slug=$1 [L,QSA]
+
+# --- DETAIL PRODUK (Struktur URL Terorganisir) ---
+# Format: /produk/kategori/nama-produk
+RewriteRule ^produk/aerialplatform/([a-zA-Z0-9_-]+)/?$ detailprodukaerialplatform.php?slug=$1 [L,QSA]
+RewriteRule ^produk/aircompress/([a-zA-Z0-9_-]+)/?$ detailprodukaicompressor.php?slug=$1 [L,QSA]
+RewriteRule ^produk/backhoeloader/([a-zA-Z0-9_-]+)/?$ detailprodukbackhoeloader.php?slug=$1 [L,QSA]
+RewriteRule ^produk/bulldozer/([a-zA-Z0-9_-]+)/?$ detailprodukbulldozer.php?slug=$1 [L,QSA]
+RewriteRule ^produk/coldplaner/([a-zA-Z0-9_-]+)/?$ detailprodukcoldplaner.php?slug=$1 [L,QSA]
+RewriteRule ^produk/crane/([a-zA-Z0-9_-]+)/?$ detailprodukcrane.php?slug=$1 [L,QSA]
+RewriteRule ^produk/excavator/([a-zA-Z0-9_-]+)/?$ detailprodukexcavator.php?slug=$1 [L,QSA]
+RewriteRule ^produk/forklift/([a-zA-Z0-9_-]+)/?$ detailprodukforklift.php?slug=$1 [L,QSA]
+RewriteRule ^produk/foundation/([a-zA-Z0-9_-]+)/?$ detailprodukfoundation.php?slug=$1 [L,QSA]
+RewriteRule ^produk/halvester/([a-zA-Z0-9_-]+)/?$ detailprodukhalvester.php?slug=$1 [L,QSA]
+RewriteRule ^produk/minningtruck/([a-zA-Z0-9_-]+)/?$ detailprodukminningtruck.php?slug=$1 [L,QSA]
+RewriteRule ^produk/motorgrader/([a-zA-Z0-9_-]+)/?$ detailprodukmotorgrader.php?slug=$1 [L,QSA]
+RewriteRule ^produk/paver/([a-zA-Z0-9_-]+)/?$ detailprodukpaver.php?slug=$1 [L,QSA]
+RewriteRule ^produk/roller/([a-zA-Z0-9_-]+)/?$ detailprodukroller.php?slug=$1 [L,QSA]
+RewriteRule ^produk/skidsteer/([a-zA-Z0-9_-]+)/?$ detailprodukskidsteer.php?slug=$1 [L,QSA]
+RewriteRule ^produk/tractor/([a-zA-Z0-9_-]+)/?$ detailproduktractor.php?slug=$1 [L,QSA]
+RewriteRule ^produk/warehousetruck/([a-zA-Z0-9_-]+)/?$ detailprodukwarehousetruck.php?slug=$1 [L,QSA]
+RewriteRule ^produk/wheeloader/([a-zA-Z0-9_-]+)/?$ detailprodukwheeloader.php?slug=$1 [L,QSA]
+
+# --- PAGINATION UNTUK BLOG (SEO Friendly) ---
+# Format: /blog/page/2
+RewriteRule ^blog/page/([0-9]+)/?$ blog.php?page=$1 [L,QSA]
+
+# ============================================
+# SEO: XML SITEMAP (Tetap bisa diakses)
+# ============================================
+RewriteRule ^sitemap\.xml$ sitemap-pages.xml [L]
+RewriteRule ^sitemap-artikel\.xml$ sitemap-artikel.xml [L]
+RewriteRule ^sitemap-produk\.xml$ sitemap-produk.xml [L]
+
+# ============================================
+# KEAMANAN (Tetap dipertahankan)
+# ============================================
+
+# Proteksi file sensitif
+<FilesMatch "\.(env|config|json|lock|md|gitignore|gitattributes|htaccess|htpasswd)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Proteksi folder admin
+<IfModule mod_authz_core.c>
+    <Directory "admin">
+        Require all denied
+    </Directory>
+</IfModule>
+
+# ============================================
+# PERFORMANCE & CACHING (SEO Speed)
+# ============================================
+
+# Kompresi GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+    AddOutputFilterByType DEFLATE application/xml application/rss+xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# ============================================
+# HEADER KEAMANAN (SEO & Keamanan)
+# ============================================
+
+# XSS Protection
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "no-referrer-when-downgrade"
+    
+    # HSTS (jika pakai HTTPS)
+    # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ============================================
+# CUSTOM ERROR PAGES
+# ============================================
+ErrorDocument 404 /404.php
+ErrorDocument 403 /404.php
+ErrorDocument 500 /500.php
+
+# ============================================
+# FALLBACK 404 (Jika file tidak ditemukan)
+# ============================================
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ - [R=404,L]
