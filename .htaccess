@@ -43,11 +43,19 @@ RewriteRule ^ %1 [R=301,L]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
 RewriteRule ^ %1 [R=301,L]
 
+# 5. REDIRECT /index ATAU /index.php KE ROOT (Home)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)/index\.php [NC]
+RewriteRule ^ %1/ [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)/index\s [NC]
+RewriteRule ^ %1/ [R=301,L]
+
 # ============================================
 # SEO FRIENDLY REWRITE RULES
 # ============================================
 
-# --- HOME PAGE ---
+# --- HOME PAGE (ROOT) ---
+# Ini akan menangani semua akses ke root domain tanpa index
 RewriteRule ^$ index.php [L]
 
 # --- STATIC PAGES (Tanpa Parameter) ---
