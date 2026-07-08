@@ -39,23 +39,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [R=301,L]
 
-# 4. REDIRECT FILE .php KE TANPA .php (SEO Penting!)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-RewriteRule ^ %1 [R=301,L]
-
-# 5. REDIRECT /index ATAU /index.php KE ROOT (Home)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)/index\.php [NC]
-RewriteRule ^ %1/ [R=301,L]
-
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)/index\s [NC]
-RewriteRule ^ %1/ [R=301,L]
-
 # ============================================
-# SEO FRIENDLY REWRITE RULES
+# SEO FRIENDLY REWRITE RULES (DIPERBAIKI)
 # ============================================
 
 # --- HOME PAGE (ROOT) ---
-# Ini akan menangani semua akses ke root domain tanpa index
 RewriteRule ^$ index.php [L]
 
 # --- STATIC PAGES (Tanpa Parameter) ---
@@ -83,44 +71,67 @@ RewriteRule ^tractor$ tractor.php [L]
 RewriteRule ^warehousetruck$ warehousetruck.php [L]
 RewriteRule ^wheeloader$ wheeloader.php [L]
 
-# --- BLOG/ARTIKEL (URL SEO Friendly) ---
-# Format: /artikel/nama-artikel
+# --- BLOG/ARTIKEL ---
 RewriteRule ^artikel/([a-zA-Z0-9_-]+)/?$ detail-artikel.php?slug=$1 [L,QSA]
 
-# --- DETAIL PRODUK (Struktur URL Terorganisir) ---
-# Format: /produk/kategori/nama-produk
-RewriteRule ^produk/aerialplatform/([a-zA-Z0-9_-]+)/?$ detailprodukaerialplatform.php?slug=$1 [L,QSA]
-RewriteRule ^produk/aircompress/([a-zA-Z0-9_-]+)/?$ detailprodukaicompressor.php?slug=$1 [L,QSA]
-RewriteRule ^produk/backhoeloader/([a-zA-Z0-9_-]+)/?$ detailprodukbackhoeloader.php?slug=$1 [L,QSA]
-RewriteRule ^produk/bulldozer/([a-zA-Z0-9_-]+)/?$ detailprodukbulldozer.php?slug=$1 [L,QSA]
-RewriteRule ^produk/coldplaner/([a-zA-Z0-9_-]+)/?$ detailprodukcoldplaner.php?slug=$1 [L,QSA]
-RewriteRule ^produk/crane/([a-zA-Z0-9_-]+)/?$ detailprodukcrane.php?slug=$1 [L,QSA]
-RewriteRule ^produk/excavator/([a-zA-Z0-9_-]+)/?$ detailprodukexcavator.php?slug=$1 [L,QSA]
-RewriteRule ^produk/forklift/([a-zA-Z0-9_-]+)/?$ detailprodukforklift.php?slug=$1 [L,QSA]
-RewriteRule ^produk/foundation/([a-zA-Z0-9_-]+)/?$ detailprodukfoundation.php?slug=$1 [L,QSA]
-RewriteRule ^produk/halvester/([a-zA-Z0-9_-]+)/?$ detailprodukhalvester.php?slug=$1 [L,QSA]
-RewriteRule ^produk/minningtruck/([a-zA-Z0-9_-]+)/?$ detailprodukminningtruck.php?slug=$1 [L,QSA]
-RewriteRule ^produk/motorgrader/([a-zA-Z0-9_-]+)/?$ detailprodukmotorgrader.php?slug=$1 [L,QSA]
-RewriteRule ^produk/paver/([a-zA-Z0-9_-]+)/?$ detailprodukpaver.php?slug=$1 [L,QSA]
-RewriteRule ^produk/roller/([a-zA-Z0-9_-]+)/?$ detailprodukroller.php?slug=$1 [L,QSA]
-RewriteRule ^produk/skidsteer/([a-zA-Z0-9_-]+)/?$ detailprodukskidsteer.php?slug=$1 [L,QSA]
-RewriteRule ^produk/tractor/([a-zA-Z0-9_-]+)/?$ detailproduktractor.php?slug=$1 [L,QSA]
-RewriteRule ^produk/warehousetruck/([a-zA-Z0-9_-]+)/?$ detailprodukwarehousetruck.php?slug=$1 [L,QSA]
-RewriteRule ^produk/wheeloader/([a-zA-Z0-9_-]+)/?$ detailprodukwheeloader.php?slug=$1 [L,QSA]
-
-# --- PAGINATION UNTUK BLOG (SEO Friendly) ---
-# Format: /blog/page/2
+# --- PAGINATION BLOG ---
 RewriteRule ^blog/page/([0-9]+)/?$ blog.php?page=$1 [L,QSA]
 
 # ============================================
-# SEO: XML SITEMAP (Tetap bisa diakses)
+# DETAIL PRODUK (PERBAIKAN UTAMA)
+# ============================================
+
+# CATATAN PENTING: 
+# Aturan ini HARUS dijalankan SEBELUM aturan redirect .php
+# Karena URL produk mengandung kata "produk" yang akan di-redirect
+
+# Produk dengan kategori lengkap
+RewriteRule ^produk/aerialplatform/([^/]+)/?$ detailprodukaerialplatform.php?slug=$1 [L,QSA]
+RewriteRule ^produk/aircompress/([^/]+)/?$ detailprodukaicompressor.php?slug=$1 [L,QSA]
+RewriteRule ^produk/backhoeloader/([^/]+)/?$ detailprodukbackhoeloader.php?slug=$1 [L,QSA]
+RewriteRule ^produk/bulldozer/([^/]+)/?$ detailprodukbulldozer.php?slug=$1 [L,QSA]
+RewriteRule ^produk/coldplaner/([^/]+)/?$ detailprodukcoldplaner.php?slug=$1 [L,QSA]
+RewriteRule ^produk/crane/([^/]+)/?$ detailprodukcrane.php?slug=$1 [L,QSA]
+RewriteRule ^produk/excavator/([^/]+)/?$ detailprodukexcavator.php?slug=$1 [L,QSA]
+RewriteRule ^produk/forklift/([^/]+)/?$ detailprodukforklift.php?slug=$1 [L,QSA]
+RewriteRule ^produk/foundation/([^/]+)/?$ detailprodukfoundation.php?slug=$1 [L,QSA]
+RewriteRule ^produk/halvester/([^/]+)/?$ detailprodukhalvester.php?slug=$1 [L,QSA]
+RewriteRule ^produk/minningtruck/([^/]+)/?$ detailprodukminningtruck.php?slug=$1 [L,QSA]
+RewriteRule ^produk/motorgrader/([^/]+)/?$ detailprodukmotorgrader.php?slug=$1 [L,QSA]
+RewriteRule ^produk/paver/([^/]+)/?$ detailprodukpaver.php?slug=$1 [L,QSA]
+RewriteRule ^produk/roller/([^/]+)/?$ detailprodukroller.php?slug=$1 [L,QSA]
+RewriteRule ^produk/skidsteer/([^/]+)/?$ detailprodukskidsteer.php?slug=$1 [L,QSA]
+RewriteRule ^produk/tractor/([^/]+)/?$ detailproduktractor.php?slug=$1 [L,QSA]
+RewriteRule ^produk/warehousetruck/([^/]+)/?$ detailprodukwarehousetruck.php?slug=$1 [L,QSA]
+RewriteRule ^produk/wheeloader/([^/]+)/?$ detailprodukwheeloader.php?slug=$1 [L,QSA]
+
+# ============================================
+# REDIRECT .php KE TANPA .php (DIPERBAIKI)
+# ============================================
+
+# Perbaikan: Hanya redirect jika file .php benar-benar ada
+# Dan tidak mengandung kata "detailproduk" (sudah ditangani di atas)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Redirect /index dan /index.php ke root
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)/index\.php [NC]
+RewriteRule ^ %1/ [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)/index\s [NC]
+RewriteRule ^ %1/ [R=301,L]
+
+# ============================================
+# SEO: XML SITEMAP
 # ============================================
 RewriteRule ^sitemap\.xml$ sitemap-pages.xml [L]
 RewriteRule ^sitemap-artikel\.xml$ sitemap-artikel.xml [L]
 RewriteRule ^sitemap-produk\.xml$ sitemap-produk.xml [L]
 
 # ============================================
-# KEAMANAN (Tetap dipertahankan)
+# KEAMANAN
 # ============================================
 
 # Proteksi file sensitif
@@ -137,7 +148,7 @@ RewriteRule ^sitemap-produk\.xml$ sitemap-produk.xml [L]
 </IfModule>
 
 # ============================================
-# PERFORMANCE & CACHING (SEO Speed)
+# PERFORMANCE & CACHING
 # ============================================
 
 # Kompresi GZIP
@@ -164,16 +175,13 @@ RewriteRule ^sitemap-produk\.xml$ sitemap-produk.xml [L]
 </IfModule>
 
 # ============================================
-# HEADER KEAMANAN (SEO & Keamanan)
+# HEADER KEAMANAN
 # ============================================
 
-# XSS Protection
 <IfModule mod_headers.c>
     Header set X-XSS-Protection "1; mode=block"
     Header set X-Content-Type-Options "nosniff"
     Header set Referrer-Policy "no-referrer-when-downgrade"
-    
-    # HSTS (jika pakai HTTPS)
     # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
@@ -185,7 +193,7 @@ ErrorDocument 403 /404.php
 ErrorDocument 500 /500.php
 
 # ============================================
-# FALLBACK 404 (Jika file tidak ditemukan)
+# FALLBACK 404
 # ============================================
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
