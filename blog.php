@@ -32,30 +32,33 @@ $artikel = $stmt->fetchAll();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Blog Alat Berat & Industri | PT Ganda Elang Tangguh</title>
+<!-- SEO Meta -->
+<title>Blog Alat Berat LiuGong & Industri | Dealer Resmi LiuGong Indonesia | PT Ganda Elang Tangguh</title>
 
-<!-- SEO -->
-<meta name="description" content="Blog PT Ganda Elang Tangguh berisi artikel seputar alat berat, industri konstruksi, teknologi alat berat, serta tips penggunaan dan perawatan alat berat untuk berbagai proyek.">
+<meta name="description" content="Blog PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Artikel seputar alat berat LiuGong, industri konstruksi, pertambangan, tips perawatan, dan teknologi alat berat terbaru.">
 
-<meta name="keywords" content="blog alat berat, artikel alat berat, industri konstruksi, tips alat berat, teknologi alat berat, PT Ganda Elang Tangguh">
+<meta name="keywords" content="blog alat berat liugong, artikel alat berat, dealer resmi liugong indonesia, dealer liugong jakarta, pt ganda elang tangguh, alat berat liugong, tips alat berat, industri konstruksi, teknologi alat berat">
 
 <meta name="author" content="PT Ganda Elang Tangguh">
 <meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta http-equiv="content-language" content="id-ID">
 
 <link rel="canonical" href="https://gandaelang.co.id/blog.php">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Blog Alat Berat & Industri | PT Ganda Elang Tangguh">
-<meta property="og:description" content="Temukan berbagai artikel tentang alat berat, industri konstruksi, dan teknologi terbaru di blog PT Ganda Elang Tangguh.">
+<meta property="og:title" content="Blog Alat Berat LiuGong & Industri | Dealer Resmi LiuGong Indonesia | PT Ganda Elang Tangguh">
+<meta property="og:description" content="Blog PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Temukan artikel seputar alat berat LiuGong, konstruksi, pertambangan, dan tips perawatan.">
 <meta property="og:image" content="https://gandaelang.co.id/images/heroblog.jpg">
 <meta property="og:url" content="https://gandaelang.co.id/blog.php">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="PT Ganda Elang Tangguh">
+<meta property="og:site_name" content="PT Ganda Elang Tangguh - Dealer Resmi LiuGong">
+<meta property="og:locale" content="id_ID">
 
-<!-- Twitter -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog Alat Berat & Industri">
-<meta name="twitter:description" content="Artikel seputar alat berat dan industri konstruksi dari PT Ganda Elang Tangguh.">
+<meta name="twitter:title" content="Blog Alat Berat LiuGong & Industri | Dealer Resmi LiuGong Indonesia">
+<meta name="twitter:description" content="Blog PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Artikel alat berat LiuGong, konstruksi, dan tips perawatan.">
 <meta name="twitter:image" content="https://gandaelang.co.id/images/heroblog.jpg">
 
 <!-- Favicon -->
@@ -67,48 +70,69 @@ $artikel = $stmt->fetchAll();
 <link rel="stylesheet" href="/css/footer.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://gandaelang.co.id/#organization",
+  "name": "PT Ganda Elang Tangguh",
+  "alternateName": [
+    "Dealer Resmi LiuGong Indonesia",
+    "Dealer LiuGong Jakarta"
+  ],
+  "url": "https://gandaelang.co.id",
+  "logo": "https://gandaelang.co.id/images/logo.webp",
+  "image": "https://gandaelang.co.id/images/logo.webp",
+  "description": "PT Ganda Elang Tangguh adalah dealer resmi LiuGong di Indonesia. Menyediakan alat berat LiuGong berkualitas, sparepart asli, dan layanan purna jual profesional."
+}
+</script>
 
 <!-- Breadcrumb Schema -->
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Beranda",
-   "item": "https://gandaelang.co.id/"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Blog",
-   "item": "https://gandaelang.co.id/blog.php"
-  }
- ]
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://gandaelang.co.id/blog.php/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://gandaelang.co.id/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog & Artikel Alat Berat LiuGong",
+      "item": "https://gandaelang.co.id/blog.php"
+    }
+  ]
 }
 </script>
 
 <!-- Blog Collection Schema -->
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "Blog",
- "name": "Blog PT Ganda Elang Tangguh",
- "url": "https://gandaelang.co.id/blog.php",
- "description": "Blog yang membahas alat berat, industri konstruksi, serta teknologi terbaru di dunia alat berat.",
- "publisher": {
-   "@type": "Organization",
-   "name": "PT Ganda Elang Tangguh",
-   "logo": {
-     "@type": "ImageObject",
-     "url": "https://gandaelang.co.id/images/logo.webp"
-   }
- }
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://gandaelang.co.id/blog.php/#blog",
+  "name": "Blog Alat Berat LiuGong - PT Ganda Elang Tangguh",
+  "url": "https://gandaelang.co.id/blog.php",
+  "description": "Blog PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia, membahas alat berat LiuGong, industri konstruksi, pertambangan, tips perawatan, dan teknologi terbaru.",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://gandaelang.co.id/#organization",
+    "name": "PT Ganda Elang Tangguh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gandaelang.co.id/images/logo.webp"
+    }
+  },
+  "about": "Alat Berat LiuGong, Konstruksi, Pertambangan, Infrastruktur",
+  "inLanguage": "id-ID"
 }
 </script>
 
@@ -119,13 +143,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container">
-
     <div class="logo">
         <a href="/index.php">
-            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
+            <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh - Dealer Resmi LiuGong Indonesia">
         </a>
     </div>
-
     <nav class="navbar" id="navbar">
       <a href="/index.php">Beranda</a>
       <a href="/about.php">Tentang Kami</a>
@@ -134,95 +156,97 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       <a href="/contact.php">Hubungi Kami</a>
       <a href="/blog.php" class="active">Blog & Artikel</a>
     </nav>
-
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-
   </div>
 </header>
 
 <!-- HERO -->
-<section class="hero hero-image"
-style="background: url('/images/heroblog.jpg') center / cover no-repeat;">
-<div class="hero-overlay"></div>
-<div class="hero-content">
+<section class="hero hero-image" style="background: url('/images/heroblog.jpg') center / cover no-repeat;">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
 
-<div class="hero-breadcrumb">
-<a href="/index.php">Home</a>
-<span>></span>
-<span class="current">Blog</span>
-</div>
+    <!-- Breadcrumb -->
+    <div class="hero-breadcrumb">
+      <a href="/index.php">Beranda</a>
+      <span>›</span>
+      <span class="current">Blog</span>
+    </div>
 
-<h1>Blog & Artikel</h1>
+    <!-- Title -->
+    <h1>Blog & Artikel Seputar Alat Berat</h1>
 
-</div>
+  </div>
 </section>
 
 <!-- BLOG SECTION -->
 <section class="content-section" id="artikel">
-<div class="container">
+  <div class="container">
 
-<div class="blog-grid">
+    <div class="blog-grid">
 
-<?php if (!empty($artikel)): ?>
-<?php foreach ($artikel as $row): ?>
+      <?php if (!empty($artikel)): ?>
+        <?php foreach ($artikel as $row): ?>
 
-<div class="blog-post">
+          <div class="blog-post">
 
-<?php if (!empty($row['gambar'])): ?>
-<img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']) ?>"
-     alt="<?= htmlspecialchars($row['judul']) ?>"
-     loading="lazy">
-<?php endif; ?>
+            <?php if (!empty($row['gambar'])): ?>
+            <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>">
+              <img src="/images/uploads/artikel/<?= htmlspecialchars($row['gambar']) ?>"
+                   alt="<?= htmlspecialchars($row['judul']) ?> - Blog Alat Berat LiuGong"
+                   loading="lazy">
+            </a>
+            <?php endif; ?>
 
-<div class="blog-content">
+            <div class="blog-content">
 
-<span class="blog-date">
-<i class="fa fa-calendar"></i>
-<?= date('d M Y', strtotime($row['created_at'])) ?>
-</span>
+              <span class="blog-date">
+                <i class="fa fa-calendar"></i>
+                <?= date('d M Y', strtotime($row['created_at'])) ?>
+              </span>
 
-<h2>
-<a href="/artikel/<?= htmlspecialchars($row['slug']) ?>">
-<?= htmlspecialchars($row['judul']) ?>
-</a>
-</h2>
+              <h2>
+                <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>">
+                  <?= htmlspecialchars($row['judul']) ?>
+                </a>
+              </h2>
 
-<p>
-<?= mb_substr(strip_tags($row['deskripsi']), 0, 120) ?>...
-</p>
+              <p>
+                <?= mb_substr(strip_tags($row['deskripsi']), 0, 120) ?>...
+              </p>
 
-<a href="/artikel/<?= htmlspecialchars($row['slug']) ?>" class="read-more">
-Baca Selengkapnya
-</a>
+              <a href="/artikel/<?= htmlspecialchars($row['slug']) ?>" class="read-more">
+                Baca Selengkapnya
+              </a>
 
-</div>
+            </div>
 
-</div>
+          </div>
 
-<?php endforeach; ?>
-<?php else: ?>
-<p>Tidak ada artikel yang ditemukan.</p>
-<?php endif; ?>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <p style="text-align:center; grid-column: 1/-1;">Belum ada artikel tersedia.</p>
+      <?php endif; ?>
 
-</div>
+    </div>
 
-<!-- PAGINATION -->
-<?php if ($totalPages > 1): ?>
-<div class="pagination">
-<?php for ($i = 1; $i <= $totalPages; $i++): ?>
-<a class="<?= ($i === $page) ? 'active' : '' ?>"
-   href="?page=<?= $i ?>">
-<?= $i ?>
-</a>
-<?php endfor; ?>
-</div>
-<?php endif; ?>
+    <!-- PAGINATION -->
+    <?php if ($totalPages > 1): ?>
+    <div class="pagination">
+      <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+        <a class="<?= ($i === $page) ? 'active' : '' ?>"
+           href="?page=<?= $i ?>"
+           aria-label="Halaman <?= $i ?>">
+          <?= $i ?>
+        </a>
+      <?php endfor; ?>
+    </div>
+    <?php endif; ?>
 
-</div>
+  </div>
 </section>
 
 <!-- FOOTER -->
