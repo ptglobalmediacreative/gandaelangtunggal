@@ -1,3 +1,7 @@
+# Aturan debug (letakkan di awal)
+RewriteCond %{THE_REQUEST} detailprodukwheelloader\.php [NC]
+RewriteRule ^ - [F]  # Ini akan memunculkan error 403 jika aturan mengenai URL tersebut
+
 # ============================================
 # HTACCESS UNTUK WEBSITE ALAT BERAT
 # SEO FRIENDLY & OPTIMIZED VERSION
