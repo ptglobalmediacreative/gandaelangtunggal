@@ -64,6 +64,12 @@ RewriteRule ^halvester$ halvester.php [L]
 RewriteRule ^minningtruck$ minningtruck.php [L]
 RewriteRule ^motorgrader$ motorgrader.php [L]
 RewriteRule ^paver$ paver.php [L]
+RewriteRule ^produk$ produk.php [L]
+RewriteRule ^roller$ roller.php [L]
+RewriteRule ^skidsteer$ skidsteer.php [L]
+RewriteRule ^tractor$ tractor.php [L]
+RewriteRule ^warehousetruck$ warehousetruck.php [L]
+RewriteRule ^wheelloader$ wheelloader.php [L]
 
 # --- HALAMAN PRODUK (DIPERBAIKI) ---
 # Format: /produk (tanpa .php)
@@ -97,7 +103,7 @@ RewriteRule ^produk/roller/([^/]+)/?$ detailprodukroller.php?slug=$1 [L,QSA]
 RewriteRule ^produk/skidsteer/([^/]+)/?$ detailprodukskidsteer.php?slug=$1 [L,QSA]
 RewriteRule ^produk/tractor/([^/]+)/?$ detailproduktractor.php?slug=$1 [L,QSA]
 RewriteRule ^produk/warehousetruck/([^/]+)/?$ detailprodukwarehousetruck.php?slug=$1 [L,QSA]
-RewriteRule ^produk/wheeloader/([^/]+)/?$ detailprodukwheeloader.php?slug=$1 [L,QSA]
+RewriteRule ^produk/wheelloader/([^/]+)/?$ detailprodukwheelloader.php?slug=$1 [L,QSA]
 
 # ============================================
 # REDIRECT .php KE TANPA .php

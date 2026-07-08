@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- HOME PAGE -->
+    <url>
+        <loc>https://gandaelang.co.id/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- ABOUT -->
+    <url>
+        <loc>https://gandaelang.co.id/about</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- CONTACT -->
+    <url>
+        <loc>https://gandaelang.co.id/contact</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- BLOG -->
+    <url>
+        <loc>https://gandaelang.co.id/blog</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- PRODUCTS -->
+    <url>
+        <loc>https://gandaelang.co.id/produk</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- AFTER SALES -->
+    <url>
+        <loc>https://gandaelang.co.id/aftersales</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- KATEGORI PRODUK (PRODUCT CATEGORIES) -->
+    <!-- ============================================ -->
+
+    <!-- Aerial Platform -->
+    <url>
+        <loc>https://gandaelang.co.id/aerialplatform</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Air Compress -->
+    <url>
+        <loc>https://gandaelang.co.id/aircompress</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Backhoe Loader -->
+    <url>
+        <loc>https://gandaelang.co.id/backhoeloader</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Bulldozer -->
+    <url>
+        <loc>https://gandaelang.co.id/bulldozer</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Cold Planer -->
+    <url>
+        <loc>https://gandaelang.co.id/coldplaner</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Crane -->
+    <url>
+        <loc>https://gandaelang.co.id/crane</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Excavator -->
+    <url>
+        <loc>https://gandaelang.co.id/excavator</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Forklift -->
+    <url>
+        <loc>https://gandaelang.co.id/forklift</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Foundation -->
+    <url>
+        <loc>https://gandaelang.co.id/foundation</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Halvester -->
+    <url>
+        <loc>https://gandaelang.co.id/halvester</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Minning Truck -->
+    <url>
+        <loc>https://gandaelang.co.id/minningtruck</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Motor Grader -->
+    <url>
+        <loc>https://gandaelang.co.id/motorgrader</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Paver -->
+    <url>
+        <loc>https://gandaelang.co.id/paver</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Roller -->
+    <url>
+        <loc>https://gandaelang.co.id/roller</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Skid Steer -->
+    <url>
+        <loc>https://gandaelang.co.id/skidsteer</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Tractor -->
+    <url>
+        <loc>https://gandaelang.co.id/tractor</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Warehouse Truck -->
+    <url>
+        <loc>https://gandaelang.co.id/warehouseustruck</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Wheel Loader -->
+    <url>
+        <loc>https://gandaelang.co.id/wheeloader</loc>
+        <lastmod>2026-07-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>
