@@ -40,7 +40,7 @@ RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [R=301,L]
 
 # ============================================
-# SEO FRIENDLY REWRITE RULES (DIPERBAIKI)
+# SEO FRIENDLY REWRITE RULES
 # ============================================
 
 # --- HOME PAGE (ROOT) ---
@@ -64,12 +64,10 @@ RewriteRule ^halvester$ halvester.php [L]
 RewriteRule ^minningtruck$ minningtruck.php [L]
 RewriteRule ^motorgrader$ motorgrader.php [L]
 RewriteRule ^paver$ paver.php [L]
+
+# --- HALAMAN PRODUK (DIPERBAIKI) ---
+# Format: /produk (tanpa .php)
 RewriteRule ^produk$ produk.php [L]
-RewriteRule ^roller$ roller.php [L]
-RewriteRule ^skidsteer$ skidsteer.php [L]
-RewriteRule ^tractor$ tractor.php [L]
-RewriteRule ^warehousetruck$ warehousetruck.php [L]
-RewriteRule ^wheeloader$ wheeloader.php [L]
 
 # --- BLOG/ARTIKEL ---
 RewriteRule ^artikel/([a-zA-Z0-9_-]+)/?$ detail-artikel.php?slug=$1 [L,QSA]
@@ -78,12 +76,8 @@ RewriteRule ^artikel/([a-zA-Z0-9_-]+)/?$ detail-artikel.php?slug=$1 [L,QSA]
 RewriteRule ^blog/page/([0-9]+)/?$ blog.php?page=$1 [L,QSA]
 
 # ============================================
-# DETAIL PRODUK (PERBAIKAN UTAMA)
+# DETAIL PRODUK
 # ============================================
-
-# CATATAN PENTING: 
-# Aturan ini HARUS dijalankan SEBELUM aturan redirect .php
-# Karena URL produk mengandung kata "produk" yang akan di-redirect
 
 # Produk dengan kategori lengkap
 RewriteRule ^produk/aerialplatform/([^/]+)/?$ detailprodukaerialplatform.php?slug=$1 [L,QSA]
@@ -106,11 +100,10 @@ RewriteRule ^produk/warehousetruck/([^/]+)/?$ detailprodukwarehousetruck.php?slu
 RewriteRule ^produk/wheeloader/([^/]+)/?$ detailprodukwheeloader.php?slug=$1 [L,QSA]
 
 # ============================================
-# REDIRECT .php KE TANPA .php (DIPERBAIKI)
+# REDIRECT .php KE TANPA .php
 # ============================================
 
-# Perbaikan: Hanya redirect jika file .php benar-benar ada
-# Dan tidak mengandung kata "detailproduk" (sudah ditangani di atas)
+# Redirect file .php ke tanpa .php (kecuali file yang sudah di-rewrite)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
@@ -122,6 +115,27 @@ RewriteRule ^ %1/ [R=301,L]
 
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)/index\s [NC]
 RewriteRule ^ %1/ [R=301,L]
+
+# ============================================
+# PERBAIKAN UNTUK GAMBAR (PENTING!)
+# ============================================
+
+# 1. Pastikan gambar, CSS, JS bisa diakses
+# Ini akan memastikan file statis tidak di-redirect
+RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|svg|ico|webp|woff|woff2|ttf|eot|pdf)$ [NC]
+
+# 2. Aturan untuk folder images
+# Jangan redirect folder images dan subfoldernya
+RewriteRule ^images/ - [L]
+RewriteRule ^admin/ - [L]
+RewriteRule ^css/ - [L]
+RewriteRule ^js/ - [L]
+RewriteRule ^uploads/ - [L]
+
+# 3. Perbaikan path gambar di artikel
+# Jika gambar disimpan di folder uploads atau images
+RewriteRule ^uploads/(.*)$ uploads/$1 [L]
+RewriteRule ^images/(.*)$ images/$1 [L]
 
 # ============================================
 # SEO: XML SITEMAP
