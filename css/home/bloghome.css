@@ -54,6 +54,8 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
   transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column; /* ✅ Tambahan: biar card terstruktur */
 }
 
 .blog-post:hover {
@@ -63,11 +65,17 @@
 
 /* ================= IMAGE ================= */
 
+.blog-post > a:first-child {
+  display: block;
+  overflow: hidden;
+}
+
 .blog-post img {
   width: 100%;
   height: 210px;
   object-fit: cover;
   transition: transform 0.5s ease;
+  display: block; /* ✅ Tambahan: hilangkan gap bawah */
 }
 
 .blog-post:hover img {
@@ -80,7 +88,7 @@
   padding: 30px 28px 32px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1; /* ✅ PERBAIKAN: ganti height:100% dengan flex:1 */
 }
 
 /* Date */
@@ -89,6 +97,10 @@
   color: #64748b;
   margin-bottom: 10px;
   letter-spacing: 0.3px;
+}
+
+.blog-date i {
+  margin-right: 5px; /* ✅ Tambahan: spasi icon */
 }
 
 /* Title */
@@ -107,7 +119,7 @@
 }
 
 .blog-content h2 a:hover {
-  color: #2563eb;
+  color: #e31837; /* ✅ PERBAIKAN: warna merah LiuGong */
 }
 
 /* Text */
@@ -116,7 +128,7 @@
   color: #64748b;
   line-height: 1.8;
   margin-bottom: 22px;
-  flex-grow: 1;
+  /* ❌ HAPUS: flex-grow: 1; */ /* Ini penyebab utama! */
 }
 
 /* ================= READ MORE ================= */
@@ -124,54 +136,57 @@
 .read-more {
   font-size: 14px;
   font-weight: 600;
-  color: #2563eb;
+  color: #e31837; /* ✅ PERBAIKAN: warna merah LiuGong */
   text-decoration: none;
+  display: inline-block; /* ✅ Tambahan */
+  margin-top: auto; /* ✅ PERBAIKAN: dorong ke bawah */
+  padding-bottom: 3px;
   position: relative;
   width: fit-content;
-  transition: 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .read-more::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: #2563eb;
-  transition: width 0.3s ease;
+  content: " →"; /* ✅ PERBAIKAN: panah sebagai indikator */
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    margin-left 0.3s ease;
+  margin-left: 0;
 }
 
 .read-more:hover {
-  color: #1d4ed8;
+  color: #c41230;
 }
 
 .read-more:hover::after {
-  width: 100%;
+  opacity: 1;
+  margin-left: 5px;
 }
 
 /* ================= BUTTON ================= */
 
 .blog-more {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 60px; /* ✅ PERBAIKAN: dari 15px ke 60px */
 }
 
 .btn-blog {
   display: inline-block;
   padding: 14px 38px;
   border-radius: 10px;
-  background: #2563eb;
+  background: #e31837; /* ✅ PERBAIKAN: warna merah LiuGong */
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-blog:hover {
-  background: #1d4ed8;
+  background: #c41230;
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(227, 24, 55, 0.25); /* ✅ Tambahan */
 }
 
 /* ================= RESPONSIVE ================= */
@@ -202,5 +217,13 @@
 
   .blog-post img {
     height: 190px;
+  }
+
+  .blog-content {
+    padding: 24px 20px 28px; /* ✅ Tambahan */
+  }
+
+  .blog-content h2 {
+    font-size: 18px; /* ✅ Tambahan */
   }
 }
