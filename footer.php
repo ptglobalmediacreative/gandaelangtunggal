@@ -60,7 +60,7 @@
 
         <li>
           <i class="fa-solid fa-phone"></i>
-          +62 812-1383-8567
+          +62 823-5516-3745
         </li>
 
         <li>
@@ -72,12 +72,18 @@
 
       <!-- Social -->
       <div class="footer-social">
-
-        <a href="https://web.facebook.com/people/PT-Ganda-Elang-Tangguh-Dealer-Alat-Berat-LiuGong-Indonesia/61589786319859/"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/gandaelangtangguh/"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/gandaelangtangguh/"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://www.youtube.com/@gandaelangtangguh"><i class="fa-brands fa-youtube"></i></a>
-
+          <a href="https://web.facebook.com/people/PT-Ganda-Elang-Tangguh-Dealer-Alat-Berat-LiuGong-Indonesia/61589786319859/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/gandaelangtangguh/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/gandaelangtangguh/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.youtube.com/@gandaelangtangguh" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-youtube"></i>
+          </a>
       </div>
 
     </div>
