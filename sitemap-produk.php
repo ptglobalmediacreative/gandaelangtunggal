@@ -1,5 +1,11 @@
 <?php
+// Mulai output buffering
+ob_start();
+
 require_once __DIR__ . "/admin/config.php";
+
+// Bersihkan output buffer dari include
+ob_clean();
 
 // Set header XML
 header('Content-Type: application/xml; charset=utf-8');
@@ -7,44 +13,47 @@ header('Content-Type: application/xml; charset=utf-8');
 // Base URL website
 $baseUrl = "https://gandaelang.co.id";
 
-// Daftar kategori produk dan file detailnya
+// Daftar kategori produk
 $kategoriProduk = [
-    'aerial-platform' => 'detailprodukaerialplatform.php',
-    'air-compressor' => 'detailprodukaircompressor.php',
-    'backhoe-loader' => 'detailprodukbackhoeloader.php',
-    'bulldozer' => 'detailprodukbulldozer.php',
-    'cold-planer' => 'detailprodukcoldplaner.php',
-    'crone' => 'detailprodukcrone.php',
-    'excavator' => 'detailprodukexcavator.php',
-    'forklift' => 'detailprodukforklift.php',
-    'foundation' => 'detailprodukfoundation.php',
-    'halvester' => 'detailprodukhalvester.php',
-    'mining-truck' => 'detailprodukminningtruck.php',
-    'motor-grader' => 'detailprodukmotorgrader.php',
-    'paver' => 'detailprodukpaver.php',
-    'roller' => 'detailprodukroller.php',
-    'skid-steer' => 'detailprodukskidsteer.php',
-    'tractor' => 'detailproduktractor.php',
-    'warehouse-truck' => 'detailprodukwarehousetruck.php',
-    'wheel-loader' => 'detailprodukwheelloader.php'
+    'aerial-platform',
+    'air-compressor',
+    'backhoe-loader',
+    'bulldozer',
+    'cold-planer',
+    'crone',
+    'excavator',
+    'forklift',
+    'foundation',
+    'halvester',
+    'mining-truck',
+    'motor-grader',
+    'paver',
+    'roller',
+    'skid-steer',
+    'tractor',
+    'warehouse-truck',
+    'wheel-loader'
 ];
 
 // Ambil semua produk dari database
-// Asumsi: ada tabel produk dengan kolom: id, nama, slug, kategori, created_at, updated_at
-$stmt = $pdo->query("
-    SELECT 
-        id,
-        nama,
-        slug,
-        kategori,
-        created_at,
-        updated_at
-    FROM produk
-    WHERE status = 'aktif'
-    ORDER BY kategori, nama ASC
-");
-
-$produk = $stmt->fetchAll(PDO::FETCH_ASSOC);
+try {
+    $stmt = $pdo->query("
+        SELECT 
+            id,
+            nama,
+            slug,
+            kategori,
+            created_at,
+            updated_at
+        FROM produk
+        WHERE status = 'aktif' OR status IS NULL
+        ORDER BY kategori, nama ASC
+    ");
+    $produk = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    // Jika tabel produk tidak ada, set kosong
+    $produk = [];
+}
 
 // Mulai output XML
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
@@ -63,8 +72,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         <priority>1.0</priority>
     </url>
 
-<?php foreach ($kategoriProduk as $kategori => $file): ?>
     <!-- Halaman Kategori Produk -->
+<?php foreach ($kategoriProduk as $kategori): ?>
     <url>
         <loc><?= $baseUrl ?>/<?= $kategori ?></loc>
         <lastmod><?= date('Y-m-d') ?></lastmod>
@@ -73,16 +82,23 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     </url>
 <?php endforeach; ?>
 
+    <!-- Halaman Detail Produk -->
+<?php if (!empty($produk)): ?>
 <?php foreach ($produk as $row): 
-    // Tentukan URL produk berdasarkan kategori
     $urlProduk = $baseUrl . '/' . $row['kategori'] . '/' . $row['slug'];
+    $lastmod = date('Y-m-d', strtotime($row['updated_at'] ?? $row['created_at']));
 ?>
     <url>
         <loc><?= htmlspecialchars($urlProduk) ?></loc>
-        <lastmod><?= date('Y-m-d', strtotime($row['updated_at'] ?? $row['created_at'])) ?></lastmod>
+        <lastmod><?= $lastmod ?></lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 <?php endforeach; ?>
+<?php endif; ?>
 
 </urlset>
+<?php
+// Pastikan tidak ada output tambahan
+exit;
+?>
