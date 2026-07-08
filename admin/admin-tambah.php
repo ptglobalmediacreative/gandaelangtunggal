@@ -39,31 +39,36 @@ if(isset($_POST['simpan'])){
 
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
+    // PERBAIKAN: Hanya 11 kolom + created_at (pakai NOW())
     $stmt = $pdo->prepare("
-      INSERT INTO admin
-      (
-        nama,no_hp,email,password,keterangan,
-        akses_dashboard,akses_produk,akses_artikel,
-        akses_pesan,akses_simulasi,akses_user,
+      INSERT INTO admin (
+        nama,
+        no_hp,
+        email,
+        password,
+        keterangan,
+        akses_dashboard,
+        akses_produk,
+        akses_artikel,
+        akses_pesan,
+        akses_simulasi,
+        akses_user,
         created_at
-      )
-      VALUES
-      (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())
+      ) VALUES (?,?,?,?,?,?,?,?,?,?,?,NOW())
     ");
 
     $stmt->execute([
-      $nama,
-      $no_hp,
-      $email,
-      $hash,
-      $keterangan,
-
-      $akses_dashboard,
-      $akses_produk,
-      $akses_artikel,
-      $akses_pesan,
-      $akses_simulasi,
-      $akses_user,
+      $nama,          // 1
+      $no_hp,         // 2
+      $email,         // 3
+      $hash,          // 4
+      $keterangan,    // 5
+      $akses_dashboard, // 6
+      $akses_produk,  // 7
+      $akses_artikel, // 8
+      $akses_pesan,   // 9
+      $akses_simulasi,// 10
+      $akses_user     // 11
     ]);
 
     header("Location: admin.php?status=add");

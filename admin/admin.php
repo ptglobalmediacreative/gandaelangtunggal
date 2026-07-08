@@ -10,6 +10,20 @@ if(!cekAkses('user')){
     die("Akses ditolak!");
 }
 
+/* TAMPILKAN PESAN STATUS */
+$status_message = '';
+if(isset($_GET['status'])){
+    if($_GET['status'] == 'add'){
+        $status_message = '<div class="alert-success">Admin berhasil ditambahkan!</div>';
+    } elseif($_GET['status'] == 'edit'){
+        $status_message = '<div class="alert-success">Admin berhasil diupdate!</div>';
+    } elseif($_GET['status'] == 'delete'){
+        $status_message = '<div class="alert-success">Admin berhasil dihapus!</div>';
+    } elseif($_GET['status'] == 'error'){
+        $status_message = '<div class="alert-error">' . htmlspecialchars($_GET['message']) . '</div>';
+    }
+}
+
 /* AMBIL DATA ADMIN */
 $stmt = $pdo->query("
     SELECT 
@@ -41,7 +55,7 @@ $admin = $stmt->fetchAll();
 
         <span class="admin-name">
             <i class="fa-solid fa-user"></i>
-            <?= $_SESSION['admin_nama']; ?>
+            <?= htmlspecialchars($_SESSION['admin_nama']); ?>
         </span>
 
         <a href="logout.php" class="logout-btn">
@@ -57,14 +71,16 @@ $admin = $stmt->fetchAll();
 <!-- CONTENT -->
 <div class="card">
 
+<!-- PESAN STATUS -->
+<?= $status_message ?>
 
 <!-- HEADER -->
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
 
     <h3>Daftar Admin</h3>
 
     <a href="admin-tambah.php" class="btn-primary">
-        Tambah Admin
+        <i class="fa-solid fa-plus"></i> Tambah Admin
     </a>
 
 </div>
@@ -112,31 +128,30 @@ $admin = $stmt->fetchAll();
 <div class="action-group">
 
 <?php
-$isDeveloper = ($a['keterangan'] === 'Developer');
+$isDeveloper = (strtolower($a['keterangan']) == 'developer');
 $isSelf      = ($a['id'] == $_SESSION['admin_id']);
 ?>
 
-<!-- EDIT -->
+<!-- EDIT - Bisa edit developer hanya jika dia sendiri -->
 <?php if(!$isDeveloper || $isSelf): ?>
 <a href="admin-edit.php?id=<?= $a['id']; ?>"
-class="btn-sm btn-warning"
-title="Edit">
-<i class="fa fa-edit"></i>
+   class="btn-sm btn-warning"
+   title="Edit">
+    <i class="fa fa-edit"></i>
 </a>
 <?php endif; ?>
 
-<!-- DELETE -->
+<!-- DELETE - Tidak bisa hapus developer dan diri sendiri -->
 <?php if(!$isDeveloper && !$isSelf): ?>
 <a href="admin-hapus.php?id=<?= $a['id']; ?>"
-class="btn-sm btn-danger"
-title="Hapus"
-onclick="return confirmDelete('<?= htmlspecialchars($a['nama']); ?>')">
-<i class="fa fa-trash"></i>
+   class="btn-sm btn-danger"
+   title="Hapus"
+   onclick="return confirmDelete('<?= htmlspecialchars($a['nama']); ?>')">
+    <i class="fa fa-trash"></i>
 </a>
 <?php endif; ?>
 
 </div>
-
 
 </td>
 
@@ -147,8 +162,9 @@ onclick="return confirmDelete('<?= htmlspecialchars($a['nama']); ?>')">
 <?php else: ?>
 
 <tr>
-<td colspan="6" class="table-empty">
-Belum ada admin
+<td colspan="6" style="text-align:center;padding:40px 0;color:#999;">
+    <i class="fa-solid fa-user-slash" style="font-size:24px;display:block;margin-bottom:10px;"></i>
+    Belum ada admin
 </td>
 </tr>
 
@@ -160,6 +176,11 @@ Belum ada admin
 
 </div>
 
+<!-- INFO JUMLAH DATA -->
+<div style="margin-top:15px;color:#888;font-size:13px;">
+    Total: <?= count($admin) ?> admin
+</div>
+
 </div>
 
 </div>
@@ -167,12 +188,11 @@ Belum ada admin
 
 <script>
 function confirmDelete(nama){
-
     return confirm(
         "Yakin ingin menghapus admin ini?\n\n" +
-        "Nama: " + nama
+        "Nama: " + nama + "\n\n" +
+        "Data yang dihapus tidak dapat dikembalikan!"
     );
-
 }
 </script>
 

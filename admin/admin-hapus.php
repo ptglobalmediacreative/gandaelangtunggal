@@ -27,27 +27,42 @@ $stmt->execute([$id]);
 $admin = $stmt->fetch();
 
 if(!$admin){
-    die("Data admin tidak ditemukan!");
+    // Redirect dengan pesan error
+    header("Location: admin.php?status=error&message=Data tidak ditemukan");
+    exit;
 }
 
 
 /* TIDAK BOLEH HAPUS DIRI SENDIRI */
 if($id == $_SESSION['admin_id']){
-    die("Anda tidak bisa menghapus akun sendiri!");
+    header("Location: admin.php?status=error&message=Tidak bisa menghapus akun sendiri");
+    exit;
 }
 
 
 /* TIDAK BOLEH HAPUS DEVELOPER */
-if(strtolower($admin['keterangan']) == 'developer'){
-    die("Akun Developer tidak bisa dihapus!");
+if(isset($admin['keterangan']) && strtolower($admin['keterangan']) == 'developer'){
+    header("Location: admin.php?status=error&message=Akun Developer tidak bisa dihapus");
+    exit;
 }
 
 
 /* PROSES HAPUS */
-$stmt = $pdo->prepare("DELETE FROM admin WHERE id=?");
-$stmt->execute([$id]);
-
-
-/* REDIRECT */
-header("Location: admin.php?status=delete");
-exit;
+try {
+    $stmt = $pdo->prepare("DELETE FROM admin WHERE id = ?");
+    $stmt->execute([$id]);
+    
+    // Cek apakah data berhasil dihapus
+    if($stmt->rowCount() > 0) {
+        header("Location: admin.php?status=delete&message=Data berhasil dihapus");
+    } else {
+        header("Location: admin.php?status=error&message=Gagal menghapus data");
+    }
+    exit;
+    
+} catch(PDOException $e) {
+    // Jika ada error database
+    header("Location: admin.php?status=error&message=Terjadi kesalahan database");
+    exit;
+}
+?>

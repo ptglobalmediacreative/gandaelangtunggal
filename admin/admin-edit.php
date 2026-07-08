@@ -72,19 +72,17 @@ if(isset($_POST['update'])){
 
       $stmt = $pdo->prepare("
         UPDATE admin SET
-          nama=?,
-          no_hp=?,
-          email=?,
-          keterangan=?,
-
-          akses_dashboard=?,
-          akses_produk=?,
-          akses_artikel=?,
-          akses_pesan=?,
-          akses_simulasi=?,
-          akses_user=?,
-
-        WHERE id=?
+          nama = ?,
+          no_hp = ?,
+          email = ?,
+          keterangan = ?,
+          akses_dashboard = ?,
+          akses_produk = ?,
+          akses_artikel = ?,
+          akses_pesan = ?,
+          akses_simulasi = ?,
+          akses_user = ?
+        WHERE id = ?
       ");
 
       $stmt->execute([
@@ -92,14 +90,12 @@ if(isset($_POST['update'])){
         $no_hp,
         $email,
         $keterangan,
-
         $akses_dashboard,
         $akses_produk,
         $akses_artikel,
         $akses_pesan,
         $akses_simulasi,
         $akses_user,
-
         $id
       ]);
 
@@ -116,20 +112,18 @@ if(isset($_POST['update'])){
 
         $stmt = $pdo->prepare("
           UPDATE admin SET
-            nama=?,
-            no_hp=?,
-            email=?,
-            password=?,
-            keterangan=?,
-
-            akses_dashboard=?,
-            akses_produk=?,
-            akses_artikel=?,
-            akses_pesan=?,
-            akses_simulasi=?,
-            akses_user=?,
-
-          WHERE id=?
+            nama = ?,
+            no_hp = ?,
+            email = ?,
+            password = ?,
+            keterangan = ?,
+            akses_dashboard = ?,
+            akses_produk = ?,
+            akses_artikel = ?,
+            akses_pesan = ?,
+            akses_simulasi = ?,
+            akses_user = ?
+          WHERE id = ?
         ");
 
         $stmt->execute([
@@ -138,14 +132,12 @@ if(isset($_POST['update'])){
           $email,
           $hash,
           $keterangan,
-
           $akses_dashboard,
           $akses_produk,
           $akses_artikel,
           $akses_pesan,
           $akses_simulasi,
           $akses_user,
-
           $id
         ]);
 
