@@ -40,8 +40,8 @@ $latestArtikel = $stmt->fetchAll();
         <p>Dealer Resmi Alat Berat China LiuGong Indonesia</p>
 
         <div class="hero-buttons">
-            <a href="/produk.php" class="btn-primary">Lihat Produk</a>
-            <a href="/contact.php" class="btn-secondary">Hubungi Kami</a>
+            <a href="/produk" class="btn-primary">Lihat Produk</a>
+            <a href="/contact" class="btn-secondary">Hubungi Kami</a>
         </div>
 
     </div>
@@ -69,7 +69,7 @@ $latestArtikel = $stmt->fetchAll();
       Didukung tim profesional dan teknisi berpengalaman, <strong>PT Ganda Elang Tangguh dealer LiuGong Indonesia</strong> juga menyediakan layanan purna jual lengkap, <strong>sparepart asli LiuGong</strong>, serta perawatan berkala agar operasional pelanggan tetap optimal dan produktif.
     </p>
 
-    <a href="/about.php" class="about-link">
+    <a href="/about" class="about-link">
       Selengkapnya Tentang Kami
     </a>
 
@@ -298,7 +298,7 @@ $latestArtikel = $stmt->fetchAll();
 
     <!-- Button -->
     <div class="blog-more fade-blog">
-      <a href="/blog.php" class="btn-blog">
+      <a href="/blog" class="btn-blog">
         Lihat Semua Artikel
       </a>
     </div>

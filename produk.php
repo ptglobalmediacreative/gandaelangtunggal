@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <?php
-$currentUrl = "https://gandaelang.co.id/produk.php";
+$currentUrl = "https://gandaelang.co.id/produk";
 ?>
 
 <title>Produk Alat Berat China LiuGong Indonesia | PT Ganda Elang Tangguh</title>
@@ -42,7 +42,7 @@ $currentUrl = "https://gandaelang.co.id/produk.php";
  "@type": "CollectionPage",
  "name": "Produk Alat Berat LiuGong",
  "description": "Kategori produk alat berat LiuGong untuk berbagai kebutuhan industri dan konstruksi.",
- "url": "https://gandaelang.co.id/produk.php",
+ "url": "https://gandaelang.co.id/produk",
  "publisher": {
    "@type": "Organization",
    "name": "PT Ganda Elang Tangguh",
@@ -75,18 +75,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   <div class="container">
 
     <div class="logo">
-        <a href="/index.php">
+        <a href="/">
             <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
         </a>
     </div>
 
     <nav class="navbar" id="navbar">
-      <a href="/index.php">Beranda</a>
-      <a href="/about.php">Tentang Kami</a>
-      <a href="/produk.php" class="active">Produk</a>
-      <a href="/aftersales.php">Layanan Purna Jual</a>
-      <a href="/contact.php">Hubungi Kami</a>
-      <a href="/blog.php">Blog & Artikel</a>
+      <a href="/">Beranda</a>
+      <a href="/about">Tentang Kami</a>
+      <a href="/produk" class="active">Produk</a>
+      <a href="/aftersales">Layanan Purna Jual</a>
+      <a href="/contact">Hubungi Kami</a>
+      <a href="/blog">Blog & Artikel</a>
     </nav>
 
     <div class="hamburger" id="hamburger">
@@ -109,7 +109,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <!-- Breadcrumb -->
     <div class="hero-breadcrumb">
-      <a href="/index.php">Home</a>
+      <a href="/">Home</a>
       <span>></span>
       <span class="current">Product</span>
     </div>
@@ -136,109 +136,109 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     <div class="category-grid reveal">
 
       <!-- Wheel Loader -->
-      <a href="/wheelloader.php" class="category-card reveal-scale">
+      <a href="/wheelloader" class="category-card reveal-scale">
         <img src="/images/products/wheel-loader.jpg" alt="Wheel Loader">
         <h4>Wheel Loader</h4>
       </a>
 
       <!-- Excavator -->
-      <a href="/excavator.php" class="category-card reveal-scale">
+      <a href="/excavator" class="category-card reveal-scale">
         <img src="/images/products/excavator.jpg" alt="Excavator">
         <h4>Excavator</h4>
       </a>
 
       <!-- Bulldozer -->
-      <a href="/bulldozer.php" class="category-card reveal-scale">
+      <a href="/bulldozer" class="category-card reveal-scale">
         <img src="/images/products/bulldozer.jpg" alt="Bulldozer">
         <h4>Bulldozer</h4>
       </a>
 
       <!-- Motor Grader -->
-      <a href="/motorgrader.php" class="category-card reveal-scale">
+      <a href="/motorgrader" class="category-card reveal-scale">
         <img src="/images/products/motor-grader.jpg" alt="Motor Grader">
         <h4>Motor Grader</h4>
       </a>
 
       <!-- Mining Truck -->
-      <a href="/minningtruck.php" class="category-card reveal-scale">
+      <a href="/minningtruck" class="category-card reveal-scale">
         <img src="/images/products/mining-truck.jpg" alt="Mining Truck">
         <h4>Mining Truck</h4>
       </a>
 
       <!-- Roller -->
-      <a href="/roller.php" class="category-card reveal-scale">
+      <a href="/roller" class="category-card reveal-scale">
         <img src="/images/products/roller.jpg" alt="Roller">
         <h4>Roller</h4>
       </a>
 
       <!-- Paver -->
-      <a href="/paver.php" class="category-card reveal-scale">
+      <a href="/paver" class="category-card reveal-scale">
         <img src="/images/products/paver.jpg" alt="Paver">
         <h4>Paver</h4>
       </a>
 
       <!-- Cold Planer -->
-      <a href="/coldplaner.php" class="category-card reveal-scale">
+      <a href="/coldplaner" class="category-card reveal-scale">
         <img src="/images/products/cold-planer.jpg" alt="Cold Planer">
         <h4>Cold Planer</h4>
       </a>
 
       <!-- Skid Steer -->
-      <a href="/skidsteer.php" class="category-card reveal-scale">
+      <a href="/skidsteer" class="category-card reveal-scale">
         <img src="/images/products/skid-steer.jpg" alt="Skid Steer Loader">
         <h4>Skid Steer</h4>
       </a>
 
       <!-- Backhoe -->
-      <a href="/backhoeloader.php" class="category-card reveal-scale">
+      <a href="/backhoeloader" class="category-card reveal-scale">
         <img src="/images/products/backhoe.jpg" alt="Backhoe Loader">
         <h4>Backhoe Loader</h4>
       </a>
 
       <!-- Forklift -->
-      <a href="/forklift.php" class="category-card reveal-scale">
+      <a href="/forklift" class="category-card reveal-scale">
         <img src="/images/products/forklift.png" alt="Forklift">
         <h4>Forklift</h4>
       </a>
 
       <!-- Aerial -->
-      <a href="/aerialplatform.php" class="category-card reveal-scale">
+      <a href="/aerialplatform" class="category-card reveal-scale">
         <img src="/images/products/aerial.png" alt="Aerial Platform">
         <h4>Aerial Platform</h4>
       </a>
 
       <!-- Crane -->
-      <a href="/crane.php" class="category-card reveal-scale">
+      <a href="/crane" class="category-card reveal-scale">
         <img src="/images/products/crane.jpg" alt="Crane">
         <h4>Crane</h4>
       </a>
 
       <!-- Tractor -->
-      <a href="/tractor.php" class="category-card reveal-scale">
+      <a href="/tractor" class="category-card reveal-scale">
         <img src="/images/products/tractor.png" alt="Tractor">
         <h4>Tractor</h4>
       </a>
 
       <!-- Harvester -->
-      <a href="/halvester.php" class="category-card reveal-scale">
+      <a href="/halvester" class="category-card reveal-scale">
         <img src="/images/products/harvester.png" alt="Harvester">
         <h4>Harvester</h4>
       </a>
 
       <!-- Compressor -->
-      <a href="/aircompressor.php" class="category-card reveal-scale">
+      <a href="/aircompressor" class="category-card reveal-scale">
         <img src="/images/products/compressor.png" alt="Air Compressor">
         <h4>Air Compressor</h4>
       </a>
 
       <!-- Foundation -->
-      <a href="/foundation.php" class="category-card reveal-scale">
+      <a href="/foundation" class="category-card reveal-scale">
         <img src="/images/products/foundation.jpg" alt="Foundation">
         <h4>Foundation</h4>
       </a>
 
       <!-- Warehouse -->
-      <a href="/warehousetruck.php" class="category-card reveal-scale">
+      <a href="/warehousetruck" class="category-card reveal-scale">
         <img src="/images/products/warehouse.png" alt="Warehouse Truck">
         <h4>Warehouse Truck</h4>
       </a>

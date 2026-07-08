@@ -3,7 +3,7 @@ require_once __DIR__ . '/admin/config.php';
 
 /* ================= VALIDASI SLUG ================= */
 if (!isset($_GET['slug'])) {
-    header("Location: /produk.php");
+    header("Location: /produk");
     exit;
 }
 
@@ -23,7 +23,7 @@ $stmt->execute([$slug]);
 $product = $stmt->fetch();
 
 if (!$product) {
-    header("Location: /produk.php");
+    header("Location: /produk");
     exit;
 }
 
@@ -170,13 +170,13 @@ $productDesc = "Crane LiuGong " . $productName . " dari PT Ganda Elang Tangguh, 
       "@type": "ListItem",
       "position": 2,
       "name": "Produk Alat Berat LiuGong",
-      "item": "https://gandaelang.co.id/produk.php"
+      "item": "https://gandaelang.co.id/produk"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Crane LiuGong",
-      "item": "https://gandaelang.co.id/crane.php"
+      "item": "https://gandaelang.co.id/crane"
     },
     {
       "@type": "ListItem",
@@ -246,17 +246,17 @@ $productDesc = "Crane LiuGong " . $productName . " dari PT Ganda Elang Tangguh, 
 <header class="header">
   <div class="container">
     <div class="logo">
-        <a href="/index.php">
+        <a href="/">
             <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh - Dealer Resmi LiuGong Indonesia">
         </a>
     </div>
     <nav class="navbar" id="navbar">
-      <a href="/index.php">Beranda</a>
-      <a href="/about.php">Tentang Kami</a>
-      <a href="/produk.php" class="active">Produk</a>
-      <a href="/aftersales.php">Layanan Purna Jual</a>
-      <a href="/contact.php">Hubungi Kami</a>
-      <a href="/blog.php">Blog & Artikel</a>
+      <a href="/">Beranda</a>
+      <a href="/about">Tentang Kami</a>
+      <a href="/produk" class="active">Produk</a>
+      <a href="/aftersales">Layanan Purna Jual</a>
+      <a href="/contact">Hubungi Kami</a>
+      <a href="/blog">Blog & Artikel</a>
     </nav>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -273,11 +273,11 @@ $productDesc = "Crane LiuGong " . $productName . " dari PT Ganda Elang Tangguh, 
 
     <!-- Breadcrumb -->
     <div class="hero-breadcrumb">
-      <a href="/index.php">Beranda</a>
+      <a href="/">Beranda</a>
       <span>›</span>
-      <a href="/produk.php">Produk</a>
+      <a href="/produk">Produk</a>
       <span>›</span>
-      <a href="/crane.php">Crane</a>
+      <a href="/crane">Crane</a>
       <span>›</span>
       <span class="current"><?= $productName ?></span>
     </div>

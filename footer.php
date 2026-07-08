@@ -22,12 +22,12 @@
       <h4>Menu</h4>
 
       <ul>
-        <li><a href="/index.php">Beranda</a></li>
-        <li><a href="/about.php">Tentang Kami</a></li>
-        <li><a href="/produk.php">Produk</a></li>
-        <li><a href="/aftersales.php">Layanan Purna Jual</a></li>
-        <li><a href="/contact.php">Hubungi Kami</a></li>
-        <li><a href="/blog.php">Blog & Artikel</a></li>
+        <li><a href="/">Beranda</a></li>
+        <li><a href="/about">Tentang Kami</a></li>
+        <li><a href="/produk">Produk</a></li>
+        <li><a href="/aftersales">Layanan Purna Jual</a></li>
+        <li><a href="/contact">Hubungi Kami</a></li>
+        <li><a href="/blog">Blog & Artikel</a></li>
       </ul>
 
     </div>
@@ -38,10 +38,10 @@
       <h4>Layanan</h4>
 
       <ul>
-        <li><a href="#">Jual Beli Alat Berat</a></li>
-        <li><a href="#">Service & Maintenance</a></li>
-        <li><a href="#">Suku Cadang</a></li>
-        <li><a href="#">Konsultasi Proyek</a></li>
+        <li><a href="/product">Jual Beli Alat Berat</a></li>
+        <li><a href="/aftersales">Service & Maintenance</a></li>
+        <li><a href="/aftersales">Suku Cadang</a></li>
+        <li><a href="/contact">Konsultasi Proyek</a></li>
       </ul>
 
     </div>
@@ -73,10 +73,10 @@
       <!-- Social -->
       <div class="footer-social">
 
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://web.facebook.com/people/PT-Ganda-Elang-Tangguh-Dealer-Alat-Berat-LiuGong-Indonesia/61589786319859/"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/gandaelangtangguh/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/gandaelangtangguh/"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@gandaelangtangguh"><i class="fa-brands fa-youtube"></i></a>
 
       </div>
 

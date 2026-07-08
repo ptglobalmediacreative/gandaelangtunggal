@@ -14,13 +14,13 @@
 <meta name="author" content="PT Ganda Elang Tangguh">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
-<link rel="canonical" href="https://gandaelang.co.id/aftersales.php">
+<link rel="canonical" href="https://gandaelang.co.id/aftersales">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Layanan Purna Jual Alat Berat LiuGong | Sparepart & Servis | PT Ganda Elang Tangguh">
 <meta property="og:description" content="Layanan purna jual alat berat LiuGong dari PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Menyediakan sparepart asli LiuGong, servis berkala, teknisi ke lokasi, dan dukungan teknis profesional. Dealer LiuGong Jakarta terpercaya.">
 <meta property="og:image" content="https://gandaelang.co.id/images/about.png">
-<meta property="og:url" content="https://gandaelang.co.id/aftersales.php">
+<meta property="og:url" content="https://gandaelang.co.id/aftersales">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PT Ganda Elang Tangguh">
 
@@ -51,7 +51,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "@id": "https://gandaelang.co.id/aftersales.php/#breadcrumb",
+  "@id": "https://gandaelang.co.id/aftersales/#breadcrumb",
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -63,7 +63,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       "@type": "ListItem",
       "position": 2,
       "name": "Layanan Purna Jual Alat Berat LiuGong",
-      "item": "https://gandaelang.co.id/aftersales.php"
+      "item": "https://gandaelang.co.id/aftersales"
     }
   ]
 }
@@ -74,7 +74,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://gandaelang.co.id/aftersales.php/#service",
+  "@id": "https://gandaelang.co.id/aftersales/#service",
   "name": "Layanan Purna Jual Alat Berat LiuGong",
   "serviceType": "Layanan Purna Jual Alat Berat LiuGong",
   "alternateName": [
@@ -157,19 +157,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <!-- Logo -->
     <div class="logo">
-        <a href="/index.php">
+        <a href="/">
             <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
         </a>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-      <a href="/index.php">Beranda</a>
-      <a href="/about.php">Tentang Kami</a>
-      <a href="/produk.php">Produk</a>
-      <a href="/aftersales.php" class="active">Layanan Purna Jual</a>
-      <a href="/contact.php">Hubungi Kami</a>
-      <a href="/blog.php">Blog & Artikel</a>
+      <a href="/">Beranda</a>
+      <a href="/about">Tentang Kami</a>
+      <a href="/produk">Produk</a>
+      <a href="/aftersales" class="active">Layanan Purna Jual</a>
+      <a href="/contact">Hubungi Kami</a>
+      <a href="/blog">Blog & Artikel</a>
     </nav>
 
     <!-- Hamburger -->
@@ -197,7 +197,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <!-- Breadcrumb -->
     <div class="hero-breadcrumb">
-      <a href="/index.php">Home</a>
+      <a href="/">Home</a>
       <span>></span>
       <span class="current">Aftersales</span>
     </div>
@@ -237,7 +237,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <li><i class="fa-solid fa-check"></i> Respon Cepat</li>
         </ul>
 
-        <a href="/contact.php" class="btn-main">
+        <a href="/contact" class="btn-main">
           Konsultasi Sekarang
         </a>
 

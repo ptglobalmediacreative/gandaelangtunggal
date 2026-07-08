@@ -14,13 +14,13 @@
 <meta name="author" content="PT Ganda Elang Tangguh">
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://gandaelang.co.id/about.php">
+<link rel="canonical" href="https://gandaelang.co.id/about">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Tentang PT Ganda Elang Tangguh | Dealer Resmi LiuGong Indonesia">
 <meta name="description" content="Kenali PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Dealer LiuGong Jakarta terpercaya yang menyediakan alat berat LiuGong berkualitas, sparepart asli, dan layanan purna jual profesional di seluruh Indonesia.">
 <meta property="og:image" content="https://gandaelang.co.id/images/about.png">
-<meta property="og:url" content="https://gandaelang.co.id/about.php">
+<meta property="og:url" content="https://gandaelang.co.id/about">
 <meta property="og:type" content="website">
 
 <!-- Twitter -->
@@ -116,9 +116,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     }
   ],
   "sameAs": [
-    "https://www.facebook.com/gandaelangtangguh",
+    "https://web.facebook.com/people/PT-Ganda-Elang-Tangguh-Dealer-Alat-Berat-LiuGong-Indonesia/61589786319859/",
     "https://www.instagram.com/gandaelangtangguh",
-    "https://www.linkedin.com/company/pt-ganda-elang-tangguh",
+    "https://www.linkedin.com/in/gandaelangtangguh/",
     "https://www.youtube.com/@gandaelangtangguh"
   ]
 }
@@ -129,7 +129,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "@id": "https://gandaelang.co.id/about.php/#breadcrumb",
+  "@id": "https://gandaelang.co.id/about/#breadcrumb",
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -141,7 +141,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       "@type": "ListItem",
       "position": 2,
       "name": "Tentang PT Ganda Elang Tangguh - Dealer Resmi LiuGong",
-      "item": "https://gandaelang.co.id/about.php"
+      "item": "https://gandaelang.co.id/about"
     }
   ]
 }
@@ -157,19 +157,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <!-- Logo -->
     <div class="logo">
-        <a href="/index.php">
+        <a href="/">
             <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
         </a>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-      <a href="/index.php">Beranda</a>
-      <a href="/about.php" class="active">Tentang Kami</a>
-      <a href="/produk.php">Produk</a>
-      <a href="/aftersales.php">Layanan Purna Jual</a>
-      <a href="/contact.php">Hubungi Kami</a>
-      <a href="/blog.php">Blog & Artikel</a>
+      <a href="/">Beranda</a>
+      <a href="/about" class="active">Tentang Kami</a>
+      <a href="/produk">Produk</a>
+      <a href="/aftersales">Layanan Purna Jual</a>
+      <a href="/contact">Hubungi Kami</a>
+      <a href="/blog">Blog & Artikel</a>
     </nav>
 
     <!-- Hamburger -->
@@ -197,7 +197,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <!-- Breadcrumb -->
     <div class="hero-breadcrumb">
-      <a href="/index.php">Home</a>
+      <a href="/">Home</a>
       <span>></span>
       <span class="current">About Us</span>
     </div>

@@ -27,7 +27,7 @@ $stmt = $pdo->prepare("
 $stmt->execute();
 $products = $stmt->fetchAll();
 
-$currentUrl = "https://gandaelang.co.id/halvester.php";
+$currentUrl = "https://gandaelang.co.id/halvester";
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -88,13 +88,13 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Produk",
-                "item": "https://gandaelang.co.id/produk.php"
+                "item": "https://gandaelang.co.id/produk"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Sugarcane Harvester LiuGong",
-                "item": "https://gandaelang.co.id/halvester.php"
+                "item": "https://gandaelang.co.id/halvester"
             }
         ]
     }
@@ -151,7 +151,7 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
             "@type": "Offer",
             "priceCurrency": "IDR",
             "availability": "https://schema.org/InStock",
-            "url": "https://gandaelang.co.id/halvester.php",
+            "url": "https://gandaelang.co.id/halvester",
             "seller": {
                 "@type": "Organization",
                 "name": "PT Ganda Elang Tangguh"
@@ -167,7 +167,7 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
             "@type": "Audience",
             "name": "Perkebunan Tebu, Petani Tebu, Perusahaan Agribisnis"
         },
-        "url": "https://gandaelang.co.id/halvester.php"
+        "url": "https://gandaelang.co.id/halvester"
     }
     </script>
     
@@ -309,17 +309,17 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
 <header class="header">
     <div class="container">
         <div class="logo">
-            <a href="/index.php">
+            <a href="/">
                 <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo - Dealer Resmi LiuGong Indonesia">
             </a>
         </div>
         <nav class="navbar" id="navbar">
-            <a href="/index.php">Beranda</a>
-            <a href="/about.php">Tentang Kami</a>
-            <a href="/produk.php" class="active">Produk</a>
-            <a href="/aftersales.php">Layanan Purna Jual</a>
-            <a href="/contact.php">Hubungi Kami</a>
-            <a href="/blog.php">Blog & Artikel</a>
+            <a href="/">Beranda</a>
+            <a href="/about">Tentang Kami</a>
+            <a href="/produk" class="active">Produk</a>
+            <a href="/aftersales">Layanan Purna Jual</a>
+            <a href="/contact">Hubungi Kami</a>
+            <a href="/blog">Blog & Artikel</a>
         </nav>
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <span></span>
@@ -334,9 +334,9 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-breadcrumb">
-            <a href="/index.php">Home</a>
+            <a href="/">Home</a>
             <span>></span>
-            <a href="/produk.php">Produk</a>
+            <a href="/produk">Produk</a>
             <span>></span>
             <span class="current">Sugarcane Harvester</span>
         </div>
@@ -549,7 +549,7 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact.php">halaman Kontak Kami</a>, WhatsApp, telepon, atau email untuk mendapatkan <strong>informasi harga sugarcane harvester terbaru</strong>, spesifikasi lengkap (kapasitas panen, tenaga mesin), serta simulasi kredit dengan tenor fleksibel.</p>
+                <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact">halaman Kontak Kami</a>, WhatsApp, telepon, atau email untuk mendapatkan <strong>informasi harga sugarcane harvester terbaru</strong>, spesifikasi lengkap (kapasitas panen, tenaga mesin), serta simulasi kredit dengan tenor fleksibel.</p>
             </div>
         </div>
         
@@ -575,7 +575,7 @@ $currentUrl = "https://gandaelang.co.id/halvester.php";
         </a>
         <br>
         <small style="display:block; margin-top:10px;">
-            Atau <a href="/contact.php" style="color:#e31e24; font-weight:600;">hubungi tim sales kami</a> untuk konsultasi gratis
+            Atau <a href="/contact" style="color:#e31e24; font-weight:600;">hubungi tim sales kami</a> untuk konsultasi gratis
         </small>
     </div>
 </section>

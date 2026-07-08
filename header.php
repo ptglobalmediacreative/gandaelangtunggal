@@ -154,7 +154,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   "sameAs": [
     "https://web.facebook.com/profile.php?id=61589786319859",
     "https://www.instagram.com/gandaelangtangguh",
-    "https://www.linkedin.com/company/gandaelangtangguh",
+    "https://www.linkedin.com/in/gandaelangtangguh/",
     "https://www.youtube.com/@gandaelangtangguh"
   ],
   "makesOffer": [
@@ -235,19 +235,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     <div class="container">
 
         <div class="logo">
-            <a href="/index.php">
+            <a href="/">
                 <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo">
             </a>
         </div>
 
         <nav class="navbar" id="navbar">
 
-            <a href="/index.php">Beranda</a>
-            <a href="/about.php">Tentang Kami</a>
-            <a href="/produk.php">Produk</a>
-            <a href="/aftersales.php">Layanan Purna Jual</a>
-            <a href="/contact.php">Hubungi Kami</a>
-            <a href="/blog.php">Blog & Artikel</a>
+            <a href="/">Beranda</a>
+            <a href="/about">Tentang Kami</a>
+            <a href="/produk">Produk</a>
+            <a href="/aftersales">Layanan Purna Jual</a>
+            <a href="/contact">Hubungi Kami</a>
+            <a href="/blog">Blog & Artikel</a>
 
         </nav>
 

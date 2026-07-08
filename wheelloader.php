@@ -31,7 +31,7 @@ foreach ($products as &$product) {
 }
 unset($product);
 
-$currentUrl = "https://gandaelang.co.id/wheelloader.php";
+$currentUrl = "https://gandaelang.co.id/wheelloader";
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -92,13 +92,13 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Produk",
-                "item": "https://gandaelang.co.id/produk.php"
+                "item": "https://gandaelang.co.id/produk"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Wheel Loader LiuGong",
-                "item": "https://gandaelang.co.id/wheelloader.php"
+                "item": "https://gandaelang.co.id/wheelloader"
             }
         ]
     }
@@ -268,17 +268,17 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
 <header class="header">
     <div class="container">
         <div class="logo">
-            <a href="/index.php">
+            <a href="/">
                 <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh Logo - Dealer Resmi LiuGong Indonesia">
             </a>
         </div>
         <nav class="navbar" id="navbar">
-            <a href="/index.php">Beranda</a>
-            <a href="/about.php">Tentang Kami</a>
-            <a href="/produk.php" class="active">Produk</a>
-            <a href="/aftersales.php">Layanan Purna Jual</a>
-            <a href="/contact.php">Hubungi Kami</a>
-            <a href="/blog.php">Blog & Artikel</a>
+            <a href="/">Beranda</a>
+            <a href="/about">Tentang Kami</a>
+            <a href="/produk" class="active">Produk</a>
+            <a href="/aftersales">Layanan Purna Jual</a>
+            <a href="/contact">Hubungi Kami</a>
+            <a href="/blog">Blog & Artikel</a>
         </nav>
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <span></span>
@@ -293,9 +293,9 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-breadcrumb">
-            <a href="/index.php">Home</a>
+            <a href="/">Home</a>
             <span>></span>
-            <a href="/produk.php">Produk</a>
+            <a href="/produk">Produk</a>
             <span>></span>
             <span class="current">Wheel Loader</span>
         </div>
@@ -495,7 +495,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact.php">halaman Kontak Kami</a>, telepon, atau email untuk mendapatkan <strong>informasi harga wheel loader terbaru</strong> dan penawaran spesial.</p>
+                <p itemprop="text">Anda bisa menghubungi tim sales <strong>PT Ganda Elang Tangguh</strong> melalui <a href="/contact">halaman Kontak Kami</a>, telepon, atau email untuk mendapatkan <strong>informasi harga wheel loader terbaru</strong> dan penawaran spesial.</p>
             </div>
         </div>
         
@@ -521,7 +521,7 @@ $currentUrl = "https://gandaelang.co.id/wheelloader.php";
         </a>
         <br>
         <small style="display:block; margin-top:10px;">
-            Atau <a href="/contact.php" style="color:#e31e24; font-weight:600;">hubungi tim sales kami</a> untuk konsultasi gratis
+            Atau <a href="/contact" style="color:#e31e24; font-weight:600;">hubungi tim sales kami</a> untuk konsultasi gratis
         </small>
     </div>
 </section>

@@ -4,7 +4,7 @@ require_once __DIR__ . "/admin/config.php";
 $slug = isset($_GET['slug']) ? trim($_GET['slug']) : '';
 
 if ($slug === '') {
-    header("Location: /blog.php");
+    header("Location: /blog");
     exit;
 }
 
@@ -18,7 +18,7 @@ $stmt->execute([$slug]);
 $artikel = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$artikel) {
-    header("Location: /blog.php");
+    header("Location: /blog");
     exit;
 }
 
@@ -133,7 +133,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
    "@type":"ListItem",
    "position":2,
    "name":"Blog",
-   "item":"https://gandaelang.co.id/blog.php"
+   "item":"https://gandaelang.co.id/blog"
   },
   {
    "@type":"ListItem",
@@ -186,12 +186,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 <nav class="navbar">
-<a href="/index.php">Beranda</a>
-<a href="/about.php">Tentang Kami</a>
-<a href="/produk.php">Produk</a>
-<a href="/aftersales.php">Layanan Purna Jual</a>
-<a href="/contact.php">Hubungi Kami</a>
-<a href="/blog.php" class="active">Blog & Artikel</a>
+<a href="/">Beranda</a>
+<a href="/about">Tentang Kami</a>
+<a href="/produk">Produk</a>
+<a href="/aftersales">Layanan Purna Jual</a>
+<a href="/contact">Hubungi Kami</a>
+<a href="/blog" class="active">Blog & Artikel</a>
 </nav>
 
 <!-- Hamburger -->

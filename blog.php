@@ -44,13 +44,13 @@ $artikel = $stmt->fetchAll();
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta http-equiv="content-language" content="id-ID">
 
-<link rel="canonical" href="https://gandaelang.co.id/blog.php">
+<link rel="canonical" href="https://gandaelang.co.id/blog">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Blog Alat Berat LiuGong & Industri | Dealer Resmi LiuGong Indonesia | PT Ganda Elang Tangguh">
 <meta property="og:description" content="Blog PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia. Temukan artikel seputar alat berat LiuGong, konstruksi, pertambangan, dan tips perawatan.">
 <meta property="og:image" content="https://gandaelang.co.id/images/heroblog.jpg">
-<meta property="og:url" content="https://gandaelang.co.id/blog.php">
+<meta property="og:url" content="https://gandaelang.co.id/blog">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PT Ganda Elang Tangguh - Dealer Resmi LiuGong">
 <meta property="og:locale" content="id_ID">
@@ -95,7 +95,7 @@ $artikel = $stmt->fetchAll();
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "@id": "https://gandaelang.co.id/blog.php/#breadcrumb",
+  "@id": "https://gandaelang.co.id/blog/#breadcrumb",
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -107,7 +107,7 @@ $artikel = $stmt->fetchAll();
       "@type": "ListItem",
       "position": 2,
       "name": "Blog & Artikel Alat Berat LiuGong",
-      "item": "https://gandaelang.co.id/blog.php"
+      "item": "https://gandaelang.co.id/blog"
     }
   ]
 }
@@ -118,9 +118,9 @@ $artikel = $stmt->fetchAll();
 {
   "@context": "https://schema.org",
   "@type": "Blog",
-  "@id": "https://gandaelang.co.id/blog.php/#blog",
+  "@id": "https://gandaelang.co.id/blog/#blog",
   "name": "Blog Alat Berat LiuGong - PT Ganda Elang Tangguh",
-  "url": "https://gandaelang.co.id/blog.php",
+  "url": "https://gandaelang.co.id/blog",
   "description": "Blog PT Ganda Elang Tangguh, dealer resmi LiuGong di Indonesia, membahas alat berat LiuGong, industri konstruksi, pertambangan, tips perawatan, dan teknologi terbaru.",
   "publisher": {
     "@type": "Organization",
@@ -144,17 +144,17 @@ $artikel = $stmt->fetchAll();
 <header class="header">
   <div class="container">
     <div class="logo">
-        <a href="/index.php">
+        <a href="/">
             <img src="/images/logo.webp" alt="PT Ganda Elang Tangguh - Dealer Resmi LiuGong Indonesia">
         </a>
     </div>
     <nav class="navbar" id="navbar">
-      <a href="/index.php">Beranda</a>
-      <a href="/about.php">Tentang Kami</a>
-      <a href="/produk.php">Produk</a>
-      <a href="/aftersales.php">Layanan Purna Jual</a>
-      <a href="/contact.php">Hubungi Kami</a>
-      <a href="/blog.php" class="active">Blog & Artikel</a>
+      <a href="/">Beranda</a>
+      <a href="/about">Tentang Kami</a>
+      <a href="/produk">Produk</a>
+      <a href="/aftersales">Layanan Purna Jual</a>
+      <a href="/contact">Hubungi Kami</a>
+      <a href="/blog" class="active">Blog & Artikel</a>
     </nav>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -171,7 +171,7 @@ $artikel = $stmt->fetchAll();
 
     <!-- Breadcrumb -->
     <div class="hero-breadcrumb">
-      <a href="/index.php">Beranda</a>
+      <a href="/">Beranda</a>
       <span>›</span>
       <span class="current">Blog</span>
     </div>
