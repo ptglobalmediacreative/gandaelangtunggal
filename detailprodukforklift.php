@@ -40,7 +40,7 @@ $hero = $q->fetch();
 
 $heroImage = $hero
     ? "/images/uploads/produk/" . $hero['image']
-    : "/images/hero.jpg";
+    : "/images/forklift.webp";
 
 /* ================= FEATURES ================= */
 $q = $pdo->prepare("
