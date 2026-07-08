@@ -30,10 +30,6 @@ AddDefaultCharset UTF-8
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# Opsi B: WWW (jika ingin pakai www)
-# RewriteCond %{HTTP_HOST} !^www\. [NC]
-# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
-
 # 3. HAPUS SLASH TRAILING (Kecuali untuk root)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
@@ -71,10 +67,6 @@ RewriteRule ^tractor$ tractor.php [L]
 RewriteRule ^warehousetruck$ warehousetruck.php [L]
 RewriteRule ^wheelloader$ wheelloader.php [L]
 
-# --- HALAMAN PRODUK (DIPERBAIKI) ---
-# Format: /produk (tanpa .php)
-RewriteRule ^produk$ produk.php [L]
-
 # --- BLOG/ARTIKEL ---
 RewriteRule ^artikel/([a-zA-Z0-9_-]+)/?$ detail-artikel.php?slug=$1 [L,QSA]
 
@@ -82,28 +74,41 @@ RewriteRule ^artikel/([a-zA-Z0-9_-]+)/?$ detail-artikel.php?slug=$1 [L,QSA]
 RewriteRule ^blog/page/([0-9]+)/?$ blog.php?page=$1 [L,QSA]
 
 # ============================================
-# DETAIL PRODUK
+# DETAIL PRODUK (Format Baru)
+# Format: /nama-produk/slug
 # ============================================
 
-# Produk dengan kategori lengkap
-RewriteRule ^produk/aerialplatform/([^/]+)/?$ detailprodukaerialplatform.php?slug=$1 [L,QSA]
-RewriteRule ^produk/aircompress/([^/]+)/?$ detailprodukaicompressor.php?slug=$1 [L,QSA]
-RewriteRule ^produk/backhoeloader/([^/]+)/?$ detailprodukbackhoeloader.php?slug=$1 [L,QSA]
-RewriteRule ^produk/bulldozer/([^/]+)/?$ detailprodukbulldozer.php?slug=$1 [L,QSA]
-RewriteRule ^produk/coldplaner/([^/]+)/?$ detailprodukcoldplaner.php?slug=$1 [L,QSA]
-RewriteRule ^produk/crane/([^/]+)/?$ detailprodukcrane.php?slug=$1 [L,QSA]
-RewriteRule ^produk/excavator/([^/]+)/?$ detailprodukexcavator.php?slug=$1 [L,QSA]
-RewriteRule ^produk/forklift/([^/]+)/?$ detailprodukforklift.php?slug=$1 [L,QSA]
-RewriteRule ^produk/foundation/([^/]+)/?$ detailprodukfoundation.php?slug=$1 [L,QSA]
-RewriteRule ^produk/halvester/([^/]+)/?$ detailprodukhalvester.php?slug=$1 [L,QSA]
-RewriteRule ^produk/minningtruck/([^/]+)/?$ detailprodukminningtruck.php?slug=$1 [L,QSA]
-RewriteRule ^produk/motorgrader/([^/]+)/?$ detailprodukmotorgrader.php?slug=$1 [L,QSA]
-RewriteRule ^produk/paver/([^/]+)/?$ detailprodukpaver.php?slug=$1 [L,QSA]
-RewriteRule ^produk/roller/([^/]+)/?$ detailprodukroller.php?slug=$1 [L,QSA]
-RewriteRule ^produk/skidsteer/([^/]+)/?$ detailprodukskidsteer.php?slug=$1 [L,QSA]
-RewriteRule ^produk/tractor/([^/]+)/?$ detailproduktractor.php?slug=$1 [L,QSA]
-RewriteRule ^produk/warehousetruck/([^/]+)/?$ detailprodukwarehousetruck.php?slug=$1 [L,QSA]
-RewriteRule ^produk/wheelloader/([^/]+)/?$ detailprodukwheelloader.php?slug=$1 [L,QSA]
+# Detail produk dengan kategori lengkap
+RewriteRule ^aerialplatform/([^/]+)/?$ detailprodukaerialplatform.php?slug=$1 [L,QSA]
+RewriteRule ^aircompress/([^/]+)/?$ detailprodukaicompressor.php?slug=$1 [L,QSA]
+RewriteRule ^backhoeloader/([^/]+)/?$ detailprodukbackhoeloader.php?slug=$1 [L,QSA]
+RewriteRule ^bulldozer/([^/]+)/?$ detailprodukbulldozer.php?slug=$1 [L,QSA]
+RewriteRule ^coldplaner/([^/]+)/?$ detailprodukcoldplaner.php?slug=$1 [L,QSA]
+RewriteRule ^crane/([^/]+)/?$ detailprodukcrane.php?slug=$1 [L,QSA]
+RewriteRule ^excavator/([^/]+)/?$ detailprodukexcavator.php?slug=$1 [L,QSA]
+RewriteRule ^forklift/([^/]+)/?$ detailprodukforklift.php?slug=$1 [L,QSA]
+RewriteRule ^foundation/([^/]+)/?$ detailprodukfoundation.php?slug=$1 [L,QSA]
+RewriteRule ^halvester/([^/]+)/?$ detailprodukhalvester.php?slug=$1 [L,QSA]
+RewriteRule ^minningtruck/([^/]+)/?$ detailprodukminningtruck.php?slug=$1 [L,QSA]
+RewriteRule ^motorgrader/([^/]+)/?$ detailprodukmotorgrader.php?slug=$1 [L,QSA]
+RewriteRule ^paver/([^/]+)/?$ detailprodukpaver.php?slug=$1 [L,QSA]
+RewriteRule ^roller/([^/]+)/?$ detailprodukroller.php?slug=$1 [L,QSA]
+RewriteRule ^skidsteer/([^/]+)/?$ detailprodukskidsteer.php?slug=$1 [L,QSA]
+RewriteRule ^tractor/([^/]+)/?$ detailproduktractor.php?slug=$1 [L,QSA]
+RewriteRule ^warehousetruck/([^/]+)/?$ detailprodukwarehousetruck.php?slug=$1 [L,QSA]
+RewriteRule ^wheelloader/([^/]+)/?$ detailprodukwheelloader.php?slug=$1 [L,QSA]
+
+# ============================================
+# REDIRECT URL LAMA KE URL BARU (SEO Penting!)
+# ============================================
+
+# Redirect /produk/nama-produk/slug ke /nama-produk/slug
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/produk/([^/]+)/([^/\s]+) [NC]
+RewriteRule ^ /%1/%2 [R=301,L]
+
+# Redirect /detailproduknama-produk.php?slug=xxx ke /nama-produk/xxx
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/detailproduk([^/]+)\.php\?slug=([^\s&]+) [NC]
+RewriteRule ^ /%1/%2 [R=301,L]
 
 # ============================================
 # REDIRECT .php KE TANPA .php
@@ -123,25 +128,18 @@ RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)/index\s [NC]
 RewriteRule ^ %1/ [R=301,L]
 
 # ============================================
-# PERBAIKAN UNTUK GAMBAR (PENTING!)
+# PERBAIKAN UNTUK GAMBAR
 # ============================================
 
-# 1. Pastikan gambar, CSS, JS bisa diakses
-# Ini akan memastikan file statis tidak di-redirect
+# Pastikan gambar, CSS, JS bisa diakses
 RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|svg|ico|webp|woff|woff2|ttf|eot|pdf)$ [NC]
 
-# 2. Aturan untuk folder images
-# Jangan redirect folder images dan subfoldernya
+# Jangan redirect folder statis
 RewriteRule ^images/ - [L]
 RewriteRule ^admin/ - [L]
 RewriteRule ^css/ - [L]
 RewriteRule ^js/ - [L]
 RewriteRule ^uploads/ - [L]
-
-# 3. Perbaikan path gambar di artikel
-# Jika gambar disimpan di folder uploads atau images
-RewriteRule ^uploads/(.*)$ uploads/$1 [L]
-RewriteRule ^images/(.*)$ images/$1 [L]
 
 # ============================================
 # SEO: XML SITEMAP
