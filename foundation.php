@@ -582,6 +582,8 @@ $currentUrl = "https://gandaelang.co.id/foundation";
 </section>
 
 <!-- ================= FOOTER ================= -->
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->

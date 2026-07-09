@@ -28,7 +28,7 @@
         <div class="popup-body">
             <div class="chat-message">
                 <div class="message-avatar">
-                    <img src="https://ui-avatars.com/api/?name=CS+Team&background=25D366&color=fff&size=32" alt="CS">
+                    <img src="images/logonew.jpeg" alt="CS">
                 </div>
                 <div class="message-bubble">
                     <p>Hallo ! 😊</p>

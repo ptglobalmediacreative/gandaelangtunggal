@@ -385,6 +385,8 @@ $productDesc = "Cold Planer LiuGong " . $productName . " dari PT Ganda Elang Tan
 </section>
 <?php endif; ?>
 
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
 
 </div>

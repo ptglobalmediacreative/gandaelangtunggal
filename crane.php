@@ -601,6 +601,8 @@ $currentUrl = "https://gandaelang.co.id/crane";
 </section>
 
 <!-- ================= FOOTER ================= -->
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->

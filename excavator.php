@@ -620,6 +620,8 @@ $currentUrl = "https://gandaelang.co.id/excavator";
 </section>
 
 <!-- ================= FOOTER ================= -->
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->

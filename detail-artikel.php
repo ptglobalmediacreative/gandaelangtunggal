@@ -316,6 +316,8 @@ Kirim Komentar
 </div>
 </section>
 
+<?php include "whatsapp.php"; ?>
+
 <?php include "footer.php"; ?>
 
 <script>

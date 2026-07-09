@@ -594,6 +594,8 @@ $currentUrl = "https://gandaelang.co.id/paver";
 </section>
 
 <!-- ================= FOOTER ================= -->
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->

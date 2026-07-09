@@ -385,6 +385,8 @@ $productDesc = "Asphalt Paver LiuGong " . $productName . " dari PT Ganda Elang T
 </section>
 <?php endif; ?>
 
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
 
 </div>

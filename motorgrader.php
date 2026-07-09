@@ -595,6 +595,8 @@ $currentUrl = "https://gandaelang.co.id/motorgrader";
 </section>
 
 <!-- ================= FOOTER ================= -->
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/footer.php"; ?>
 
 <!-- JavaScript -->

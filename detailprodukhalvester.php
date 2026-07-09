@@ -385,6 +385,8 @@ $productDesc = "Sugarcane Harvester LiuGong " . $productName . " dari PT Ganda E
 </section>
 <?php endif; ?>
 
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
 
 </div>

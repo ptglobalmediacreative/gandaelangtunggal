@@ -385,6 +385,8 @@ $productDesc = "Skid Steer Loader LiuGong " . $productName . " dari PT Ganda Ela
 </section>
 <?php endif; ?>
 
+<?php include "whatsapp.php"; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT']."/footer.php"; ?>
 
 </div>
