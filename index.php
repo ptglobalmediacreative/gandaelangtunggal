@@ -306,5 +306,6 @@ $latestArtikel = $stmt->fetchAll();
   </div>
 
 </section>
+<?php include "whatsapp.php"; ?>
 
 <?php include "footer.php"; ?>
