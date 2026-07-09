@@ -11,10 +11,10 @@
         <!-- Header Popup -->
         <div class="popup-header">
             <div class="popup-avatar">
-                <img src="https://ui-avatars.com/api/?name=CS+Team&background=25D366&color=fff&size=40" alt="CS">
+                <img src="images/logonew.jpeg" alt="CS">
             </div>
             <div class="popup-info">
-                <h4>Customer Service</h4>
+                <h4>GET Support</h4>
                 <span class="popup-status">
                     <span class="status-dot"></span> Online
                 </span>
@@ -31,9 +31,10 @@
                     <img src="https://ui-avatars.com/api/?name=CS+Team&background=25D366&color=fff&size=32" alt="CS">
                 </div>
                 <div class="message-bubble">
-                    <p>Hi there 😊</p>
-                    <p>How can I help you?</p>
-                    <span class="message-time">11:07</span>
+                    <p>Hallo ! 😊</p>
+                    <p>Selamat datang di PT Ganda Elang Tangguh - Dealer Resmi LiuGong Indonesia.</p>
+                    <p>Ada yang bisa kami bantu? Tim GET siap melayani! 😊</p>
+                    <span class="message-time">08:00</span>
                 </div>
             </div>
             <div class="chat-status">
